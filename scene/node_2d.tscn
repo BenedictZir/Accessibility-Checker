@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://bipgplrv3t8vg"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_lbsit"]
+[ext_resource type="Texture2D" uid="uid://o8v7vikxg4c1" path="res://assets/Screenshot 2025-07-20 163841.png" id="2_0tdgn"]
+[ext_resource type="PackedScene" uid="uid://bmk1pn0kq8viw" path="res://scene/minigame_1/answer_box.tscn" id="2_t14c6"]
+[ext_resource type="PackedScene" uid="uid://c00svsqxgxjhc" path="res://scene/minigame_1/alt_text.tscn" id="3_h4dfm"]
+[ext_resource type="Texture2D" uid="uid://bmgx3x3sirjqe" path="res://assets/warning-sign-30915_1280.png" id="4_qs6e5"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/minigame_1/images_alt.tscn" id="5_q7hxo"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lbsit")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.600313, 0.60241)
+texture = ExtResource("2_0tdgn")
+
+[node name="images_alt" parent="." instance=ExtResource("5_q7hxo")]
+offset_left = -281.0
+offset_top = -147.0
+offset_right = 127.0
+offset_bottom = 107.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="images_alt"]
+visible = false
+position = Vector2(205, 114)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_qs6e5")
+
+[node name="Label" type="Label" parent="images_alt"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.515
+anchor_top = 0.915
+anchor_right = 0.515
+anchor_bottom = 0.915
+offset_left = -61.12
+offset_top = -11.41
+offset_right = 60.88
+offset_bottom = 11.59
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Missing alt text!"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="answer_box" parent="." instance=ExtResource("2_t14c6")]
+visible = false
+position = Vector2(377, -35)
+
+[node name="answers" type="Node2D" parent="."]
+visible = false
+position = Vector2(385, 65)
+
+[node name="alt_text" parent="answers" instance=ExtResource("3_h4dfm")]
+text = "correct"
+
+[node name="alt_text2" parent="answers" instance=ExtResource("3_h4dfm")]
+position = Vector2(1, 55)
+text = "wrong"
+
+[node name="alt_text3" parent="answers" instance=ExtResource("3_h4dfm")]
+position = Vector2(0, 107)
+text = "mid"
+
+[node name="Button2" type="Button" parent="answers"]
+offset_left = 79.0
+offset_top = -111.0
+offset_right = 141.0
+offset_bottom = -80.0
+text = "submit"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = -309.0
+offset_top = -223.0
+offset_right = -211.0
+offset_bottom = -192.0
+text = "acc checker"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -294.0
+offset_top = 114.0
+offset_right = 298.0
+offset_bottom = 293.0
+theme_override_colors/font_color = Color(0.996078, 0.894118, 0, 1)
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+autowrap_mode = 2
+
+[connection signal="pressed" from="answers/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

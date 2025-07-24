@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmk1pn0kq8viw"]
+
+[ext_resource type="Script" uid="uid://bk7txrphgcdgk" path="res://script/answer_box.gd" id="1_t1fjd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1fjd"]
+size = Vector2(150, 68)
+
+[node name="answer_box" type="Area2D" groups=["answer_box"]]
+script = ExtResource("1_t1fjd")
+
+[node name="background" type="Sprite2D" parent="."]
+
+[node name="label" type="Label" parent="."]
+offset_right = 92.0
+offset_bottom = 39.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t1fjd")

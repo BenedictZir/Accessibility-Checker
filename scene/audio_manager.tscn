@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dykmn1lcplln2"]
+
+[ext_resource type="AudioStream" uid="uid://bwmo33axce35k" path="res://assets/mobile-vibrate-sfx-323777.mp3" id="1_h5pei"]
+[ext_resource type="Script" uid="uid://5bppnd1fmm6c" path="res://script/audio_manager.gd" id="1_pgo6v"]
+
+[node name="audio_manager" type="Node2D"]
+script = ExtResource("1_pgo6v")
+
+[node name="phone_vibrate_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_h5pei")
+pitch_scale = 1.2

@@ -1,0 +1,28 @@
+label adegan_1
+Tampilan gedung kaca menjulang tinggi, memantulkan langit Jakarta yang kelabu di pagi hari.
+player: Wow. Tinggi banget. Belum pernah ke gedung setinggi ini sebelumnya.
+player: Apakah ini aroma profesionalisme? Aroma hand sanitizer dan kopi tubruk?
+Orang-orang bersetelan jas berlalu cepat di sekitarmu, mata mereka terpaku pada tablet seolah sedang menjinakkan bom.
+Sebuah drone pengantar terbang melintas di atas kepala. Kamu hampir saja menunduk. Tapi santai. Ini hal biasa.
+Kamu menyeka kacamata yang mulai berembun.
+Oke. Ini hari pertamamu magang di Kemensidig—Kementerian Inklusi Digital.
+Kamu berhasil sampai di sini, entah bagaimana caranya.
+label adegan_2
+[signal arg="change_background"]
+Potongan adegan interior kantor—lampu terang, AC yang terlalu dingin, dan suara samar orang yang sedang bertengkar dengan printer.
+Kamu dibawa masuk ke sebuah departemen dengan papan logam mengilap bertuliskan\:\
+Tim Aksesibilitas Digital – Direktorat Komunikasi Inklusif (DAK)
+Di dalam, pemimpin timmu sudah menunggu.
+[signal arg="pak_anton_join"]
+Inilah Pak Anton\: penguasa bullet point, penakluk kopi hitam, penghancur alt text yang ngaco.
+join "pak bos" left
+[style]
+[signal arg="pak_anton_talk"]
+"pak bos": *Ah, intern baru kita! Datang tepat waktu. Saya terkesan.*
+[signal arg="pak_anton_talk"]
+"pak bos": Selamat datang di Tim Aksesibilitas Digital—DAK. Jangan disamakan dengan… hal-hal yang menyenangkan ya.
+[signal arg="pak_anton_talk"]
+"pak bos": Kamu akan mulai dari yang sederhana—bener-bener sederhana. Kita punya tumpukan slide presentasi yang... ya, dibuat dengan sangat tergesa.
+[signal arg="pak_anton_talk"]
+"pak bos": Tugas kamu? Bikin mereka bisa dimengerti. Oleh manusia. Dan oleh screen reader. Alt text sekarang sahabat barumu.
+<Empty Text Event>
