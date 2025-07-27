@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bg5bdytlpflfm"]
-
-[ext_resource type="Texture2D" uid="uid://ddr61mc8ie82n" path="res://assets/Golden+Retrievers+dans+pet+care.jpeg" id="1_md8m0"]
-
-[node name="images_alt" type="TextureRect"]
-offset_right = 408.0
-offset_bottom = 254.0
-texture = ExtResource("1_md8m0")
-expand_mode = 1

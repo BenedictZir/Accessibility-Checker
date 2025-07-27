@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://byrbri3utieqw"]
+[gd_scene load_steps=9 format=3 uid="uid://byrbri3utieqw"]
 
 [ext_resource type="Script" uid="uid://b3sudv0emiiq1" path="res://script/prologue.gd" id="1_e7qxw"]
-[ext_resource type="Texture2D" uid="uid://dy66rlxendfyc" path="res://assets/1753116991552.png" id="2_e7qxw"]
 [ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Regular.ttf" id="3_3d53y"]
 
 [sub_resource type="Animation" id="Animation_mg15n"]
@@ -128,7 +127,6 @@ libraries = {
 [node name="phone" type="Sprite2D" parent="."]
 position = Vector2(0, 1200)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_e7qxw")
 
 [node name="screen" type="Node2D" parent="phone"]
 modulate = Color(0, 0, 0, 1)

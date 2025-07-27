@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bfdvximwv5yjx" path="res://script/alt_text.gd" id="1_21dix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21dix"]
-size = Vector2(121, 37)
+size = Vector2(0, 0)
 
 [node name="alt_text" type="Area2D" groups=["answer"]]
 script = ExtResource("1_21dix")
@@ -11,21 +11,30 @@ text = "hello"
 
 [node name="background" type="Sprite2D" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="background"]
+process_mode = 4
+offset_left = -61.0
+offset_top = -21.0
+offset_right = 60.0
+offset_bottom = 20.0
+color = Color(0.156863, 0.207843, 0.576471, 1)
+
 [node name="Label" type="Label" parent="."]
-offset_left = -60.0
+offset_left = -61.0
 offset_top = -31.0
 offset_right = 58.0
 offset_bottom = 18.0
 scale = Vector2(1.01315, 1.17978)
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 text = "adsasd"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 1.5)
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_21dix")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

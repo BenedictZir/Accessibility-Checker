@@ -1,0 +1,445 @@
+[gd_scene load_steps=40 format=3 uid="uid://bao1ug3shuin"]
+
+[ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
+[ext_resource type="Texture2D" uid="uid://dyos5d02n1ao7" path="res://icon.svg" id="2_d3l6h"]
+[ext_resource type="PackedScene" uid="uid://c00svsqxgxjhc" path="res://scene/minigame_1/alt_text.tscn" id="2_g113r"]
+[ext_resource type="PackedScene" uid="uid://bmk1pn0kq8viw" path="res://scene/minigame_1/answer_box.tscn" id="2_xvexx"]
+[ext_resource type="PackedScene" uid="uid://dn5bmkvg8nq8d" path="res://scene/document.tscn" id="3_g113r"]
+[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="7_d3l6h"]
+[ext_resource type="Texture2D" uid="uid://3iw2t862xnyl" path="res://assets/1x/S.png" id="8_rsg4m"]
+[ext_resource type="Texture2D" uid="uid://d4hnykr43tltf" path="res://assets/1x/Rectangle 9776.png" id="9_epqjh"]
+[ext_resource type="Texture2D" uid="uid://c154kvhtpvqt8" path="res://assets/1x/Component 15.png" id="9_kemr8"]
+[ext_resource type="Texture2D" uid="uid://bampgnrvu16pk" path="res://assets/1x/Frame 6.png" id="9_r31ky"]
+[ext_resource type="Texture2D" uid="uid://dvb6vydda63nf" path="res://assets/1x/Frame 5.png" id="10_i43we"]
+[ext_resource type="Texture2D" uid="uid://do8c62re4ntgw" path="res://assets/1x/Group 40.png" id="11_epqjh"]
+[ext_resource type="Texture2D" uid="uid://cdts0vrdlorog" path="res://assets/1x/Group 43.png" id="12_xnxwe"]
+[ext_resource type="Texture2D" uid="uid://gfuod2htj05o" path="res://assets/1x/Group 45.png" id="14_p2f7k"]
+[ext_resource type="Texture2D" uid="uid://52c6gee7e20f" path="res://assets/1x/Group 42.png" id="15_vaqec"]
+[ext_resource type="Texture2D" uid="uid://drk6j4mww6ijb" path="res://assets/4x/Group 63.png" id="15_xnxwe"]
+[ext_resource type="Texture2D" uid="uid://lfmyfa6ach4u" path="res://assets/4x/Group 64.png" id="16_vaqec"]
+[ext_resource type="Texture2D" uid="uid://mikj44iv8v1v" path="res://assets/1x/Outline.png" id="16_xe1of"]
+[ext_resource type="PackedScene" uid="uid://4xtbpvksxxbp" path="res://scene/aruni_helper.tscn" id="17_epqjh"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="19_p2f7k"]
+[ext_resource type="PackedScene" uid="uid://2ekyfsfu3hj6" path="res://scene/minigame_2.tscn" id="21_xe1of"]
+
+[sub_resource type="Animation" id="Animation_xe1of"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("app:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("app:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("app:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("app:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("color_wheel_minigame:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("color_wheel_minigame:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("color_wheel_minigame:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_vaqec"]
+resource_name = "show_color_wheel_minigame"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("app:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.674815, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("app:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.674815, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("app:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.674815, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("app:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("color_wheel_minigame:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("color_wheel_minigame:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("color_wheel_minigame:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.5708, 3.14159, 4.71239, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kemr8"]
+_data = {
+&"RESET": SubResource("Animation_xe1of"),
+&"show_color_wheel_minigame": SubResource("Animation_vaqec")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xnxwe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaqec"]
+texture = ExtResource("15_xnxwe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnxwe"]
+texture = ExtResource("15_xnxwe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2f7k"]
+texture = ExtResource("15_xnxwe")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe1of"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_te1jt"]
+load_path = "res://.godot/imported/Group 62.png-5aae5672aac691fa6cd505aa5f656d5e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3l6h"]
+texture = SubResource("CompressedTexture2D_te1jt")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_saxxy"]
+load_path = "res://.godot/imported/Group 62.png-5aae5672aac691fa6cd505aa5f656d5e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m4atv"]
+texture = SubResource("CompressedTexture2D_saxxy")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lmy6v"]
+load_path = "res://.godot/imported/Group 62.png-5aae5672aac691fa6cd505aa5f656d5e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kemr8"]
+texture = SubResource("CompressedTexture2D_lmy6v")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io6bp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dw8l3"]
+texture = ExtResource("16_vaqec")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ng3r6"]
+texture = ExtResource("16_vaqec")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rffd"]
+texture = ExtResource("16_vaqec")
+
+[node name="level_template" type="Node2D"]
+script = ExtResource("1_lpc36")
+time = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kemr8")
+}
+
+[node name="app" type="Node2D" parent="."]
+
+[node name="background" type="Sprite2D" parent="app"]
+position = Vector2(960, 540)
+texture = ExtResource("8_rsg4m")
+
+[node name="black_bottom_border" type="Sprite2D" parent="app"]
+position = Vector2(960, 1044)
+texture = ExtResource("9_r31ky")
+
+[node name="right" type="Sprite2D" parent="app"]
+position = Vector2(1635, 575)
+texture = ExtResource("11_epqjh")
+
+[node name="left" type="Sprite2D" parent="app"]
+position = Vector2(960, 540)
+texture = ExtResource("12_xnxwe")
+
+[node name="document_paper" type="Sprite2D" parent="app"]
+position = Vector2(973, 619)
+texture = ExtResource("9_epqjh")
+
+[node name="document" parent="app" instance=ExtResource("3_g113r")]
+position = Vector2(971, 411)
+
+[node name="texts" type="Node2D" parent="app/document"]
+
+[node name="doc_text" parent="app/document/texts" instance=ExtResource("7_d3l6h")]
+offset_left = -210.0
+offset_top = 468.0
+offset_right = -43.0
+offset_bottom = 491.0
+text = "walaweaaaaaaaaaaaf"
+
+[node name="doc_text2" parent="app/document/texts" instance=ExtResource("7_d3l6h")]
+offset_left = -218.0
+offset_top = 616.0
+offset_right = 129.0
+offset_bottom = 639.0
+text = "brotsrfwefasddddddvvvvvvvvvvvvvvvvvvvvvv"
+
+[node name="doc_text3" parent="app/document/texts" instance=ExtResource("7_d3l6h")]
+offset_left = -208.0
+offset_top = 57.0
+offset_right = -151.0
+offset_bottom = 80.0
+text = "de"
+
+[node name="images" type="Node2D" parent="app/document"]
+
+[node name="images" parent="app/document/images" instance=ExtResource("19_p2f7k")]
+offset_left = -448.0
+offset_top = 287.0
+offset_right = -320.0
+offset_bottom = 415.0
+
+[node name="blue_polygon" type="Polygon2D" parent="app"]
+position = Vector2(973, 619)
+color = Color(0.196078, 0.623529, 0.788235, 1)
+polygon = PackedVector2Array(-459, -432, -336, -435, 61, -448, 429, -460, 428, -547, -493, -547, -496, -487)
+
+[node name="acc_checker_icon" type="Sprite2D" parent="app"]
+position = Vector2(1658, 208)
+texture = ExtResource("14_p2f7k")
+
+[node name="app_name" type="Sprite2D" parent="app"]
+position = Vector2(960, 36)
+texture = ExtResource("10_i43we")
+
+[node name="outline_icon" type="Sprite2D" parent="app"]
+position = Vector2(242, 259)
+texture = ExtResource("15_vaqec")
+
+[node name="Outline" type="Sprite2D" parent="app/outline_icon"]
+position = Vector2(-11, 2)
+texture = ExtResource("16_xe1of")
+
+[node name="icon_aruni" type="Sprite2D" parent="app"]
+visible = false
+position = Vector2(194, 965)
+texture = ExtResource("9_kemr8")
+
+[node name="Timer" type="Timer" parent="app"]
+
+[node name="timer_label" type="Label" parent="app/Timer"]
+visible = false
+offset_left = 782.0
+offset_top = 63.0
+offset_right = 850.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TIMER"
+
+[node name="minigame_icons" type="Node2D" parent="app"]
+
+[node name="alt_text_button" type="Button" parent="app/minigame_icons"]
+offset_left = 652.0
+offset_top = 47.0
+offset_right = 1125.0
+offset_bottom = 442.0
+scale = Vector2(0.359375, 0.28125)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xnxwe")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vaqec")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xnxwe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_p2f7k")
+
+[node name="color_wheel_button" type="Button" parent="app/minigame_icons"]
+offset_left = 818.0
+offset_top = 32.0
+offset_right = 1511.0
+offset_bottom = 455.0
+scale = Vector2(0.359375, 0.28125)
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xe1of")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d3l6h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m4atv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kemr8")
+
+[node name="heading_button" type="Button" parent="app/minigame_icons"]
+offset_left = 1064.0
+offset_top = 37.0
+offset_right = 1225.0
+offset_bottom = 143.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_io6bp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dw8l3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ng3r6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8rffd")
+
+[node name="minigame_1" type="Node2D" parent="app"]
+position = Vector2(870, 103)
+
+[node name="answer_box" parent="app/minigame_1" instance=ExtResource("2_xvexx")]
+position = Vector2(1309, 227)
+
+[node name="alt_text" parent="app/minigame_1" instance=ExtResource("2_g113r")]
+position = Vector2(1304, 379)
+
+[node name="alt_text2" parent="app/minigame_1" instance=ExtResource("2_g113r")]
+position = Vector2(1304, 431)
+text = "abc"
+
+[node name="alt_text3" parent="app/minigame_1" instance=ExtResource("2_g113r")]
+position = Vector2(1302, 484)
+text = "hoho"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="app"]
+visible = false
+layout_direction = 3
+anchors_preset = -1
+anchor_left = 0.808
+anchor_top = 0.199
+anchor_right = 0.998
+anchor_bottom = 0.711
+offset_left = -3.65601
+offset_top = 214.968
+offset_right = -3.53601
+offset_bottom = 215.192
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="app/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="app/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_d3l6h")
+
+[node name="TextureRect2" type="TextureRect" parent="app/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_d3l6h")
+
+[node name="TextureRect3" type="TextureRect" parent="app/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_d3l6h")
+
+[node name="aruni_helper" parent="app" instance=ExtResource("17_epqjh")]
+position = Vector2(206, 981)
+
+[node name="color_wheel_minigame" parent="." instance=ExtResource("21_xe1of")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+
+[node name="minigame_2" type="Node2D" parent="."]
+
+[node name="minigame_3" type="Node2D" parent="."]
+
+[connection signal="pressed" from="app/minigame_icons/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
+[connection signal="done" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_done"]

@@ -1,119 +1,159 @@
-[gd_scene load_steps=4 format=3 uid="uid://2ekyfsfu3hj6"]
+[gd_scene load_steps=10 format=3 uid="uid://2ekyfsfu3hj6"]
 
-[ext_resource type="Texture2D" uid="uid://c07rvwovakb4q" path="res://assets/1b87ad17-b99b-493d-a3f8-c8c4515be435-Photoroom.png" id="1_0itp5"]
 [ext_resource type="Script" uid="uid://dou3ltxklt1xd" path="res://script/minigame_2.gd" id="1_ymxsy"]
-[ext_resource type="Texture2D" uid="uid://bqoon73wsxlut" path="res://assets/clipart347937.png" id="3_8sst4"]
+[ext_resource type="Texture2D" uid="uid://dvnq6l34ef684" path="res://assets/color_wheel_minigame/wheel.png" id="2_8sst4"]
+[ext_resource type="Texture2D" uid="uid://bqoon73wsxlut" path="res://assets/tempassets/clipart347937.png" id="3_8ektc"]
+[ext_resource type="Texture2D" uid="uid://yd7wcnmbqfqt" path="res://assets/color_wheel_minigame/Frame 7.png" id="3_lymyy"]
+[ext_resource type="Texture2D" uid="uid://bw6ppe6vmwwl5" path="res://assets/tempassets/—Pngtree—red glossy button_4182376.png" id="4_8ektc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71roq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uv5bk"]
+texture = ExtResource("4_8ektc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qlcb6"]
+texture = ExtResource("4_8ektc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjccl"]
+texture = ExtResource("4_8ektc")
 
 [node name="minigame_2" type="Node2D"]
 script = ExtResource("1_ymxsy")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -600.0
+offset_top = -324.0
+offset_right = 600.0
+offset_bottom = 469.0
+color = Color(0.266667, 0.764706, 0.960784, 1)
+
 [node name="wheel" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_0itp5")
+position = Vector2(362, 33)
+texture = ExtResource("2_8sst4")
 
 [node name="areas" type="Node2D" parent="wheel"]
 scale = Vector2(5, 5)
 
-[node name="red" type="Area2D" parent="wheel/areas"]
-position = Vector2(3.8147e-06, 1.90735e-06)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/red"]
-polygon = PackedVector2Array(60, 11, 56, 22, 53, 29, 60, 23)
-
-[node name="red-orange" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/red-orange"]
-polygon = PackedVector2Array(60, -10, 61, 0, 60, 10, 65, 0)
-
-[node name="orange-red" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/orange-red"]
-polygon = PackedVector2Array(53, -30, 53, -30, 57, -21, 60, -11, 60, -22)
-
-[node name="orange" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/orange"]
-polygon = PackedVector2Array(39, -47, 46, -40, 53, -30, 49, -41)
-
-[node name="orange-yellow" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/orange-yellow"]
-polygon = PackedVector2Array(21, -57, 21, -57, 31, -56, 39, -47, 30, -53)
-
-[node name="yellow-orange" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/yellow-orange"]
-polygon = PackedVector2Array(0, -61, 10, -63, 21, -57, 10, -60)
-
-[node name="yellow" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/yellow"]
-polygon = PackedVector2Array(0, -61, -10, -60, -21, -57, -11, -64)
-
-[node name="yellow-green" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/yellow-green"]
-polygon = PackedVector2Array(-21, -57, -30, -53, -39, -47, -32, -57)
-
-[node name="green-yellow" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/green-yellow"]
-polygon = PackedVector2Array(-39, -47, -47, -38, -53, -30, -52, -42)
-
-[node name="green" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/green"]
-polygon = PackedVector2Array(-53, -30, -58, -19, -60, -11, -62, -20)
-
-[node name="green-blue" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/green-blue"]
-polygon = PackedVector2Array(-60, -10, -61, 0, -60, 10, -65, 0)
-
-[node name="blue-green" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/blue-green"]
-polygon = PackedVector2Array(-60, 11, -57, 22, -53, 30, -61, 23)
-
-[node name="blue" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/blue"]
-polygon = PackedVector2Array(-53, 30, -47, 38, -40, 45, -52, 43)
-
-[node name="blue-purple" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/blue-purple"]
-polygon = PackedVector2Array(-40, 46, -31, 52, -21, 57, -34, 57)
-
-[node name="purple-blue" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/purple-blue"]
-polygon = PackedVector2Array(-21, 57, -11, 60, 0, 60, -12, 64)
-
-[node name="purple" type="Area2D" parent="wheel/areas"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/purple"]
-polygon = PackedVector2Array(0, 60, 10, 59, 21, 56, 12, 65)
-
 [node name="black" type="Area2D" parent="wheel/areas"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/black"]
-polygon = PackedVector2Array(21, 56, 31, 51, 39, 46, 34, 56)
+position = Vector2(-0.0187497, -0.187677)
+scale = Vector2(1.0125, 0.991071)
+polygon = PackedVector2Array(0, -19.8, -2.54939, -19.789, -5, -19.2, -2.6, -20.6)
 
 [node name="gray" type="Area2D" parent="wheel/areas"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/gray"]
-polygon = PackedVector2Array(53, 30, 47, 38, 39, 46, 50, 42)
+polygon = PackedVector2Array(-5.2, -19.2, -8, -19.4, -10, -17.2)
+
+[node name="white" type="Area2D" parent="wheel/areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/white"]
+polygon = PackedVector2Array(-10, -17.2, -12.4, -16.4, -14, -14.2)
+
+[node name="yellow" type="Area2D" parent="wheel/areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/yellow"]
+polygon = PackedVector2Array(-14, -14.2, -21.2, -7.6, -20, 0)
+
+[node name="green" type="Area2D" parent="wheel/areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/green"]
+polygon = PackedVector2Array(-19.8, 0, -18.2, 8.6, -14, 14, -20.4, 9)
+
+[node name="blue" type="Area2D" parent="wheel/areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/blue"]
+polygon = PackedVector2Array(-14, 14, -8, 18.2, 0.200005, 19.6, -9, 20.8)
+
+[node name="dark_blue" type="Area2D" parent="wheel/areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/dark_blue"]
+polygon = PackedVector2Array(0, 19.6, 7, 18.6, 14, 13.8, 8, 20.6)
+
+[node name="purple" type="Area2D" parent="wheel/areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/purple"]
+polygon = PackedVector2Array(19.6, 0, 19.6, 6.4, 19.6, 9.4, 14, 13.8, 18, 7.4)
+
+[node name="red" type="Area2D" parent="wheel/areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/red"]
+polygon = PackedVector2Array(13.8, -13.8, 21.4, -8.8, 19.6, 0)
+
+[node name="orange" type="Area2D" parent="wheel/areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/orange"]
+polygon = PackedVector2Array(0, -20, 7.6, -19.8, 14, -14, 7.2, -18.4)
 
 [node name="arrow" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_8sst4")
+position = Vector2(362, 33)
+scale = Vector2(0.16, 0.1)
+texture = ExtResource("3_8ektc")
 offset = Vector2(300, 0)
 
 [node name="RayCast2D" type="RayCast2D" parent="arrow"]
-target_position = Vector2(980, 0)
+position = Vector2(0.000335693, 0)
+target_position = Vector2(981.25, 3.05176e-05)
 collide_with_areas = true
 collide_with_bodies = false
 
+[node name="Frame7" type="Sprite2D" parent="."]
+position = Vector2(0, -360)
+texture = ExtResource("3_lymyy")
+
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+
+[node name="retry_button" type="Button" parent="."]
+visible = false
+offset_left = 259.0
+offset_top = -61.0
+offset_right = 467.0
+offset_bottom = 142.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_71roq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uv5bk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qlcb6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yjccl")
+
+[node name="before" type="Node2D" parent="."]
+position = Vector2(-330, -191)
+
+[node name="Label" type="Label" parent="before"]
+offset_left = -166.0
+offset_top = -33.0
+offset_right = 172.0
+offset_bottom = 39.0
+
+[node name="Polygon2D" type="Polygon2D" parent="before"]
+polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+
+[node name="after" type="Node2D" parent="."]
+position = Vector2(-330, 232)
+
+[node name="Label" type="Label" parent="after"]
+offset_left = -166.0
+offset_top = -33.0
+offset_right = 172.0
+offset_bottom = 39.0
+
+[node name="Polygon2D" type="Polygon2D" parent="after"]
+polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+
+[node name="Clipart347937" type="Sprite2D" parent="."]
+position = Vector2(-328, 19)
+rotation = 1.57932
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_8ektc")
+
+[node name="accept" type="Button" parent="."]
+offset_left = -34.0
+offset_top = 413.0
+offset_right = 35.0
+offset_bottom = 444.0
+focus_mode = 0
+text = "accept
+"
+
+[connection signal="pressed" from="retry_button" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="accept" to="." method="_on_accept_pressed"]

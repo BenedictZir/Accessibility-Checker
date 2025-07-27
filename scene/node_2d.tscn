@@ -1,35 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://bipgplrv3t8vg"]
+[gd_scene load_steps=5 format=3 uid="uid://bipgplrv3t8vg"]
 
-[ext_resource type="Script" path="res://node_2d.gd" id="1_lbsit"]
-[ext_resource type="Texture2D" uid="uid://o8v7vikxg4c1" path="res://assets/Screenshot 2025-07-20 163841.png" id="2_0tdgn"]
+[ext_resource type="Script" uid="uid://c5c5610o6l2yl" path="res://node_2d.gd" id="1_lbsit"]
 [ext_resource type="PackedScene" uid="uid://bmk1pn0kq8viw" path="res://scene/minigame_1/answer_box.tscn" id="2_t14c6"]
 [ext_resource type="PackedScene" uid="uid://c00svsqxgxjhc" path="res://scene/minigame_1/alt_text.tscn" id="3_h4dfm"]
-[ext_resource type="Texture2D" uid="uid://bmgx3x3sirjqe" path="res://assets/warning-sign-30915_1280.png" id="4_qs6e5"]
-[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/minigame_1/images_alt.tscn" id="5_q7hxo"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="5_q7hxo"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lbsit")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.600313, 0.60241)
-texture = ExtResource("2_0tdgn")
 
 [node name="images_alt" parent="." instance=ExtResource("5_q7hxo")]
-offset_left = -281.0
-offset_top = -147.0
-offset_right = 127.0
-offset_bottom = 107.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="images_alt"]
 visible = false
 position = Vector2(205, 114)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_qs6e5")
 
 [node name="Label" type="Label" parent="images_alt"]
 visible = false
-layout_mode = 1
-anchors_preset = -1
+layout_mode = 0
 anchor_left = 0.515
 anchor_top = 0.915
 anchor_right = 0.515

@@ -1,16 +1,15 @@
 extends Node2D
 @onready var button: Button = $Button
-@onready var images_alt: TextureRect = $images_alt
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	Dialogic.start("intro")
+	Dialogic.start("introduction")
 
 
 func _on_button_pressed() -> void:
 	$images_alt/Sprite2D2.show()
 	$images_alt/Label.show()
-	Dialogic.start("intro", "after_button")
+	Dialogic.start("introduction", "after_button")
 	
 func _on_dialogic_signal(argument:):
 	if argument == "show_button":
@@ -28,5 +27,5 @@ func _on_dialogic_signal(argument:):
 
 
 func _on_button_2_pressed() -> void:
-	Dialogic.start("intro", "after_submit")
+	Dialogic.start("introduction", "after_submit")
 	
