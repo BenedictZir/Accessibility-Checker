@@ -3,6 +3,10 @@ signal selected
 signal deselect
 @onready var highlight: Line2D = $highlight
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+@export var correct_alt_text: String
+@export var mid_alt_text: String
+@export var wrong_alt_text: String
+
 
 func _ready() -> void:
 	collision_shape_2d.shape.size = size
@@ -32,3 +36,6 @@ func _on_selected() -> void:
 func _on_deselect() -> void:
 	highlight.clear_points()
 	
+func return_alt_texts():
+	var alt_texts = [correct_alt_text, mid_alt_text, wrong_alt_text]
+	return alt_texts

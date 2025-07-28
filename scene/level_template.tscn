@@ -1,14 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=37 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
-[ext_resource type="Texture2D" uid="uid://dyos5d02n1ao7" path="res://icon.svg" id="2_d3l6h"]
-[ext_resource type="PackedScene" uid="uid://c00svsqxgxjhc" path="res://scene/minigame_1/alt_text.tscn" id="2_g113r"]
-[ext_resource type="PackedScene" uid="uid://bmk1pn0kq8viw" path="res://scene/minigame_1/answer_box.tscn" id="2_xvexx"]
 [ext_resource type="PackedScene" uid="uid://dn5bmkvg8nq8d" path="res://scene/document.tscn" id="3_g113r"]
 [ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="7_d3l6h"]
 [ext_resource type="Texture2D" uid="uid://3iw2t862xnyl" path="res://assets/1x/S.png" id="8_rsg4m"]
 [ext_resource type="Texture2D" uid="uid://d4hnykr43tltf" path="res://assets/1x/Rectangle 9776.png" id="9_epqjh"]
-[ext_resource type="Texture2D" uid="uid://c154kvhtpvqt8" path="res://assets/1x/Component 15.png" id="9_kemr8"]
 [ext_resource type="Texture2D" uid="uid://bampgnrvu16pk" path="res://assets/1x/Frame 6.png" id="9_r31ky"]
 [ext_resource type="Texture2D" uid="uid://dvb6vydda63nf" path="res://assets/1x/Frame 5.png" id="10_i43we"]
 [ext_resource type="Texture2D" uid="uid://do8c62re4ntgw" path="res://assets/1x/Group 40.png" id="11_epqjh"]
@@ -20,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://mikj44iv8v1v" path="res://assets/1x/Outline.png" id="16_xe1of"]
 [ext_resource type="PackedScene" uid="uid://4xtbpvksxxbp" path="res://scene/aruni_helper.tscn" id="17_epqjh"]
 [ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="19_p2f7k"]
+[ext_resource type="PackedScene" uid="uid://o6nhawy4oxte" path="res://scene/outline.tscn" id="19_vaqec"]
 [ext_resource type="PackedScene" uid="uid://2ekyfsfu3hj6" path="res://scene/minigame_2.tscn" id="21_xe1of"]
 
 [sub_resource type="Animation" id="Animation_xe1of"]
@@ -239,6 +236,7 @@ texture = ExtResource("16_vaqec")
 
 [node name="level_template" type="Node2D"]
 script = ExtResource("1_lpc36")
+outline_scene = ExtResource("19_vaqec")
 time = 20
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -302,6 +300,24 @@ offset_top = 287.0
 offset_right = -320.0
 offset_bottom = 415.0
 
+[node name="images2" parent="app/document/images" instance=ExtResource("19_p2f7k")]
+offset_left = -393.0
+offset_top = 622.0
+offset_right = -265.0
+offset_bottom = 750.0
+
+[node name="images3" parent="app/document/images" instance=ExtResource("19_p2f7k")]
+offset_left = 240.0
+offset_top = 162.0
+offset_right = 368.0
+offset_bottom = 290.0
+
+[node name="images4" parent="app/document/images" instance=ExtResource("19_p2f7k")]
+offset_left = 45.0
+offset_top = 747.0
+offset_right = 173.0
+offset_bottom = 875.0
+
 [node name="blue_polygon" type="Polygon2D" parent="app"]
 position = Vector2(973, 619)
 color = Color(0.196078, 0.623529, 0.788235, 1)
@@ -322,11 +338,6 @@ texture = ExtResource("15_vaqec")
 [node name="Outline" type="Sprite2D" parent="app/outline_icon"]
 position = Vector2(-11, 2)
 texture = ExtResource("16_xe1of")
-
-[node name="icon_aruni" type="Sprite2D" parent="app"]
-visible = false
-position = Vector2(194, 965)
-texture = ExtResource("9_kemr8")
 
 [node name="Timer" type="Timer" parent="app"]
 
@@ -375,60 +386,20 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_dw8l3")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ng3r6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_8rffd")
 
-[node name="minigame_1" type="Node2D" parent="app"]
-position = Vector2(870, 103)
-
-[node name="answer_box" parent="app/minigame_1" instance=ExtResource("2_xvexx")]
-position = Vector2(1309, 227)
-
-[node name="alt_text" parent="app/minigame_1" instance=ExtResource("2_g113r")]
-position = Vector2(1304, 379)
-
-[node name="alt_text2" parent="app/minigame_1" instance=ExtResource("2_g113r")]
-position = Vector2(1304, 431)
-text = "abc"
-
-[node name="alt_text3" parent="app/minigame_1" instance=ExtResource("2_g113r")]
-position = Vector2(1302, 484)
-text = "hoho"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="app"]
-visible = false
 layout_direction = 3
-anchors_preset = -1
-anchor_left = 0.808
-anchor_top = 0.199
-anchor_right = 0.998
-anchor_bottom = 0.711
-offset_left = -3.65601
-offset_top = 214.968
-offset_right = -3.53601
-offset_bottom = 215.192
-grow_horizontal = 0
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+offset_left = -391.0
+offset_top = 363.0
+offset_right = -77.0
+offset_bottom = 799.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="app/ScrollContainer"]
+layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
-alignment = 1
+size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="app/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("2_d3l6h")
-
-[node name="TextureRect2" type="TextureRect" parent="app/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("2_d3l6h")
-
-[node name="TextureRect3" type="TextureRect" parent="app/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("2_d3l6h")
-
-[node name="aruni_helper" parent="app" instance=ExtResource("17_epqjh")]
+[node name="aruni_helper" parent="." instance=ExtResource("17_epqjh")]
 position = Vector2(206, 981)
 
 [node name="color_wheel_minigame" parent="." instance=ExtResource("21_xe1of")]

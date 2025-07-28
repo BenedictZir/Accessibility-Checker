@@ -5,8 +5,10 @@ extends Node2D
 @onready var color_wheel_minigame: Node2D = $color_wheel_minigame
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var document_paper: Sprite2D = $app/document_paper
-
+@export var outline_scene: PackedScene
 @export var time := 0
+@onready var v_box_container: VBoxContainer = $app/ScrollContainer/VBoxContainer
+var selected_outline = null
 var selected_object = null
 var all_object := []
 var all_images := []
@@ -55,18 +57,58 @@ func get_all_obj():
 	for obj in all_object:
 		if obj.is_in_group("texts"):
 			obj.name = "text_" + str(text_count)
+			create_outline(obj.name)
 			text_count += 1
 		else:
 			obj.name = "image_" + str(image_count)
+			create_outline(obj.name)
 			image_count += 1
-		print(obj.name)
+			
+func create_outline(obj_name):
+	var outline = outline_scene.instantiate()
+	outline.name = obj_name
+	v_box_container.add_child(outline)
 func select(obj):
 	if (selected_object):
 		selected_object.emit_signal("deselect")
+		selected_outline = find_outline(selected_object)
+		if selected_outline != null:
+			selected_outline.emit_signal("deselect")
 		if (selected_object == obj):
 			selected_object = null
 			return
 		selected_object = null
+	selected_object = obj
+	selected_outline = find_outline(selected_object)
+	if (selected_outline != null):
+
+		selected_outline.emit_signal("selected")
+	obj.emit_signal("selected")
+
+func find_outline(obj):
+	var outlines = v_box_container.get_children()
+	for outline in outlines:
+		if outline.name == obj.name:
+			return outline
+			
+func select_outline(outline):
+	if (selected_outline):
+		if (selected_object):
+			selected_object.emit_signal("deselect")
+		selected_outline.emit_signal("deselect")
+		if (selected_outline == outline):
+			selected_object = null
+			selected_outline = null
+			return
+		selected_object = null
+		selected_outline = null
+	selected_outline = outline
+	selected_outline.emit_signal("selected")
+	var obj
+	for object in all_object:
+		if object.name == selected_outline.name:
+			obj = object
+			break
 	selected_object = obj
 	obj.emit_signal("selected")
 
@@ -93,6 +135,7 @@ func show_nothing():
 
 
 func _on_color_wheel_button_pressed() -> void:
+	print(selected_object)
 	if (selected_object == null):
 		return
 	elif (selected_object.is_in_group("texts")):

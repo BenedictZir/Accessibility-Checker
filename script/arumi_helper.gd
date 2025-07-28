@@ -9,4 +9,4 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	print("a")
 
-	animation_player.play("show_aruni", -1, -2.0, true)
+	animation_player.play("show_aruni", -1, -1.0, true)

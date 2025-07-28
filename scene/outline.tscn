@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://o6nhawy4oxte"]
+
+[ext_resource type="Script" uid="uid://cljbfq7wporfa" path="res://script/outline.gd" id="1_68wh6"]
+[ext_resource type="Texture2D" uid="uid://dmp7ov2fhe1vr" path="res://assets/outlines/State=Default.png" id="2_kwc2m"]
+[ext_resource type="Texture2D" uid="uid://yv0j478t65me" path="res://assets/outlines/Property 1=Default.png" id="3_ay2j4"]
+[ext_resource type="Texture2D" uid="uid://bkh0aslnra3ip" path="res://assets/outlines/Property 1=Default (1).png" id="4_g37e7"]
+[ext_resource type="Texture2D" uid="uid://duixu1y613tt5" path="res://assets/outlines/Mask group.png" id="5_4xmti"]
+[ext_resource type="Texture2D" uid="uid://btep3pvmpod1h" path="res://assets/outlines/Mask group (1).png" id="6_q1iee"]
+[ext_resource type="Texture2D" uid="uid://b12gduk2w8ksc" path="res://assets/outlines/Mask group (2).png" id="7_qrtbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68wh6"]
+size = Vector2(358, 71)
+
+[node name="outline" type="Label" groups=["outlines"]]
+offset_left = -178.0
+offset_top = -34.0
+offset_right = 180.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 55
+script = ExtResource("1_68wh6")
+
+[node name="heading" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(178, 34)
+texture = ExtResource("2_kwc2m")
+
+[node name="subheading" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(178, 34)
+texture = ExtResource("3_ay2j4")
+
+[node name="text" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(178, 34)
+texture = ExtResource("4_g37e7")
+
+[node name="heading_selected" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(178, 34)
+texture = ExtResource("5_4xmti")
+
+[node name="subheading_selected" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(178, 34)
+texture = ExtResource("6_q1iee")
+
+[node name="text_selected" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(178, 34)
+texture = ExtResource("7_qrtbh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 6.0
+offset_right = 388.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "image_1"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(178, 34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_68wh6")
+
+[connection signal="deselect" from="." to="." method="_on_deselect"]
+[connection signal="selected" from="." to="." method="_on_selected"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
