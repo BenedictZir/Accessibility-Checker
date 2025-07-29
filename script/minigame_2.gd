@@ -8,6 +8,7 @@ extends Node2D
 @onready var after_polygon: Polygon2D = $after/Polygon2D
 
 signal done
+signal canceled
 
 var rotating := true
 @export var wheel_speed := 200
@@ -88,3 +89,7 @@ func _on_retry_button_pressed() -> void:
 
 func _on_accept_pressed() -> void:
 	emit_signal("done")
+
+
+func _on_cancel_button_pressed() -> void:
+	emit_signal("canceled")

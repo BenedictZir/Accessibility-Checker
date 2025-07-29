@@ -79,6 +79,7 @@ answer=""
 images=""
 texts=""
 outlines=""
+document=""
 
 [input]
 

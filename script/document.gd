@@ -29,7 +29,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if obj_clicked.size() <= 1:
 			var parent = find_parent("level_template")
 			parent.select(self)
-			print("docs clicked")
 
 
 func _on_selected() -> void:

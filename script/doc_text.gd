@@ -2,7 +2,7 @@ extends Label
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var highlight: Line2D = $highlight
 
-
+@export_enum("heading", "subheading", "text") var intended_struct
 var is_contrast := false
 signal selected
 signal deselect
@@ -27,7 +27,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if Input.is_action_just_pressed("click"):
 		var parent = find_parent("level_template")
 		parent.select(self)
-		print("text clicked")
 
 
 func _on_selected() -> void:
@@ -49,3 +48,20 @@ func _on_deselect() -> void:
 	highlight.clear_points()
 func check_contrast(self_color, bg_color):
 	pass
+
+func examine_text(background_color, text_color):
+	if name.contains("heading"):
+		if intended_struct == 0:
+			return 1
+		else:
+			return 0
+	if name.contains("subheading"):
+		if intended_struct == 1:
+			return 1
+		else:
+			return 0
+	if name.contains("text"):
+		if intended_struct == 2:
+			return 1
+		else:
+			return 0

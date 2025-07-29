@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0yx6qprrjcg5"]
+
+[ext_resource type="Texture2D" uid="uid://dp6l4xxw3cxe" path="res://assets/minigame_1/Frame 7.png" id="1_1ssl8"]
+[ext_resource type="Script" uid="uid://cgttu2c1d8e" path="res://script/minigame_1.gd" id="1_b5gn6"]
+[ext_resource type="Texture2D" uid="uid://dyntvhdr10pkq" path="res://assets/minigame_1/Frame 53.png" id="2_b5gn6"]
+[ext_resource type="PackedScene" uid="uid://bmk1pn0kq8viw" path="res://scene/minigame_1/answer_box.tscn" id="4_2hdyy"]
+[ext_resource type="PackedScene" uid="uid://c00svsqxgxjhc" path="res://scene/alt_text.tscn" id="5_s26uh"]
+
+[node name="minigame_1" type="Node2D"]
+script = ExtResource("1_b5gn6")
+
+[node name="Frame7" type="Sprite2D" parent="."]
+position = Vector2(1, -360)
+texture = ExtResource("1_1ssl8")
+
+[node name="Frame53" type="Sprite2D" parent="."]
+position = Vector2(1, 16)
+texture = ExtResource("2_b5gn6")
+
+[node name="image" type="TextureRect" parent="."]
+offset_left = -480.0
+offset_top = -229.0
+offset_right = -91.0
+offset_bottom = -51.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="answer_box" parent="." instance=ExtResource("4_2hdyy")]
+position = Vector2(-294, 108)
+
+[node name="alt_text" parent="." instance=ExtResource("5_s26uh")]
+position = Vector2(325, 60)
+
+[node name="alt_text1" parent="." instance=ExtResource("5_s26uh")]
+position = Vector2(325, 179)
+
+[node name="alt_text2" parent="." instance=ExtResource("5_s26uh")]
+position = Vector2(325, -61)
+
+[node name="alt_text3" parent="." instance=ExtResource("5_s26uh")]
+position = Vector2(325, -181)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(325, -181)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(325, -61)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(325, 60)
+
+[node name="Node2D4" type="Node2D" parent="."]
+position = Vector2(325, 179)

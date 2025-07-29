@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
 size = Vector2(905, 1092)
 
-[node name="document" type="Node2D"]
+[node name="document" type="Node2D" groups=["document"]]
 script = ExtResource("1_d31jj")
 
 [node name="paper_area" type="Area2D" parent="."]

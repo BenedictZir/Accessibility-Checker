@@ -5,6 +5,12 @@ extends Node2D
 @onready var color_wheel_minigame: Node2D = $color_wheel_minigame
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var document_paper: Sprite2D = $app/document_paper
+@onready var image_features: Node2D = $app/minigame_icons/image_features
+@onready var docs_features: Node2D = $app/minigame_icons/docs_features
+@onready var text_features: Node2D = $app/minigame_icons/text_features
+@onready var alt_text_minigame: Node2D = $alt_text_minigame
+@onready var app: Node2D = $app
+
 @export var outline_scene: PackedScene
 @export var time := 0
 @onready var v_box_container: VBoxContainer = $app/ScrollContainer/VBoxContainer
@@ -25,15 +31,6 @@ func _process(delta: float) -> void:
 	var minutes_str = str(minutes).pad_zeros(2)
 	var seconds_str = str(seconds).pad_zeros(2)
 	timer_label.text = minutes_str + ":" + seconds_str
-	if selected_object:
-		if selected_object.is_in_group("images"):
-			show_image_features()
-		elif selected_object.is_in_group("texts"):
-			show_text_features()
-		else:
-			show_doc_features()
-	else:
-		show_nothing()
 func get_all_images():
 	var images = find_child("images").get_children()
 	for image in images:
@@ -75,14 +72,18 @@ func select(obj):
 		if selected_outline != null:
 			selected_outline.emit_signal("deselect")
 		if (selected_object == obj):
+			show_nothing()
 			selected_object = null
+			show_features()
 			return
 		selected_object = null
 	selected_object = obj
+	show_features()
+	
 	selected_outline = find_outline(selected_object)
 	if (selected_outline != null):
-
 		selected_outline.emit_signal("selected")
+	
 	obj.emit_signal("selected")
 
 func find_outline(obj):
@@ -99,6 +100,8 @@ func select_outline(outline):
 		if (selected_outline == outline):
 			selected_object = null
 			selected_outline = null
+			show_features()
+			
 			return
 		selected_object = null
 		selected_outline = null
@@ -110,6 +113,8 @@ func select_outline(outline):
 			obj = object
 			break
 	selected_object = obj
+	show_features()
+	
 	obj.emit_signal("selected")
 
 func sort_by_pos(a, b):
@@ -117,25 +122,49 @@ func sort_by_pos(a, b):
 		return true
 	return false
 
+func show_features():
+	if selected_object == null:
+		show_nothing()
+	elif selected_object.is_in_group("document"):
+		show_doc_features()
+	elif selected_object.is_in_group("images"):
+		show_image_features()
+	else:
+		show_text_features()
 func show_image_features():
-	pass
+	image_features.show()
+	docs_features.hide()
+	text_features.hide()
 	
 func show_text_features():
-	pass
+	text_features.show()
+	image_features.hide()
+	docs_features.hide()
 
 func show_doc_features():
-	pass
-func show_nothing():
-	pass
+	docs_features.show()
+	text_features.hide()
+	image_features.hide()
 	
-
+func show_nothing():
+	image_features.hide()
+	docs_features.hide()
+	text_features.hide()
+	
+func examine():
+	for obj in all_object:
+		if (obj.is_in_group("images")):
+			#TODO cek aksesibility image
+			pass
+		else:
+			#TODO cek aksesibility teks
+			pass
 
 
 	
 
 
 func _on_color_wheel_button_pressed() -> void:
-	print(selected_object)
 	if (selected_object == null):
 		return
 	elif (selected_object.is_in_group("texts")):
@@ -143,6 +172,8 @@ func _on_color_wheel_button_pressed() -> void:
 	else:
 		color_wheel_minigame.init_wheel(document_paper)
 	animation_player.play("show_color_wheel_minigame")
+	app.process_mode = Node.PROCESS_MODE_DISABLED
+	
 	await animation_player.animation_finished
 	color_wheel_minigame.start_rotating()
 	
@@ -155,3 +186,20 @@ func _on_color_wheel_minigame_done() -> void:
 	else:
 		document_paper.self_modulate = color
 	animation_player.play("show_color_wheel_minigame", -1, -1.0, true)
+	app.process_mode = Node.PROCESS_MODE_INHERIT
+
+func _on_alt_text_button_pressed() -> void:
+	if (selected_object == null):
+		return
+	alt_text_minigame.init_alt_text(selected_object.get_texts_list(), selected_object.get_texture())
+	animation_player.play("show_alt_text_minigame")
+	await animation_player.animation_finished
+	alt_text_minigame.set_alt_text_pos()
+	app.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	
+
+
+func _on_color_wheel_minigame_canceled() -> void:
+	animation_player.play("show_color_wheel_minigame", -1, -1.0, true)
+	app.process_mode = Node.PROCESS_MODE_INHERIT

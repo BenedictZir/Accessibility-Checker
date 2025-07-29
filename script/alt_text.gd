@@ -3,15 +3,12 @@ var selected = false
 var answer_box
 var original_pos: Vector2
 @onready var label: Label = $Label
-@export var text: String
 @export var height: float = 50
 @export var width: float = 120
 func _ready() -> void:
-	$background/ColorRect.size = Vector2(width, height)
 	$Label.size = Vector2(width, height)
 	$CollisionShape2D.shape.size = Vector2(width, height)
 	original_pos = global_position
-	label.text = text
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
@@ -26,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	elif answer_box: # jika text dalam answer box 
 		if answer_box.occupied_by == self or GlobalVar.is_dragging: # jika dilepas dalam box, masuk ke box
 			global_position = lerp(global_position, answer_box.global_position, 10 * delta)
-			Dialogic.VAR.ans = text
+			answer_box.set_text(label.text)
 		else: # jika ada text baru masuk, kembali
 			global_position = lerp(global_position, original_pos, 10 * delta)
 			
@@ -59,6 +56,11 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	if !selected:
+		if (answer_box != null):
+			if (answer_box.occupied_by != self):
+				shrink()
+			else:
+				return
 		shrink()
 
 func shrink():
@@ -67,3 +69,10 @@ func shrink():
 func expand():
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE * 1.2, 0.25).set_trans(Tween.TRANS_SINE)
+	
+func set_text(text):
+	label.text = text 
+
+func set_pos(pos):
+	original_pos = pos
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=39 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="PackedScene" uid="uid://dn5bmkvg8nq8d" path="res://scene/document.tscn" id="3_g113r"]
@@ -11,12 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://cdts0vrdlorog" path="res://assets/1x/Group 43.png" id="12_xnxwe"]
 [ext_resource type="Texture2D" uid="uid://gfuod2htj05o" path="res://assets/1x/Group 45.png" id="14_p2f7k"]
 [ext_resource type="Texture2D" uid="uid://52c6gee7e20f" path="res://assets/1x/Group 42.png" id="15_vaqec"]
-[ext_resource type="Texture2D" uid="uid://drk6j4mww6ijb" path="res://assets/4x/Group 63.png" id="15_xnxwe"]
-[ext_resource type="Texture2D" uid="uid://lfmyfa6ach4u" path="res://assets/4x/Group 64.png" id="16_vaqec"]
+[ext_resource type="Texture2D" uid="uid://cru58h6cg5bg0" path="res://assets/minigame_buttons/Group 63.png" id="15_xnxwe"]
+[ext_resource type="Texture2D" uid="uid://w2m7kkprj2bo" path="res://assets/minigame_buttons/Group 64.png" id="16_p2f7k"]
 [ext_resource type="Texture2D" uid="uid://mikj44iv8v1v" path="res://assets/1x/Outline.png" id="16_xe1of"]
 [ext_resource type="PackedScene" uid="uid://4xtbpvksxxbp" path="res://scene/aruni_helper.tscn" id="17_epqjh"]
 [ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="19_p2f7k"]
 [ext_resource type="PackedScene" uid="uid://o6nhawy4oxte" path="res://scene/outline.tscn" id="19_vaqec"]
+[ext_resource type="PackedScene" uid="uid://d0yx6qprrjcg5" path="res://scene/minigame_1/minigame_1.tscn" id="19_xe1of"]
 [ext_resource type="PackedScene" uid="uid://2ekyfsfu3hj6" path="res://scene/minigame_2.tscn" id="21_xe1of"]
 
 [sub_resource type="Animation" id="Animation_xe1of"]
@@ -101,6 +102,54 @@ tracks/6/keys = {
 "update": 0,
 "values": [1.5708]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("app:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("alt_text_minigame:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("alt_text_minigame:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("alt_text_minigame:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_vaqec"]
 resource_name = "show_color_wheel_minigame"
@@ -180,28 +229,92 @@ tracks/6/path = NodePath("color_wheel_minigame:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.5708, 3.14159, 4.71239, 6.28319]
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_p2f7k"]
+resource_name = "show_alt_text_minigame"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("app:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.67451, 0.67451, 0.67451, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alt_text_minigame:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alt_text_minigame:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alt_text_minigame:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kemr8"]
 _data = {
 &"RESET": SubResource("Animation_xe1of"),
+&"show_alt_text_minigame": SubResource("Animation_p2f7k"),
 &"show_color_wheel_minigame": SubResource("Animation_vaqec")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xnxwe"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_saxxy"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaqec"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmy6v"]
 texture = ExtResource("15_xnxwe")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnxwe"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_io6bp"]
 texture = ExtResource("15_xnxwe")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2f7k"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dw8l3"]
 texture = ExtResource("15_xnxwe")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ng3r6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rffd"]
+texture = ExtResource("16_p2f7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yo4d5"]
+texture = ExtResource("16_p2f7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p17l8"]
+texture = ExtResource("16_p2f7k")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe1of"]
 
@@ -222,17 +335,6 @@ load_path = "res://.godot/imported/Group 62.png-5aae5672aac691fa6cd505aa5f656d5e
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kemr8"]
 texture = SubResource("CompressedTexture2D_lmy6v")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io6bp"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dw8l3"]
-texture = ExtResource("16_vaqec")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ng3r6"]
-texture = ExtResource("16_vaqec")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rffd"]
-texture = ExtResource("16_vaqec")
 
 [node name="level_template" type="Node2D"]
 script = ExtResource("1_lpc36")
@@ -299,6 +401,10 @@ offset_left = -448.0
 offset_top = 287.0
 offset_right = -320.0
 offset_bottom = 415.0
+correct_alt_text = "ini icon godot"
+mid_alt_text = "ini icon game engine"
+wrong_alt_text = "ini icon unity"
+wrong_alt_text_2 = "ini icon unreal"
 
 [node name="images2" parent="app/document/images" instance=ExtResource("19_p2f7k")]
 offset_left = -393.0
@@ -317,6 +423,10 @@ offset_left = 45.0
 offset_top = 747.0
 offset_right = 173.0
 offset_bottom = 875.0
+correct_alt_text = "haha"
+mid_alt_text = "ckck"
+wrong_alt_text = "aaa"
+wrong_alt_text_2 = "bbb"
 
 [node name="blue_polygon" type="Polygon2D" parent="app"]
 position = Vector2(973, 619)
@@ -352,39 +462,80 @@ text = "TIMER"
 
 [node name="minigame_icons" type="Node2D" parent="app"]
 
-[node name="alt_text_button" type="Button" parent="app/minigame_icons"]
-offset_left = 652.0
-offset_top = 47.0
-offset_right = 1125.0
-offset_bottom = 442.0
-scale = Vector2(0.359375, 0.28125)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xnxwe")
-theme_override_styles/hover = SubResource("StyleBoxTexture_vaqec")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_xnxwe")
-theme_override_styles/normal = SubResource("StyleBoxTexture_p2f7k")
+[node name="image_features" type="Node2D" parent="app/minigame_icons"]
+visible = false
 
-[node name="color_wheel_button" type="Button" parent="app/minigame_icons"]
-offset_left = 818.0
-offset_top = 32.0
-offset_right = 1511.0
-offset_bottom = 455.0
-scale = Vector2(0.359375, 0.28125)
+[node name="alt_text_button" type="Button" parent="app/minigame_icons/image_features"]
+offset_left = 654.0
+offset_top = 37.0
+offset_right = 923.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 47
+theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lmy6v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_io6bp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dw8l3")
+text = "alt text"
+
+[node name="structure_button" type="Button" parent="app/minigame_icons/image_features"]
+offset_left = 926.0
+offset_top = 35.0
+offset_right = 1182.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ng3r6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8rffd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yo4d5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_p17l8")
+text = "structure"
+
+[node name="docs_features" type="Node2D" parent="app/minigame_icons"]
+visible = false
+
+[node name="color_wheel_button" type="Button" parent="app/minigame_icons/docs_features"]
+offset_left = 575.0
+offset_top = -260.0
+offset_right = 1268.0
+offset_bottom = 163.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(346, 400)
 focus_mode = 0
 mouse_filter = 1
+theme_override_font_sizes/font_size = 150
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xe1of")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d3l6h")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_m4atv")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kemr8")
+text = "wheel"
+metadata/_edit_use_anchors_ = true
 
-[node name="heading_button" type="Button" parent="app/minigame_icons"]
-offset_left = 1064.0
+[node name="text_features" type="Node2D" parent="app/minigame_icons"]
+visible = false
+
+[node name="color_wheel_button" type="Button" parent="app/minigame_icons/text_features"]
+offset_left = 654.0
 offset_top = 37.0
-offset_right = 1225.0
-offset_bottom = 143.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_io6bp")
-theme_override_styles/hover = SubResource("StyleBoxTexture_dw8l3")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ng3r6")
-theme_override_styles/normal = SubResource("StyleBoxTexture_8rffd")
+offset_right = 923.0
+offset_bottom = 161.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 61
+theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lmy6v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_io6bp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dw8l3")
+text = "color"
+
+[node name="structure_button" type="Button" parent="app/minigame_icons/text_features"]
+offset_left = 926.0
+offset_top = 35.0
+offset_right = 1182.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 31
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ng3r6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8rffd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yo4d5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_p17l8")
+text = "structure"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="app"]
 layout_direction = 3
@@ -399,18 +550,24 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="aruni_helper" parent="." instance=ExtResource("17_epqjh")]
-position = Vector2(206, 981)
-
 [node name="color_wheel_minigame" parent="." instance=ExtResource("21_xe1of")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 rotation = 1.5708
 scale = Vector2(0.1, 0.1)
 
-[node name="minigame_2" type="Node2D" parent="."]
+[node name="alt_text_minigame" parent="." instance=ExtResource("19_xe1of")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(0.1, 0.1)
+
+[node name="aruni_helper" parent="." instance=ExtResource("17_epqjh")]
+position = Vector2(206, 981)
 
 [node name="minigame_3" type="Node2D" parent="."]
 
-[connection signal="pressed" from="app/minigame_icons/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
+[connection signal="pressed" from="app/minigame_icons/image_features/alt_text_button" to="." method="_on_alt_text_button_pressed"]
+[connection signal="pressed" from="app/minigame_icons/docs_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
+[connection signal="pressed" from="app/minigame_icons/text_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
+[connection signal="canceled" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_canceled"]
 [connection signal="done" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_done"]

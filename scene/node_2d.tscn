@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5c5610o6l2yl" path="res://node_2d.gd" id="1_lbsit"]
 [ext_resource type="PackedScene" uid="uid://bmk1pn0kq8viw" path="res://scene/minigame_1/answer_box.tscn" id="2_t14c6"]
-[ext_resource type="PackedScene" uid="uid://c00svsqxgxjhc" path="res://scene/minigame_1/alt_text.tscn" id="3_h4dfm"]
+[ext_resource type="PackedScene" uid="uid://c00svsqxgxjhc" path="res://scene/alt_text.tscn" id="3_h4dfm"]
 [ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="5_q7hxo"]
 
 [node name="Node2D" type="Node2D"]
@@ -43,15 +43,12 @@ visible = false
 position = Vector2(385, 65)
 
 [node name="alt_text" parent="answers" instance=ExtResource("3_h4dfm")]
-text = "correct"
 
 [node name="alt_text2" parent="answers" instance=ExtResource("3_h4dfm")]
 position = Vector2(1, 55)
-text = "wrong"
 
 [node name="alt_text3" parent="answers" instance=ExtResource("3_h4dfm")]
 position = Vector2(0, 107)
-text = "mid"
 
 [node name="Button2" type="Button" parent="answers"]
 offset_left = 79.0

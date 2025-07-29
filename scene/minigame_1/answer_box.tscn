@@ -1,22 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmk1pn0kq8viw"]
+[gd_scene load_steps=4 format=3 uid="uid://bmk1pn0kq8viw"]
 
 [ext_resource type="Script" uid="uid://bk7txrphgcdgk" path="res://script/answer_box.gd" id="1_t1fjd"]
+[ext_resource type="Texture2D" uid="uid://ctfba6okwq4wd" path="res://assets/minigame_1/Frame 55.png" id="2_nmeeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1fjd"]
-size = Vector2(184, 96)
+size = Vector2(512, 96)
 
 [node name="answer_box" type="Area2D" groups=["answer_box"]]
 script = ExtResource("1_t1fjd")
 
-[node name="background" type="Sprite2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="background"]
-process_mode = 4
-offset_left = -91.0
-offset_top = -47.0
-offset_right = 91.0
-offset_bottom = 47.0
-color = Color(1, 1, 0.866667, 0.933333)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_t1fjd")
+
+[node name="Frame55" type="Sprite2D" parent="."]
+position = Vector2(0, 0.500002)
+scale = Vector2(1, 1.41429)
+texture = ExtResource("2_nmeeu")
