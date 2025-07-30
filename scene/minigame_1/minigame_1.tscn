@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0yx6qprrjcg5"]
+[gd_scene load_steps=10 format=3 uid="uid://d0yx6qprrjcg5"]
 
 [ext_resource type="Texture2D" uid="uid://dp6l4xxw3cxe" path="res://assets/minigame_1/Frame 7.png" id="1_1ssl8"]
 [ext_resource type="Script" uid="uid://cgttu2c1d8e" path="res://script/minigame_1.gd" id="1_b5gn6"]
 [ext_resource type="Texture2D" uid="uid://dyntvhdr10pkq" path="res://assets/minigame_1/Frame 53.png" id="2_b5gn6"]
 [ext_resource type="PackedScene" uid="uid://bmk1pn0kq8viw" path="res://scene/minigame_1/answer_box.tscn" id="4_2hdyy"]
 [ext_resource type="PackedScene" uid="uid://c00svsqxgxjhc" path="res://scene/alt_text.tscn" id="5_s26uh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s26uh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yn8li"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onw23"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_knvvk"]
 
 [node name="minigame_1" type="Node2D"]
 script = ExtResource("1_b5gn6")
@@ -53,3 +61,26 @@ position = Vector2(325, 60)
 
 [node name="Node2D4" type="Node2D" parent="."]
 position = Vector2(325, 179)
+
+[node name="cancel" type="Button" parent="."]
+offset_left = 523.0
+offset_top = -375.0
+offset_right = 554.0
+offset_bottom = -343.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s26uh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yn8li")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_onw23")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_knvvk")
+
+[node name="submit" type="Button" parent="."]
+offset_left = -40.0
+offset_top = 305.0
+offset_right = 36.0
+offset_bottom = 336.0
+focus_mode = 0
+text = "submit
+"
+
+[connection signal="pressed" from="cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="submit" to="." method="_on_submit_pressed"]

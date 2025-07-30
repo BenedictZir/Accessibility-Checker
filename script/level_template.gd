@@ -9,8 +9,10 @@ extends Node2D
 @onready var docs_features: Node2D = $app/minigame_icons/docs_features
 @onready var text_features: Node2D = $app/minigame_icons/text_features
 @onready var alt_text_minigame: Node2D = $alt_text_minigame
-@onready var app: Node2D = $app
+@onready var document: Node2D = $app/document
 
+@onready var app: Node2D = $app
+@export var document_scene: PackedScene
 @export var outline_scene: PackedScene
 @export var time := 0
 @onready var v_box_container: VBoxContainer = $app/ScrollContainer/VBoxContainer
@@ -21,6 +23,9 @@ var all_images := []
 var all_texts := []
 
 func _ready() -> void:
+	var doc = document_scene.instantiate()
+	document.add_child(doc)
+	doc.global_position = document.global_position
 	get_all_obj()
 	timer.wait_time = time
 	timer.start()
@@ -32,12 +37,12 @@ func _process(delta: float) -> void:
 	var seconds_str = str(seconds).pad_zeros(2)
 	timer_label.text = minutes_str + ":" + seconds_str
 func get_all_images():
-	var images = find_child("images").get_children()
+	var images = find_child("document").get_child(0).get_images()
 	for image in images:
 		all_images.append(image)
 
 func get_all_text():
-	var texts = find_child("texts").get_children()
+	var texts = find_child("document").get_child(0).get_texts()
 	for text in texts:
 		all_texts.append(text)
 	
@@ -191,10 +196,11 @@ func _on_color_wheel_minigame_done() -> void:
 func _on_alt_text_button_pressed() -> void:
 	if (selected_object == null):
 		return
-	alt_text_minigame.init_alt_text(selected_object.get_texts_list(), selected_object.get_texture())
 	animation_player.play("show_alt_text_minigame")
 	await animation_player.animation_finished
+	alt_text_minigame.init_alt_text(selected_object.get_texts_list(), selected_object.get_texture(), selected_object.get_alt_text())
 	alt_text_minigame.set_alt_text_pos()
+	alt_text_minigame.reset_all_alt_texts(selected_object.get_alt_text())
 	app.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	
@@ -202,4 +208,15 @@ func _on_alt_text_button_pressed() -> void:
 
 func _on_color_wheel_minigame_canceled() -> void:
 	animation_player.play("show_color_wheel_minigame", -1, -1.0, true)
+	app.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func _on_alt_text_minigame_canceled() -> void:
+	animation_player.play("show_alt_text_minigame", -1, -1.0, true)
+	app.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func _on_alt_text_minigame_done(text) -> void:
+	selected_object.set_alt_text(text)
+	animation_player.play("show_alt_text_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT

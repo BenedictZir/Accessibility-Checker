@@ -1,3 +1,4 @@
+[style name="custom_narrator_style"]
 Sekarang tahun 2040. Indonesia sudah banyak berubah—dan perubahannya gila-gilaan.
 Kemiskinan ekstrem? Hampir punah.
 Layanan publik? Serba digital, serba cepat, dan (kebanyakan) nggak bikin stres.
@@ -6,8 +7,9 @@ Tugas kelompok? Masih nyebelin. Tapi sekarang AI bantu bagi kerjaan biar nggak a
 Pokoknya\: negeri ini lagi ngebut menuju Indonesia Emas 2045. Tinggal 5 tahun lagi.
 Tapi di balik semua pencapaian itu...
 masih ada satu PR besar yang belum kelar\: pemerataan digital yang bener-bener inklusif. Soal akses, bukan cuma soal sinyal—tapi soal apakah semua orang, termasuk penyandang disabilitas, bisa pakai layanan digital dengan nyaman dan setara.
-Dan hari ini,
-kamu,
-seorang mahasiswa tingkat akhir dengan jadwal tidur yang nggak karuan dan stok kopi susu yang mulai menipis, tiba-tiba dapat satu email
+[signal arg="change_bg_1"]
+Dan hari ini, kamu, seorang mahasiswa tingkat akhir dengan jadwal tidur yang nggak karuan dan stok kopi susu yang mulai menipis, tiba-tiba dapat satu email
 label skip_1
-[signal arg="reveal_phone"]
+[signal arg="change_bg_2"]
+[wait_input]
+[signal arg="show_mail"]

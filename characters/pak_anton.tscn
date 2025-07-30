@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://buqa4otc64gx4"]
+[gd_scene load_steps=7 format=3 uid="uid://buqa4otc64gx4"]
 
 [ext_resource type="Texture2D" uid="uid://l7pgr5xsvlmc" path="res://assets/Pak Anton lari maraton/Mingkem.png" id="1_yv5gi"]
 [ext_resource type="Texture2D" uid="uid://d2d3ev6m41syq" path="res://assets/Pak Anton lari maraton/Ngomong.png" id="2_07hmj"]
 [ext_resource type="Texture2D" uid="uid://djy33k2sbdkrt" path="res://assets/Pak Anton lari maraton/Turu.png" id="3_20ccw"]
+[ext_resource type="Texture2D" uid="uid://686b61o8gmys" path="res://assets/Pak Anton lari maraton/Untitled439_20250727174314.png" id="3_idsj1"]
 [ext_resource type="Script" uid="uid://deu3bvahp47o5" path="res://script/pak_anton.gd" id="4_07hmj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_idsj1"]
@@ -44,6 +45,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_idsj1")
+}],
+"loop": true,
+"name": &"smile",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_yv5gi")
 }, {
 "duration": 1.0,
@@ -68,10 +77,8 @@ animations = [{
 
 [node name="pak_anton" type="AnimatedSprite2D"]
 position = Vector2(1.19209e-07, -1.19209e-07)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_idsj1")
-animation = &"blink"
+animation = &"smile"
 autoplay = "blink"
-frame = 9
-frame_progress = 1.0
 script = ExtResource("4_07hmj")

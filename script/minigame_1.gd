@@ -5,7 +5,10 @@ extends Node2D
 @onready var alt_text_1: Area2D = $alt_text1
 @onready var alt_text_2: Area2D = $alt_text2
 @onready var alt_text_3: Area2D = $alt_text3
+@onready var answer_box: Area2D = $answer_box
 
+signal done
+signal canceled
 var alt_texts = []
 
 func _ready() -> void:
@@ -14,13 +17,13 @@ func _ready() -> void:
 	alt_texts.append(alt_text_2)
 	alt_texts.append(alt_text_3)
 	
-func init_alt_text(texts, texture):
-	print(texts)
+func init_alt_text(texts, texture, used_text):
 	image.texture = texture
 	for alt_text in alt_texts:
 		var text = texts.pick_random()
 		texts.erase(text)
 		alt_text.set_text(text)
+
 
 func set_alt_text_pos():
 	alt_text.set_pos($Node2D.global_position)
@@ -28,3 +31,29 @@ func set_alt_text_pos():
 	alt_text_2.set_pos($Node2D3.global_position)
 	alt_text_3.set_pos($Node2D4.global_position)
 	
+
+
+func _on_cancel_pressed		() -> void:
+	emit_signal("canceled")
+
+
+
+func _on_submit_pressed() -> void:
+	emit_signal("done", answer_box.get_text())
+	
+func reset_all_alt_texts(selected_object_text): # kembalikan yang tidak disimpan
+	for alt in alt_texts:
+		alt.reset()
+
+	for alt in alt_texts:
+		if alt.label.text == selected_object_text:
+			alt.enter_box(answer_box)
+			break
+
+func disable_collisions():
+	for alt in alt_texts:
+		alt.disable_collision()
+
+func enable_collisions():
+	for alt in alt_texts:
+		alt.enable_collision()

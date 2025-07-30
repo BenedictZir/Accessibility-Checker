@@ -42,10 +42,11 @@ func examine_image():
 
 func _on_deselect() -> void:
 	highlight.clear_points()
-	
+		
 func get_alt_text():
 	return alt_text
-	
+func set_alt_text(text):
+	alt_text = text
 func get_texts_list():
 	var alt_texts = [correct_alt_text, mid_alt_text, wrong_alt_text, wrong_alt_text_2]
 	return alt_texts

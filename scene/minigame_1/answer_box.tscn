@@ -4,13 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://ctfba6okwq4wd" path="res://assets/minigame_1/Frame 55.png" id="2_nmeeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1fjd"]
-size = Vector2(512, 96)
+size = Vector2(454, 79)
 
 [node name="answer_box" type="Area2D" groups=["answer_box"]]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_t1fjd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_t1fjd")
 
 [node name="Frame55" type="Sprite2D" parent="."]

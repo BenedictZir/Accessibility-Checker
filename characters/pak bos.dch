@@ -17,11 +17,11 @@
 "volume_variance": 0.0
 }
 },
-"style": ""
+"style": "custom_style"
 },
 &"default_portrait": "",
 &"description": "",
-&"display_name": "pak anton",
+&"display_name": "PAK ANTON",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),

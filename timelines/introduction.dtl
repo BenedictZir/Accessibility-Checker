@@ -1,3 +1,4 @@
+[style name="custom_style"]
 join "pak bos" center
 "pak bos": halo ini tugas pertamamu
 "pak bos": blabla blabla
@@ -11,7 +12,7 @@ label after_button
 "pak bos": lihat kotak di kanan, itu adalah tempat untuk memasukkan alt text untuk gambar tersebut
 [signal arg="show_ans"]
 "pak bos": teknologi tahun sekarang sudah bisa membuat alt text otomatis walau belum sempurna\
-"pak bos": tugasmu hanyalah memilih text terbaik dari opsi opsi yang tersedia, sangat mudah bukan?
+"pak bos"\: tugasmu hanyalah memilih text terbaik dari opsi opsi yang tersedia, sangat mudah bukan?
 return
 label after_submit
 if {ans} == "wrong":

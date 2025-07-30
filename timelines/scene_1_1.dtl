@@ -1,4 +1,5 @@
 label adegan_1
+[style name="custom_style"]
 Tampilan gedung kaca menjulang tinggi, memantulkan langit Jakarta yang kelabu di pagi hari.
 player: Wow. Tinggi banget. Belum pernah ke gedung setinggi ini sebelumnya.
 player: Apakah ini aroma profesionalisme? Aroma hand sanitizer dan kopi tubruk?
@@ -15,6 +16,7 @@ Tim Aksesibilitas Digital – Direktorat Komunikasi Inklusif (DAK)
 Di dalam, pemimpin timmu sudah menunggu.
 [signal arg="pak_anton_join"]
 Inilah Pak Anton\: penguasa bullet point, penakluk kopi hitam, penghancur alt text yang ngaco.
+[style name="custom_style"]
 join "pak bos" left
 [style]
 [signal arg="pak_anton_talk"]
@@ -24,5 +26,14 @@ join "pak bos" left
 [signal arg="pak_anton_talk"]
 "pak bos": Kamu akan mulai dari yang sederhana—bener-bener sederhana. Kita punya tumpukan slide presentasi yang... ya, dibuat dengan sangat tergesa.
 [signal arg="pak_anton_talk"]
-"pak bos": Tugas kamu? Bikin mereka bisa dimengerti. Oleh manusia. Dan oleh screen reader. Alt text sekarang sahabat barumu.
-<Empty Text Event>
+"pak bos": Tugas kamu? Bikin mereka bisa dimengerti. Oleh manusia. Dan oleh screen reader. Alt Text sekarang sahabat barumu.
+"pak bos": Dan tolong ya, jangan ada lagi deskripsi kayak ‘image1.jpg’ atau ‘infografis_final_final_fix_beneran.png’. Oke?
+"pak bos": Tenang saja, kamu tidak sendiri, Aruni di sini akan membantu kamu.
+join aruni center
+[signal arg="aruni_join"]
+aruni: Halo, Intern! Tenang aja—aku akan jadi pemandu kamu di dunia seru aksesibilitas digital.
+[signal arg="aruni_happy"]
+aruni: Anggap aku sebagai co-pilot yang ramah. Tapi dengan ingatan lebih tajam, dan nggak butuh tidur."
+[signal arg="aruni_happy"]
+aruni: Misi pertama\: ayo kita perbaiki—eh maksudku, tingkatkan—beberapa slide bareng-bareng, yuk!"
+[signal arg="aruni_happy"]

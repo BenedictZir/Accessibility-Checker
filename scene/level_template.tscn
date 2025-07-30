@@ -1,8 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=37 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
-[ext_resource type="PackedScene" uid="uid://dn5bmkvg8nq8d" path="res://scene/document.tscn" id="3_g113r"]
-[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="7_d3l6h"]
+[ext_resource type="PackedScene" uid="uid://1uu7h5hvpk3q" path="res://scene/documents/document_scene_1_2.tscn" id="2_epqjh"]
 [ext_resource type="Texture2D" uid="uid://3iw2t862xnyl" path="res://assets/1x/S.png" id="8_rsg4m"]
 [ext_resource type="Texture2D" uid="uid://d4hnykr43tltf" path="res://assets/1x/Rectangle 9776.png" id="9_epqjh"]
 [ext_resource type="Texture2D" uid="uid://bampgnrvu16pk" path="res://assets/1x/Frame 6.png" id="9_r31ky"]
@@ -15,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://w2m7kkprj2bo" path="res://assets/minigame_buttons/Group 64.png" id="16_p2f7k"]
 [ext_resource type="Texture2D" uid="uid://mikj44iv8v1v" path="res://assets/1x/Outline.png" id="16_xe1of"]
 [ext_resource type="PackedScene" uid="uid://4xtbpvksxxbp" path="res://scene/aruni_helper.tscn" id="17_epqjh"]
-[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="19_p2f7k"]
 [ext_resource type="PackedScene" uid="uid://o6nhawy4oxte" path="res://scene/outline.tscn" id="19_vaqec"]
 [ext_resource type="PackedScene" uid="uid://d0yx6qprrjcg5" path="res://scene/minigame_1/minigame_1.tscn" id="19_xe1of"]
 [ext_resource type="PackedScene" uid="uid://2ekyfsfu3hj6" path="res://scene/minigame_2.tscn" id="21_xe1of"]
@@ -151,6 +149,75 @@ tracks/10/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_p2f7k"]
+resource_name = "show_alt_text_minigame"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("app:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.67451, 0.67451, 0.67451, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("alt_text_minigame:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("alt_text_minigame:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("alt_text_minigame:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("alt_text_minigame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"disable_collisions"
+}, {
+"args": [],
+"method": &"enable_collisions"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_vaqec"]
 resource_name = "show_color_wheel_minigame"
 length = 0.4
@@ -235,58 +302,6 @@ tracks/6/keys = {
 "values": [0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_p2f7k"]
-resource_name = "show_alt_text_minigame"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("app:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.67451, 0.67451, 0.67451, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("alt_text_minigame:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("alt_text_minigame:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("alt_text_minigame:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kemr8"]
 _data = {
 &"RESET": SubResource("Animation_xe1of"),
@@ -338,6 +353,7 @@ texture = SubResource("CompressedTexture2D_lmy6v")
 
 [node name="level_template" type="Node2D"]
 script = ExtResource("1_lpc36")
+document_scene = ExtResource("2_epqjh")
 outline_scene = ExtResource("19_vaqec")
 time = 20
 
@@ -368,65 +384,8 @@ texture = ExtResource("12_xnxwe")
 position = Vector2(973, 619)
 texture = ExtResource("9_epqjh")
 
-[node name="document" parent="app" instance=ExtResource("3_g113r")]
-position = Vector2(971, 411)
-
-[node name="texts" type="Node2D" parent="app/document"]
-
-[node name="doc_text" parent="app/document/texts" instance=ExtResource("7_d3l6h")]
-offset_left = -210.0
-offset_top = 468.0
-offset_right = -43.0
-offset_bottom = 491.0
-text = "walaweaaaaaaaaaaaf"
-
-[node name="doc_text2" parent="app/document/texts" instance=ExtResource("7_d3l6h")]
-offset_left = -218.0
-offset_top = 616.0
-offset_right = 129.0
-offset_bottom = 639.0
-text = "brotsrfwefasddddddvvvvvvvvvvvvvvvvvvvvvv"
-
-[node name="doc_text3" parent="app/document/texts" instance=ExtResource("7_d3l6h")]
-offset_left = -208.0
-offset_top = 57.0
-offset_right = -151.0
-offset_bottom = 80.0
-text = "de"
-
-[node name="images" type="Node2D" parent="app/document"]
-
-[node name="images" parent="app/document/images" instance=ExtResource("19_p2f7k")]
-offset_left = -448.0
-offset_top = 287.0
-offset_right = -320.0
-offset_bottom = 415.0
-correct_alt_text = "ini icon godot"
-mid_alt_text = "ini icon game engine"
-wrong_alt_text = "ini icon unity"
-wrong_alt_text_2 = "ini icon unreal"
-
-[node name="images2" parent="app/document/images" instance=ExtResource("19_p2f7k")]
-offset_left = -393.0
-offset_top = 622.0
-offset_right = -265.0
-offset_bottom = 750.0
-
-[node name="images3" parent="app/document/images" instance=ExtResource("19_p2f7k")]
-offset_left = 240.0
-offset_top = 162.0
-offset_right = 368.0
-offset_bottom = 290.0
-
-[node name="images4" parent="app/document/images" instance=ExtResource("19_p2f7k")]
-offset_left = 45.0
-offset_top = 747.0
-offset_right = 173.0
-offset_bottom = 875.0
-correct_alt_text = "haha"
-mid_alt_text = "ckck"
-wrong_alt_text = "aaa"
-wrong_alt_text_2 = "bbb"
+[node name="document" type="Node2D" parent="app"]
+position = Vector2(965, 408)
 
 [node name="blue_polygon" type="Polygon2D" parent="app"]
 position = Vector2(973, 619)
@@ -571,3 +530,5 @@ position = Vector2(206, 981)
 [connection signal="pressed" from="app/minigame_icons/text_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
 [connection signal="canceled" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_canceled"]
 [connection signal="done" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_done"]
+[connection signal="canceled" from="alt_text_minigame" to="." method="_on_alt_text_minigame_canceled"]
+[connection signal="done" from="alt_text_minigame" to="." method="_on_alt_text_minigame_done"]

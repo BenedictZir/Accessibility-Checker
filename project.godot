@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gemastik"
-run/main_scene="uid://bipgplrv3t8vg"
+run/main_scene="uid://byrbri3utieqw"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,25 +20,29 @@ config/icon="res://icon.svg"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GlobalVar="*res://scene/global_var.tscn"
 AudioManager="*res://scene/audio_manager.tscn"
+SceneTransition="*res://scene/scene_transition.tscn"
 
 [dialogic]
 
 directories/dch_directory={
 "Resources/unit_test_character": "res://Tests/Resources/unit_test_character.dch",
+"aruni": "res://characters/aruni.dch",
 "pak bos": "res://characters/pak bos.dch",
 "player": "res://characters/player.dch"
 }
 directories/dtl_directory={
 "introduction": "res://timelines/introduction.dtl",
 "prologue": "res://timelines/prologue.dtl",
-"scene_1_1": "res://timelines/scene_1_1.dtl"
+"scene_1_1": "res://timelines/scene_1_1.dtl",
+"scene_1_2": "res://timelines/scene_1_2.dtl",
+"scene_1_3": "res://timelines/scene_1_3.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://style/big mid box.tres"]
-layout/default_style=""
+layout/style_list=["res://style/custom_style.tres", "res://style/custom_narrator_style.tres"]
+layout/default_style="res://style/custom_style.tres"
 variables={
 "ans": "a",
-"player_name": "beben"
+"player_name": "BEBEN"
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -60,6 +64,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+glossary/glossary_files=["res://glossary/glossary.tres"]
 
 [display]
 

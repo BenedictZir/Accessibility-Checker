@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://eceveeh4hetj"]
+
+[ext_resource type="Texture2D" uid="uid://cicacn1yr5ycx" path="res://assets/aruni/___.png" id="1_m0w2f"]
+[ext_resource type="Texture2D" uid="uid://b8fg3uyslkvcg" path="res://assets/aruni/O_O.png" id="2_pu2pj"]
+[ext_resource type="Script" uid="uid://cmskwo6opwsbd" path="res://script/aruni.gd" id="3_pu2pj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thcox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m0w2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pu2pj")
+}],
+"loop": false,
+"name": &"happy",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pu2pj")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="aruni" type="AnimatedSprite2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_thcox")
+animation = &"normal"
+frame_progress = 0.724908
+script = ExtResource("3_pu2pj")

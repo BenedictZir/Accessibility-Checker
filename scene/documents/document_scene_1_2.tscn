@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://1uu7h5hvpk3q"]
+
+[ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_n8swi"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="2_xu0mm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
+size = Vector2(905, 1092)
+
+[node name="document_template" type="Node2D" groups=["document"]]
+script = ExtResource("1_n8swi")
+
+[node name="paper_area" type="Area2D" parent="."]
+position = Vector2(0, -44)
+collision_priority = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paper_area"]
+position = Vector2(-6.5, 360)
+shape = SubResource("RectangleShape2D_wjaii")
+
+[node name="texts" type="Node2D" parent="."]
+
+[node name="images" type="Node2D" parent="."]
+
+[node name="images" parent="images" instance=ExtResource("2_xu0mm")]
+offset_left = -358.0
+offset_top = 459.0
+offset_right = -230.0
+offset_bottom = 587.0
+
+[node name="images2" parent="images" instance=ExtResource("2_xu0mm")]
+offset_left = -360.0
+offset_top = 173.0
+offset_right = -66.0
+offset_bottom = 301.0
+
+[node name="images3" parent="images" instance=ExtResource("2_xu0mm")]
+offset_left = -360.0
+offset_top = -131.0
+offset_right = -232.0
+offset_bottom = -3.0
+
+[node name="images4" parent="images" instance=ExtResource("2_xu0mm")]
+offset_left = -360.0
+offset_top = 733.0
+offset_right = -232.0
+offset_bottom = 861.0
+
+[connection signal="selected" from="." to="." method="_on_selected"]
+[connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

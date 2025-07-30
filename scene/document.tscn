@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
 size = Vector2(905, 1092)
 
-[node name="document" type="Node2D" groups=["document"]]
+[node name="document_template" type="Node2D" groups=["document"]]
 script = ExtResource("1_d31jj")
 
 [node name="paper_area" type="Area2D" parent="."]
@@ -15,6 +15,10 @@ collision_priority = 0.1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paper_area"]
 position = Vector2(-6.5, 360)
 shape = SubResource("RectangleShape2D_wjaii")
+
+[node name="texts" type="Node2D" parent="."]
+
+[node name="images" type="Node2D" parent="."]
 
 [connection signal="selected" from="." to="." method="_on_selected"]
 [connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

@@ -30,6 +30,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			var parent = find_parent("level_template")
 			parent.select(self)
 
+func get_images():
+	return $images.get_children()
 
+func get_texts():
+	return $texts.get_children()
 func _on_selected() -> void:
 	pass # Replace with function body.
