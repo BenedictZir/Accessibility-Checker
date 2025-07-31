@@ -1,0 +1,212 @@
+[gd_scene load_steps=35 format=3 uid="uid://243ahq71s8x8"]
+
+[ext_resource type="Texture2D" uid="uid://yug54vejcn5h" path="res://assets/map/background.png" id="1_44fbv"]
+[ext_resource type="Script" uid="uid://c1apehyilrdsk" path="res://script/map.gd" id="1_l8r8p"]
+[ext_resource type="Texture2D" uid="uid://2boi62bxj6k3" path="res://assets/map/base.png" id="3_gmpll"]
+[ext_resource type="Texture2D" uid="uid://ccwvb3ds8eydx" path="res://assets/map/right.png" id="4_4m74h"]
+[ext_resource type="Texture2D" uid="uid://dersad0a5hcnv" path="res://assets/map/name_top.png" id="5_bachi"]
+[ext_resource type="FontFile" uid="uid://bpju6a6dwhsm2" path="res://assets/fonts/Dosis-ExtraBold.ttf" id="6_gmpll"]
+[ext_resource type="Texture2D" uid="uid://c4wkspptplr1r" path="res://assets/map/hari.png" id="6_ui0ov"]
+[ext_resource type="Texture2D" uid="uid://dyp77aa6obp63" path="res://assets/map/desc.png" id="7_amuei"]
+[ext_resource type="Texture2D" uid="uid://dp7u663fx6wn2" path="res://assets/map/name.png" id="8_yqoch"]
+[ext_resource type="Texture2D" uid="uid://6jnpyoettc6t" path="res://assets/map/kantor.png" id="9_3fel5"]
+[ext_resource type="Texture2D" uid="uid://c4fsysig03hhc" path="res://assets/map/kos.png" id="10_pa0f6"]
+[ext_resource type="Texture2D" uid="uid://cw6ae00ddw5bu" path="res://assets/map/supermarket.png" id="11_lfekj"]
+[ext_resource type="Texture2D" uid="uid://w6n7li52h48p" path="res://assets/map/taman.png" id="12_d6soc"]
+[ext_resource type="Texture2D" uid="uid://csr87rf4f2qvk" path="res://assets/map/cafe.png" id="13_uhta6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v66k7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44fbv"]
+texture = ExtResource("13_uhta6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8r8p"]
+texture = ExtResource("13_uhta6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmpll"]
+texture = ExtResource("13_uhta6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4m74h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bachi"]
+texture = ExtResource("9_3fel5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ui0ov"]
+texture = ExtResource("9_3fel5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_amuei"]
+texture = ExtResource("9_3fel5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8r8p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4m74h"]
+texture = ExtResource("12_d6soc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yqoch"]
+texture = ExtResource("12_d6soc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3fel5"]
+texture = ExtResource("12_d6soc")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pa0f6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfekj"]
+texture = ExtResource("10_pa0f6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d6soc"]
+texture = ExtResource("10_pa0f6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhta6"]
+texture = ExtResource("10_pa0f6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ewrs0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i8ww0"]
+texture = ExtResource("11_lfekj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d60jh"]
+texture = ExtResource("11_lfekj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ctjw"]
+texture = ExtResource("11_lfekj")
+
+[node name="map" type="Node2D"]
+script = ExtResource("1_l8r8p")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(960, 541)
+texture = ExtResource("1_44fbv")
+
+[node name="base" type="Sprite2D" parent="."]
+position = Vector2(715, 647)
+texture = ExtResource("3_gmpll")
+
+[node name="ColorRect" type="ColorRect" parent="base"]
+offset_left = -19.0
+offset_top = 390.0
+offset_right = 246.0
+offset_bottom = 436.0
+color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="right" type="Sprite2D" parent="."]
+position = Vector2(1575, 534)
+texture = ExtResource("4_4m74h")
+
+[node name="day" type="Sprite2D" parent="."]
+position = Vector2(960, 212)
+texture = ExtResource("5_bachi")
+
+[node name="day_label" type="Label" parent="day"]
+offset_left = 524.0
+offset_top = -134.0
+offset_right = 856.0
+offset_bottom = -33.0
+rotation = 0.119049
+theme_override_fonts/font = ExtResource("6_gmpll")
+theme_override_font_sizes/font_size = 60
+text = "SENIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="date" type="Sprite2D" parent="."]
+position = Vector2(1333, 227)
+texture = ExtResource("6_ui0ov")
+
+[node name="date_label" type="Label" parent="date"]
+offset_left = -67.0
+offset_top = -52.0
+offset_right = 58.0
+offset_bottom = 49.0
+rotation = 0.0398288
+theme_override_fonts/font = ExtResource("6_gmpll")
+theme_override_font_sizes/font_size = 60
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="desc" type="Sprite2D" parent="."]
+position = Vector2(679, 904)
+texture = ExtResource("7_amuei")
+
+[node name="name_box" type="Sprite2D" parent="."]
+position = Vector2(386, 832)
+texture = ExtResource("8_yqoch")
+
+[node name="name_label" type="Label" parent="name_box"]
+offset_left = -174.0
+offset_top = -56.0
+offset_right = 180.0
+offset_bottom = 34.0
+rotation = 0.0615153
+theme_override_fonts/font = ExtResource("6_gmpll")
+theme_override_font_sizes/font_size = 60
+text = "NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cafe_button" type="Button" parent="."]
+anchors_preset = -1
+offset_left = 461.0
+offset_top = 556.0
+offset_right = 616.0
+offset_bottom = 725.0
+pivot_offset = Vector2(77.5, 169)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v66k7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_44fbv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_44fbv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l8r8p")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gmpll")
+
+[node name="kantor_button" type="Button" parent="."]
+custom_minimum_size = Vector2(167, 295)
+offset_left = 542.0
+offset_top = 76.0
+offset_right = 709.0
+offset_bottom = 371.0
+pivot_offset = Vector2(83.5, 295)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4m74h")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_bachi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bachi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ui0ov")
+theme_override_styles/normal = SubResource("StyleBoxTexture_amuei")
+
+[node name="taman_button" type="Button" parent="."]
+offset_left = 260.0
+offset_top = 427.0
+offset_right = 417.0
+offset_bottom = 612.0
+pivot_offset = Vector2(78.5, 185)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l8r8p")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_4m74h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4m74h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yqoch")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3fel5")
+
+[node name="kos_button" type="Button" parent="."]
+offset_left = 866.0
+offset_top = 583.0
+offset_right = 1038.0
+offset_bottom = 773.0
+pivot_offset = Vector2(86, 190)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pa0f6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lfekj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lfekj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d6soc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uhta6")
+
+[node name="supermarket_button" type="Button" parent="."]
+offset_left = 1038.0
+offset_top = 402.0
+offset_right = 1214.0
+offset_bottom = 585.0
+pivot_offset = Vector2(88, 183)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ewrs0")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_i8ww0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d60jh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i8ww0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6ctjw")

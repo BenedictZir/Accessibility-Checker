@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2a8cideujxdy" path="res://script/scene_1_3.gd" id="1_6w5b0"]
 [ext_resource type="PackedScene" uid="uid://buqa4otc64gx4" path="res://characters/pak_anton.tscn" id="2_bvd3o"]
-[ext_resource type="PackedScene" uid="uid://eceveeh4hetj" path="res://scene/aruni.tscn" id="3_xwmpl"]
+[ext_resource type="PackedScene" uid="uid://fkdu00lqfjkp" path="res://scene/aruna.tscn" id="3_bvd3o"]
 
 [sub_resource type="Animation" id="Animation_2hy5q"]
 length = 0.001
@@ -21,23 +21,23 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("aruni:position")
+tracks/1/path = NodePath("aruna:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.001),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1459, 1261), Vector2(1550, 1291)]
+"values": [Vector2(1459, 1261)]
 }
 
 [sub_resource type="Animation" id="Animation_dpl84"]
-resource_name = "aruni_join"
+resource_name = "aruna_join"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("aruni:position")
+tracks/0/path = NodePath("aruna:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,7 +49,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_32ww4"]
 resource_name = "pak_anton_join"
-length = 0.3
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -57,7 +57,7 @@ tracks/0/path = NodePath("pak_anton:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(576, 1440), Vector2(576, 564)]
@@ -66,7 +66,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dpl84"]
 _data = {
 &"RESET": SubResource("Animation_2hy5q"),
-&"aruni_join": SubResource("Animation_dpl84"),
+&"aruna_join": SubResource("Animation_dpl84"),
 &"pak_anton_join": SubResource("Animation_32ww4")
 }
 
@@ -81,6 +81,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_dpl84")
 }
 
-[node name="aruni" parent="." instance=ExtResource("3_xwmpl")]
+[node name="aruna" parent="." instance=ExtResource("3_bvd3o")]
 position = Vector2(1459, 1261)
-autoplay = "normal"

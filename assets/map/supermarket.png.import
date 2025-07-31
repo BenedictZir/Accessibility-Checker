@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cicacn1yr5ycx"
-path="res://.godot/imported/___.png-6f04aeba1b36160ee31de45d59ead591.ctex"
+uid="uid://cw6ae00ddw5bu"
+path="res://.godot/imported/supermarket.png-ed519dcecad87eb06a9fad9c35942e4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aruni/___.png"
-dest_files=["res://.godot/imported/___.png-6f04aeba1b36160ee31de45d59ead591.ctex"]
+source_file="res://assets/map/supermarket.png"
+dest_files=["res://.godot/imported/supermarket.png-ed519dcecad87eb06a9fad9c35942e4b.ctex"]
 
 [params]
 

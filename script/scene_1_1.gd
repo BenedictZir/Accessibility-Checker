@@ -1,7 +1,7 @@
 extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var pak_anton: AnimatedSprite2D = $pak_anton
-@onready var aruni: AnimatedSprite2D = $aruni
+@onready var aruna: AnimatedSprite2D = $aruna
 
 # 205, 445
 func _ready() -> void:
@@ -19,10 +19,11 @@ func _on_dialogic_signal(arg):
 	if arg == "pak_anton_talk":
 		pak_anton.play("talk")
 		
-	if arg == "aruni_join":
-		animation_player.play("aruni_join")
+	if arg == "aruna_join":
+		animation_player.play("aruna_join")
 		await  animation_player.animation_finished
-		aruni.start_floating(aruni.position.y)
-	if arg == "aruni_happy":
-		aruni.play("happy")
-		
+		aruna.start_floating(aruna.position.y)
+	if arg == "aruna_happy":
+		aruna.play("happy")
+	if arg == "end":
+		SceneTransition.change_scene("res://scene/scene_1_2.tscn")

@@ -14,14 +14,16 @@ Dia tersenyum—tulus.
 [signal arg="pak_anton_talk"]
 "pak bos": Sekarang istirahat dulu. Besok kita kerjakan yang sedikit lebih menantang."
 [signal arg="pak_anton_talk"]
-[signal arg="aruni_join"]
+[signal arg="aruna_join"]
 "pak bos": Tapi tenang saja—kamu nggak akan melakukannya sendirian.
-join aruni center
-aruni: Selamat ya, Intern! Hari pertama selesai.
-[signal arg="aruni_happy"]
-aruni: Dokumen yang ditinjau\: 1. Gambar yang kini aksesibel\: 6. Tingkat kepercayaan diri\: Meningkat.
-[signal arg="aruni_happy"]
-aruni: Pengingat\: Tidur adalah bagian dari produktivitas. Menutup laptop sangat disarankan."
-[signal arg="aruni_happy"]
+join aruna center
+aruna: Selamat ya, Intern! Hari pertama selesai.
+[signal arg="aruna_happy"]
+aruna: Dokumen yang ditinjau\: 1. \
+Gambar yang kini aksesibel\: 4.
+aruna:  Tingkat kepercayaan diri\: Meningkat.
+[signal arg="aruna_happy"]
+aruna: Pengingat\: Tidur adalah bagian dari produktivitas. Menutup laptop sangat disarankan.
+[signal arg="aruna_happy"]
 Kamu mengemasi barang-barangmu. Hari pertamamu bekerja di pemerintahan pun berakhir.
 Tidak buruk untuk seseorang yang dua hari lalu mengira “alt text” adalah nama band indie.

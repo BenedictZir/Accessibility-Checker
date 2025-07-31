@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8fg3uyslkvcg"
-path="res://.godot/imported/O_O.png-bed468bfc673f3b70989334afeff7757.ctex"
+uid="uid://ccwvb3ds8eydx"
+path="res://.godot/imported/right.png-e29f48d6cce41d85adf3c02cd4907f21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/aruni/O_O.png"
-dest_files=["res://.godot/imported/O_O.png-bed468bfc673f3b70989334afeff7757.ctex"]
+source_file="res://assets/map/right.png"
+dest_files=["res://.godot/imported/right.png-e29f48d6cce41d85adf3c02cd4907f21.ctex"]
 
 [params]
 

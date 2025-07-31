@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=41 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="PackedScene" uid="uid://1uu7h5hvpk3q" path="res://scene/documents/document_scene_1_2.tscn" id="2_epqjh"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cru58h6cg5bg0" path="res://assets/minigame_buttons/Group 63.png" id="15_xnxwe"]
 [ext_resource type="Texture2D" uid="uid://w2m7kkprj2bo" path="res://assets/minigame_buttons/Group 64.png" id="16_p2f7k"]
 [ext_resource type="Texture2D" uid="uid://mikj44iv8v1v" path="res://assets/1x/Outline.png" id="16_xe1of"]
-[ext_resource type="PackedScene" uid="uid://4xtbpvksxxbp" path="res://scene/aruni_helper.tscn" id="17_epqjh"]
+[ext_resource type="PackedScene" uid="uid://4xtbpvksxxbp" path="res://scene/aruna_helper.tscn" id="17_epqjh"]
 [ext_resource type="PackedScene" uid="uid://o6nhawy4oxte" path="res://scene/outline.tscn" id="19_vaqec"]
 [ext_resource type="PackedScene" uid="uid://d0yx6qprrjcg5" path="res://scene/minigame_1/minigame_1.tscn" id="19_xe1of"]
 [ext_resource type="PackedScene" uid="uid://2ekyfsfu3hj6" path="res://scene/minigame_2.tscn" id="21_xe1of"]
@@ -322,6 +322,9 @@ texture = ExtResource("15_xnxwe")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ng3r6"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_epqjh"]
+texture = ExtResource("16_p2f7k")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rffd"]
 texture = ExtResource("16_p2f7k")
 
@@ -335,6 +338,9 @@ texture = ExtResource("16_p2f7k")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_te1jt"]
 load_path = "res://.godot/imported/Group 62.png-5aae5672aac691fa6cd505aa5f656d5e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnxwe"]
+texture = SubResource("CompressedTexture2D_te1jt")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3l6h"]
 texture = SubResource("CompressedTexture2D_te1jt")
@@ -351,7 +357,14 @@ load_path = "res://.godot/imported/Group 62.png-5aae5672aac691fa6cd505aa5f656d5e
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kemr8"]
 texture = SubResource("CompressedTexture2D_lmy6v")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2f7k"]
+texture = ExtResource("15_xnxwe")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaqec"]
+texture = ExtResource("16_p2f7k")
+
 [node name="level_template" type="Node2D"]
+self_modulate = Color(0.450648, 0.450648, 0.450648, 1)
 script = ExtResource("1_lpc36")
 document_scene = ExtResource("2_epqjh")
 outline_scene = ExtResource("19_vaqec")
@@ -443,6 +456,7 @@ offset_right = 1182.0
 offset_bottom = 157.0
 theme_override_font_sizes/font_size = 41
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ng3r6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_epqjh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8rffd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yo4d5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_p17l8")
@@ -462,6 +476,7 @@ focus_mode = 0
 mouse_filter = 1
 theme_override_font_sizes/font_size = 150
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xe1of")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xnxwe")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d3l6h")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_m4atv")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kemr8")
@@ -479,6 +494,7 @@ offset_bottom = 161.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 61
 theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_p2f7k")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lmy6v")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_io6bp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_dw8l3")
@@ -491,6 +507,7 @@ offset_right = 1182.0
 offset_bottom = 157.0
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ng3r6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_vaqec")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8rffd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yo4d5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_p17l8")

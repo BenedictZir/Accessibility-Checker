@@ -10,19 +10,36 @@ extends Node2D
 @onready var text_features: Node2D = $app/minigame_icons/text_features
 @onready var alt_text_minigame: Node2D = $alt_text_minigame
 @onready var document: Node2D = $app/document
-
+@onready var v_box_container: VBoxContainer = $app/ScrollContainer/VBoxContainer
 @onready var app: Node2D = $app
+
 @export var document_scene: PackedScene
 @export var outline_scene: PackedScene
 @export var time := 0
-@onready var v_box_container: VBoxContainer = $app/ScrollContainer/VBoxContainer
+@export var is_tutorial_1 := false
+
 var selected_outline = null
 var selected_object = null
 var all_object := []
 var all_images := []
 var all_texts := []
 
+signal image_clicked # untuk tutor 1
+
 func _ready() -> void:
+	if is_tutorial_1:
+		$app/minigame_icons/image_features/structure_button.self_modulate = Color(0.451, 0.451, 0.451)
+		$app/minigame_icons/image_features/structure_button.disabled = true
+		
+		$app/minigame_icons/docs_features/color_wheel_button.self_modulate = Color(0.451, 0.451, 0.451)
+		$app/minigame_icons/docs_features/color_wheel_button.disabled = true
+		
+		$app/minigame_icons/text_features/color_wheel_button.self_modulate = Color(0.451, 0.451, 0.451)
+		$app/minigame_icons/text_features/color_wheel_button.disabled = true
+		
+		$app/minigame_icons/text_features/structure_button.self_modulate = Color(0.451, 0.451, 0.451)
+		$app/minigame_icons/text_features/structure_button.disabled = true
+		
 	var doc = document_scene.instantiate()
 	document.add_child(doc)
 	doc.global_position = document.global_position
@@ -90,6 +107,8 @@ func select(obj):
 		selected_outline.emit_signal("selected")
 	
 	obj.emit_signal("selected")
+	if (obj.is_in_group("images")):
+			emit_signal("image_clicked")
 
 func find_outline(obj):
 	var outlines = v_box_container.get_children()
@@ -119,6 +138,8 @@ func select_outline(outline):
 			break
 	selected_object = obj
 	show_features()
+	if (obj.is_in_group("images")):
+		emit_signal("image_clicked")
 	
 	obj.emit_signal("selected")
 
@@ -136,6 +157,7 @@ func show_features():
 		show_image_features()
 	else:
 		show_text_features()
+		
 func show_image_features():
 	image_features.show()
 	docs_features.hide()

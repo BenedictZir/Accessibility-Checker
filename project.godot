@@ -26,7 +26,7 @@ SceneTransition="*res://scene/scene_transition.tscn"
 
 directories/dch_directory={
 "Resources/unit_test_character": "res://Tests/Resources/unit_test_character.dch",
-"aruni": "res://characters/aruni.dch",
+"aruna": "res://characters/aruna.dch",
 "pak bos": "res://characters/pak bos.dch",
 "player": "res://characters/player.dch"
 }

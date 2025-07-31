@@ -1,0 +1,21 @@
+aruna: Ini adalah interface yang akan kamu liat setiap hari
+[signal arg="arrow_document"]
+aruna: Di tengah ada dokumen beserta isinya (image, text dan kertas dokumen itu sendiri
+[signal arg="arrow_outline"]
+aruna: Di sebelah kiri adalah bagian outline yang memudahkan kalian mengakses isi dokumen
+[signal arg="arrow_acc_checker"]
+aruna: Di sebalah kanan adalah bagian accessibility checker untuk melihat bagian bagian yang masih bermasalah
+aruna: Untuk awal-awal kamu hanya diminta untuk memperbaiki image yang belum punya alt text ini
+aruna: Silahkan coba klik salah satu image yang ada di dokumen
+[signal arg="wait_image_clicked"]
+return
+label after_click_image
+[signal arg="image_clicked"]
+aruna: Ketika kamu memilih suatu object di dokumen, fitur untuk jenis object itu akan muncul di bagian atas, untuk sekarang coba buka fitur alt text
+return
+label after_click_button
+aruna: Sekarang kita masuk ke bagian yang paling seru
+aruna: Di bagian kiri adalah image beserta alt text untuk image tersebut (saat ini masih kosong)
+aruna: Di bagian kiri adalah image beserta alt text untuk image tersebut (saat ini masih kosong)
+aruna: Di bagian kanan adalah pilihan alt text yang bisa kamu masukkan
+aruna: Silahkan isi dengan alt text yang paling mendeskripsikan image itu!
