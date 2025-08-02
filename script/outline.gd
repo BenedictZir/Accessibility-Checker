@@ -1,4 +1,5 @@
 extends Label
+
 @onready var heading: Sprite2D = $heading
 @onready var subheading: Sprite2D = $subheading
 @onready var text_bg: Sprite2D = $text
@@ -9,23 +10,29 @@ extends Label
 
 signal selected
 signal deselect
-const HEADING_X = 30
-const SUBHEADING_X = 70
-const TEXT_X = 110
+
+const HEADING_X = 25
+const SUBHEADING_X = 65
+const TEXT_X = 105
+
 var type
 var is_selected := false
 var currently_visible
+var display_name := ""
+var bound_object = null # ✅ tambahkan ini untuk menyimpan objek dokumen terkait
+
 func _ready() -> void:
 	currently_visible = heading
 	heading.show()
+
 func _process(delta: float) -> void:
-	label.text = name
-	if name.containsn("subheading"):
+	label.text = display_name # gunakan display_name, bukan name
+	if display_name.containsn("subheading"):
 		if is_selected:
 			update_outline(subheading_selected, SUBHEADING_X)
 		else:
 			update_outline(subheading, SUBHEADING_X)
-	elif name.containsn("heading"):
+	elif display_name.containsn("heading"):
 		if is_selected:
 			update_outline(heading_selected, HEADING_X)
 		else:
@@ -35,17 +42,12 @@ func _process(delta: float) -> void:
 			update_outline(text_bg_selected, TEXT_X)
 		else:
 			update_outline(text_bg, TEXT_X)
-			
-			
-
 
 func update_outline(background, pos):
 	currently_visible.hide()
 	currently_visible = background
 	currently_visible.show()
 	label.position.x = pos
-	
-
 
 func _on_selected() -> void:
 	is_selected = true
@@ -57,3 +59,13 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if Input.is_action_just_pressed("click"):
 		var parent = find_parent("level_template")
 		parent.select_outline(self)
+
+# ✅ fungsi ini kamu butuhkan
+func set_display_name(display):
+	display_name = display
+
+func bind_object(obj):
+	bound_object = obj
+
+func get_bound_object():
+	return bound_object

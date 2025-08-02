@@ -65,8 +65,8 @@ func init_wheel(obj):
 		befpre_polygon.hide()
 		after_polygon.hide()
 		
-		before_label.text = obj.name
-		after_label.text = obj.name
+		before_label.text = obj.display_name
+		after_label.text = obj.display_name
 		before_label.add_theme_color_override("font_color", obj.get_theme_color("font_color"))
 		after_label.add_theme_color_override("font_color", obj.get_theme_color("font_color"))
 		

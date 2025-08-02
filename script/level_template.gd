@@ -58,35 +58,42 @@ func get_all_images():
 	var images = find_child("document").get_child(0).get_images()
 	for image in images:
 		all_images.append(image)
+	all_images.sort_custom(sort_by_pos)
 
 func get_all_text():
 	var texts = find_child("document").get_child(0).get_texts()
 	for text in texts:
 		all_texts.append(text)
-	
+	all_texts.sort_custom(sort_by_pos)
 func get_all_obj():
 	get_all_images()
 	get_all_text()
+	
 	for text in all_texts:
 		all_object.append(text)
 	for image in all_images:
 		all_object.append(image)
 	all_object.sort_custom(sort_by_pos)
+	
 	var text_count = 1
 	var image_count = 1
+	
 	for obj in all_object:
 		if obj.is_in_group("texts"):
 			obj.name = "text " + str(text_count)
-			create_outline(obj.name)
+			obj.display_name = obj.name
+			create_outline(obj, obj.display_name)
 			text_count += 1
 		else:
 			obj.name = "image " + str(image_count)
-			create_outline(obj.name)
+			create_outline(obj, obj.display_name)
 			image_count += 1
 			
-func create_outline(obj_name):
+func create_outline(obj, display_name):
 	var outline = outline_scene.instantiate()
-	outline.name = obj_name
+	outline.name = obj.name + "_outline"
+	outline.set_display_name(display_name)
+	outline.bind_object(obj)
 	v_box_container.add_child(outline)
 func select(obj):
 	if (selected_object):
@@ -112,38 +119,31 @@ func select(obj):
 			emit_signal("image_clicked")
 
 func find_outline(obj):
-	var outlines = v_box_container.get_children()
-	for outline in outlines:
-		if outline.name == obj.name:
+	for outline in v_box_container.get_children():
+		if outline.get_bound_object() == obj:
 			return outline
+	return null
 			
 func select_outline(outline):
-	if (selected_outline):
-		if (selected_object):
+	if selected_outline:
+		if selected_object:
 			selected_object.emit_signal("deselect")
 		selected_outline.emit_signal("deselect")
-		if (selected_outline == outline):
+		if selected_outline == outline:
 			selected_object = null
 			selected_outline = null
 			show_features()
-			
 			return
 		selected_object = null
 		selected_outline = null
+
 	selected_outline = outline
 	selected_outline.emit_signal("selected")
-	var obj
-	for object in all_object:
-		if object.name == selected_outline.name:
-			obj = object
-			break
-	selected_object = obj
+	selected_object = outline.get_bound_object()
 	show_features()
-	if (obj.is_in_group("images")):
+	if selected_object.is_in_group("images"):
 		emit_signal("image_clicked")
-	
-	obj.emit_signal("selected")
-
+	selected_object.emit_signal("selected")
 func sort_by_pos(a, b):
 	if a.global_position.y < b.global_position.y:
 		return true
@@ -266,38 +266,18 @@ func get_all_text_in_a_part(selected_part: int):
 	return texts
 	
 
-func update_outline():
-	var outlines = v_box_container.get_children()
-	for outline in outlines:
-		outline.update_outline()
+
 	
 func _on_structure_minigame_done() -> void:
 	var result = structure_minigame.return_result()
-	var heading_count = 0
-	var subheading_count = 0
-	var text_count = 0
 	for doc_text in all_texts:
 		if result.has(doc_text.text):
-			var structure = result[doc_text.text]
-			doc_text.structure = structure
-			var outline = find_outline_text(doc_text.name)
-			if structure.containsn("subheading"):
-				subheading_count += 1
-				text_count = 0
-				doc_text.name = "subheading " + str(subheading_count)
-			elif structure.containsn("heading"):
-				heading_count += 1
-				subheading_count = 0
-				text_count = 0
-				doc_text.name = "heading " + str(heading_count)
-			else:
-				text_count += 1
-				doc_text.name = "text " + str(text_count)
-			outline.name = doc_text.name
+			doc_text.structure = result[doc_text.text]
+
 	update_text_outline()
+
 	animation_player.play("show_structure_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
-
 func find_outline_text(target_text):
 	for child in v_box_container.get_children():
 		if child.name == target_text:
@@ -307,22 +287,27 @@ func update_text_outline():
 	var heading_count = 0
 	var subheading_count = 0
 	var text_count = 0
+
 	for text in all_texts:
-		var outline = find_outline_text(text.name)
-		if text.name.containsn("subheading"):
+		var outline = find_outline(text)
+		var display_name = ""
+
+		if text.structure.containsn("subheading"):
 			subheading_count += 1
 			text_count = 0
-			text.name = "subheading " + str(subheading_count)
-		elif text.name.containsn("heading"):
+			display_name = "subheading " + str(subheading_count)
+		elif text.structure.containsn("heading"):
 			heading_count += 1
 			subheading_count = 0
 			text_count = 0
-			text.name = "heading " + str(heading_count)
+			display_name = "heading " + str(heading_count)
 		else:
 			text_count += 1
-			text.name = "text " + str(text_count)
-			outline.name = text.name
-		print(outline)
+			display_name = "text " + str(text_count)
+
+		text.display_name = display_name
+		if outline:
+			outline.set_display_name(display_name)
 func _on_structure_minigame_canceled() -> void:
 	animation_player.play("show_structure_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT

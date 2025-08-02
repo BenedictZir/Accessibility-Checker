@@ -25,7 +25,6 @@ func init(texts):
 		structures.append(structure)
 	answer_container.size = Vector2(0, 0)
 	text_container.size = Vector2(0, 0)
-	print(answer_container.size)
 	create_child()
 	
 func reset():

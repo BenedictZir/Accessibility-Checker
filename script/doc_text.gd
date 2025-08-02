@@ -6,8 +6,9 @@ extends Label
 var structure := "text"
 var is_contrast := false
 const text_size = 22
-const subheading_size = 30
-const headidng_size = 40
+const subheading_size = 50
+const headidng_size = 80
+var display_name = ""
 @export var part := 1
 signal selected
 signal deselect
@@ -71,3 +72,6 @@ func examine_text(background_color, text_color):
 
 func get_part():
 	return part
+
+func set_display_name(display):
+	display_name = display

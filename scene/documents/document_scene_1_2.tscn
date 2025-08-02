@@ -20,14 +20,12 @@ shape = SubResource("RectangleShape2D_wjaii")
 [node name="texts" type="Node2D" parent="."]
 
 [node name="doc_text5" parent="texts" instance=ExtResource("2_ooohr")]
-offset_left = -169.0
-offset_top = 499.0
-offset_right = -13.0
-offset_bottom = 563.0
-theme_override_font_sizes/font_size = 50
-text = "BLABLAasdaaaaaaaaaaweweblllllasdasdadasdasdasdaq"
-intended_structure = 2
-part = 4
+offset_left = -214.0
+offset_top = 27.0
+offset_right = -155.0
+offset_bottom = 47.0
+text = "BLABLasd"
+intended_structure = 1
 
 [node name="doc_text" parent="texts" instance=ExtResource("2_ooohr")]
 offset_left = -212.0
@@ -53,9 +51,15 @@ offset_bottom = 11.0
 text = "ABCBACBABCABCAAW"
 intended_structure = 2
 
-[node name="images" type="Node2D" parent="."]
+[node name="doc_text4" parent="texts" instance=ExtResource("2_ooohr")]
+offset_left = -205.0
+offset_top = 96.0
+offset_right = -71.0
+offset_bottom = 119.0
+text = "ABCBACBABCABCAAWasdasd"
+intended_structure = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="images" type="Node2D" parent="."]
 
 [connection signal="selected" from="." to="." method="_on_selected"]
 [connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]
