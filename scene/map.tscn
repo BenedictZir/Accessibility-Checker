@@ -145,7 +145,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="cafe_button" type="Button" parent="."]
-anchors_preset = -1
 offset_left = 461.0
 offset_top = 556.0
 offset_right = 616.0
@@ -210,3 +209,9 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_i8ww0")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d60jh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_i8ww0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6ctjw")
+
+[connection signal="pressed" from="cafe_button" to="." method="_on_cafe_button_pressed"]
+[connection signal="pressed" from="kantor_button" to="." method="_on_kantor_button_pressed"]
+[connection signal="pressed" from="taman_button" to="." method="_on_taman_button_pressed"]
+[connection signal="pressed" from="kos_button" to="." method="_on_kos_button_pressed"]
+[connection signal="pressed" from="supermarket_button" to="." method="_on_supermarket_button_pressed"]

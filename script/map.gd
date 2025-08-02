@@ -44,3 +44,23 @@ func _process(delta: float) -> void:
 		var new_scale = lerp(current_scale, target_scale, delta * LERP_SPEED)
 		button.scale = Vector2(new_scale, new_scale)
 		button.self_modulate = DISABLED_COLOR if button.disabled else ENABLED_COLOR
+
+
+func _on_cafe_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_kantor_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_taman_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_kos_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_supermarket_button_pressed() -> void:
+	pass # Replace with function body.

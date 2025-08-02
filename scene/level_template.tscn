@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=42 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="PackedScene" uid="uid://1uu7h5hvpk3q" path="res://scene/documents/document_scene_1_2.tscn" id="2_epqjh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://w2m7kkprj2bo" path="res://assets/minigame_buttons/Group 64.png" id="16_p2f7k"]
 [ext_resource type="Texture2D" uid="uid://mikj44iv8v1v" path="res://assets/1x/Outline.png" id="16_xe1of"]
 [ext_resource type="PackedScene" uid="uid://4xtbpvksxxbp" path="res://scene/aruna_helper.tscn" id="17_epqjh"]
+[ext_resource type="PackedScene" uid="uid://c1dbxinucsq2g" path="res://scene/minigame_3.tscn" id="18_xnxwe"]
 [ext_resource type="PackedScene" uid="uid://o6nhawy4oxte" path="res://scene/outline.tscn" id="19_vaqec"]
 [ext_resource type="PackedScene" uid="uid://d0yx6qprrjcg5" path="res://scene/minigame_1/minigame_1.tscn" id="19_xe1of"]
 [ext_resource type="PackedScene" uid="uid://2ekyfsfu3hj6" path="res://scene/minigame_2.tscn" id="21_xe1of"]
@@ -540,11 +541,14 @@ scale = Vector2(0.1, 0.1)
 [node name="aruni_helper" parent="." instance=ExtResource("17_epqjh")]
 position = Vector2(206, 981)
 
-[node name="minigame_3" type="Node2D" parent="."]
+[node name="structure_minigame" parent="." instance=ExtResource("18_xnxwe")]
+visible = false
 
 [connection signal="pressed" from="app/minigame_icons/image_features/alt_text_button" to="." method="_on_alt_text_button_pressed"]
+[connection signal="pressed" from="app/minigame_icons/image_features/structure_button" to="." method="_on_structure_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/docs_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/text_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
+[connection signal="pressed" from="app/minigame_icons/text_features/structure_button" to="." method="_on_structure_button_pressed"]
 [connection signal="canceled" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_canceled"]
 [connection signal="done" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_done"]
 [connection signal="canceled" from="alt_text_minigame" to="." method="_on_alt_text_minigame_canceled"]

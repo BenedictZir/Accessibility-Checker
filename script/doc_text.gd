@@ -4,6 +4,7 @@ extends Label
 
 @export_enum("heading", "subheading", "text") var intended_struct
 var is_contrast := false
+@export var part := 1
 signal selected
 signal deselect
 

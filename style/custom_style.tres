@@ -51,6 +51,7 @@ overrides = {
 script = ExtResource("1_g7yn0")
 scene = ExtResource("6_g7yn0")
 overrides = {
+"box_base_modulate": "Color(0.85098, 0.85098, 0.85098, 1)",
 "font_custom": "\"res://assets/fonts/Dosis-Medium.ttf\"",
 "font_text_size": "25.0",
 "font_title_size": "30.0",
@@ -89,4 +90,4 @@ layer_info = {
 }
 base_overrides = {}
 layers = Array[ExtResource("1_g7yn0")]([])
-metadata/_latest_layer = "14"
+metadata/_latest_layer = "13"

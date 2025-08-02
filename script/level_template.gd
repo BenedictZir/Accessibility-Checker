@@ -12,6 +12,7 @@ extends Node2D
 @onready var document: Node2D = $app/document
 @onready var v_box_container: VBoxContainer = $app/ScrollContainer/VBoxContainer
 @onready var app: Node2D = $app
+@onready var structure_minigame: Node2D = $structure_minigame
 
 @export var document_scene: PackedScene
 @export var outline_scene: PackedScene
@@ -242,3 +243,24 @@ func _on_alt_text_minigame_done(text) -> void:
 	selected_object.set_alt_text(text)
 	animation_player.play("show_alt_text_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	
+	
+	
+	
+	
+func _on_structure_button_pressed() -> void:
+	if selected_object == null:
+		return
+	animation_player.play("show_structure_minigame")
+	await animation_player.animation_finished
+	
+	app.process_mode = Node.PROCESS_MODE_DISABLED
+	
+func get_all_text_in_a_part(selected_part: int):
+	var texts = []
+	for text in all_texts:
+		if text.part == selected_part:
+			texts.append(text)
+	return texts
+	
