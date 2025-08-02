@@ -2,8 +2,12 @@ extends Label
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var highlight: Line2D = $highlight
 
-@export_enum("heading", "subheading", "text") var intended_struct
+@export_enum("heading", "subheading", "text") var intended_structure
+var structure := "text"
 var is_contrast := false
+const text_size = 22
+const subheading_size = 30
+const headidng_size = 40
 @export var part := 1
 signal selected
 signal deselect
@@ -12,18 +16,16 @@ func _ready():
 	update_size()
 
 func _process(delta):
-	pass
+	if structure == "text":
+		add_theme_font_size_override("font_size", text_size)
+	elif structure == "subheading":
+		add_theme_font_size_override("font_size", subheading_size)
+	else:
+		add_theme_font_size_override("font_size", headidng_size)
+	update_size()
 func update_size():	
-	var line_height = get_line_height()
-	var line_count = get_line_count()
-	var total_height = line_height * line_count
-	var total_width = size.x  # atau batas wrapping kamu
-	var new_size = Vector2(total_width, total_height)
-	size = new_size
-	collision_shape_2d.position = new_size / 2
+	collision_shape_2d.position = size / 2
 	collision_shape_2d.shape.size = size
-	
-
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click"):
 		var parent = find_parent("level_template")
@@ -52,17 +54,20 @@ func check_contrast(self_color, bg_color):
 
 func examine_text(background_color, text_color):
 	if name.contains("heading"):
-		if intended_struct == 0:
+		if intended_structure == 0:
 			return 1
 		else:
 			return 0
 	if name.contains("subheading"):
-		if intended_struct == 1:
+		if intended_structure == 1:
 			return 1
 		else:
 			return 0
 	if name.contains("text"):
-		if intended_struct == 2:
+		if intended_structure == 2:
 			return 1
 		else:
 			return 0
+
+func get_part():
+	return part

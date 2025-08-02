@@ -11,7 +11,7 @@ var original_point_pos: Vector2
 var connected_to = null
 
 func _ready() -> void:
-	original_point_pos = line_2d.points[1]
+	original_point_pos = line_2d.points[2]
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
@@ -34,13 +34,13 @@ func _process(delta: float) -> void:
 		_set_line_point(mouse_pos)
 
 func _set_line_point(pos: Vector2):
-	line_2d.points[1] = pos
+	line_2d.points[2] = pos
 	area_2d.position = pos
 
 func back_ori_pos():
 	collision_shape_2d.call_deferred("set_disabled", true)
 	animating_back = true
-	var current_pos = line_2d.points[1]
+	var current_pos = line_2d.points[2]
 	var tween = create_tween()
 	tween.tween_method(_set_line_point, current_pos, original_point_pos, 0.3) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=43 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="PackedScene" uid="uid://1uu7h5hvpk3q" path="res://scene/documents/document_scene_1_2.tscn" id="2_epqjh"]
@@ -410,6 +410,20 @@ texture = ExtResource("15_xnxwe")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dw8l3"]
 texture = ExtResource("15_xnxwe")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ng3r6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_epqjh"]
+texture = ExtResource("16_p2f7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rffd"]
+texture = ExtResource("16_p2f7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yo4d5"]
+texture = ExtResource("16_p2f7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p17l8"]
+texture = ExtResource("16_p2f7k")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe1of"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_te1jt"]
@@ -436,18 +450,7 @@ texture = SubResource("CompressedTexture2D_lmy6v")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2f7k"]
 texture = ExtResource("15_xnxwe")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ng3r6"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaqec"]
-texture = ExtResource("16_p2f7k")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rffd"]
-texture = ExtResource("16_p2f7k")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yo4d5"]
-texture = ExtResource("16_p2f7k")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p17l8"]
 texture = ExtResource("16_p2f7k")
 
 [node name="level_template" type="Node2D"]
@@ -536,6 +539,19 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_io6bp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_dw8l3")
 text = "alt text"
 
+[node name="structure_button" type="Button" parent="app/minigame_icons/image_features"]
+offset_left = 926.0
+offset_top = 35.0
+offset_right = 1182.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 41
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ng3r6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_epqjh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8rffd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yo4d5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_p17l8")
+text = "structure"
+
 [node name="docs_features" type="Node2D" parent="app/minigame_icons"]
 visible = false
 
@@ -611,15 +627,16 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 scale = Vector2(0.1, 0.1)
 
+[node name="aruni_helper" parent="." instance=ExtResource("17_epqjh")]
+position = Vector2(206, 981)
+
 [node name="structure_minigame" parent="." instance=ExtResource("18_xnxwe")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 scale = Vector2(0.1, 0.1)
 
-[node name="aruni_helper" parent="." instance=ExtResource("17_epqjh")]
-position = Vector2(206, 981)
-
 [connection signal="pressed" from="app/minigame_icons/image_features/alt_text_button" to="." method="_on_alt_text_button_pressed"]
+[connection signal="pressed" from="app/minigame_icons/image_features/structure_button" to="." method="_on_structure_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/docs_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/text_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/text_features/structure_button" to="." method="_on_structure_button_pressed"]
@@ -627,5 +644,4 @@ position = Vector2(206, 981)
 [connection signal="done" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_done"]
 [connection signal="canceled" from="alt_text_minigame" to="." method="_on_alt_text_minigame_canceled"]
 [connection signal="done" from="alt_text_minigame" to="." method="_on_alt_text_minigame_done"]
-[connection signal="canceled" from="structure_minigame" to="." method="_on_structure_minigame_canceled"]
 [connection signal="done" from="structure_minigame" to="." method="_on_structure_minigame_done"]

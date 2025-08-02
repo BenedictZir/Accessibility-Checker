@@ -20,16 +20,16 @@ func _ready() -> void:
 	heading.show()
 func _process(delta: float) -> void:
 	label.text = name
-	if name.containsn("heading"):
-		if is_selected:
-			update_outline(heading_selected, HEADING_X)
-		else:
-			update_outline(heading, HEADING_X)
-	elif name.containsn("subheading"):
+	if name.containsn("subheading"):
 		if is_selected:
 			update_outline(subheading_selected, SUBHEADING_X)
 		else:
 			update_outline(subheading, SUBHEADING_X)
+	elif name.containsn("heading"):
+		if is_selected:
+			update_outline(heading_selected, HEADING_X)
+		else:
+			update_outline(heading, HEADING_X)
 	else:
 		if is_selected:
 			update_outline(text_bg_selected, TEXT_X)

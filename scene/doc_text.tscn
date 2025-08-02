@@ -5,19 +5,21 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy5ll"]
 resource_local_to_scene = true
+size = Vector2(37, 23)
 
 [node name="doc_text" type="Label" groups=["texts"]]
-offset_right = 57.0
+offset_right = 37.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_fcj3v")
+theme_override_font_sizes/font_size = 15
+text = "beben"
 script = ExtResource("1_wy5ll")
-intended_struct = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(28, 10)
+position = Vector2(18, 12)
 shape = SubResource("RectangleShape2D_wy5ll")
 
 [node name="highlight" type="Line2D" parent="."]

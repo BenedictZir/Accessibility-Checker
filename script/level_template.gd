@@ -76,11 +76,11 @@ func get_all_obj():
 	var image_count = 1
 	for obj in all_object:
 		if obj.is_in_group("texts"):
-			obj.name = "text_" + str(text_count)
+			obj.name = "text " + str(text_count)
 			create_outline(obj.name)
 			text_count += 1
 		else:
-			obj.name = "image_" + str(image_count)
+			obj.name = "image " + str(image_count)
 			create_outline(obj.name)
 			image_count += 1
 			
@@ -253,8 +253,9 @@ func _on_structure_button_pressed() -> void:
 	if selected_object == null:
 		return
 	animation_player.play("show_structure_minigame")
+	var texts = get_all_text_in_a_part(selected_object.get_part())
+	structure_minigame.init(texts)
 	await animation_player.animation_finished
-	
 	app.process_mode = Node.PROCESS_MODE_DISABLED
 	
 func get_all_text_in_a_part(selected_part: int):
@@ -264,3 +265,64 @@ func get_all_text_in_a_part(selected_part: int):
 			texts.append(text)
 	return texts
 	
+
+func update_outline():
+	var outlines = v_box_container.get_children()
+	for outline in outlines:
+		outline.update_outline()
+	
+func _on_structure_minigame_done() -> void:
+	var result = structure_minigame.return_result()
+	var heading_count = 0
+	var subheading_count = 0
+	var text_count = 0
+	for doc_text in all_texts:
+		if result.has(doc_text.text):
+			var structure = result[doc_text.text]
+			doc_text.structure = structure
+			var outline = find_outline_text(doc_text.name)
+			if structure.containsn("subheading"):
+				subheading_count += 1
+				text_count = 0
+				doc_text.name = "subheading " + str(subheading_count)
+			elif structure.containsn("heading"):
+				heading_count += 1
+				subheading_count = 0
+				text_count = 0
+				doc_text.name = "heading " + str(heading_count)
+			else:
+				text_count += 1
+				doc_text.name = "text " + str(text_count)
+			outline.name = doc_text.name
+	update_text_outline()
+	animation_player.play("show_structure_minigame", -1, -1.0, true)
+	app.process_mode = Node.PROCESS_MODE_INHERIT
+
+func find_outline_text(target_text):
+	for child in v_box_container.get_children():
+		if child.name == target_text:
+			return child
+
+func update_text_outline():
+	var heading_count = 0
+	var subheading_count = 0
+	var text_count = 0
+	for text in all_texts:
+		var outline = find_outline_text(text.name)
+		if text.name.containsn("subheading"):
+			subheading_count += 1
+			text_count = 0
+			text.name = "subheading " + str(subheading_count)
+		elif text.name.containsn("heading"):
+			heading_count += 1
+			subheading_count = 0
+			text_count = 0
+			text.name = "heading " + str(heading_count)
+		else:
+			text_count += 1
+			text.name = "text " + str(text_count)
+			outline.name = text.name
+		print(outline)
+func _on_structure_minigame_canceled() -> void:
+	animation_player.play("show_structure_minigame", -1, -1.0, true)
+	app.process_mode = Node.PROCESS_MODE_INHERIT

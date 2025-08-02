@@ -9,6 +9,7 @@ func connect_to(doc_text):
 	if connected_to:
 		connected_to.disconnect_to()
 	connected_to = doc_text
+	find_parent("structure_minigame").emit_signal("connecting", doc_text.label.text, self.label.text)
 func disconnect_to():
 	if connected_to:
 		connected_to.disconnect_to() 

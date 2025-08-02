@@ -16,7 +16,7 @@ script = ExtResource("1_g04xj")
 show_behind_parent = true
 z_index = 1
 position = Vector2(358.761, 39)
-points = PackedVector2Array(0, 0, 37.6731, 0)
+points = PackedVector2Array(0, 0, 29.239, 0, 36.239, 0)
 default_color = Color(0, 0, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="Line2D"]
