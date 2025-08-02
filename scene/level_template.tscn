@@ -619,6 +619,12 @@ scale = Vector2(0.1, 0.1)
 [node name="aruni_helper" parent="." instance=ExtResource("17_epqjh")]
 position = Vector2(206, 981)
 
+[node name="score_label" type="Label" parent="."]
+offset_left = 920.0
+offset_top = 40.0
+offset_right = 960.0
+offset_bottom = 63.0
+
 [connection signal="pressed" from="app/minigame_icons/image_features/alt_text_button" to="." method="_on_alt_text_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/docs_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/text_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]

@@ -13,11 +13,17 @@ extends Node2D
 @onready var v_box_container: VBoxContainer = $app/ScrollContainer/VBoxContainer
 @onready var app: Node2D = $app
 @onready var structure_minigame: Node2D = $structure_minigame
+@onready var score_label: Label = $score_label
 
 @export var document_scene: PackedScene
 @export var outline_scene: PackedScene
 @export var time := 0
 @export var is_tutorial_1 := false
+var total_score := 0
+var accessibility_score := 0
+var constaint_score := 0
+var difficulty_mult := 1
+var timer_score := 0
 
 var selected_outline = null
 var selected_object = null
@@ -49,6 +55,8 @@ func _ready() -> void:
 	timer.start()
 
 func _process(delta: float) -> void:
+	total_score = (accessibility_score / (2 * all_object.size()) * 60)
+	score_label.text = str(total_score)
 	var minutes = int(timer.time_left) / 60
 	var seconds = int(timer.time_left) % 60
 	var minutes_str = str(minutes).pad_zeros(2)
@@ -180,14 +188,13 @@ func show_nothing():
 	text_features.hide()
 	
 func examine():
+	accessibility_score = 0
 	for obj in all_object:
 		if (obj.is_in_group("images")):
-			#TODO cek aksesibility image
-			pass
+			accessibility_score += obj.examine()
 		else:
-			#TODO cek aksesibility teks
-			pass
-
+			accessibility_score += obj.examine(document_paper.self_modulate)
+			print(accessibility_score)
 
 	
 
@@ -215,6 +222,7 @@ func _on_color_wheel_minigame_done() -> void:
 		document_paper.self_modulate = color
 	animation_player.play("show_color_wheel_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
+	examine()
 
 func _on_alt_text_button_pressed() -> void:
 	if (selected_object == null):
@@ -243,7 +251,7 @@ func _on_alt_text_minigame_done(text) -> void:
 	selected_object.set_alt_text(text)
 	animation_player.play("show_alt_text_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
-	
+	examine()
 	
 	
 	
@@ -275,6 +283,7 @@ func _on_structure_minigame_done() -> void:
 			doc_text.structure = result[doc_text.text]
 
 	update_text_outline()
+	examine()
 
 	animation_player.play("show_structure_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT

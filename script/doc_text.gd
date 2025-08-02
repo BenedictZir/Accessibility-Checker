@@ -53,21 +53,27 @@ func _on_deselect() -> void:
 func check_contrast(self_color, bg_color):
 	pass
 
-func examine_text(background_color, text_color):
-	if name.contains("heading"):
-		if intended_structure == 0:
-			return 1
-		else:
-			return 0
-	if name.contains("subheading"):
+func examine(background_color):
+	if structure.contains("subheading"):
 		if intended_structure == 1:
-			return 1
+			print("subheading sesuai")
+			return 2
 		else:
+			print("subheading tidak sesuai")
 			return 0
-	if name.contains("text"):
-		if intended_structure == 2:
-			return 1
+	elif structure.contains("heading"):
+		if intended_structure == 0:
+			print("heading sesuai")
+			return 2
 		else:
+			print("heading tdk sesuai")
+			return 0
+	elif structure.contains("text"):
+		if intended_structure == 2:
+			print("text sesuai")
+			return 2
+		else:
+			print("trxt tidak sesuai")
 			return 0
 
 func get_part():

@@ -30,12 +30,12 @@ func _on_selected() -> void:
 
 
 
-func examine_image():
+func examine():
 	if alt_text == correct_alt_text:
 		return  4
 	elif alt_text == mid_alt_text:
 		return 2
-	elif alt_text == wrong_alt_text:
+	elif alt_text == wrong_alt_text or alt_text == wrong_alt_text_2:
 		return 1
 	else:
 		return 0
