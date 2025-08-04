@@ -19,7 +19,7 @@ var type
 var is_selected := false
 var currently_visible
 var display_name := ""
-var bound_object = null # ✅ tambahkan ini untuk menyimpan objek dokumen terkait
+var bound_object = null 
 
 func _ready() -> void:
 	currently_visible = heading
@@ -27,12 +27,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	label.text = display_name # gunakan display_name, bukan name
-	if display_name.containsn("subheading"):
+	if display_name.containsn("subjudul"):
 		if is_selected:
 			update_outline(subheading_selected, SUBHEADING_X)
 		else:
 			update_outline(subheading, SUBHEADING_X)
-	elif display_name.containsn("heading"):
+	elif display_name.containsn("judul"):
 		if is_selected:
 			update_outline(heading_selected, HEADING_X)
 		else:

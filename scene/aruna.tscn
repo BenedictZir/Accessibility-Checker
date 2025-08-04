@@ -1,11 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://fkdu00lqfjkp"]
+[gd_scene load_steps=7 format=3 uid="uid://fkdu00lqfjkp"]
 
 [ext_resource type="Texture2D" uid="uid://cicacn1yr5ycx" path="res://assets/aruna/___.png" id="1_4mjq7"]
+[ext_resource type="Texture2D" uid="uid://cu5uai2swpcix" path="res://assets/aruna/aruna_marah/Untitled430_20250801065726.png" id="1_g5gw7"]
+[ext_resource type="Texture2D" uid="uid://bs2o8w515r6p8" path="res://assets/aruna/aruna_marah/Untitled430_20250801065142.png" id="2_1qvda"]
 [ext_resource type="Texture2D" uid="uid://b8fg3uyslkvcg" path="res://assets/aruna/O_O.png" id="2_ee1ot"]
 [ext_resource type="Script" uid="uid://cmskwo6opwsbd" path="res://script/aruna.gd" id="3_g5gw7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_thcox"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g5gw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_g5gw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_g5gw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1qvda")
+}],
+"loop": false,
+"name": &"angry",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_4mjq7")
@@ -29,6 +48,8 @@ animations = [{
 [node name="aruna" type="AnimatedSprite2D"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_thcox")
-animation = &"normal"
-frame_progress = 0.724908
+animation = &"angry"
+autoplay = "normal"
+frame = 3
+frame_progress = 1.0
 script = ExtResource("3_g5gw7")

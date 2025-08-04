@@ -1,44 +1,46 @@
 extends Node2D
 @onready var wheel: Sprite2D = $wheel
-@onready var arrow: Sprite2D = $arrow
-@onready var ray_cast_2d: RayCast2D = $arrow/RayCast2D
+@onready var border: Sprite2D = $border
+
+@onready var ray_cast_2d: RayCast2D = $border/arrow/RayCast2D
+
 @onready var before_label: Label = $before/Label
 @onready var after_label: Label = $after/Label
 @onready var befpre_polygon: Polygon2D = $before/Polygon2D
 @onready var after_polygon: Polygon2D = $after/Polygon2D
+@onready var stop_button: Button = $stop_button
 
 signal done
 signal canceled
 
 var rotating := true
 @export var wheel_speed := 200
-@export var arrow_speed := -20
+@export var arrow_speed := 40
 const COLORS = {
 	"merah" : Color("#d10f0b"),
-	"oranye" : Color("#d95a00"),
-	"kuning" : Color("#faed00"),
-	"hijau" : Color("#388b34"),
-	"biru muda" : Color("#356db4"),
-	"hitam" : Color("#000000"),
-	"abu" : Color("#9f9f9f"),
-	"ungu" : Color("#88207d"),
-	"biru" : Color("#2f368b"),
-	"putih" : Color("#ffffff")
+	"oranye" : Color("#ff750a"),
+	"kuning" : Color("#ffeb3b"),
+	"hijau" : Color("#01b046"),
+	"biru" : Color("#296cd4"),
+	"hitam" : Color("#253238"),
+	"ungu" : Color("#5f006f"),
+	"putih" : Color("#fbfbfb")
 	
 }
 var color = null
 func _process(delta: float) -> void:
-
 	if color != null:
 		$retry_button.show()
 		$accept.show()
+		stop_button.hide()
+		
 	else:
+		stop_button.show()
 		$accept.hide()
 		$retry_button.hide()
 	if rotating:
-		arrow.rotate(deg_to_rad(wheel_speed * delta))
 		wheel.rotate(deg_to_rad(arrow_speed * delta))
-	if Input.is_action_just_pressed("click") or Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept"):
 		var color_name = ray_cast_2d.get_collider().name
 		if COLORS.has(color_name):
 			color = COLORS[color_name]
@@ -93,3 +95,15 @@ func _on_accept_pressed() -> void:
 
 func _on_cancel_button_pressed() -> void:
 	emit_signal("canceled")
+
+
+func _on_stop_button_pressed() -> void:
+	var color_name = ray_cast_2d.get_collider().name
+	if COLORS.has(color_name):
+		color = COLORS[color_name]
+		after_polygon.self_modulate = color
+		after_label.add_theme_color_override("font_color", color)
+		stop_rotating()
+	else:	
+		print("Warna", color_name, "tidak ditemukan di COLORS")
+	stop_rotating()

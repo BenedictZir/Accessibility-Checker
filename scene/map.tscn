@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://243ahq71s8x8"]
+[gd_scene load_steps=51 format=3 uid="uid://243ahq71s8x8"]
 
 [ext_resource type="Texture2D" uid="uid://yug54vejcn5h" path="res://assets/map/background.png" id="1_44fbv"]
 [ext_resource type="Script" uid="uid://c1apehyilrdsk" path="res://script/map.gd" id="1_l8r8p"]
@@ -6,14 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://ccwvb3ds8eydx" path="res://assets/map/right.png" id="4_4m74h"]
 [ext_resource type="Texture2D" uid="uid://dersad0a5hcnv" path="res://assets/map/name_top.png" id="5_bachi"]
 [ext_resource type="FontFile" uid="uid://bpju6a6dwhsm2" path="res://assets/fonts/Dosis-ExtraBold.ttf" id="6_gmpll"]
-[ext_resource type="Texture2D" uid="uid://c4wkspptplr1r" path="res://assets/map/hari.png" id="6_ui0ov"]
 [ext_resource type="Texture2D" uid="uid://dyp77aa6obp63" path="res://assets/map/desc.png" id="7_amuei"]
+[ext_resource type="Texture2D" uid="uid://chnor1p7bcvwj" path="res://assets/map/tanggal.png" id="7_yqoch"]
+[ext_resource type="Texture2D" uid="uid://dhppu5jggep5r" path="res://assets/map/icon_musim_panas.png" id="8_3fel5"]
 [ext_resource type="Texture2D" uid="uid://dp7u663fx6wn2" path="res://assets/map/name.png" id="8_yqoch"]
 [ext_resource type="Texture2D" uid="uid://6jnpyoettc6t" path="res://assets/map/kantor.png" id="9_3fel5"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="10_3fel5"]
 [ext_resource type="Texture2D" uid="uid://c4fsysig03hhc" path="res://assets/map/kos.png" id="10_pa0f6"]
 [ext_resource type="Texture2D" uid="uid://cw6ae00ddw5bu" path="res://assets/map/supermarket.png" id="11_lfekj"]
 [ext_resource type="Texture2D" uid="uid://w6n7li52h48p" path="res://assets/map/taman.png" id="12_d6soc"]
 [ext_resource type="Texture2D" uid="uid://du4oncgqmbypd" path="res://assets/map/cafe.png" id="13_uhta6"]
+[ext_resource type="Texture2D" uid="uid://bxux1qp1pqlcr" path="res://assets/map/background_progress_bar.png" id="15_amuei"]
+[ext_resource type="Texture2D" uid="uid://c7e1srcncqvgu" path="res://assets/map/over_progress_bar.png" id="16_yqoch"]
+[ext_resource type="Texture2D" uid="uid://gb1mdqtivvgr" path="res://assets/map/progress.png" id="17_3fel5"]
+[ext_resource type="Texture2D" uid="uid://dd7ravhf5pl4q" path="res://assets/map/pause_icon/Group 49505.png" id="18_pa0f6"]
+[ext_resource type="Texture2D" uid="uid://cj8d6g8h5dt3q" path="res://assets/map/pause_icon/Rectangle 9969.png" id="19_lfekj"]
+[ext_resource type="Texture2D" uid="uid://cyts260btwbha" path="res://assets/map/peringkat.png" id="20_uhta6"]
+[ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="21_ewrs0"]
+[ext_resource type="Texture2D" uid="uid://c1nw6eh5yod42" path="res://assets/map/title_label.png" id="22_pa0f6"]
+[ext_resource type="Texture2D" uid="uid://cvmoennlylxec" path="res://assets/map/poin_inklusif.png" id="25_d60jh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v66k7"]
 
@@ -70,6 +81,20 @@ texture = ExtResource("11_lfekj")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ctjw"]
 texture = ExtResource("11_lfekj")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6soc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ewrs0"]
+texture = ExtResource("18_pa0f6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkx26"]
+texture = ExtResource("18_pa0f6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23w2h"]
+texture = ExtResource("18_pa0f6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4w2u"]
+texture = ExtResource("18_pa0f6")
+
 [node name="map" type="Node2D"]
 script = ExtResource("1_l8r8p")
 
@@ -82,9 +107,9 @@ position = Vector2(715, 647)
 texture = ExtResource("3_gmpll")
 
 [node name="ColorRect" type="ColorRect" parent="base"]
-offset_left = -19.0
-offset_top = 390.0
-offset_right = 246.0
+offset_left = -715.0
+offset_top = 334.0
+offset_right = 1206.0
 offset_bottom = 436.0
 color = Color(0.117647, 0.117647, 0.117647, 1)
 
@@ -92,41 +117,88 @@ color = Color(0.117647, 0.117647, 0.117647, 1)
 position = Vector2(1575, 534)
 texture = ExtResource("4_4m74h")
 
-[node name="day" type="Sprite2D" parent="."]
-position = Vector2(960, 212)
+[node name="name_top" type="Sprite2D" parent="."]
+position = Vector2(1585, 302)
 texture = ExtResource("5_bachi")
 
-[node name="day_label" type="Label" parent="day"]
-offset_left = 524.0
-offset_top = -134.0
-offset_right = 856.0
-offset_bottom = -33.0
-rotation = 0.119049
+[node name="name_top_label" type="Label" parent="name_top"]
+offset_left = -138.0
+offset_top = -91.0
+offset_right = 127.0
+offset_bottom = 104.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("6_gmpll")
-theme_override_font_sizes/font_size = 60
-text = "SENIN"
+theme_override_font_sizes/font_size = 40
+text = "NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 1
 
 [node name="date" type="Sprite2D" parent="."]
-position = Vector2(1333, 227)
-texture = ExtResource("6_ui0ov")
+position = Vector2(1656, 851)
+texture = ExtResource("7_yqoch")
 
 [node name="date_label" type="Label" parent="date"]
-offset_left = -67.0
-offset_top = -52.0
-offset_right = 58.0
-offset_bottom = 49.0
-rotation = 0.0398288
+offset_left = -12.0
+offset_top = -61.0
+offset_right = 144.0
+offset_bottom = 117.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("6_gmpll")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 100
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="tanggal" type="Label" parent="date"]
+offset_left = -33.0
+offset_top = -134.0
+offset_right = 152.0
+offset_bottom = 44.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("6_gmpll")
+theme_override_font_sizes/font_size = 38
+text = "Tanggal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="day_label" type="Label" parent="date"]
+offset_left = -32.0
+offset_top = 6.0
+offset_right = 153.0
+offset_bottom = 184.0
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("6_gmpll")
+theme_override_font_sizes/font_size = 38
+text = "Senin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="icon_panas" type="Sprite2D" parent="date"]
+position = Vector2(-77, -45)
+texture = ExtResource("8_3fel5")
+
+[node name="icon_hujan" type="Sprite2D" parent="date"]
+position = Vector2(-77, -45)
+
 [node name="desc" type="Sprite2D" parent="."]
 position = Vector2(679, 904)
 texture = ExtResource("7_amuei")
+
+[node name="desc_label" type="Label" parent="desc"]
+offset_left = -389.0
+offset_top = 12.0
+offset_right = 534.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_3fel5")
+theme_override_font_sizes/font_size = 60
+text = "Hari ini mau jalan-jalan ke mana ya?"
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="name_box" type="Sprite2D" parent="."]
 position = Vector2(386, 832)
@@ -134,10 +206,11 @@ texture = ExtResource("8_yqoch")
 
 [node name="name_label" type="Label" parent="name_box"]
 offset_left = -174.0
-offset_top = -56.0
+offset_top = -50.0
 offset_right = 180.0
-offset_bottom = 34.0
-rotation = 0.0615153
+offset_bottom = 40.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("6_gmpll")
 theme_override_font_sizes/font_size = 60
 text = "NAME"
@@ -209,6 +282,69 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_i8ww0")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d60jh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_i8ww0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6ctjw")
+
+[node name="pause" type="Button" parent="."]
+offset_left = 1349.0
+offset_top = 682.0
+offset_right = 1489.0
+offset_bottom = 829.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d6soc")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ewrs0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xkx26")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_23w2h")
+theme_override_styles/normal = SubResource("StyleBoxTexture_h4w2u")
+
+[node name="Sprite2D" type="Sprite2D" parent="pause"]
+show_behind_parent = true
+position = Vector2(69.25, 74.25)
+scale = Vector2(0.990196, 0.996894)
+texture = ExtResource("19_lfekj")
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(1529, 461)
+texture = ExtResource("22_pa0f6")
+
+[node name="title_label" type="Label" parent="title"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="jabatan" type="Sprite2D" parent="title"]
+position = Vector2(-194, -106)
+texture = ExtResource("20_uhta6")
+
+[node name="jabatan_label" type="Label" parent="title/jabatan"]
+offset_left = -48.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("21_ewrs0")
+theme_override_font_sizes/font_size = 25
+text = "Peringkat"
+
+[node name="title_progress" type="TextureProgressBar" parent="."]
+offset_left = 1345.0
+offset_top = 440.0
+offset_right = 1806.0
+offset_bottom = 718.0
+texture_under = ExtResource("15_amuei")
+texture_over = ExtResource("16_yqoch")
+texture_progress = ExtResource("17_3fel5")
+texture_progress_offset = Vector2(8, 90)
+
+[node name="Sprite2D" type="Sprite2D" parent="title_progress"]
+show_behind_parent = true
+position = Vector2(129, 72)
+texture = ExtResource("25_d60jh")
+
+[node name="poin_inklusif" type="Label" parent="title_progress/Sprite2D"]
+offset_left = -85.0
+offset_top = -17.0
+offset_right = 81.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("21_ewrs0")
+theme_override_font_sizes/font_size = 25
+text = "Poin Inklusif"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="cafe_button" to="." method="_on_cafe_button_pressed"]
 [connection signal="pressed" from="kantor_button" to="." method="_on_kantor_button_pressed"]

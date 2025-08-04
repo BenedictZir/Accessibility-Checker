@@ -23,8 +23,8 @@ extends Node2D
 @export var outline_scene: PackedScene
 @export var time := 0
 @export var is_tutorial_1 := false
-var total_score := 0
-var accessibility_score := 0
+var total_score := 0.0
+var accessibility_score := 0.9
 var constaint_score := 0
 var difficulty_mult := 1
 var timer_score := 0
@@ -50,17 +50,17 @@ func _ready() -> void:
 		
 		$app/minigame_icons/text_features/structure_button.self_modulate = Color(0.451, 0.451, 0.451)
 		$app/minigame_icons/text_features/structure_button.disabled = true
-		
-	var doc = document_scene.instantiate()
-	document.add_child(doc)
-	doc.global_position = document.global_position
-	get_all_obj()
-	timer.wait_time = time
-	timer.start()
-	examine()
+	if document_scene:
+		var doc = document_scene.instantiate()
+		document.add_child(doc)
+		doc.global_position = document.global_position
+		get_all_obj()
+		timer.wait_time = time
+		timer.start()
+		examine()
 
 func _process(delta: float) -> void:
-	total_score = (accessibility_score / (2 * all_object.size()) * 60)
+	total_score = (accessibility_score / (4 * all_object.size()) * 60 / 100 * 2500)
 	score_label.text = str(total_score)
 	var minutes = int(timer.time_left) / 60
 	var seconds = int(timer.time_left) % 60
@@ -209,6 +209,9 @@ func examine():
 			accessibility_score += obj.examine_structure()
 			if obj.examine_structure() > 0:
 				text_correct_structure += 1
+			accessibility_score += obj.examine_color(document_paper.self_modulate)
+			if obj.examine_color(document_paper.self_modulate) > 0:
+				text_contrast += 1
 	text_contrast_label.text = "TEKS MUDAH DIBACA\n" + str(text_contrast) + "/" + str(all_texts.size())
 	text_structure_label.text = "STRUKTUR TEKS BENAR\n" + str(text_correct_structure) + "/" + str(all_texts.size())
 	image_alt_text_label.text = "GAMBAR DENGAN TEKS ALTERNATIF\n" + str(image_have_alt_text) + "/" + str(all_images.size())
@@ -234,6 +237,7 @@ func _on_color_wheel_minigame_done() -> void:
 		selected_object.add_theme_color_override("font_color", color)
 	else:
 		document_paper.self_modulate = color
+		
 	animation_player.play("show_color_wheel_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
 	examine()
@@ -335,3 +339,12 @@ func update_text_outline():
 func _on_structure_minigame_canceled() -> void:
 	animation_player.play("show_structure_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
+
+func set_document(document):
+	var doc = document_scene.instantiate()
+	document.add_child(doc)
+	doc.global_position = document.global_position
+	get_all_obj()
+	timer.wait_time = time
+	timer.start()
+	examine()

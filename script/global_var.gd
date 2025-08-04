@@ -6,6 +6,8 @@ var can_drag := false
 var player_name = ""
 var date := 1
 var day_list = ["SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU"]
+var title_list = ["STAFF MAGANG"]
+
 var day := "SENIN"
 var inclusive_point := 0
 var done_working_today := false
@@ -19,6 +21,7 @@ func next_day():
 	day = day_list[((date - 1) % 7)]
 	
 func _process(delta: float) -> void:
+	player_name = Dialogic.VAR.player_name
 	if is_dragging:
 		Input.set_custom_mouse_cursor(grab_cursor, Input.CURSOR_ARROW, Vector2(50, 50))
 	elif is_mouse_over_button() or interactable:

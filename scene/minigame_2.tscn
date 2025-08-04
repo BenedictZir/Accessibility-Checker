@@ -1,190 +1,294 @@
-[gd_scene load_steps=15 format=3 uid="uid://2ekyfsfu3hj6"]
+[gd_scene load_steps=32 format=3 uid="uid://2ekyfsfu3hj6"]
 
 [ext_resource type="Script" uid="uid://dou3ltxklt1xd" path="res://script/minigame_2.gd" id="1_ymxsy"]
-[ext_resource type="Texture2D" uid="uid://dyntvhdr10pkq" path="res://assets/minigame_1/Frame 53.png" id="2_8ektc"]
-[ext_resource type="Texture2D" uid="uid://dvnq6l34ef684" path="res://assets/color_wheel_minigame/wheel.png" id="2_8sst4"]
-[ext_resource type="Texture2D" uid="uid://bqoon73wsxlut" path="res://assets/tempassets/clipart347937.png" id="3_8ektc"]
-[ext_resource type="Texture2D" uid="uid://yd7wcnmbqfqt" path="res://assets/color_wheel_minigame/Frame 7.png" id="3_lymyy"]
-[ext_resource type="Texture2D" uid="uid://bw6ppe6vmwwl5" path="res://assets/tempassets/—Pngtree—red glossy button_4182376.png" id="4_8ektc"]
+[ext_resource type="Texture2D" uid="uid://bpf16rkpsm7qm" path="res://assets/minigame_2/Group 49523.png" id="2_uv5bk"]
+[ext_resource type="Texture2D" uid="uid://dlmfoxa1rcpa8" path="res://assets/minigame_2/Group 49520 (2).png" id="3_qlcb6"]
+[ext_resource type="Texture2D" uid="uid://bdpk8q6ymy8f8" path="res://assets/minigame_2/Group 49519.png" id="4_dmnm4"]
+[ext_resource type="Texture2D" uid="uid://0xldqijogdjt" path="res://assets/minigame_2/Group 49496.png" id="4_yjccl"]
+[ext_resource type="Texture2D" uid="uid://dlv0s8a7m71c0" path="res://assets/minigame_2/Frame 90.png" id="5_m6g1c"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="7_m6g1c"]
+[ext_resource type="Texture2D" uid="uid://cbidvdwy6x1rp" path="res://assets/minigame_2/circle_ungu.png" id="7_ro16u"]
+[ext_resource type="Texture2D" uid="uid://u5x1ldcbiej5" path="res://assets/minigame_2/Group 49520 (1).png" id="8_dmnm4"]
+[ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="8_g1lo2"]
+[ext_resource type="Texture2D" uid="uid://ca8mgxd1awxf2" path="res://assets/minigame_2/kotak.png" id="9_cxyst"]
+[ext_resource type="Texture2D" uid="uid://b6b42n3a0ammg" path="res://assets/minigame_2/Group 49521.png" id="9_ro16u"]
+[ext_resource type="Texture2D" uid="uid://betcs8uai6dps" path="res://assets/minigame_2/Group 49522.png" id="10_u3kdj"]
+[ext_resource type="Texture2D" uid="uid://dpeynsfm0vb1k" path="res://assets/minigame_2/simpan_pilihan_orange.png" id="12_u3kdj"]
+[ext_resource type="Texture2D" uid="uid://b5i7q3vvymfxq" path="res://assets/minigame_2/simpan_pilihan_putih.png" id="13_cxyst"]
+[ext_resource type="Texture2D" uid="uid://b1xbffmdfpt4i" path="res://assets/minigame_2/retry.png" id="13_u3kdj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71roq"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qbkwt"]
+texture = ExtResource("7_ro16u")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uv5bk"]
-texture = ExtResource("4_8ektc")
+texture = ExtResource("7_ro16u")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qlcb6"]
-texture = ExtResource("4_8ektc")
+texture = ExtResource("7_ro16u")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjccl"]
-texture = ExtResource("4_8ektc")
+texture = ExtResource("7_ro16u")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qbkwt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nj0yb"]
+texture = ExtResource("12_u3kdj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yaq54"]
+texture = ExtResource("12_u3kdj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1j74"]
+texture = ExtResource("12_u3kdj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4106"]
+texture = ExtResource("12_u3kdj")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ektc"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uv5bk"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dmnm4"]
+texture = ExtResource("8_g1lo2")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlcb6"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ro16u"]
+texture = ExtResource("8_g1lo2")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjccl"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3kdj"]
+texture = ExtResource("8_g1lo2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cxyst"]
+texture = ExtResource("8_g1lo2")
 
 [node name="minigame_2" type="Node2D"]
 script = ExtResource("1_ymxsy")
 
-[node name="Frame53" type="Sprite2D" parent="."]
-position = Vector2(0, 16)
-texture = ExtResource("2_8ektc")
+[node name="Frame54" type="Sprite2D" parent="."]
+texture = ExtResource("2_uv5bk")
+
+[node name="Polygon2D" type="Polygon2D" parent="Frame54"]
+polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 491, -288)
 
 [node name="wheel" type="Sprite2D" parent="."]
-position = Vector2(362, 33)
-texture = ExtResource("2_8sst4")
+position = Vector2(275, 102)
+rotation = -0.693704
+texture = ExtResource("3_qlcb6")
+
+[node name="Sprite2D" type="Sprite2D" parent="wheel"]
+scale = Vector2(1.02, 1.02)
+texture = ExtResource("3_qlcb6")
 
 [node name="areas" type="Node2D" parent="wheel"]
+position = Vector2(1.4893, -45.5827)
 scale = Vector2(5, 5)
 
 [node name="hitam" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/hitam"]
-position = Vector2(-0.0187497, -0.187677)
-scale = Vector2(1.0125, 0.991071)
-polygon = PackedVector2Array(0, -19.8, -2.54939, -19.789, -5, -19.2, -2.6, -20.6)
-
-[node name="abu" type="Area2D" parent="wheel/areas"]
-collision_layer = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/abu"]
-polygon = PackedVector2Array(-5.2, -19.2, -8, -19.4, -10, -17.2)
+polygon = PackedVector2Array(14.68, 31.4563, 7.07852, 35.2797, 8.90279, 41.2187, 16.7568, 33.9637)
 
 [node name="putih" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/putih"]
-polygon = PackedVector2Array(-10, -17.2, -12.4, -16.4, -14, -14.2)
+polygon = PackedVector2Array(14.68, 31.4563, 20.9217, 25.2016, 22.1519, 26.2247, 16.2954, 33.58)
 
 [node name="kuning" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/kuning"]
-polygon = PackedVector2Array(-14, -14.2, -21.2, -7.6, -20, 0)
+polygon = PackedVector2Array(7.07852, 35.2797, -9.72038, 34.8361, -11.7373, 40.7023, 8.90279, 41.2187)
 
 [node name="hijau" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/hijau"]
-polygon = PackedVector2Array(-19.8, 0, -18.2, 8.6, -14, 14, -20.4, 9)
-
-[node name="biru muda" type="Area2D" parent="wheel/areas"]
-collision_layer = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/biru muda"]
-polygon = PackedVector2Array(-14, 14, -8, 18.2, 0.200005, 19.6, -9, 20.8)
+polygon = PackedVector2Array(-9.72038, 34.8361, -11.7373, 40.7023, -28.1687, 24.1769, -30.6939, 9.07115, -27.6977, 9.2217, -23.4065, 23.455, -10.0279, 34.5803, -10.0279, 34.5803)
 
 [node name="biru" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/biru"]
-polygon = PackedVector2Array(0, 19.6, 7, 18.6, 14, 13.8, 8, 20.6)
+polygon = PackedVector2Array(-27.6977, 9.2217, -21.3912, -8.68439, -9.61992, -16.5836, -11.7258, -22.4968, -33.962, -6.39233, -31.411, 8.99507)
 
 [node name="ungu" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/ungu"]
-polygon = PackedVector2Array(19.6, 0, 19.6, 6.4, 19.6, 9.4, 14, 13.8, 18, 7.4)
+polygon = PackedVector2Array(-9.61992, -16.5836, 0.877377, -18.259, 7.10129, -16.985, 7.84104, -19.7514, 0.849861, -20.1027, -11.7258, -22.4968)
 
 [node name="merah" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/merah"]
-polygon = PackedVector2Array(13.8, -13.8, 21.4, -8.8, 19.6, 0)
+polygon = PackedVector2Array(7.84104, -19.7514, 7.10129, -16.985, 13.916, -13.9192, 18.0421, -10.7482, 22.5809, -4.63269, 24.9167, 0.691235, 27.2719, 0.0486145, 29.3455, -0.568108, 19.7547, -13.746)
 
 [node name="oranye" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/oranye"]
-polygon = PackedVector2Array(0, -20, 7.6, -19.8, 14, -14, 7.2, -18.4)
+polygon = PackedVector2Array(24.9167, 0.691235, 29.3455, -0.568108, 30.0302, 17.6893, 21.1014, 25.6112, 25.9559, 15.0815)
 
-[node name="arrow" type="Sprite2D" parent="."]
-position = Vector2(362, 33)
-scale = Vector2(0.16, 0.1)
-texture = ExtResource("3_8ektc")
+[node name="Group49519" type="Sprite2D" parent="."]
+position = Vector2(274, 102)
+texture = ExtResource("4_dmnm4")
+
+[node name="border" type="Sprite2D" parent="."]
+position = Vector2(275, 102)
+texture = ExtResource("4_yjccl")
+
+[node name="arrow" type="Sprite2D" parent="border"]
+visible = false
+position = Vector2(-317, -6)
+texture = ExtResource("5_m6g1c")
 offset = Vector2(300, 0)
 
-[node name="RayCast2D" type="RayCast2D" parent="arrow"]
-position = Vector2(0.000335693, 0)
-target_position = Vector2(743.75, 0)
+[node name="RayCast2D" type="RayCast2D" parent="border/arrow"]
+position = Vector2(-46, -147)
+rotation = 0.324306
+scale = Vector2(0.16, 0.1)
+target_position = Vector2(1779.13, 214.085)
 collision_mask = 2
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="Frame7" type="Sprite2D" parent="."]
-position = Vector2(0, -360)
-texture = ExtResource("3_lymyy")
-
 [node name="retry_button" type="Button" parent="."]
-visible = false
-offset_left = 259.0
-offset_top = -61.0
-offset_right = 467.0
-offset_bottom = 142.0
+offset_left = 199.0
+offset_top = 26.0
+offset_right = 351.0
+offset_bottom = 178.0
 focus_mode = 0
 mouse_filter = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_71roq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qbkwt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uv5bk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qlcb6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_yjccl")
 
+[node name="Retry" type="Sprite2D" parent="retry_button"]
+position = Vector2(78, 74)
+texture = ExtResource("13_u3kdj")
+
+[node name="stop_button" type="Button" parent="."]
+offset_left = 199.0
+offset_top = 26.0
+offset_right = 351.0
+offset_bottom = 178.0
+focus_mode = 0
+mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_71roq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qbkwt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uv5bk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qlcb6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yjccl")
+
+[node name="Stop" type="Sprite2D" parent="stop_button"]
+position = Vector2(78, 74)
+texture = ExtResource("9_cxyst")
+
 [node name="before" type="Node2D" parent="."]
-position = Vector2(-330, -191)
+position = Vector2(-288, -163)
+scale = Vector2(0.8, 0.8)
 
 [node name="Label" type="Label" parent="before"]
-offset_left = -166.0
-offset_top = -33.0
-offset_right = 172.0
-offset_bottom = 39.0
-metadata/_edit_use_anchors_ = true
+visible = false
+offset_left = -311.0
+offset_top = 14.0
+offset_right = 162.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_m6g1c")
+theme_override_font_sizes/font_size = 65
+text = "Judul 1"
+horizontal_alignment = 1
+
+[node name="Group49520(1)" type="Sprite2D" parent="before/Label"]
+show_behind_parent = true
+position = Vector2(236, 44)
+texture = ExtResource("8_dmnm4")
 
 [node name="Polygon2D" type="Polygon2D" parent="before"]
-polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+self_modulate = Color(0.984314, 0.984314, 0.984314, 1)
+position = Vector2(-70, -51.25)
+polygon = PackedVector2Array(-105, -78, 105, -78, 105, 107, -105, 107)
 
 [node name="after" type="Node2D" parent="."]
-position = Vector2(-330, 232)
+position = Vector2(-282, 143)
+scale = Vector2(0.8, 0.8)
 
 [node name="Label" type="Label" parent="after"]
-offset_left = -166.0
-offset_top = -33.0
-offset_right = 172.0
-offset_bottom = 39.0
-metadata/_edit_use_anchors_ = true
+visible = false
+offset_left = -311.0
+offset_top = -47.5
+offset_right = 162.0
+offset_bottom = 43.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_m6g1c")
+theme_override_font_sizes/font_size = 65
+text = "Judul 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Group49520(1)" type="Sprite2D" parent="after/Label"]
+show_behind_parent = true
+position = Vector2(216, 39)
+texture = ExtResource("9_ro16u")
 
 [node name="Polygon2D" type="Polygon2D" parent="after"]
-polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+self_modulate = Color(0.984314, 0.984314, 0.984314, 1)
+position = Vector2(-70, 17.5)
+polygon = PackedVector2Array(-105, -78, 105, -78, 105, 107, -105, 107)
 
-[node name="Clipart347937" type="Sprite2D" parent="."]
-position = Vector2(-328, 19)
-rotation = 1.57932
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_8ektc")
+[node name="before_after_arrow" type="Sprite2D" parent="."]
+position = Vector2(-340.6, -9)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("10_u3kdj")
 
 [node name="accept" type="Button" parent="."]
-offset_left = -34.0
-offset_top = 413.0
-offset_right = 35.0
-offset_bottom = 444.0
+offset_left = -517.0
+offset_top = 280.0
+offset_right = -136.0
+offset_bottom = 432.0
 focus_mode = 0
-text = "accept
-"
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_m6g1c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qbkwt")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_nj0yb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yaq54")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n1j74")
+theme_override_styles/normal = SubResource("StyleBoxTexture_u4106")
+text = "SIMPAN PILIHAN"
 metadata/_edit_use_anchors_ = true
 
+[node name="SimpanPilihanPutih" type="Sprite2D" parent="accept"]
+show_behind_parent = true
+position = Vector2(191, 69)
+texture = ExtResource("13_cxyst")
+
+[node name="Polygon2D" type="Polygon2D" parent="accept"]
+position = Vector2(517, -280)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-535, 415, -533, 448, -160, 442, -147, 400, -156, 399, -165, 430, -521, 437, -525, 415)
+
 [node name="cancel_button" type="Button" parent="."]
-offset_left = 531.0
-offset_top = -366.0
-offset_right = 543.0
-offset_bottom = -353.0
+offset_left = 487.0
+offset_top = -382.0
+offset_right = 634.0
+offset_bottom = -203.0
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8ektc")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_uv5bk")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_qlcb6")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_yjccl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_dmnm4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ro16u")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u3kdj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cxyst")
 
 [connection signal="pressed" from="retry_button" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="stop_button" to="." method="_on_stop_button_pressed"]
 [connection signal="pressed" from="accept" to="." method="_on_accept_pressed"]
 [connection signal="pressed" from="cancel_button" to="." method="_on_cancel_button_pressed"]

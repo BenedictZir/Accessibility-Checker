@@ -1,14 +1,17 @@
 extends Node2D
 
-@onready var day_label: Label = $day/day_label
 @onready var date_label: Label = $date/date_label
 @onready var name_label: Label = $name_box/name_label
+@onready var name_top_label: Label = $name_top/name_top_label
+@onready var day_label: Label = $date/day_label
+@onready var title_label: Label = $title/title_label
 
 @onready var cafe_button: Button = $cafe_button
 @onready var kantor_button: Button = $kantor_button
 @onready var kos_button: Button = $kos_button
 @onready var supermarket_button: Button = $supermarket_button
 @onready var taman_button: Button = $taman_button
+@onready var desc_label: Label = $desc/desc_label
 
 const HOVER_SCALE := 1.2
 const NORMAL_SCALE := 1.0
@@ -19,9 +22,7 @@ const ENABLED_COLOR := Color(1, 1, 1)
 var buttons: Array[Button] = []
 
 func _ready() -> void:
-	day_label.text = GlobalVar.day
-	date_label.text = str(GlobalVar.date)
-	name_label.text = GlobalVar.player_name
+
 
 	var is_weekend := (GlobalVar.day == "SABTU" or GlobalVar.day == "MINGGU")
 	kantor_button.disabled = is_weekend
@@ -38,6 +39,11 @@ func _ready() -> void:
 		button.pivot_offset = Vector2(button.size.x / 2, button.size.y)
 
 func _process(delta: float) -> void:
+	name_top_label.text = GlobalVar.player_name
+	date_label.text = str(GlobalVar.date)
+	name_label.text = GlobalVar.player_name
+	day_label.text = GlobalVar.day
+	desc_label.visible_ratio += 1.8 * delta
 	for button in buttons:
 		var target_scale = HOVER_SCALE if button.is_hovered() and not button.disabled else NORMAL_SCALE
 		var current_scale = button.scale.x
@@ -51,8 +57,7 @@ func _on_cafe_button_pressed() -> void:
 
 
 func _on_kantor_button_pressed() -> void:
-	pass # Replace with function body.
-
+	SceneTransition.change_scene("res://scene/kantor_scene.tscn")
 
 func _on_taman_button_pressed() -> void:
 	pass # Replace with function body.

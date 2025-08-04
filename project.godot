@@ -27,15 +27,19 @@ SceneTransition="*res://scene/scene_transition.tscn"
 directories/dch_directory={
 "Resources/unit_test_character": "res://Tests/Resources/unit_test_character.dch",
 "aruna": "res://characters/aruna.dch",
+"mbak_intan": "res://characters/mbak_intan.dch",
+"mbak_rani": "res://scene/mbak_rani.dch",
 "pak bos": "res://characters/pak bos.dch",
 "player": "res://characters/player.dch"
 }
 directories/dtl_directory={
 "introduction": "res://timelines/introduction.dtl",
+"map": "res://timelines/map.dtl",
 "prologue": "res://timelines/prologue.dtl",
 "scene_1_1": "res://timelines/scene_1_1.dtl",
 "scene_1_2": "res://timelines/scene_1_2.dtl",
-"scene_1_3": "res://timelines/scene_1_3.dtl"
+"scene_1_3": "res://timelines/scene_1_3.dtl",
+"test_signal": "res://timelines/test_signal.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://style/custom_style.tres", "res://style/custom_narrator_style.tres"]

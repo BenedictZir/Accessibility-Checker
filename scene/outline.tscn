@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://o6nhawy4oxte"]
+[gd_scene load_steps=10 format=3 uid="uid://o6nhawy4oxte"]
 
 [ext_resource type="Script" uid="uid://cljbfq7wporfa" path="res://script/outline.gd" id="1_68wh6"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="1_kwc2m"]
 [ext_resource type="Texture2D" uid="uid://dmp7ov2fhe1vr" path="res://assets/outlines/State=Default.png" id="2_kwc2m"]
 [ext_resource type="Texture2D" uid="uid://yv0j478t65me" path="res://assets/outlines/Property 1=Default.png" id="3_ay2j4"]
 [ext_resource type="Texture2D" uid="uid://bkh0aslnra3ip" path="res://assets/outlines/Property 1=Default (1).png" id="4_g37e7"]
@@ -16,6 +17,7 @@ offset_left = -178.0
 offset_top = -33.0
 offset_right = 180.0
 offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_kwc2m")
 theme_override_font_sizes/font_size = 50
 script = ExtResource("1_68wh6")
 

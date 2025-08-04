@@ -10,7 +10,7 @@ size = Vector2(37, 23)
 [node name="doc_text" type="Label" groups=["texts"]]
 offset_right = 37.0
 offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
 theme_override_fonts/font = ExtResource("1_fcj3v")
 theme_override_font_sizes/font_size = 15
 text = "beben"

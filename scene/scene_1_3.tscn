@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://chen0vitiebbf"]
 
 [ext_resource type="Script" uid="uid://b2a8cideujxdy" path="res://script/scene_1_3.gd" id="1_6w5b0"]
-[ext_resource type="PackedScene" uid="uid://buqa4otc64gx4" path="res://characters/pak_anton.tscn" id="2_bvd3o"]
+[ext_resource type="PackedScene" uid="uid://buqa4otc64gx4" path="res://scene/pak_anton.tscn" id="2_bvd3o"]
 [ext_resource type="PackedScene" uid="uid://fkdu00lqfjkp" path="res://scene/aruna.tscn" id="3_bvd3o"]
 
 [sub_resource type="Animation" id="Animation_2hy5q"]
