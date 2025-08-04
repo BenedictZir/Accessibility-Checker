@@ -7,12 +7,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if !is_playing():
-		if not is_mad:
-			play("blink")
-		elif is_mad:
+		if is_mad:
 			play("angry_blink")
-		elif is_happy:
+		if is_happy:
 			play("happy_blink")
+		else:
+			play("blink")
+
 
 func _on_dialogic_signal(arg):
 	match arg:

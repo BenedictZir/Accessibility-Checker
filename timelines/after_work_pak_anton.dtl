@@ -1,0 +1,15 @@
+if {poin_inklusif_harian} <= 500.0:
+	[signal arg="pak_anton_angry_talk"]
+	"pak bos": Bagaimana ini kerjamu!
+	[signal arg="pak_anton_angry_talk"]
+	"pak bos": Jangan ulangi lagi besok!
+elif {poin_inklusif_harian} <= 1500.0:
+	[signal arg="pak_anton_talk"]
+	"pak bos": Kerja bagus hariini!
+	[signal arg="pak_anton_talk"]
+	"pak bos": Sampai jumpa besok!
+else:
+	[signal arg="pak_anton_happy_talk"]
+	"pak bos": Wah {player_name}, kamu memang hebat!.
+	[signal arg="pak_anton_happy_talk"]
+	"pak bos": Lanjutkan kerja bagusmu ini ya!

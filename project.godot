@@ -33,8 +33,20 @@ directories/dch_directory={
 "player": "res://characters/player.dch"
 }
 directories/dtl_directory={
+"after_work_mbak_intan": "res://timelines/after_work_mbak_intan.dtl",
+"after_work_mbak_rani": "res://timelines/after_work_mbak_rani.dtl",
+"after_work_pak_anton": "res://timelines/after_work_pak_anton.dtl",
 "introduction": "res://timelines/introduction.dtl",
 "map": "res://timelines/map.dtl",
+"mbak_intan_random_1": "res://timelines/mbak_intan_random_1.dtl",
+"mbak_intan_random_2": "res://timelines/mbak_intan_random_2.dtl",
+"mbak_intan_random_3": "res://timelines/mbak_intan_random_3.dtl",
+"mbak_rani_random_1": "res://timelines/mbak_rani_random_1.dtl",
+"mbak_rani_random_2": "res://timelines/mbak_rani_random_2.dtl",
+"mbak_rani_random_3": "res://timelines/mbak_rani_random_3.dtl",
+"pak_anton_random_1": "res://timelines/pak_anton_random_1.dtl",
+"pak_anton_random_2": "res://timelines/pak_anton_random_2.dtl",
+"pak_anton_random_3": "res://timelines/pak_anton_random_3.dtl",
 "prologue": "res://timelines/prologue.dtl",
 "scene_1_1": "res://timelines/scene_1_1.dtl",
 "scene_1_2": "res://timelines/scene_1_2.dtl",
@@ -46,7 +58,8 @@ layout/style_list=["res://style/custom_style.tres", "res://style/custom_narrator
 layout/default_style="res://style/custom_style.tres"
 variables={
 "ans": "a",
-"player_name": "BEBEN"
+"player_name": "BEBEN",
+"poin_inklusif_harian": 2000.0
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

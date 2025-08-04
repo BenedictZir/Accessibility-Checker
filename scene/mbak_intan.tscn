@@ -189,7 +189,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_gki5o")
 }],
-"loop": false,
+"loop": true,
 "name": &"talk",
 "speed": 5.0
 }]
@@ -197,8 +197,7 @@ animations = [{
 [node name="mbak_intan" type="AnimatedSprite2D"]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_oag8s")
-animation = &"happy_talk"
+animation = &"talk"
 autoplay = "blink"
-frame = 5
-frame_progress = 1.0
+frame_progress = 0.979151
 script = ExtResource("1_oag8s")

@@ -4,15 +4,15 @@ var is_mad := false
 var is_happy := true
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-
+	Dialogic.start("after_work_mbak_intan")
 func _process(delta: float) -> void:
 	if !is_playing():
-		if not is_mad:
-			play("blink")
-		elif is_mad:
+		if is_mad:
 			play("angry_blink")
-		elif is_happy:
+		if is_happy:
 			play("happy_blink")
+		else:
+			play("blink")
 
 func _on_dialogic_signal(arg):
 	match arg:

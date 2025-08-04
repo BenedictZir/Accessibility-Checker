@@ -1,6 +1,86 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxtncf3tm4oh1"]
+[gd_scene load_steps=5 format=3 uid="uid://dxtncf3tm4oh1"]
 
 [ext_resource type="Script" uid="uid://2fjbaom6xrc1" path="res://script/mbak_rani.gd" id="1_4yotn"]
+[ext_resource type="Texture2D" uid="uid://crfubbqcwopoc" path="res://assets/Mbak Rani (Tongkat baru)-20250804T185527Z-1-001/Mbak Rani (Tongkat baru)/Idle/normal.png" id="1_hh63d"]
+[ext_resource type="Texture2D" uid="uid://c33lm63dkjht2" path="res://assets/Mbak Rani (Tongkat baru)-20250804T185527Z-1-001/Mbak Rani (Tongkat baru)/Idle/tutup_mata.png" id="2_g1k2f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yotn"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"angry_blink",
+"speed": 4.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"angry_talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g1k2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hh63d")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 4.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"happy_blink",
+"speed": 4.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"happy_talk",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"smile",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"talk",
+"speed": 5.0
+}]
 
 [node name="mbak_rani" type="AnimatedSprite2D"]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_4yotn")
+animation = &"blink"
+frame_progress = 0.852202
 script = ExtResource("1_4yotn")
