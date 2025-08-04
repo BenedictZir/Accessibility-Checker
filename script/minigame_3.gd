@@ -2,9 +2,9 @@ extends Node2D
 
 var doc_texts = []
 var structures = []
-var heading_count = 0
-var subheading_count = 0
-var text_count = 0
+var judul_count = 0
+var subjudul_count = 0
+var teks_count = 0
 var text_and_struct : Dictionary = {}
 var all_connected := false
 @export var struct_text_scene : PackedScene
@@ -29,9 +29,9 @@ func init(texts):
 	
 func reset():
 	text_and_struct = {}
-	heading_count = 0
-	subheading_count = 0
-	text_count = 0
+	judul_count = 0
+	subjudul_count = 0
+	teks_count = 0
 	doc_texts.clear()
 	structures.clear()
 	var texts = text_container.get_children()
@@ -87,14 +87,14 @@ func _on_exit_button_pressed() -> void:
 
 func convert_int_structure(index):
 	if index == 0:
-		heading_count += 1
-		return "heading"
+		judul_count += 1
+		return "judul"
 	if index == 1:
-		subheading_count += 1
-		return "subheading"
+		subjudul_count += 1
+		return "subjudul"
 	if index == 2:
-		text_count += 1
-		return "text"
+		teks_count += 1
+		return "teks"
 		 
 
 

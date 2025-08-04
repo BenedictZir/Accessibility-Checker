@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://te07i18mlnaw"]
+[gd_scene load_steps=5 format=3 uid="uid://te07i18mlnaw"]
 
 [ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_7rui3"]
+[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="2_ln74q"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="3_6ntd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
 size = Vector2(905, 1092)
@@ -18,7 +20,29 @@ shape = SubResource("RectangleShape2D_wjaii")
 
 [node name="texts" type="Node2D" parent="."]
 
+[node name="doc_text" parent="texts" instance=ExtResource("2_ln74q")]
+offset_left = -365.0
+offset_top = -185.0
+offset_right = -312.0
+offset_bottom = -162.0
+text = "blablabla"
+intended_structure = 0
+
+[node name="doc_text2" parent="texts" instance=ExtResource("2_ln74q")]
+offset_left = -366.0
+offset_top = -140.0
+offset_right = -275.0
+offset_bottom = -117.0
+text = "asdasdadbeben"
+intended_structure = 1
+
 [node name="images" type="Node2D" parent="."]
+
+[node name="images" parent="images" instance=ExtResource("3_6ntd6")]
+offset_left = -358.0
+offset_top = -51.0
+offset_right = -230.0
+offset_bottom = 77.0
 
 [connection signal="selected" from="." to="." method="_on_selected"]
 [connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

@@ -8,6 +8,7 @@ signal deselect
 @export var wrong_alt_text: String = ""
 @export var wrong_alt_text_2: String = ""
 var alt_text := "nothing"
+var display_name := ""
 func _ready() -> void:
 	collision_shape_2d.shape.size = size
 	collision_shape_2d.position = size/2
@@ -50,3 +51,12 @@ func set_alt_text(text):
 func get_texts_list():
 	var alt_texts = [correct_alt_text, mid_alt_text, wrong_alt_text, wrong_alt_text_2]
 	return alt_texts
+	
+func set_display_name(display):
+	display_name = display
+	
+func _on_mouse_entered():
+	GlobalVar.interactable = true
+
+func _on_mouse_exited():
+	GlobalVar.interactable = false

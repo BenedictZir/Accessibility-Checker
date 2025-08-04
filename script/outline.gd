@@ -60,7 +60,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		var parent = find_parent("level_template")
 		parent.select_outline(self)
 
-# ✅ fungsi ini kamu butuhkan
+
 func set_display_name(display):
 	display_name = display
 
@@ -69,3 +69,10 @@ func bind_object(obj):
 
 func get_bound_object():
 	return bound_object
+	
+func _on_mouse_entered():
+	GlobalVar.interactable = true
+
+
+func _on_mouse_exited():
+	GlobalVar.interactable = false

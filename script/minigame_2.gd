@@ -14,16 +14,16 @@ var rotating := true
 @export var wheel_speed := 200
 @export var arrow_speed := -20
 const COLORS = {
-	"red" : Color("#d10f0b"),
-	"orange" : Color("#d95a00"),
-	"yellow" : Color("#faed00"),
-	"green" : Color("#388b34"),
-	"blue" : Color("#356db4"),
-	"black" : Color("#000000"),
-	"gray" : Color("#9f9f9f"),
-	"purple" : Color("#88207d"),
-	"dark_blue" : Color("#2f368b"),
-	"white" : Color("#ffffff")
+	"merah" : Color("#d10f0b"),
+	"oranye" : Color("#d95a00"),
+	"kuning" : Color("#faed00"),
+	"hijau" : Color("#388b34"),
+	"biru muda" : Color("#356db4"),
+	"hitam" : Color("#000000"),
+	"abu" : Color("#9f9f9f"),
+	"ungu" : Color("#88207d"),
+	"biru" : Color("#2f368b"),
+	"putih" : Color("#ffffff")
 	
 }
 var color = null

@@ -69,3 +69,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	selected = false
 	GlobalVar.is_dragging = false
 	_set_line_point(line_2d.to_local(answer.line_2d.global_position))
+
+func _on_mouse_entered():
+	GlobalVar.interactable = true
+
+
+func _on_mouse_exited():
+	GlobalVar.interactable = false

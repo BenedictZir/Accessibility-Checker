@@ -79,6 +79,6 @@ animations = [{
 position = Vector2(1.19209e-07, -1.19209e-07)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_idsj1")
-animation = &"smile"
+animation = &"talk"
 autoplay = "blink"
 script = ExtResource("4_07hmj")

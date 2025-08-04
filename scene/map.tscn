@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c4fsysig03hhc" path="res://assets/map/kos.png" id="10_pa0f6"]
 [ext_resource type="Texture2D" uid="uid://cw6ae00ddw5bu" path="res://assets/map/supermarket.png" id="11_lfekj"]
 [ext_resource type="Texture2D" uid="uid://w6n7li52h48p" path="res://assets/map/taman.png" id="12_d6soc"]
-[ext_resource type="Texture2D" uid="uid://csr87rf4f2qvk" path="res://assets/map/cafe.png" id="13_uhta6"]
+[ext_resource type="Texture2D" uid="uid://du4oncgqmbypd" path="res://assets/map/cafe.png" id="13_uhta6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v66k7"]
 

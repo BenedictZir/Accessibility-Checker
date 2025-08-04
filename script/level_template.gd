@@ -14,6 +14,10 @@ extends Node2D
 @onready var app: Node2D = $app
 @onready var structure_minigame: Node2D = $structure_minigame
 @onready var score_label: Label = $score_label
+@onready var text_contrast_label: Label = $app/accessibility_checker/text_contrast/text_contrast_label
+@onready var image_alt_text_label: Label = $app/accessibility_checker/image_alt_text/image_alt_text_label
+@onready var text_structure_label: Label = $app/accessibility_checker/text_structure/text_structure_label
+
 
 @export var document_scene: PackedScene
 @export var outline_scene: PackedScene
@@ -53,6 +57,7 @@ func _ready() -> void:
 	get_all_obj()
 	timer.wait_time = time
 	timer.start()
+	examine()
 
 func _process(delta: float) -> void:
 	total_score = (accessibility_score / (2 * all_object.size()) * 60)
@@ -88,12 +93,13 @@ func get_all_obj():
 	
 	for obj in all_object:
 		if obj.is_in_group("texts"):
-			obj.name = "text " + str(text_count)
+			obj.name = "teks " + str(text_count)
 			obj.display_name = obj.name
 			create_outline(obj, obj.display_name)
 			text_count += 1
 		else:
 			obj.name = "image " + str(image_count)
+			obj.display_name = obj.name
 			create_outline(obj, obj.display_name)
 			image_count += 1
 			
@@ -189,15 +195,23 @@ func show_nothing():
 	
 func examine():
 	accessibility_score = 0
+	var image_have_alt_text = 0
+	var color_used = []
+	var text_contrast = 0
+	var text_correct_structure = 0
 	for obj in all_object:
 		if (obj.is_in_group("images")):
 			accessibility_score += obj.examine()
+			if obj.examine() > 0:
+				image_have_alt_text += 1
+			
 		else:
-			accessibility_score += obj.examine(document_paper.self_modulate)
-			print(accessibility_score)
-
-	
-
+			accessibility_score += obj.examine_structure()
+			if obj.examine_structure() > 0:
+				text_correct_structure += 1
+	text_contrast_label.text = "TEKS MUDAH DIBACA\n" + str(text_contrast) + "/" + str(all_texts.size())
+	text_structure_label.text = "STRUKTUR TEKS BENAR\n" + str(text_correct_structure) + "/" + str(all_texts.size())
+	image_alt_text_label.text = "GAMBAR DENGAN TEKS ALTERNATIF\n" + str(image_have_alt_text) + "/" + str(all_images.size())
 
 func _on_color_wheel_button_pressed() -> void:
 	if (selected_object == null):
@@ -287,32 +301,33 @@ func _on_structure_minigame_done() -> void:
 
 	animation_player.play("show_structure_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
+	
 func find_outline_text(target_text):
 	for child in v_box_container.get_children():
 		if child.name == target_text:
 			return child
 
 func update_text_outline():
-	var heading_count = 0
-	var subheading_count = 0
-	var text_count = 0
+	var judul_count = 0
+	var subjudul_count = 0
+	var teks_count = 0
 
 	for text in all_texts:
 		var outline = find_outline(text)
 		var display_name = ""
 
-		if text.structure.containsn("subheading"):
-			subheading_count += 1
-			text_count = 0
-			display_name = "subheading " + str(subheading_count)
-		elif text.structure.containsn("heading"):
-			heading_count += 1
-			subheading_count = 0
-			text_count = 0
-			display_name = "heading " + str(heading_count)
+		if text.structure.containsn("subjudul"):
+			subjudul_count += 1
+			teks_count = 0
+			display_name = "subjudul " + str(subjudul_count)
+		elif text.structure.containsn("judul"):
+			judul_count += 1
+			subjudul_count = 0
+			teks_count = 0
+			display_name = "judul " + str(judul_count)
 		else:
-			text_count += 1
-			display_name = "text " + str(text_count)
+			teks_count += 1
+			display_name = "teks " + str(teks_count)
 
 		text.display_name = display_name
 		if outline:

@@ -40,3 +40,5 @@ text_overrun_behavior = 2
 [connection signal="area_entered" from="Line2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Line2D/Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="input_event" from="Line2D/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Line2D/Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Line2D/Area2D" to="." method="_on_mouse_exited"]

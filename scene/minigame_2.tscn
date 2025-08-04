@@ -40,66 +40,66 @@ texture = ExtResource("2_8sst4")
 [node name="areas" type="Node2D" parent="wheel"]
 scale = Vector2(5, 5)
 
-[node name="black" type="Area2D" parent="wheel/areas"]
+[node name="hitam" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/black"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/hitam"]
 position = Vector2(-0.0187497, -0.187677)
 scale = Vector2(1.0125, 0.991071)
 polygon = PackedVector2Array(0, -19.8, -2.54939, -19.789, -5, -19.2, -2.6, -20.6)
 
-[node name="gray" type="Area2D" parent="wheel/areas"]
+[node name="abu" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/gray"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/abu"]
 polygon = PackedVector2Array(-5.2, -19.2, -8, -19.4, -10, -17.2)
 
-[node name="white" type="Area2D" parent="wheel/areas"]
+[node name="putih" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/white"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/putih"]
 polygon = PackedVector2Array(-10, -17.2, -12.4, -16.4, -14, -14.2)
 
-[node name="yellow" type="Area2D" parent="wheel/areas"]
+[node name="kuning" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/yellow"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/kuning"]
 polygon = PackedVector2Array(-14, -14.2, -21.2, -7.6, -20, 0)
 
-[node name="green" type="Area2D" parent="wheel/areas"]
+[node name="hijau" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/green"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/hijau"]
 polygon = PackedVector2Array(-19.8, 0, -18.2, 8.6, -14, 14, -20.4, 9)
 
-[node name="blue" type="Area2D" parent="wheel/areas"]
+[node name="biru muda" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/blue"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/biru muda"]
 polygon = PackedVector2Array(-14, 14, -8, 18.2, 0.200005, 19.6, -9, 20.8)
 
-[node name="dark_blue" type="Area2D" parent="wheel/areas"]
+[node name="biru" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/dark_blue"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/biru"]
 polygon = PackedVector2Array(0, 19.6, 7, 18.6, 14, 13.8, 8, 20.6)
 
-[node name="purple" type="Area2D" parent="wheel/areas"]
+[node name="ungu" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/purple"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/ungu"]
 polygon = PackedVector2Array(19.6, 0, 19.6, 6.4, 19.6, 9.4, 14, 13.8, 18, 7.4)
 
-[node name="red" type="Area2D" parent="wheel/areas"]
+[node name="merah" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/red"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/merah"]
 polygon = PackedVector2Array(13.8, -13.8, 21.4, -8.8, 19.6, 0)
 
-[node name="orange" type="Area2D" parent="wheel/areas"]
+[node name="oranye" type="Area2D" parent="wheel/areas"]
 collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/orange"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wheel/areas/oranye"]
 polygon = PackedVector2Array(0, -20, 7.6, -19.8, 14, -14, 7.2, -18.4)
 
 [node name="arrow" type="Sprite2D" parent="."]
