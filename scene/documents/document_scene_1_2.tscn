@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://1uu7h5hvpk3q"]
+[gd_scene load_steps=7 format=3 uid="uid://1uu7h5hvpk3q"]
 
 [ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_n8swi"]
 [ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="2_ooohr"]
+[ext_resource type="Texture2D" uid="uid://d1rk6dmifuilx" path="res://assets/image_scene_1_2/tutorial_1_1.jpg" id="3_eg4tf"]
 [ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="3_ooohr"]
+[ext_resource type="Texture2D" uid="uid://y0l1ggxtqhhh" path="res://assets/image_scene_1_2/tutorial_1_2.jpg" id="4_eg4tf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
 size = Vector2(905, 1092)
 
 [node name="document_template" type="Node2D" groups=["document"]]
 script = ExtResource("1_n8swi")
+judul = "Jenis-jenis Assistive Technology"
 
 [node name="paper_area" type="Area2D" parent="."]
 position = Vector2(0, -44)
@@ -20,57 +23,47 @@ shape = SubResource("RectangleShape2D_wjaii")
 
 [node name="texts" type="Node2D" parent="."]
 
-[node name="doc_text5" parent="texts" instance=ExtResource("2_ooohr")]
-offset_left = -214.0
-offset_top = 27.0
-offset_right = -155.0
-offset_bottom = 47.0
-text = "BLABLasd"
-intended_structure = 1
-
 [node name="doc_text" parent="texts" instance=ExtResource("2_ooohr")]
-offset_left = -212.0
-offset_top = -93.0
-offset_right = -175.0
-offset_bottom = -70.0
-text = "TEST"
+offset_left = 4.0
+offset_top = -122.0
+offset_right = 374.0
+offset_bottom = -99.0
+text = "Jenis-jenis Assistive Technology"
 intended_structure = 0
+structure = "judul"
 
 [node name="doc_text2" parent="texts" instance=ExtResource("2_ooohr")]
-offset_left = -211.0
-offset_top = -55.0
-offset_right = -174.0
-offset_bottom = -32.0
-text = "LOLOLOLOOLL"
-intended_structure = 1
-
-[node name="doc_text3" parent="texts" instance=ExtResource("2_ooohr")]
-offset_left = -212.0
-offset_top = -12.0
-offset_right = -78.0
-offset_bottom = 11.0
-text = "ABCBACBABCABCAAW"
-intended_structure = 2
-
-[node name="doc_text4" parent="texts" instance=ExtResource("2_ooohr")]
-offset_left = -205.0
-offset_top = 96.0
-offset_right = -71.0
-offset_bottom = 119.0
-text = "ABCBACBABCABCAAWasdasd"
+offset_left = 4.0
+offset_top = -23.0
+offset_right = 407.0
+offset_bottom = 84.0
+text = "Assistive technology membantu semua orang mengakses teknologi secara setara. 
+Dengan alat bantu seperti pembaca layar, keyboard adaptif, dan pelacak mata, pengguna dengan disabilitas bisa menggunakan perangkat digital dengan lebih mudah."
 intended_structure = 2
 
 [node name="images" type="Node2D" parent="."]
 
 [node name="images" parent="images" instance=ExtResource("3_ooohr")]
-offset_left = -222.0
-offset_top = 169.0
-offset_right = -94.0
-offset_bottom = 297.0
-correct_alt_text = "a"
-mid_alt_text = "b"
-wrong_alt_text = "c"
-wrong_alt_text_2 = "d"
+offset_left = -430.0
+offset_top = -121.0
+offset_right = -17.0
+offset_bottom = 155.0
+texture = ExtResource("3_eg4tf")
+correct_alt_text = "Seorang wanita muda sedang mendengarkan musik menggunakan headphone saat duduk di kursi roda. Ia memegang ponsel dan tersenyum, dengan latar belakang putih."
+wrong_alt_text = "Seorang wanita difabel mendengarkan musik di dalam ruangan."
+wrong_alt_text_2 = "Seorang wanita dengan rambut hitam duduk di kursi roda."
+wrong_alt_text_3 = "Seorang wanita dengan headphone duduk di kursi roda, tersenyum sambil melihat ponselnya."
+
+[node name="images2" parent="images" instance=ExtResource("3_ooohr")]
+offset_left = -341.0
+offset_top = 379.0
+offset_right = -103.0
+offset_bottom = 538.0
+texture = ExtResource("4_eg4tf")
+correct_alt_text = "Seorang wanita berambut hitam dengan kaus oranye, memakai headphone biru, dan duduk di depan laptop."
+wrong_alt_text = "Seorang wanita berambut hitam dengan kaus biru, memakai headphone, dan duduk di depan laptop."
+wrong_alt_text_2 = "Seorang wanita dengan headphone biru tersenyum sambil melihat layar laptopnya."
+wrong_alt_text_3 = "Seorang wanita difabel mengikuti kelas online di rumahnya."
 
 [connection signal="selected" from="." to="." method="_on_selected"]
 [connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

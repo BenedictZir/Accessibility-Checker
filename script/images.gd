@@ -4,9 +4,9 @@ signal deselect
 @onready var highlight: Line2D = $highlight
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @export var correct_alt_text: String = ""
-@export var mid_alt_text: String = ""
 @export var wrong_alt_text: String = ""
 @export var wrong_alt_text_2: String = ""
+@export var wrong_alt_text_3: String = ""
 var alt_text := "nothing"
 var display_name := ""
 func _ready() -> void:
@@ -34,9 +34,7 @@ func _on_selected() -> void:
 func examine():
 	if alt_text == correct_alt_text:
 		return  4
-	elif alt_text == mid_alt_text:
-		return 2
-	elif alt_text == wrong_alt_text or alt_text == wrong_alt_text_2:
+	elif alt_text == wrong_alt_text or alt_text == wrong_alt_text_2 or alt_text == wrong_alt_text_3:
 		return 1
 	else:
 		return 0
@@ -49,7 +47,7 @@ func get_alt_text():
 func set_alt_text(text):
 	alt_text = text
 func get_texts_list():
-	var alt_texts = [correct_alt_text, mid_alt_text, wrong_alt_text, wrong_alt_text_2]
+	var alt_texts = [correct_alt_text, wrong_alt_text, wrong_alt_text_2, wrong_alt_text_3]
 	return alt_texts
 	
 func set_display_name(display):

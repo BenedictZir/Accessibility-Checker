@@ -57,7 +57,9 @@ func create_struct_texts():
 		struct_text.label.text = doc.text
 	call_deferred("reset_pos")
 func create_answers():
-	for structure in structures:
+	var randomized_structures = structures.duplicate()
+	randomized_structures.shuffle() 
+	for structure in randomized_structures:
 		var struct_answer = struct_answer_scene.instantiate()
 		answer_container.add_child(struct_answer)
 		struct_answer.label.text = structure

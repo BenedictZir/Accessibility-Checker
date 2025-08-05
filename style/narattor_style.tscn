@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://jrs36otsyvcp"]
 
-[ext_resource type="Script" uid="uid://c7tdw4dcygbr1" path="res://style/VisualNovelTextbox/vn_textbox_layer.gd" id="1_oahvv"]
-[ext_resource type="Script" uid="uid://d2sc1kvgkp1wh" path="res://style/VisualNovelTextbox/animations.gd" id="2_xh5mn"]
+[ext_resource type="Script" uid="uid://c7tdw4dcygbr1" path="res://assets/color_wheel_minigame/VisualNovelTextbox/vn_textbox_layer.gd" id="1_oahvv"]
+[ext_resource type="Script" uid="uid://d2sc1kvgkp1wh" path="res://assets/color_wheel_minigame/VisualNovelTextbox/animations.gd" id="2_xh5mn"]
 [ext_resource type="Texture2D" uid="uid://b0ep6olsbqhf2" path="res://assets/dialog_box/Rectangle 9588.png" id="3_8f4mm"]
 [ext_resource type="Texture2D" uid="uid://b7reogorsff0n" path="res://assets/dialog_box/Rectangle 9591.png" id="4_2nm3n"]
 [ext_resource type="Texture2D" uid="uid://dt056rkqtju6a" path="res://assets/dialog_box/Mask group.png" id="5_ojhxa"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://mhdlbkuin1oh" path="res://assets/dialog_box/Rectangle 9590.png" id="9_erlya"]
 [ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="10_cy4y2"]
 [ext_resource type="Script" uid="uid://bb0qky56e1hnj" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="11_6rjn4"]
-[ext_resource type="Script" uid="uid://dr747rwpiwcw8" path="res://style/VisualNovelTextbox/autoadvance_indicator.gd" id="12_j74gf"]
+[ext_resource type="Script" uid="uid://dr747rwpiwcw8" path="res://assets/color_wheel_minigame/VisualNovelTextbox/autoadvance_indicator.gd" id="12_j74gf"]
 [ext_resource type="Script" uid="uid://dltatwxehc1dm" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="13_4eglb"]
 [ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="14_pewws"]
 

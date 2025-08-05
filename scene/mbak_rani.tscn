@@ -82,5 +82,5 @@ animations = [{
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_4yotn")
 animation = &"blink"
-frame_progress = 0.852202
+frame_progress = 0.745322
 script = ExtResource("1_4yotn")

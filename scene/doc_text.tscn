@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://mt0vlqo81wmg"]
 
-[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="1_fcj3v"]
+[ext_resource type="FontFile" uid="uid://cnidptah5i3iu" path="res://assets/fonts/Lato-Regular.ttf" id="1_fcj3v"]
 [ext_resource type="Script" uid="uid://cp0yuhxytweqw" path="res://script/doc_text.gd" id="1_wy5ll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wy5ll"]
@@ -14,6 +14,7 @@ theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
 theme_override_fonts/font = ExtResource("1_fcj3v")
 theme_override_font_sizes/font_size = 15
 text = "beben"
+autowrap_mode = 2
 script = ExtResource("1_wy5ll")
 
 [node name="Area2D" type="Area2D" parent="."]

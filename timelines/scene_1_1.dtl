@@ -1,8 +1,8 @@
 label adegan_1
 [style name="custom_style"]
-Tampilan gedung kaca menjulang tinggi, memantulkan langit Jakarta yang kelabu di pagi hari. Alt Text
-player: Wow. Tinggi banget. Belum pernah ke gedung setinggi ini sebelumnya.
-player: Apakah ini aroma profesionalisme? Aroma hand sanitizer dan kopi tubruk?
+Tampilan gedung kaca menjulang tinggi, memantulkan langit Jakarta yang kelabu di pagi hari.
+player: "Wow. Tinggi banget. Belum pernah ke gedung setinggi ini sebelumnya."
+player: "Apakah ini aroma profesionalisme? Aroma hand sanitizer dan kopi tubruk?"
 Orang-orang bersetelan jas berlalu cepat di sekitarmu, mata mereka terpaku pada tablet seolah sedang menjinakkan bom.
 Sebuah drone pengantar terbang melintas di atas kepala. Kamu hampir saja menunduk. Tapi santai. Ini hal biasa.
 Kamu menyeka kacamata yang mulai berembun.
@@ -15,28 +15,28 @@ Kamu dibawa masuk ke sebuah departemen dengan papan logam mengilap bertuliskan\:
 Tim Aksesibilitas Digital – Direktorat Komunikasi Inklusif (DAK)
 Di dalam, pemimpin timmu sudah menunggu.
 [signal arg="pak_anton_join"]
-Inilah Pak Anton\: penguasa bullet point, penakluk kopi hitam, penghancur alt text yang ngaco.
+Inilah Pak Anton\: penakluk kopi hitam, penghancur alt text yang ngaco.
 [style name="custom_style"]
 join "pak bos" left
 [style]
 [signal arg="pak_anton_talk"]
-"pak bos": *Ah, intern baru kita! Datang tepat waktu. Saya terkesan.*
+"pak bos": "Ah, intern baru kita! Datang tepat waktu. Saya terkesan."
 [signal arg="pak_anton_talk"]
-"pak bos": Selamat datang di Tim Aksesibilitas Digital—DAK. Jangan disamakan dengan… hal-hal yang menyenangkan ya.
+"pak bos": "Selamat datang di Tim Aksesibilitas Digital—DAK. Jangan disamakan dengan… hal-hal yang menyenangkan ya."
 [signal arg="pak_anton_talk"]
-"pak bos": Kamu akan mulai dari yang sederhana—bener-bener sederhana. Kita punya tumpukan slide presentasi yang... ya, dibuat dengan sangat tergesa.
+"pak bos": "Kamu akan mulai dari yang sederhana—bener-bener sederhana. Kita punya tumpukan slide presentasi yang... ya, dibuat dengan sangat tergesa."
 [signal arg="pak_anton_talk"]
-"pak bos": Tugas kamu? Bikin mereka bisa dimengerti. Oleh manusia. Dan oleh screen reader. Alt Text sekarang sahabat barumu.
+"pak bos": "Tugas kamu? Bikin mereka bisa dimengerti. Oleh manusia. Dan oleh screen reader. Alt Text sekarang sahabat barumu."
 [signal arg="pak_anton_talk"]
-"pak bos": Dan tolong ya, jangan ada lagi deskripsi kayak ‘image1.jpg’ atau ‘infografis_final_final_fix_beneran.png’. Oke?
+"pak bos": "Dan tolong ya, jangan ada lagi deskripsi kayak ‘image1.jpg’ atau ‘infografis_final_final_fix_beneran.png’. Oke?"
 [signal arg="pak_anton_talk"]
-"pak bos": Tenang saja, kamu tidak sendiri, Aruna di sini akan membantu kamu.
+"pak bos": "Tenang saja, kamu tidak sendiri, Aruna di sini akan membantu kamu."
 join aruna center
 [signal arg="aruna_join"]
-aruna: Halo, Intern! Tenang aja—aku akan jadi pemandu kamu di dunia seru aksesibilitas digital.
+aruna: "Halo, Intern! Tenang aja—aku akan jadi pemandu kamu di dunia seru aksesibilitas digital."
 [signal arg="aruna_happy"]
-aruna: Anggap aku sebagai co-pilot yang ramah. Tapi dengan ingatan lebih tajam, dan nggak butuh tidur."
+aruna: "Anggap aku sebagai co-pilot yang ramah. Tapi dengan ingatan lebih tajam, dan nggak butuh tidur.""
 [signal arg="aruna_happy"]
-aruna: Misi pertama\: ayo kita perbaiki—eh maksudku, tingkatkan—beberapa slide bareng-bareng, yuk!"
+aruna: "Misi pertama\: ayo kita perbaiki—eh maksudku, tingkatkan—beberapa slide bareng-bareng, yuk!""
 [signal arg="aruna_happy"]
 [signal arg="end"]

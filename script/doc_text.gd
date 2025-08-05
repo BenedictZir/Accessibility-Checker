@@ -15,11 +15,15 @@ const COLORS = {
 }
 
 @export_enum("judul", "subjudul", "teks") var intended_structure
-var structure := "teks"
+@export var structure := "teks"
+const LATO_LIGHT = preload("res://assets/fonts/Lato-Light.ttf")
+const LATO_REGULAR = preload("res://assets/fonts/Lato-Regular.ttf")
+const LATO_BOLD = preload("res://assets/fonts/Lato-Bold.ttf")
+const LATO_BLACK = preload("res://assets/fonts/Lato-Black.ttf")
 var is_contrast := false
-const text_size = 22
-const subheading_size = 50
-const headidng_size = 80
+const text_size = 26
+const subheading_size = 28
+const heading_size = 40
 var display_name = ""
 var is_selected := false
 @export var part := 1
@@ -31,11 +35,15 @@ func _ready():
 
 func _process(delta):
 	if structure == "teks":
+		add_theme_font_override("font", LATO_LIGHT)
 		add_theme_font_size_override("font_size", text_size)
 	elif structure == "subjudul":
+		add_theme_font_override("font", LATO_REGULAR)
+		
 		add_theme_font_size_override("font_size", subheading_size)
 	else:
-		add_theme_font_size_override("font_size", headidng_size)
+		add_theme_font_override("font", LATO_BOLD)
+		add_theme_font_size_override("font_size", heading_size)
 	update_size()
 	if is_selected:
 		update_highlight()
@@ -137,3 +145,6 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	GlobalVar.interactable = false
+
+func get_structure():
+	return structure

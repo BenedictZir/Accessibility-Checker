@@ -6,6 +6,7 @@ var original_y
 signal selected
 signal deselect
 var ori_area_pos
+@export var judul := ""
 func _ready() -> void:
 	original_y = position.y
 	ori_area_pos = paper_area.global_position

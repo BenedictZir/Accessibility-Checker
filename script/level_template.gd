@@ -13,10 +13,10 @@ extends Node2D
 @onready var v_box_container: VBoxContainer = $app/ScrollContainer/VBoxContainer
 @onready var app: Node2D = $app
 @onready var structure_minigame: Node2D = $structure_minigame
-@onready var score_label: Label = $score_label
-@onready var text_contrast_label: Label = $app/accessibility_checker/text_contrast/text_contrast_label
-@onready var image_alt_text_label: Label = $app/accessibility_checker/image_alt_text/image_alt_text_label
-@onready var text_structure_label: Label = $app/accessibility_checker/text_structure/text_structure_label
+@onready var text_tidak_jelas: Label = $app/accessibility_checker/Sprite2D/text_tidak_jelas
+@onready var tidak_ada_alt_text: Label = $app/accessibility_checker/Sprite2D2/tidak_ada_alt_text
+@onready var struktur_salah: Label = $app/accessibility_checker/Sprite2D3/struktur_salah
+
 
 
 @export var document_scene: PackedScene
@@ -58,10 +58,11 @@ func _ready() -> void:
 		timer.wait_time = time
 		timer.start()
 		examine()
+		$app/nama_dokumen.text = doc.judul
+		
 
 func _process(delta: float) -> void:
 	total_score = (accessibility_score / (4 * all_object.size()) * 60 / 100 * 2500)
-	score_label.text = str(total_score)
 	var minutes = int(timer.time_left) / 60
 	var seconds = int(timer.time_left) % 60
 	var minutes_str = str(minutes).pad_zeros(2)
@@ -87,18 +88,31 @@ func get_all_obj():
 	for image in all_images:
 		all_object.append(image)
 	all_object.sort_custom(sort_by_pos)
-	
-	var text_count = 1
+	var subjudul_count = 0
+	var judul_count = 0
+	var text_count = 0
 	var image_count = 1
 	
 	for obj in all_object:
 		if obj.is_in_group("texts"):
-			obj.name = "teks " + str(text_count)
+			if obj.get_structure().contains("subjudul"):
+				subjudul_count += 1
+				text_count = 0 
+				obj.name = obj.get_structure() + " " + str(subjudul_count)
+			elif obj.get_structure().contains("judul"):
+				subjudul_count = 0
+				judul_count += 1
+				text_count = 0
+				obj.name = obj.get_structure() + " " + str(judul_count)
+				
+			else:
+				text_count += 1
+				obj.name = obj.get_structure() + " " + str(text_count)
 			obj.display_name = obj.name
 			create_outline(obj, obj.display_name)
 			text_count += 1
 		else:
-			obj.name = "image " + str(image_count)
+			obj.name = "foto " + str(image_count)
 			obj.display_name = obj.name
 			create_outline(obj, obj.display_name)
 			image_count += 1
@@ -195,26 +209,46 @@ func show_nothing():
 	
 func examine():
 	accessibility_score = 0
-	var image_have_alt_text = 0
+	var image_dont_have_alt_text = 0
 	var color_used = []
-	var text_contrast = 0
-	var text_correct_structure = 0
+	var text_tidak_contrast = 0
+	var text_wrong_structure = 0
 	for obj in all_object:
 		if (obj.is_in_group("images")):
 			accessibility_score += obj.examine()
-			if obj.examine() > 0:
-				image_have_alt_text += 1
+			if obj.examine() <= 0:
+				image_dont_have_alt_text += 1
 			
 		else:
 			accessibility_score += obj.examine_structure()
-			if obj.examine_structure() > 0:
-				text_correct_structure += 1
+			if obj.examine_structure() <= 0:
+				text_wrong_structure += 1
 			accessibility_score += obj.examine_color(document_paper.self_modulate)
-			if obj.examine_color(document_paper.self_modulate) > 0:
-				text_contrast += 1
-	text_contrast_label.text = "TEKS MUDAH DIBACA\n" + str(text_contrast) + "/" + str(all_texts.size())
-	text_structure_label.text = "STRUKTUR TEKS BENAR\n" + str(text_correct_structure) + "/" + str(all_texts.size())
-	image_alt_text_label.text = "GAMBAR DENGAN TEKS ALTERNATIF\n" + str(image_have_alt_text) + "/" + str(all_images.size())
+			if obj.examine_color(document_paper.self_modulate) <= 0:
+				text_tidak_contrast += 1
+	if text_tidak_contrast > 0:
+		text_tidak_jelas.text = str(text_tidak_contrast)
+		text_tidak_jelas.show()
+		$app/accessibility_checker/Sprite2D/check_circle.hide()
+	else:
+		$app/accessibility_checker/Sprite2D/check_circle.show()
+		text_tidak_jelas.hide()
+		
+	if text_wrong_structure > 0:
+		struktur_salah.text = str(text_wrong_structure)
+		struktur_salah.show()
+		$app/accessibility_checker/Sprite2D3/check_circle.hide()
+	else:
+		$app/accessibility_checker/Sprite2D3/check_circle.show()
+		struktur_salah.hide()
+		
+	if image_dont_have_alt_text > 0:
+		tidak_ada_alt_text.text = str(image_dont_have_alt_text)
+		tidak_ada_alt_text.show()
+		$app/accessibility_checker/Sprite2D2/check_circle.hide()
+	else:
+		$app/accessibility_checker/Sprite2D2/check_circle.show()
+		tidak_ada_alt_text.hide()
 
 func _on_color_wheel_button_pressed() -> void:
 	if (selected_object == null):
@@ -342,6 +376,7 @@ func _on_structure_minigame_canceled() -> void:
 
 func set_document(document):
 	var doc = document_scene.instantiate()
+	$app/nama_dokumen.text = doc.judul
 	document.add_child(doc)
 	doc.global_position = document.global_position
 	get_all_obj()

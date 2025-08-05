@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	elif answer_box:
 		if answer_box.occupied_by == self or GlobalVar.is_dragging:
 			global_position = lerp(global_position, answer_box.global_position, 10 * delta)
+			shrink()
 			answer_box.set_text()
 		else:
 			global_position = lerp(global_position, original_pos, 10 * delta)
@@ -65,7 +66,7 @@ func shrink():
 
 func expand():
 	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2.ONE * 1.2, 0.1).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "scale", Vector2.ONE * 1.1, 0.1).set_trans(Tween.TRANS_SINE)
 
 func set_text(text: String) -> void:
 	label.text = text

@@ -1,33 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://c00svsqxgxjhc"]
+[gd_scene load_steps=5 format=3 uid="uid://c00svsqxgxjhc"]
 
 [ext_resource type="Script" uid="uid://bfdvximwv5yjx" path="res://script/alt_text.gd" id="1_21dix"]
-[ext_resource type="Texture2D" uid="uid://b7hhf6rv7581y" path="res://assets/minigame_1/Mask group.png" id="2_5ot4c"]
+[ext_resource type="Texture2D" uid="uid://dkhmy1dogdk10" path="res://assets/minigame_1/alt_text.png" id="2_mspv4"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="3_mspv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21dix"]
-size = Vector2(429, 83)
+size = Vector2(480, 80)
 
 [node name="alt_text" type="Area2D" groups=["answer"]]
 collision_mask = 4
 script = ExtResource("1_21dix")
-height = 85.0
-width = 430.0
+height = 80.0
+width = 480.0
 
 [node name="background" type="Sprite2D" parent="."]
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_5ot4c")
+scale = Vector2(1.40782, 1.4)
+texture = ExtResource("2_mspv4")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -190.0
-offset_top = -29.0
-offset_right = 208.0
-offset_bottom = 44.0
+offset_left = -231.0
+offset_top = -34.0
+offset_right = 244.0
+offset_bottom = 58.0
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 25
-text = "adsasdaskdaksd
-ha"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mspv4")
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(6, 8)
 shape = SubResource("RectangleShape2D_21dix")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

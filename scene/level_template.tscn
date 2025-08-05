@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="PackedScene" uid="uid://1uu7h5hvpk3q" path="res://scene/documents/document_scene_1_2.tscn" id="2_epqjh"]
-[ext_resource type="Texture2D" uid="uid://3iw2t862xnyl" path="res://assets/1x/S.png" id="8_rsg4m"]
+[ext_resource type="Texture2D" uid="uid://vw2o2kmqy6k6" path="res://assets/background_template.png" id="4_vaqec"]
+[ext_resource type="Texture2D" uid="uid://cwjnc0q17tabh" path="res://assets/left.png" id="7_vaqec"]
 [ext_resource type="Texture2D" uid="uid://d4hnykr43tltf" path="res://assets/1x/Rectangle 9776.png" id="9_epqjh"]
+[ext_resource type="Texture2D" uid="uid://croexrrv584mr" path="res://assets/accessibility_checker_icon.png" id="9_p2f7k"]
 [ext_resource type="Texture2D" uid="uid://bampgnrvu16pk" path="res://assets/1x/Frame 6.png" id="9_r31ky"]
 [ext_resource type="Texture2D" uid="uid://dvb6vydda63nf" path="res://assets/1x/Frame 5.png" id="10_i43we"]
 [ext_resource type="Texture2D" uid="uid://do8c62re4ntgw" path="res://assets/1x/Group 40.png" id="11_epqjh"]
-[ext_resource type="Texture2D" uid="uid://cdts0vrdlorog" path="res://assets/1x/Group 43.png" id="12_xnxwe"]
-[ext_resource type="Texture2D" uid="uid://gfuod2htj05o" path="res://assets/1x/Group 45.png" id="14_p2f7k"]
-[ext_resource type="Texture2D" uid="uid://c4se51g0fajch" path="res://assets/accessibility_checker.png" id="15_p2f7k"]
-[ext_resource type="Texture2D" uid="uid://52c6gee7e20f" path="res://assets/1x/Group 42.png" id="15_vaqec"]
+[ext_resource type="Texture2D" uid="uid://cbierkx8vidql" path="res://assets/outline.png" id="11_vaqec"]
+[ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="14_xe1of"]
+[ext_resource type="Texture2D" uid="uid://c2lqu1gt0bmsc" path="res://assets/accessibility_checker_label.png" id="15_te1jt"]
 [ext_resource type="Texture2D" uid="uid://cru58h6cg5bg0" path="res://assets/minigame_buttons/Group 63.png" id="15_xnxwe"]
 [ext_resource type="Texture2D" uid="uid://w2m7kkprj2bo" path="res://assets/minigame_buttons/Group 64.png" id="16_p2f7k"]
-[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="16_vaqec"]
-[ext_resource type="Texture2D" uid="uid://mikj44iv8v1v" path="res://assets/1x/Outline.png" id="16_xe1of"]
+[ext_resource type="Texture2D" uid="uid://bdpha1s2poy3t" path="res://assets/CheckCircle.png" id="16_vaqec"]
 [ext_resource type="PackedScene" uid="uid://4xtbpvksxxbp" path="res://scene/aruna_helper.tscn" id="17_epqjh"]
 [ext_resource type="PackedScene" uid="uid://c1dbxinucsq2g" path="res://scene/minigame_3.tscn" id="18_xnxwe"]
 [ext_resource type="PackedScene" uid="uid://o6nhawy4oxte" path="res://scene/outline.tscn" id="19_vaqec"]
@@ -468,7 +468,7 @@ libraries = {
 
 [node name="background" type="Sprite2D" parent="app"]
 position = Vector2(960, 540)
-texture = ExtResource("8_rsg4m")
+texture = ExtResource("4_vaqec")
 
 [node name="black_bottom_border" type="Sprite2D" parent="app"]
 position = Vector2(960, 1044)
@@ -480,24 +480,19 @@ texture = ExtResource("11_epqjh")
 
 [node name="left" type="Sprite2D" parent="app"]
 position = Vector2(960, 540)
-texture = ExtResource("12_xnxwe")
+texture = ExtResource("7_vaqec")
 
 [node name="document_paper" type="Sprite2D" parent="app"]
 self_modulate = Color(0.984314, 0.984314, 0.984314, 1)
-position = Vector2(973, 619)
+position = Vector2(970, 615)
 texture = ExtResource("9_epqjh")
 
 [node name="document" type="Node2D" parent="app"]
-position = Vector2(965, 408)
-
-[node name="blue_polygon" type="Polygon2D" parent="app"]
-position = Vector2(973, 619)
-color = Color(0.196078, 0.623529, 0.788235, 1)
-polygon = PackedVector2Array(-459, -432, -336, -435, 61, -448, 429, -460, 428, -547, -493, -547, -496, -487)
+position = Vector2(970, 408)
 
 [node name="acc_checker_icon" type="Sprite2D" parent="app"]
 position = Vector2(1658, 208)
-texture = ExtResource("14_p2f7k")
+texture = ExtResource("9_p2f7k")
 
 [node name="app_name" type="Sprite2D" parent="app"]
 position = Vector2(960, 36)
@@ -505,11 +500,7 @@ texture = ExtResource("10_i43we")
 
 [node name="outline_icon" type="Sprite2D" parent="app"]
 position = Vector2(242, 259)
-texture = ExtResource("15_vaqec")
-
-[node name="Outline" type="Sprite2D" parent="app/outline_icon"]
-position = Vector2(-11, 2)
-texture = ExtResource("16_xe1of")
+texture = ExtResource("11_vaqec")
 
 [node name="Timer" type="Timer" parent="app"]
 
@@ -603,68 +594,112 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="accessibility_checker" type="VBoxContainer" parent="app"]
-offset_left = 1519.0
-offset_top = 354.0
-offset_right = 1872.0
-offset_bottom = 889.0
+[node name="score_label" type="Label" parent="app"]
+offset_left = 920.0
+offset_top = 40.0
+offset_right = 960.0
+offset_bottom = 63.0
 
-[node name="image_alt_text" type="TextureRect" parent="app/accessibility_checker"]
-show_behind_parent = true
-layout_mode = 2
-texture = ExtResource("15_p2f7k")
+[node name="nama_dokumen" type="Label" parent="app"]
+offset_left = 66.0
+offset_top = 98.0
+offset_right = 485.0
+offset_bottom = 169.0
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 45
+text = "Judul Dokumen"
 
-[node name="image_alt_text_label" type="Label" parent="app/accessibility_checker/image_alt_text"]
-layout_mode = 2
-offset_left = 14.0
-offset_top = 12.0
-offset_right = 374.0
-offset_bottom = 125.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("16_vaqec")
-theme_override_font_sizes/font_size = 24
-text = "GAMBAR DENGAN TEKS ALTERNATIF
-0/0"
+[node name="accessibility_checker" type="Node2D" parent="app"]
+
+[node name="Sprite2D" type="Sprite2D" parent="app/accessibility_checker"]
+position = Vector2(1689, 400)
+texture = ExtResource("15_te1jt")
+
+[node name="Label" type="Label" parent="app/accessibility_checker/Sprite2D"]
+offset_left = -128.0
+offset_top = -37.0
+offset_right = 59.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 30
+text = "Teks kontras
+ susah dibaca"
+
+[node name="text_tidak_jelas" type="Label" parent="app/accessibility_checker/Sprite2D"]
+offset_left = 65.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 40
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="text_contrast" type="TextureRect" parent="app/accessibility_checker"]
-show_behind_parent = true
-layout_mode = 2
-texture = ExtResource("15_p2f7k")
+[node name="check_circle" type="Sprite2D" parent="app/accessibility_checker/Sprite2D"]
+visible = false
+position = Vector2(118, 9)
+texture = ExtResource("16_vaqec")
 
-[node name="text_contrast_label" type="Label" parent="app/accessibility_checker/text_contrast"]
-layout_mode = 2
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 374.0
-offset_bottom = 125.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("16_vaqec")
-theme_override_font_sizes/font_size = 25
-text = "TEKS MUDAH DIBACA
-0/0"
+[node name="Sprite2D2" type="Sprite2D" parent="app/accessibility_checker"]
+position = Vector2(1689, 540)
+texture = ExtResource("15_te1jt")
+
+[node name="Label" type="Label" parent="app/accessibility_checker/Sprite2D2"]
+offset_left = -128.0
+offset_top = -37.0
+offset_right = 59.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 30
+text = "Teks alternatif
+tidak ada"
+
+[node name="tidak_ada_alt_text" type="Label" parent="app/accessibility_checker/Sprite2D2"]
+offset_left = 65.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 40
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="text_structure" type="TextureRect" parent="app/accessibility_checker"]
-show_behind_parent = true
-layout_mode = 2
-texture = ExtResource("15_p2f7k")
+[node name="check_circle" type="Sprite2D" parent="app/accessibility_checker/Sprite2D2"]
+visible = false
+position = Vector2(118, 9)
+texture = ExtResource("16_vaqec")
 
-[node name="text_structure_label" type="Label" parent="app/accessibility_checker/text_structure"]
-layout_mode = 2
-offset_left = 14.0
-offset_top = 13.0
-offset_right = 374.0
-offset_bottom = 125.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("16_vaqec")
-theme_override_font_sizes/font_size = 25
-text = "STRUKTUR TEKS BENAR
-0/0"
+[node name="Sprite2D3" type="Sprite2D" parent="app/accessibility_checker"]
+position = Vector2(1689, 680)
+texture = ExtResource("15_te1jt")
+
+[node name="Label" type="Label" parent="app/accessibility_checker/Sprite2D3"]
+offset_left = -128.0
+offset_top = -37.0
+offset_right = 59.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 30
+text = "Struktur teks 
+salah"
+
+[node name="struktur_salah" type="Label" parent="app/accessibility_checker/Sprite2D3"]
+offset_left = 65.0
+offset_top = -33.0
+offset_right = 168.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 40
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="check_circle" type="Sprite2D" parent="app/accessibility_checker/Sprite2D3"]
+visible = false
+position = Vector2(118, 9)
+texture = ExtResource("16_vaqec")
 
 [node name="color_wheel_minigame" parent="." instance=ExtResource("21_xe1of")]
 modulate = Color(1, 1, 1, 0)
@@ -684,12 +719,6 @@ scale = Vector2(0.1, 0.1)
 
 [node name="aruni_helper" parent="." instance=ExtResource("17_epqjh")]
 position = Vector2(206, 981)
-
-[node name="score_label" type="Label" parent="."]
-offset_left = 920.0
-offset_top = 40.0
-offset_right = 960.0
-offset_bottom = 63.0
 
 [connection signal="pressed" from="app/minigame_icons/image_features/alt_text_button" to="." method="_on_alt_text_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/docs_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
