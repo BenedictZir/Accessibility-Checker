@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://243ahq71s8x8"]
+[gd_scene load_steps=53 format=3 uid="uid://243ahq71s8x8"]
 
 [ext_resource type="Texture2D" uid="uid://yug54vejcn5h" path="res://assets/map/background.png" id="1_44fbv"]
 [ext_resource type="Script" uid="uid://c1apehyilrdsk" path="res://script/map.gd" id="1_l8r8p"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dhppu5jggep5r" path="res://assets/map/icon_musim_panas.png" id="8_3fel5"]
 [ext_resource type="Texture2D" uid="uid://dp7u663fx6wn2" path="res://assets/map/name.png" id="8_yqoch"]
 [ext_resource type="Texture2D" uid="uid://6jnpyoettc6t" path="res://assets/map/kantor.png" id="9_3fel5"]
+[ext_resource type="Texture2D" uid="uid://c7gcwu7xvcya4" path="res://assets/map/cloud_icon.png" id="9_d60jh"]
 [ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="10_3fel5"]
+[ext_resource type="Texture2D" uid="uid://e8vohvyeuc2k" path="res://assets/map/rain_icon.png" id="10_i8ww0"]
 [ext_resource type="Texture2D" uid="uid://c4fsysig03hhc" path="res://assets/map/kos.png" id="10_pa0f6"]
 [ext_resource type="Texture2D" uid="uid://cw6ae00ddw5bu" path="res://assets/map/supermarket.png" id="11_lfekj"]
 [ext_resource type="Texture2D" uid="uid://w6n7li52h48p" path="res://assets/map/taman.png" id="12_d6soc"]
@@ -182,7 +184,24 @@ position = Vector2(-77, -45)
 texture = ExtResource("8_3fel5")
 
 [node name="icon_hujan" type="Sprite2D" parent="date"]
-position = Vector2(-77, -45)
+position = Vector2(-77, -52)
+texture = ExtResource("9_d60jh")
+
+[node name="Sprite2D" type="Sprite2D" parent="date/icon_hujan"]
+position = Vector2(-12, 28)
+texture = ExtResource("10_i8ww0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="date/icon_hujan"]
+position = Vector2(-3, 34)
+texture = ExtResource("10_i8ww0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="date/icon_hujan"]
+position = Vector2(6, 28)
+texture = ExtResource("10_i8ww0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="date/icon_hujan"]
+position = Vector2(14, 34)
+texture = ExtResource("10_i8ww0")
 
 [node name="desc" type="Sprite2D" parent="."]
 position = Vector2(679, 904)
@@ -326,6 +345,7 @@ offset_left = 1345.0
 offset_top = 440.0
 offset_right = 1806.0
 offset_bottom = 718.0
+value = 81.0
 texture_under = ExtResource("15_amuei")
 texture_over = ExtResource("16_yqoch")
 texture_progress = ExtResource("17_3fel5")

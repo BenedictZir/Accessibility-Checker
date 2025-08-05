@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxtncf3tm4oh1"]
+[gd_scene load_steps=17 format=3 uid="uid://dxtncf3tm4oh1"]
 
 [ext_resource type="Script" uid="uid://2fjbaom6xrc1" path="res://script/mbak_rani.gd" id="1_4yotn"]
 [ext_resource type="Texture2D" uid="uid://b5ph031elll1b" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Marah/buka_mata_tutup_mulat.png" id="1_53tuh"]
@@ -197,8 +197,68 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_hmh34"]
+resource_name = "join"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1440), Vector2(0, 564)]
+}
+
+[sub_resource type="Animation" id="Animation_rjdl2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1440)]
+}
+
+[sub_resource type="Animation" id="Animation_1s7jr"]
+resource_name = "leave"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 564), Vector2(0, 1440)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1s7jr"]
+_data = {
+&"RESET": SubResource("Animation_rjdl2"),
+&"join": SubResource("Animation_hmh34"),
+&"leave": SubResource("Animation_1s7jr")
+}
+
 [node name="mbak_rani" type="AnimatedSprite2D"]
+position = Vector2(0, 1440)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_4yotn")
-animation = &"angry_talk"
+animation = &"talk"
 script = ExtResource("1_4yotn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1s7jr")
+}

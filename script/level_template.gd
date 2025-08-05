@@ -65,7 +65,7 @@ func _process(delta: float) -> void:
 	total_score = (accessibility_score / (4 * all_object.size()) * 60 / 100 * 2500)
 	var minutes = int(timer.time_left) / 60
 	var seconds = int(timer.time_left) % 60
-	var minutes_str = str(minutes).pad_zeros(2)
+	var minutes_str = str(minutes).pad_zeros(1)
 	var seconds_str = str(seconds).pad_zeros(2)
 	timer_label.text = minutes_str + ":" + seconds_str
 func get_all_images():

@@ -1,4 +1,5 @@
 extends AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var float_speed := 2.0         
 var float_amplitude := 5.0     
@@ -27,3 +28,10 @@ func on_dialogic_signal(arg):
 			play("happy")
 		"aruna_normal":
 			play("normal")
+		"aruna_join":
+			animation_player.play("join")
+			await  animation_player.animation_finished
+			start_floating(position.y)
+		"aruna_leave":
+			stop_floating()
+			animation_player.play("leave")

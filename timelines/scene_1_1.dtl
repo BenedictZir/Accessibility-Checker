@@ -1,8 +1,8 @@
 label adegan_1
 [style name="custom_style"]
 Tampilan gedung kaca menjulang tinggi, memantulkan langit Jakarta yang kelabu di pagi hari.
-player: "Wow. Tinggi banget. Belum pernah ke gedung setinggi ini sebelumnya."
-player: "Apakah ini aroma profesionalisme? Aroma hand sanitizer dan kopi tubruk?"
+player: (Wow. Tinggi banget. Belum pernah ke gedung setinggi ini sebelumnya.)
+player: (Apakah ini aroma profesionalisme? Aroma hand sanitizer dan kopi tubruk?)
 Orang-orang bersetelan jas berlalu cepat di sekitarmu, mata mereka terpaku pada tablet seolah sedang menjinakkan bom.
 Sebuah drone pengantar terbang melintas di atas kepala. Kamu hampir saja menunduk. Tapi santai. Ini hal biasa.
 Kamu menyeka kacamata yang mulai berembun.
@@ -29,7 +29,7 @@ join "pak bos" left
 "pak bos": "Tugas kamu? Bikin mereka bisa dimengerti. Oleh manusia. Dan oleh screen reader. Alt Text sekarang sahabat barumu."
 [signal arg="pak_anton_talk"]
 "pak bos": "Dan tolong ya, jangan ada lagi deskripsi kayak ‘image1.jpg’ atau ‘infografis_final_final_fix_beneran.png’. Oke?"
-[signal arg="pak_anton_talk"]
+[signal arg="pak_anton_happy_talk"]
 "pak bos": "Tenang saja, kamu tidak sendiri, Aruna di sini akan membantu kamu."
 join aruna center
 [signal arg="aruna_join"]

@@ -28,7 +28,7 @@ directories/dch_directory={
 "Resources/unit_test_character": "res://Tests/Resources/unit_test_character.dch",
 "aruna": "res://characters/aruna.dch",
 "mbak_intan": "res://characters/mbak_intan.dch",
-"mbak_rani": "res://scene/mbak_rani.dch",
+"mbak_rani": "res://characters/mbak_rani.dch",
 "pak bos": "res://characters/pak bos.dch",
 "player": "res://characters/player.dch"
 }
@@ -51,6 +51,7 @@ directories/dtl_directory={
 "scene_1_1": "res://timelines/scene_1_1.dtl",
 "scene_1_2": "res://timelines/scene_1_2.dtl",
 "scene_1_3": "res://timelines/scene_1_3.dtl",
+"scene_2_1": "res://timelines/scene_2_1.dtl",
 "test_signal": "res://timelines/test_signal.dtl"
 }
 glossary/default_case_sensitive=true

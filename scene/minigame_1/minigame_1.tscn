@@ -18,7 +18,8 @@ texture = ExtResource("5_s4te0")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4a7fk"]
 texture = ExtResource("5_s4te0")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7eptw"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4te0"]
+texture = ExtResource("5_s4te0")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_juauh"]
 texture = ExtResource("5_s4te0")
@@ -94,7 +95,7 @@ focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_s26uh")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_k61xt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_4a7fk")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_7eptw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s4te0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_juauh")
 
 [node name="submit" type="Button" parent="."]

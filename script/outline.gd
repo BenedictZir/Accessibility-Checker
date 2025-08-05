@@ -71,8 +71,8 @@ func get_bound_object():
 	return bound_object
 	
 func _on_mouse_entered():
-	GlobalVar.interactable = true
+	GlobalVar.interactable.append(self)
 
 
 func _on_mouse_exited():
-	GlobalVar.interactable = false
+	GlobalVar.interactable.erase(self)

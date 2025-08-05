@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=55 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="PackedScene" uid="uid://1uu7h5hvpk3q" path="res://scene/documents/document_scene_1_2.tscn" id="2_epqjh"]
@@ -10,10 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://dvb6vydda63nf" path="res://assets/1x/Frame 5.png" id="10_i43we"]
 [ext_resource type="Texture2D" uid="uid://do8c62re4ntgw" path="res://assets/1x/Group 40.png" id="11_epqjh"]
 [ext_resource type="Texture2D" uid="uid://cbierkx8vidql" path="res://assets/outline.png" id="11_vaqec"]
+[ext_resource type="Texture2D" uid="uid://cr2pv4xtfm88e" path="res://assets/pause_button.png" id="12_lmy6v"]
+[ext_resource type="Texture2D" uid="uid://n8psgm8laco5" path="res://assets/minigame_buttons/alt_text_button_mid.png" id="12_te1jt"]
+[ext_resource type="Texture2D" uid="uid://bpppdvpt05ebi" path="res://assets/timer_label.png" id="13_io6bp"]
+[ext_resource type="Texture2D" uid="uid://0rl7r0rqrsdx" path="res://assets/minigame_buttons/color_wheel_button_mid.png" id="13_saxxy"]
+[ext_resource type="Texture2D" uid="uid://dq4oku0yjfj2p" path="res://assets/minigame_buttons/color_wheel_button.png" id="14_lmy6v"]
 [ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="14_xe1of"]
+[ext_resource type="Texture2D" uid="uid://cs7q2hv8omh1h" path="res://assets/minigame_buttons/structure_button.png" id="15_io6bp"]
 [ext_resource type="Texture2D" uid="uid://c2lqu1gt0bmsc" path="res://assets/accessibility_checker_label.png" id="15_te1jt"]
-[ext_resource type="Texture2D" uid="uid://cru58h6cg5bg0" path="res://assets/minigame_buttons/Group 63.png" id="15_xnxwe"]
-[ext_resource type="Texture2D" uid="uid://w2m7kkprj2bo" path="res://assets/minigame_buttons/Group 64.png" id="16_p2f7k"]
 [ext_resource type="Texture2D" uid="uid://bdpha1s2poy3t" path="res://assets/CheckCircle.png" id="16_vaqec"]
 [ext_resource type="PackedScene" uid="uid://4xtbpvksxxbp" path="res://scene/aruna_helper.tscn" id="17_epqjh"]
 [ext_resource type="PackedScene" uid="uid://c1dbxinucsq2g" path="res://scene/minigame_3.tscn" id="18_xnxwe"]
@@ -401,63 +405,78 @@ _data = {
 &"show_structure_minigame": SubResource("Animation_xnxwe")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw8l3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rffd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xrlcw"]
+texture = ExtResource("12_lmy6v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3oy4v"]
+texture = ExtResource("12_lmy6v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4h6f"]
+texture = ExtResource("12_lmy6v")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_saxxy"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmy6v"]
-texture = ExtResource("15_xnxwe")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ng3r6"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_io6bp"]
-texture = ExtResource("15_xnxwe")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d23of"]
+texture = ExtResource("12_te1jt")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dw8l3"]
-texture = ExtResource("15_xnxwe")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lan4c"]
+texture = ExtResource("12_te1jt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htgnh"]
+texture = ExtResource("12_te1jt")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe1of"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_te1jt"]
-load_path = "res://.godot/imported/Group 62.png-5aae5672aac691fa6cd505aa5f656d5e.ctex"
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrlcw"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnxwe"]
-texture = SubResource("CompressedTexture2D_te1jt")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3oy4v"]
+load_path = "res://.godot/imported/color_wheel_button_mid.png-b562f311724a02463258acff085e8023.ctex"
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3l6h"]
-texture = SubResource("CompressedTexture2D_te1jt")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mu5cy"]
+texture = SubResource("CompressedTexture2D_3oy4v")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_saxxy"]
-load_path = "res://.godot/imported/Group 62.png-5aae5672aac691fa6cd505aa5f656d5e.ctex"
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fxlgi"]
+texture = ExtResource("13_saxxy")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m4atv"]
-texture = SubResource("CompressedTexture2D_saxxy")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsufd"]
+texture = ExtResource("13_saxxy")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lmy6v"]
-load_path = "res://.godot/imported/Group 62.png-5aae5672aac691fa6cd505aa5f656d5e.ctex"
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4h6f"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kemr8"]
-texture = SubResource("CompressedTexture2D_lmy6v")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmy6v"]
+texture = ExtResource("14_lmy6v")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2f7k"]
-texture = ExtResource("15_xnxwe")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_io6bp"]
+texture = ExtResource("14_lmy6v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dw8l3"]
+texture = ExtResource("14_lmy6v")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ng3r6"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vaqec"]
-texture = ExtResource("16_p2f7k")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8oo7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rffd"]
-texture = ExtResource("16_p2f7k")
+texture = ExtResource("15_io6bp")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yo4d5"]
-texture = ExtResource("16_p2f7k")
+texture = ExtResource("15_io6bp")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p17l8"]
-texture = ExtResource("16_p2f7k")
+texture = ExtResource("15_io6bp")
 
 [node name="level_template" type="Node2D"]
 self_modulate = Color(0.450648, 0.450648, 0.450648, 1)
 script = ExtResource("1_lpc36")
 document_scene = ExtResource("2_epqjh")
 outline_scene = ExtResource("19_vaqec")
-time = 20
+time = 300
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -488,7 +507,7 @@ position = Vector2(970, 615)
 texture = ExtResource("9_epqjh")
 
 [node name="document" type="Node2D" parent="app"]
-position = Vector2(970, 408)
+position = Vector2(961, 408)
 
 [node name="acc_checker_icon" type="Sprite2D" parent="app"]
 position = Vector2(1658, 208)
@@ -502,16 +521,35 @@ texture = ExtResource("10_i43we")
 position = Vector2(242, 259)
 texture = ExtResource("11_vaqec")
 
+[node name="pause_button" type="Button" parent="app"]
+offset_left = 1754.0
+offset_top = 908.0
+offset_right = 1894.0
+offset_bottom = 1055.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dw8l3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8rffd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xrlcw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3oy4v")
+theme_override_styles/normal = SubResource("StyleBoxTexture_l4h6f")
+
 [node name="Timer" type="Timer" parent="app"]
 
+[node name="Sprite2D" type="Sprite2D" parent="app/Timer"]
+position = Vector2(1609, 981)
+texture = ExtResource("13_io6bp")
+
 [node name="timer_label" type="Label" parent="app/Timer"]
-visible = false
-offset_left = 782.0
-offset_top = 63.0
-offset_right = 850.0
-offset_bottom = 86.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "TIMER"
+offset_left = 1519.0
+offset_top = 932.0
+offset_right = 1712.0
+offset_bottom = 1003.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 55
+text = "1:00"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="minigame_icons" type="Node2D" parent="app"]
 
@@ -519,67 +557,62 @@ text = "TIMER"
 visible = false
 
 [node name="alt_text_button" type="Button" parent="app/minigame_icons/image_features"]
-offset_left = 654.0
-offset_top = 37.0
-offset_right = 923.0
-offset_bottom = 161.0
+offset_left = 850.0
+offset_top = 40.0
+offset_right = 1097.0
+offset_bottom = 164.0
 theme_override_font_sizes/font_size = 47
 theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
-theme_override_styles/hover = SubResource("StyleBoxTexture_lmy6v")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_io6bp")
-theme_override_styles/normal = SubResource("StyleBoxTexture_dw8l3")
-text = "alt text"
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ng3r6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d23of")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lan4c")
+theme_override_styles/normal = SubResource("StyleBoxTexture_htgnh")
 
 [node name="docs_features" type="Node2D" parent="app/minigame_icons"]
 visible = false
 
 [node name="color_wheel_button" type="Button" parent="app/minigame_icons/docs_features"]
-offset_left = 575.0
-offset_top = -260.0
-offset_right = 1268.0
-offset_bottom = 163.0
-scale = Vector2(0.3, 0.3)
-pivot_offset = Vector2(346, 400)
+offset_left = 850.0
+offset_top = 40.0
+offset_right = 1097.0
+offset_bottom = 164.0
 focus_mode = 0
 mouse_filter = 1
 theme_override_font_sizes/font_size = 150
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xe1of")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_xnxwe")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d3l6h")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_m4atv")
-theme_override_styles/normal = SubResource("StyleBoxTexture_kemr8")
-text = "wheel"
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xrlcw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mu5cy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fxlgi")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hsufd")
 metadata/_edit_use_anchors_ = true
 
 [node name="text_features" type="Node2D" parent="app/minigame_icons"]
 visible = false
 
 [node name="color_wheel_button" type="Button" parent="app/minigame_icons/text_features"]
-offset_left = 654.0
+offset_left = 672.0
 offset_top = 37.0
-offset_right = 923.0
-offset_bottom = 161.0
+offset_right = 940.0
+offset_bottom = 164.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 61
 theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_p2f7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l4h6f")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lmy6v")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_io6bp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_dw8l3")
-text = "color"
 
 [node name="structure_button" type="Button" parent="app/minigame_icons/text_features"]
-offset_left = 926.0
-offset_top = 35.0
-offset_right = 1182.0
-offset_bottom = 157.0
+offset_left = 994.0
+offset_top = 33.0
+offset_right = 1248.0
+offset_bottom = 155.0
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ng3r6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_vaqec")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b8oo7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8rffd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yo4d5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_p17l8")
-text = "structure"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="app"]
 layout_direction = 3

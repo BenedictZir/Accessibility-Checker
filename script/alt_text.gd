@@ -56,10 +56,10 @@ func _on_mouse_entered() -> void:
 	is_hovered = true
 	if not GlobalVar.is_dragging:
 		expand()
-	GlobalVar.interactable = true
+	GlobalVar.interactable.append(self)
 func _on_mouse_exited() -> void:
 	is_hovered = false
-	GlobalVar.interactable = false
+	GlobalVar.interactable.erase(self)
 func shrink():
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, 0.1).set_trans(Tween.TRANS_SINE)

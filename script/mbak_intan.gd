@@ -1,4 +1,5 @@
 extends AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var is_mad := false
 var is_happy := true
@@ -32,4 +33,7 @@ func _on_dialogic_signal(arg):
 		"mbak_intan_happy_talk":
 			is_happy = true
 			play("happy_talk")
-			
+		"mbak_intan_join":
+			animation_player.play("join")
+		"mbak_intan_leave":
+			animation_player.play("leave")

@@ -54,7 +54,7 @@ func set_display_name(display):
 	display_name = display
 	
 func _on_mouse_entered():
-	GlobalVar.interactable = true
+	GlobalVar.interactable.append(self)
 
 func _on_mouse_exited():
-	GlobalVar.interactable = false
+	GlobalVar.interactable.erase(self)

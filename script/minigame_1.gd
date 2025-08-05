@@ -6,11 +6,17 @@ extends Node2D
 @onready var alt_text_2: Area2D = $alt_text2
 @onready var alt_text_3: Area2D = $alt_text3
 @onready var answer_box: Area2D = $answer_box
+@onready var submit: Button = $submit
 
 signal done
 signal canceled
 var alt_texts = []
-
+func _process(delta: float) -> void:
+	if answer_box.occupied_by:
+		submit.show()
+	else:
+		submit.hide()
+	
 func _ready() -> void:
 	alt_texts.append(alt_text)
 	alt_texts.append(alt_text_1)
