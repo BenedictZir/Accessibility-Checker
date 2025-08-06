@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=80 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="PackedScene" uid="uid://1uu7h5hvpk3q" path="res://scene/documents/document_scene_1_2.tscn" id="2_epqjh"]
@@ -26,6 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://2ekyfsfu3hj6" path="res://scene/minigame_2.tscn" id="21_xe1of"]
 [ext_resource type="Texture2D" uid="uid://byb47dw0rmxjf" path="res://assets/minigame_1/background.png" id="25_io6bp"]
 [ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="26_dw8l3"]
+[ext_resource type="Texture2D" uid="uid://br6i0galgqp8h" path="res://assets/aruna_helper_screen/background.png" id="27_d23of"]
+[ext_resource type="Texture2D" uid="uid://dkome85fhjdko" path="res://assets/aruna_helper_screen/Rectangle 10046.png" id="28_lan4c"]
+[ext_resource type="Texture2D" uid="uid://dft0ybteii4cv" path="res://assets/aruna_helper_screen/tabel_warna.png" id="29_htgnh"]
+[ext_resource type="Texture2D" uid="uid://bhqb54e5a7cov" path="res://assets/aruna_helper_screen/panduan_tugas.png" id="30_xrlcw"]
+[ext_resource type="Texture2D" uid="uid://di82g1amcmstg" path="res://assets/aruna_helper_screen/panduan_warna.png" id="31_3oy4v"]
 
 [sub_resource type="Animation" id="Animation_xe1of"]
 length = 0.001
@@ -531,10 +536,14 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_dw8l3"]
+resource_name = "show_aruna_helper_screen"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kemr8"]
 _data = {
 &"RESET": SubResource("Animation_xe1of"),
 &"show_alt_text_minigame": SubResource("Animation_p2f7k"),
+&"show_aruna_helper_screen": SubResource("Animation_dw8l3"),
 &"show_color_wheel_minigame": SubResource("Animation_vaqec"),
 &"show_result_screen": SubResource("Animation_io6bp"),
 &"show_structure_minigame": SubResource("Animation_xnxwe")
@@ -612,6 +621,48 @@ texture = ExtResource("26_dw8l3")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ca6jy"]
 texture = ExtResource("26_dw8l3")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mu5cy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_taf54"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_065fq"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wu83x"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yd1f"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gdte"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xufl2"]
+texture = ExtResource("30_xrlcw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hl4pa"]
+texture = ExtResource("30_xrlcw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hpcmk"]
+texture = ExtResource("30_xrlcw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6mc5q"]
+texture = ExtResource("30_xrlcw")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rx2j5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpo2v"]
+texture = ExtResource("31_3oy4v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_adr1w"]
+texture = ExtResource("31_3oy4v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1sqk"]
+texture = ExtResource("31_3oy4v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jobix"]
+texture = ExtResource("31_3oy4v")
+
 [node name="level_template" type="Node2D"]
 self_modulate = Color(0.450648, 0.450648, 0.450648, 1)
 script = ExtResource("1_lpc36")
@@ -682,7 +733,7 @@ offset_bottom = 888.0
 text = "SELESAI"
 
 [node name="Sprite2D" type="Sprite2D" parent="app"]
-position = Vector2(1609, 981)
+position = Vector2(1606, 981)
 texture = ExtResource("13_io6bp")
 
 [node name="timer_label" type="Label" parent="app/Sprite2D"]
@@ -699,6 +750,25 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="app/Sprite2D"]
 process_mode = 3
+
+[node name="TimerLabel" type="Sprite2D" parent="app/Sprite2D"]
+position = Vector2(127, 62)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_io6bp")
+flip_h = true
+flip_v = true
+
+[node name="timer_mult_label" type="Label" parent="app/Sprite2D"]
+offset_left = 30.0
+offset_top = 29.0
+offset_right = 223.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 40
+text = "1.25x"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="minigame_icons" type="Node2D" parent="app"]
 
@@ -934,6 +1004,88 @@ theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
 theme_override_fonts/font = ExtResource("14_xe1of")
 theme_override_font_sizes/font_size = 40
 text = "Hasil Pekerjaan"
+
+[node name="aruna_helper_screen" type="Node2D" parent="."]
+position = Vector2(960, 502)
+
+[node name="Background" type="Sprite2D" parent="aruna_helper_screen"]
+texture = ExtResource("27_d23of")
+
+[node name="Sprite2D" type="Sprite2D" parent="aruna_helper_screen"]
+position = Vector2(297, -52)
+texture = ExtResource("28_lan4c")
+
+[node name="tabel_warna" type="Sprite2D" parent="aruna_helper_screen"]
+position = Vector2(-338, 130)
+texture = ExtResource("29_htgnh")
+
+[node name="ColorRect2" type="ColorRect" parent="aruna_helper_screen/tabel_warna"]
+offset_left = 208.0
+offset_top = -361.0
+offset_right = 334.0
+offset_bottom = -332.0
+
+[node name="ColorRect3" type="ColorRect" parent="aruna_helper_screen/tabel_warna"]
+offset_left = 334.0
+offset_top = -332.0
+offset_right = 921.0
+offset_bottom = -303.0
+rotation = 1.57079
+
+[node name="ColorRect" type="ColorRect" parent="aruna_helper_screen/tabel_warna"]
+offset_left = -306.0
+offset_top = -356.0
+offset_right = -137.0
+offset_bottom = -323.0
+
+[node name="cancel_aruna" type="Button" parent="aruna_helper_screen"]
+offset_left = 476.0
+offset_top = -381.0
+offset_right = 623.0
+offset_bottom = -202.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mu5cy")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_taf54")
+theme_override_styles/hover = SubResource("StyleBoxTexture_065fq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wu83x")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7yd1f")
+
+[node name="panduan_tugas" type="Button" parent="aruna_helper_screen"]
+offset_left = 53.0
+offset_top = -244.0
+offset_right = 493.0
+offset_bottom = -33.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4gdte")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xufl2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hl4pa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hpcmk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6mc5q")
+
+[node name="panduan_warna" type="Button" parent="aruna_helper_screen"]
+offset_left = 53.0
+offset_top = -16.0
+offset_right = 487.0
+offset_bottom = 185.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rx2j5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qpo2v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_adr1w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_c1sqk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jobix")
+
+[node name="Bantuan Aruna" type="Label" parent="aruna_helper_screen"]
+offset_left = 137.0
+offset_top = -370.0
+offset_right = 381.0
+offset_bottom = -263.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 40
+text = "Bantuan 
+Aruna"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="app/selesai" to="." method="_on_selesai_pressed"]
 [connection signal="pressed" from="app/minigame_icons/image_features/alt_text_button" to="." method="_on_alt_text_button_pressed"]

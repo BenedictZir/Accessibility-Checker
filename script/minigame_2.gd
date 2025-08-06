@@ -14,8 +14,10 @@ signal done
 signal canceled
 
 var rotating := true
-@export var wheel_speed := 200
-@export var arrow_speed := 40
+var wheel_speed := 200
+const SLOW_SPEED = 200
+const MEDIUM_SPEED := 250
+const HARD_SPEED := 300
 const COLORS = {
 	"merah" : Color("#d10f0b"),
 	"oranye" : Color("#ff750a"),
@@ -39,7 +41,7 @@ func _process(delta: float) -> void:
 		$accept.hide()
 		$retry_button.hide()
 	if rotating:
-		wheel.rotate(deg_to_rad(arrow_speed * delta))
+		wheel.rotate(deg_to_rad(wheel_speed * delta))
 	if Input.is_action_just_pressed("ui_accept"):
 		var color_name = ray_cast_2d.get_collider().name
 		if COLORS.has(color_name):
@@ -107,3 +109,12 @@ func _on_stop_button_pressed() -> void:
 	else:	
 		print("Warna", color_name, "tidak ditemukan di COLORS")
 	stop_rotating()
+
+func set_speed(diff):
+	match diff:
+		"easy":
+			wheel_speed = SLOW_SPEED
+		"medium":
+			wheel_speed = MEDIUM_SPEED
+		"hard":
+			wheel_speed = HARD_SPEED

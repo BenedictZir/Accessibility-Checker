@@ -7,7 +7,13 @@ var mbak_intan_scene = preload("res://scene/mbak_intan.tscn")
 var document
 @onready var level_template: Node2D = $level_template
 
-const CONSTRAINT_LIST = [
+const CONSTRAINT_SET = [
+	["", "", "", ""],
+	["", "", "", ""],
+	["", "", "", ""],
+	["", "", "", ""],
+	["", "", "", ""],
+	["", "", "", ""],
 ]
 
 
@@ -26,9 +32,10 @@ var hard_document_list = [
 @onready var character_node: Node2D = $character_node
 var character_name = ""
 var character_sprite: Node2D
-
+var constraint_list
 func _ready() -> void:
 	load_documents()
+	constraint_list = CONSTRAINT_SET.pick_random()
 	character_name = CHARACTER_LIST.pick_random()
 	match character_name:
 		"pak_anton":
@@ -46,13 +53,26 @@ func _on_dialogic_signal(arg):
 	match arg:
 		"easy_diff":
 			document = easy_document_list.pick_random()
-			level_template.set_document(document)
-		"hard_diff":
-			document = hard_document_list.pick_random()
-			level_template.set_document(document)
+			level_template.set_document(document, "easy")
+			var constraints = []
+			for i in range(2):
+				var constraint = constraint_list.pick_random()
+				constraint_list.erase(constraint)
+				constraints.append(constraint)
 		"medium_diff":
 			document = medium_document_list.pick_random()
-			level_template.set_document(document)
+			level_template.set_document(document, "medium")
+			var constraints = []
+			for i in range(3):
+				var constraint = constraint_list.pick_random()
+				constraint_list.erase(constraint)
+				constraints.append(constraint)
+			level_template.set_constraint(constraints)
+			
+		"hard_diff":
+			document = hard_document_list.pick_random()
+			level_template.set_document(document, "hard")
+			level_template.set_constraint(constraint_list)
 			
 
 

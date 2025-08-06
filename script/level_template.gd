@@ -29,11 +29,10 @@ extends Node2D
 @export var is_tutorial_4 := false
 @export var is_tutorial_5 := false
 var total_score := 0.0
-var accessibility_score := 0.9
-var constaint_score := 0
+var accessibility_score := 0.0
+var constaint_score := 0.0
 var difficulty_mult := 1
-var timer_score := 0
-
+var constraint_list  = []
 var selected_outline = null
 var selected_object = null
 var all_object := []
@@ -67,9 +66,14 @@ func _ready() -> void:
 		
 
 func _process(delta: float) -> void:
-	var acc_score = (accessibility_score / (4 * all_object.size()) * 60 / 100 * 2500)
+	var acc_score = (accessibility_score / (4 * all_object.size()) * 60 / 100 * 2500) # max 1500
+	var const_score = (constaint_score) # TODO
 	var timer_mult = 1 + (ceil(timer.time_left / 60)) / 10
-	total_score = acc_score * (timer_score)
+	$app/Sprite2D/timer_mult_label.text = str(timer_mult) + "x"
+	var total_score_before_mult = acc_score + const_score
+	
+	total_score = total_score_before_mult * timer_mult * difficulty_mult
+	
 	var minutes = int(timer.time_left) / 60
 	var seconds = int(timer.time_left) % 60
 	var minutes_str = str(minutes).pad_zeros(1)
@@ -381,7 +385,14 @@ func _on_structure_minigame_canceled() -> void:
 	animation_player.play("show_structure_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
 
-func set_document(document_random):
+func set_document(document_random, diff):
+	if (diff == "easy"):
+		difficulty_mult = 1
+	elif (diff == "medium"):
+		difficulty_mult = 1.25
+	else:
+		difficulty_mult = 1.5
+	color_wheel_minigame.set_speed(diff)
 	var doc = document_random.instantiate()
 	$app/nama_dokumen.text = doc.judul
 	document.add_child(doc)
@@ -430,3 +441,6 @@ func enable_all_button():
 
 func _on_selesai_pressed() -> void:
 	animation_player.play("show_result_screen")
+
+func set_constraint(constraint_set):
+	constraint_list = constraint_set
