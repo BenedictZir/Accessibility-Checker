@@ -45,7 +45,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_ob57n")
 }],
-"loop": false,
+"loop": true,
 "name": &"angry_blink",
 "speed": 4.0
 }, {
@@ -159,7 +159,7 @@ animations = [{
 "texture": ExtResource("7_rjdl2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_hmh34")
+"texture": ExtResource("6_ih4at")
 }],
 "loop": false,
 "name": &"happy_talk",
@@ -197,22 +197,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_hmh34"]
-resource_name = "join"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 1440), Vector2(0, 564)]
-}
-
 [sub_resource type="Animation" id="Animation_rjdl2"]
 length = 0.001
 tracks/0/type = "value"
@@ -228,6 +212,22 @@ tracks/0/keys = {
 "values": [Vector2(0, 1440)]
 }
 
+[sub_resource type="Animation" id="Animation_hmh34"]
+resource_name = "join"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1440), Vector2(0, 500)]
+}
+
 [sub_resource type="Animation" id="Animation_1s7jr"]
 resource_name = "leave"
 length = 0.2
@@ -241,7 +241,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 564), Vector2(0, 1440)]
+"values": [Vector2(0, 500), Vector2(0, 1440)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1s7jr"]

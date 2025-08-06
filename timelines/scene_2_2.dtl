@@ -1,0 +1,21 @@
+Kamu memerbaiki teks terakhir, mengecek ulang heading, lalu menekan Ctrl + S. Dokumen selesai.
+Kamu mengirimkan file-nya ke Pak Anton dan menyandarkan badan ke kursi.
+[signal arg="mbak_intan_join"]
+[signal arg="mbak_intan_smile"]
+mbak_intan: “HUAAAA akhirnya selesaiiiiiii! Kamu nyelamatin hidup aku barusan!”
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Serius. Tadi aku udah mau tulis 'Maaf dokumennya tidak ditemukan karena ditelan kegelapan struktur'…”
+player: “Tenang Mbak, sekarang udah masuk zona terang. Bahkan screen reader aja bisa senyum.”
+[signal arg="mbak_intan_smile"]
+mbak_intan: “Yaaasss! Itu diaa! Tim Aksesibilitas Digital, hadir menyelamatkan dokumen bangsa!!”
+Kalian tertawa.
+[signal arg="pak_anton_join"]
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Kalian nih kayaknya butuh panggung stand-up ya, bukan meja kerja.”
+[signal arg="pak_anton_happy"]
+[signal arg="mbak_intan_happy_blink"]
+Tapi senyumnya tulus.
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Tapi hasilnya oke. Rapi, konsisten, dan bisa diakses. Besok bantuin lagi ya, ada satu dokumen dari Mbak Rani juga.”
+Kamu mengangguk.
+Hari kedua selesai. Tapi rasanya kamu justru baru mulai.

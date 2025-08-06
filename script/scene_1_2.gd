@@ -23,7 +23,6 @@ func _on_dialogic_signal(arg):
 	elif arg == "arrow_alt_text":
 		animation_player.play("arrow_alt_text")
 
-
 func _process(delta: float) -> void:
 	pass
 

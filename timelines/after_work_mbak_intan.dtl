@@ -1,15 +1,22 @@
 if {poin_inklusif_harian} <= 500.0:
 	[signal arg="mbak_intan_angry_talk"]
-	mbak_intan: Bagaimana ini kerjamu!
+	mbak_intan: “Kenapa gini...?”
 	[signal arg="mbak_intan_angry_talk"]
-	mbak_intan: Jangan ulangi lagi besok!
+	mbak_intan: “Aku tahu kamu bisa lebih teliti dari ini.”
+	[signal arg="mbak_intan_angry_talk"]
+	mbak_intan: “Tolong di-review ulang, ini belum bisa naik tayang.”
 elif {poin_inklusif_harian} <= 1500.0:
 	[signal arg="mbak_intan_talk"]
-	mbak_intan: Kerja bagus hariini!
+	mbak_intan: “Oke, desainnya lumayan stabil sekarang.”
 	[signal arg="mbak_intan_talk"]
-	mbak_intan: Sampai jumpa besok!
+	mbak_intan: “Masih bisa ditingkatkan, tapi udah enakan daripada tadi.”
+	[signal arg="mbak_intan_talk"]
+	mbak_intan: “Kita lanjut aja ke tahap berikutnya, ya?”
 else:
 	[signal arg="mbak_intan_happy_talk"]
-	mbak_intan: Wah {player_name}, kamu memang hebat!.
+	mbak_intan: “Haaah akhirnyaaaa, kamu nyelamatin visual mata kita semua!”
 	[signal arg="mbak_intan_happy_talk"]
-	mbak_intan: Lanjutkan kerja bagusmu ini ya!
+	mbak_intan: “Tampilan dan kontrasnya udah pas banget.”
+	[signal arg="mbak_intan_happy_talk"]
+	mbak_intan: “Good job, Designer Dadakan!”
+[signal arg="end_day"]

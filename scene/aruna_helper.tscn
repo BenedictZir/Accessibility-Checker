@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://4xtbpvksxxbp"]
+[gd_scene load_steps=11 format=3 uid="uid://4xtbpvksxxbp"]
 
 [ext_resource type="Script" uid="uid://bh8pkx8kmyryx" path="res://script/arumi_helper.gd" id="1_4d5b8"]
 [ext_resource type="Texture2D" uid="uid://127y7o5nxnc7" path="res://assets/arumi_icon/State=Group 54.png" id="2_hekpx"]
 [ext_resource type="Texture2D" uid="uid://dn5ho4jtum23a" path="res://assets/arumi_icon/Group 52.png" id="3_r5tbx"]
 [ext_resource type="Texture2D" uid="uid://dvmlbuxblxg08" path="res://assets/arumi_icon/Group 51.png" id="4_5r3m7"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="4_bjly0"]
 [ext_resource type="Texture2D" uid="uid://bhqn1jchxlcy" path="res://assets/arumi_icon/Rectangle 9761.png" id="5_ii31g"]
 
 [sub_resource type="Animation" id="Animation_edn2j"]
@@ -187,6 +188,9 @@ _data = {
 &"show_aruni": SubResource("Animation_mntgi")
 }
 
+[sub_resource type="Gradient" id="Gradient_8e34y"]
+colors = PackedColorArray(0.964742, 0.964742, 0.964742, 1, 0.816593, 0.830103, 0.823363, 1)
+
 [node name="aruni_helper" type="Area2D"]
 script = ExtResource("1_4d5b8")
 
@@ -213,9 +217,29 @@ texture = ExtResource("2_hekpx")
 
 [node name="tugas" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(135, 70)
+position = Vector2(146, 70)
+rotation = -0.066692
 texture = ExtResource("3_r5tbx")
 offset = Vector2(140, -90)
+
+[node name="Line2D" type="Line2D" parent="tugas"]
+position = Vector2(59, -136)
+rotation = 0.103876
+points = PackedVector2Array(-10.2763, 17.1581, 94.346, 27.3649, 168.508, 34.7147)
+closed = true
+width = 50.0
+gradient = SubResource("Gradient_8e34y")
+
+[node name="Label" type="Label" parent="tugas"]
+offset_left = 41.1255
+offset_top = -135.561
+offset_right = 246.126
+offset_bottom = -93.5607
+rotation = 0.066624
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_bjly0")
+theme_override_font_sizes/font_size = 33
+text = "Butuh Bantuan?"
 
 [node name="Group51" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)

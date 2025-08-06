@@ -52,6 +52,7 @@ directories/dtl_directory={
 "scene_1_2": "res://timelines/scene_1_2.dtl",
 "scene_1_3": "res://timelines/scene_1_3.dtl",
 "scene_2_1": "res://timelines/scene_2_1.dtl",
+"scene_2_2": "res://timelines/scene_2_2.dtl",
 "test_signal": "res://timelines/test_signal.dtl"
 }
 glossary/default_case_sensitive=true

@@ -1,6 +1,6 @@
 extends Node2D
 var original_y
-@export var scroll_speed := 10.0
+@export var scroll_speed := 30.0
 @onready var paper_area: Area2D = $paper_area
 
 signal selected

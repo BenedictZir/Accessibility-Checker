@@ -1,0 +1,21 @@
+[signal arg="pak_anton_join"]
+[signal arg="pak_anton_talk"]
+"pak bos": “Pagi, {player_name}! Langit cerah, semoga pikiran juga.”
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Kalau kamu udah nyeduh kopi, kerjaan juga harus diseduh pelan-pelan. Jangan langsung disiram air panas.”
+[signal arg="pak_anton_smile"]
+Kamu mengangguk pelan sambil menyeruput kopi sachet.
+[signal arg="pak_anton_talk"]
+"pak bos": “Hari ini fleksibel, kamu pilih sendiri ya tingkat tantangannya.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Mau jalan santai, lari pelan, atau langsung sprint ke medan pertempuran?”
+- “Saya pilih yang paling ringan, Pak. Biar kepala bisa pemanasan dulu.” (Mudah)
+	[signal arg="easy_diff"]
+- “Yang tengah aja, Pak. Biar tetap fokus tapi nggak ngos-ngosan.” (Normal)
+	[signal arg="medium_diff"]
+- “Langsung sprint, Pak! Saya siap desain sambil bernafas lewat telinga.” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Hahaha! Noted. Tugasnya udah dikasih Aruna—siap-siap, ya.”
+[signal arg="pak_anton_leave"]
+[signal arg="end"]

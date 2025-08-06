@@ -1,7 +1,8 @@
 extends Node2D
 
-@onready var timer: Timer = $"app/Timer"
-@onready var timer_label: Label = $"app/Timer/timer_label"
+@onready var timer: Timer = $app/Sprite2D/Timer
+@onready var timer_label: Label = $app/Sprite2D/timer_label
+
 @onready var color_wheel_minigame: Node2D = $color_wheel_minigame
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var document_paper: Sprite2D = $app/document_paper
@@ -23,6 +24,10 @@ extends Node2D
 @export var outline_scene: PackedScene
 @export var time := 0
 @export var is_tutorial_1 := false
+@export var is_tutorial_2 := false
+@export var is_tutorial_3 := false
+@export var is_tutorial_4 := false
+@export var is_tutorial_5 := false
 var total_score := 0.0
 var accessibility_score := 0.9
 var constaint_score := 0
@@ -36,7 +41,7 @@ var all_images := []
 var all_texts := []
 
 signal image_clicked # untuk tutor 1
-
+signal done_working
 func _ready() -> void:
 	if is_tutorial_1:
 		$app/minigame_icons/image_features/structure_button.self_modulate = Color(0.451, 0.451, 0.451)
@@ -62,7 +67,9 @@ func _ready() -> void:
 		
 
 func _process(delta: float) -> void:
-	total_score = (accessibility_score / (4 * all_object.size()) * 60 / 100 * 2500)
+	var acc_score = (accessibility_score / (4 * all_object.size()) * 60 / 100 * 2500)
+	var timer_mult = 1 + (ceil(timer.time_left / 60)) / 10
+	total_score = acc_score * (timer_score)
 	var minutes = int(timer.time_left) / 60
 	var seconds = int(timer.time_left) % 60
 	var minutes_str = str(minutes).pad_zeros(1)
@@ -374,8 +381,8 @@ func _on_structure_minigame_canceled() -> void:
 	animation_player.play("show_structure_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
 
-func set_document(document):
-	var doc = document_scene.instantiate()
+func set_document(document_random):
+	var doc = document_random.instantiate()
 	$app/nama_dokumen.text = doc.judul
 	document.add_child(doc)
 	doc.global_position = document.global_position
@@ -383,3 +390,43 @@ func set_document(document):
 	timer.wait_time = time
 	timer.start()
 	examine()
+
+
+func _on_cancel_pressed() -> void:
+	if is_tutorial_1:
+		pass
+		# TODO
+	elif is_tutorial_2:
+		pass
+		
+		# TODO
+	elif is_tutorial_3:
+		pass
+		# TODO
+	elif is_tutorial_4:
+		pass
+		# TODO
+	elif is_tutorial_5:
+		pass
+		# TODO
+	else:
+		emit_signal("done_working")
+		
+func disable_all_button():
+	$app/pause_button.disabled = true
+	$app/selesai.disabled = true
+	$app/minigame_icons/image_features/alt_text_button.disabled = true
+	$app/minigame_icons/docs_features/color_wheel_button.disabled = true
+	$app/minigame_icons/text_features/color_wheel_button.disabled = true
+	$app/minigame_icons/text_features/structure_button.disabled = true
+
+func enable_all_button():
+	$app/pause_button.disabled = false
+	$app/selesai.disabled = false
+	$app/minigame_icons/image_features/alt_text_button.disabled = false
+	$app/minigame_icons/docs_features/color_wheel_button.disabled = false
+	$app/minigame_icons/text_features/color_wheel_button.disabled = false
+	$app/minigame_icons/text_features/structure_button.disabled = false
+
+func _on_selesai_pressed() -> void:
+	animation_player.play("show_result_screen")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnw46nsvilaxu"]
+
+[ext_resource type="PackedScene" uid="uid://ynf3tsl7c7me" path="res://scene/mbak_intan.tscn" id="1_drtxt"]
+[ext_resource type="Script" uid="uid://b18g8850msbev" path="res://script/scene_2_2.gd" id="1_xqjcu"]
+[ext_resource type="PackedScene" uid="uid://c8lv21odaka5g" path="res://scene/pak_anton.tscn" id="3_7y3nw"]
+
+[node name="scene_2_2" type="Node2D"]
+script = ExtResource("1_xqjcu")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(479, 0)
+
+[node name="pak_anton" parent="Node2D" instance=ExtResource("3_7y3nw")]
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(1383, 0)
+
+[node name="mbak_intan" parent="Node2D2" instance=ExtResource("1_drtxt")]

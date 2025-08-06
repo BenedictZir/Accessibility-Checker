@@ -1,0 +1,20 @@
+[signal arg="mbak_intan_join"]
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Oh, kamu udah datang? Hebat. Aku aja baru sadar hari ini hari kerja.”
+[signal arg="mbak_intan_happy_talk"]
+mbak_intan: “Kopi habis, deadline numpuk, tapi semangat harus tetap bisa diakses.”
+Kamu tertawa pelan dan mulai menyalakan laptop.
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Kebetulan ada beberapa halaman artikel nungguin kamu. Pilih ya—”
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Mau yang tenang, yang penuh logika, atau yang bikin pengen login ke dimensi lain?”
+- “Tenang aja dulu, Mbak. Aku lagi pengen damai.” (Mudah)
+	[signal arg="easy_diff"]
+- “Penuh logika aja deh. Biar otaknya latihan.” (Normal)
+	[signal arg="medium_diff"]
+- “Dimensi lain? Let’s go. Aku bawa paspor kok.” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Haha oke! Aruna udah siapin semuanya. Jangan khawatir, dia nggak suka ngebut kayak aku.”
+[signal arg="mbak_intan_leave"]
+[signal arg="end"]

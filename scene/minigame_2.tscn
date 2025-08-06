@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="8_g1lo2"]
 [ext_resource type="Texture2D" uid="uid://ca8mgxd1awxf2" path="res://assets/minigame_2/kotak.png" id="9_cxyst"]
 [ext_resource type="Texture2D" uid="uid://b6b42n3a0ammg" path="res://assets/minigame_2/Group 49521.png" id="9_ro16u"]
-[ext_resource type="Texture2D" uid="uid://betcs8uai6dps" path="res://assets/minigame_2/Group 49522.png" id="10_u3kdj"]
+[ext_resource type="Texture2D" uid="uid://betcs8uai6dps" path="res://assets/minigame_2/arrow_yellow.png" id="10_u3kdj"]
 [ext_resource type="Texture2D" uid="uid://dpeynsfm0vb1k" path="res://assets/minigame_2/simpan_pilihan_orange.png" id="12_u3kdj"]
 [ext_resource type="Texture2D" uid="uid://b5i7q3vvymfxq" path="res://assets/minigame_2/simpan_pilihan_putih.png" id="13_cxyst"]
 [ext_resource type="Texture2D" uid="uid://b1xbffmdfpt4i" path="res://assets/minigame_2/retry.png" id="13_u3kdj"]

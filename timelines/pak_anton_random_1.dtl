@@ -1,0 +1,21 @@
+[signal arg="pak_anton_join"]
+[signal arg="pak_anton_talk"]
+"pak bos": “Selamat pagi, {player_name}!"
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Sarapan itu penting, {player_name}. Jangan sampai kerjaan kamu lebih terstruktur dari pola makan kamu.”
+[signal arg="pak_anton_smile"]
+Kamu berpura-pura tertawa.
+[signal arg="pak_anton_talk"]
+"pak bos": "Kita punya beberapa backlog pekerjaan yang butuh sentuhan ajaibmu, nih.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Mau yang ringan-ringan buat pemanasan, standar kaya biasanya, atau langsung uji nyali?”
+- “Yang mudah-mudah aja dulu, Pak... Biar otaknya nggak kaget.” (Mudah)
+	[signal arg="easy_diff"]
+- “Hmm… kasih yang biasa aja, Pak. Saya udah siap mode kerja penuh.” (Normal)
+	[signal arg="medium_diff"]
+- “Aku mau tantangan! Gas yang paling susah, Pak!” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="pak_anton_talk"]
+"pak bos": "Sip, deh! Detail tugasnya nanti dijelasin Aruna ya.
+[signal arg="pak_anton_leave"]
+[signal arg="end"]

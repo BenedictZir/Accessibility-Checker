@@ -1,0 +1,20 @@
+[signal arg="mbak_rani_join"]
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Woi {player_name}~ Sudah login dunia nyata belum hari ini?”
+[signal arg="mbak_rani_happy_talk"]
+mbak_rani: “Aku udah sarapan sama template error. Lumayan bikin kenyang jiwa.”
+Kamu nyengir sambil buka dokumen pertama.
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Ngomong-ngomong, hari ini kamu bisa pilih tantangan sendiri ya.”
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Mau kerja sambil nyanyi, kerja serius, atau kerja sambil menjerit dalam hati?”
+- “Kerja sambil nyanyi aja, Mbak. Biar happy!” (Mudah)
+	[signal arg="easy_diff"]
+- “Yang serius aja, Mbak. Fokus 100%.” (Normal)
+	[signal arg="medium_diff"]
+- “Kerja sambil menjerit? Saya siap! Let’s go!” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="mbak_rani_happy_talk"]
+mbak_rani: “Haha noted! Aruna bakal kasih kamu ringkasan lengkapnya. Semangat ya!”
+[signal arg="mbak_rani_leave"]
+[signal arg="end"]

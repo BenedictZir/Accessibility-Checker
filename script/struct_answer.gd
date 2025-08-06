@@ -2,9 +2,14 @@ extends TextureRect
 @onready var label: Label = $Label
 @onready var line_2d: Line2D = $Line2D
 var connected_to = null
+const GREEN = preload("res://gradient/green.tres")
+const RED = preload("res://gradient/red.tres")
 
-
-
+func _process(delta: float) -> void:
+	if connected_to:
+		line_2d.gradient = GREEN
+	else:
+		line_2d.gradient = RED
 func connect_to(doc_text):
 	if connected_to:
 		connected_to.disconnect_to()

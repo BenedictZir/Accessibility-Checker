@@ -1,0 +1,20 @@
+[signal arg="mbak_rani_join"]
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Selamat pagi, {player_name}! Kelihatan segar, nih. Bawa kopi dari rumah?”
+[signal arg="mbak_rani_happy_talk"]
+mbak_rani: “Kalau aku udah kopi kedua, tapi semangatnya masih hangat-hangat teh manis.”
+Kamu tertawa kecil sambil membuka laptop.
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Hari ini kamu bantu lagi ya. Tapi seperti biasa, kamu boleh pilih tantangan sesuai mood.”
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Mau yang lembut-lembut aja, yang standar, atau yang bikin mikir sambil gigit pulpen?”
+- “Yang lembut-lembut aja, Mbak… biar hatinya tetap tenang.” (Mudah)
+	[signal arg="easy_diff"]
+- “Standar aja, Mbak. Biar otaknya tetap jalan tapi nggak ngebut.” (Normal)
+	[signal arg="medium_diff"]
+- “Yang paling menantang dong! Biar ngetes sejauh apa aku bisa.” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="mbak_rani_happy_talk"]
+mbak_rani: "Sip, deh! Detail tugasnya nanti dijelasin Aruna ya.
+[signal arg="mbak_rani_leave"]
+[signal arg="end"]

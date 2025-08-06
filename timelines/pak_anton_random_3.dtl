@@ -1,0 +1,21 @@
+[signal arg="pak_anton_join"]
+[signal arg="pak_anton_talk"]
+"pak bos": “Selamat pagi, {player_name}! Udah siap menyelam di lautan dokumen lagi?”
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Tenang, hari ini nggak ada tsunami… kecuali kamu pilih yang susah.”
+[signal arg="pak_anton_smile"]
+Kamu tertawa kecil sambil narik kursi.
+[signal arg="pak_anton_talk"]
+"pak bos": “Kayak biasa, kamu bisa pilih mau ngerjain yang mana.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Mau yang adem-adem aja, yang lumayan bikin mikir, atau yang bikin pengen nanya\: ‘siapa yang bikin dokumen ini?’”
+- “Saya ambil yang adem-adem aja, Pak. Biar nggak gosong otaknya.” (Mudah)
+	[signal arg="easy_diff"]
+- “Yang lumayan aja, Pak. Biar tetap ada tantangannya.” (Normal)
+	[signal arg="medium_diff"]
+- “Bikin pengen nangis juga nggak apa-apa, Pak. Tantangan full speed!” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Oke sip! Detailnya udah Aruna siapkan. Dia juga udah siap jadi pemandu sorakmu.”
+[signal arg="pak_anton_leave"]
+[signal arg="end"]

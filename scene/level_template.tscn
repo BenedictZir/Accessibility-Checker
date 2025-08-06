@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=59 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="PackedScene" uid="uid://1uu7h5hvpk3q" path="res://scene/documents/document_scene_1_2.tscn" id="2_epqjh"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://o6nhawy4oxte" path="res://scene/outline.tscn" id="19_vaqec"]
 [ext_resource type="PackedScene" uid="uid://d0yx6qprrjcg5" path="res://scene/minigame_1/minigame_1.tscn" id="19_xe1of"]
 [ext_resource type="PackedScene" uid="uid://2ekyfsfu3hj6" path="res://scene/minigame_2.tscn" id="21_xe1of"]
+[ext_resource type="Texture2D" uid="uid://byb47dw0rmxjf" path="res://assets/minigame_1/background.png" id="25_io6bp"]
+[ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="26_dw8l3"]
 
 [sub_resource type="Animation" id="Animation_xe1of"]
 length = 0.001
@@ -191,6 +193,30 @@ tracks/13/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("result_screen:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("result_screen:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_p2f7k"]
 resource_name = "show_alt_text_minigame"
@@ -258,6 +284,23 @@ tracks/4/keys = {
 }, {
 "args": [],
 "method": &"enable_collisions"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"enable_all_button"
+}, {
+"args": [],
+"method": &"disable_all_button"
 }]
 }
 
@@ -344,6 +387,80 @@ tracks/6/keys = {
 "update": 0,
 "values": [0.0, 6.28319]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"enable_all_button"
+}, {
+"args": [],
+"method": &"disable_all_button"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_io6bp"]
+resource_name = "show_result_screen"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("result_screen:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("result_screen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("app:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.67451, 0.67451, 0.67451, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"enable_all_button"
+}, {
+"args": [],
+"method": &"disable_all_button"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_xnxwe"]
 resource_name = "show_structure_minigame"
@@ -396,12 +513,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"enable_all_button"
+}, {
+"args": [],
+"method": &"disable_all_button"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kemr8"]
 _data = {
 &"RESET": SubResource("Animation_xe1of"),
 &"show_alt_text_minigame": SubResource("Animation_p2f7k"),
 &"show_color_wheel_minigame": SubResource("Animation_vaqec"),
+&"show_result_screen": SubResource("Animation_io6bp"),
 &"show_structure_minigame": SubResource("Animation_xnxwe")
 }
 
@@ -420,8 +555,6 @@ texture = ExtResource("12_lmy6v")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_saxxy"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ng3r6"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d23of"]
 texture = ExtResource("12_te1jt")
 
@@ -432,8 +565,6 @@ texture = ExtResource("12_te1jt")
 texture = ExtResource("12_te1jt")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe1of"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xrlcw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3oy4v"]
 load_path = "res://.godot/imported/color_wheel_button_mid.png-b562f311724a02463258acff085e8023.ctex"
@@ -447,8 +578,6 @@ texture = ExtResource("13_saxxy")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsufd"]
 texture = ExtResource("13_saxxy")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4h6f"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmy6v"]
 texture = ExtResource("14_lmy6v")
 
@@ -460,8 +589,6 @@ texture = ExtResource("14_lmy6v")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ng3r6"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8oo7"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8rffd"]
 texture = ExtResource("15_io6bp")
 
@@ -470,6 +597,20 @@ texture = ExtResource("15_io6bp")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p17l8"]
 texture = ExtResource("15_io6bp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yo4d5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b8oo7"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rhc5g"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dkmjt"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ca6jy"]
+texture = ExtResource("26_dw8l3")
 
 [node name="level_template" type="Node2D"]
 self_modulate = Color(0.450648, 0.450648, 0.450648, 1)
@@ -533,23 +674,31 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_xrlcw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3oy4v")
 theme_override_styles/normal = SubResource("StyleBoxTexture_l4h6f")
 
-[node name="Timer" type="Timer" parent="app"]
+[node name="selesai" type="Button" parent="app"]
+offset_left = 1547.0
+offset_top = 816.0
+offset_right = 1832.0
+offset_bottom = 888.0
+text = "SELESAI"
 
-[node name="Sprite2D" type="Sprite2D" parent="app/Timer"]
+[node name="Sprite2D" type="Sprite2D" parent="app"]
 position = Vector2(1609, 981)
 texture = ExtResource("13_io6bp")
 
-[node name="timer_label" type="Label" parent="app/Timer"]
-offset_left = 1519.0
-offset_top = 932.0
-offset_right = 1712.0
-offset_bottom = 1003.0
+[node name="timer_label" type="Label" parent="app/Sprite2D"]
+offset_left = -90.0
+offset_top = -49.0
+offset_right = 103.0
+offset_bottom = 22.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("14_xe1of")
 theme_override_font_sizes/font_size = 55
 text = "1:00"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="app/Sprite2D"]
+process_mode = 3
 
 [node name="minigame_icons" type="Node2D" parent="app"]
 
@@ -563,7 +712,7 @@ offset_right = 1097.0
 offset_bottom = 164.0
 theme_override_font_sizes/font_size = 47
 theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_ng3r6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_d23of")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d23of")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_lan4c")
 theme_override_styles/normal = SubResource("StyleBoxTexture_htgnh")
@@ -580,7 +729,7 @@ focus_mode = 0
 mouse_filter = 1
 theme_override_font_sizes/font_size = 150
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xe1of")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_xrlcw")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_mu5cy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_mu5cy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_fxlgi")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hsufd")
@@ -597,7 +746,7 @@ offset_bottom = 164.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 61
 theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_l4h6f")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lmy6v")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lmy6v")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_io6bp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_dw8l3")
@@ -609,7 +758,7 @@ offset_right = 1248.0
 offset_bottom = 155.0
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ng3r6")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_b8oo7")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_8rffd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8rffd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yo4d5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_p17l8")
@@ -734,6 +883,9 @@ visible = false
 position = Vector2(118, 9)
 texture = ExtResource("16_vaqec")
 
+[node name="aruni_helper" parent="app" instance=ExtResource("17_epqjh")]
+position = Vector2(206, 981)
+
 [node name="color_wheel_minigame" parent="." instance=ExtResource("21_xe1of")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
@@ -750,9 +902,40 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 scale = Vector2(0.1, 0.1)
 
-[node name="aruni_helper" parent="." instance=ExtResource("17_epqjh")]
-position = Vector2(206, 981)
+[node name="result_screen" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(0.1, 0.1)
 
+[node name="Sprite2D" type="Sprite2D" parent="result_screen"]
+texture = ExtResource("25_io6bp")
+
+[node name="cancel" type="Button" parent="result_screen"]
+offset_left = 488.0
+offset_top = -382.0
+offset_right = 635.0
+offset_bottom = -203.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yo4d5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_b8oo7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rhc5g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dkmjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ca6jy")
+
+[node name="Polygon2D" type="Polygon2D" parent="result_screen"]
+polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 491, -244, 491, -296)
+
+[node name="Label" type="Label" parent="result_screen"]
+offset_left = 138.0
+offset_top = -368.0
+offset_right = 266.0
+offset_bottom = -316.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 40
+text = "Hasil Pekerjaan"
+
+[connection signal="pressed" from="app/selesai" to="." method="_on_selesai_pressed"]
 [connection signal="pressed" from="app/minigame_icons/image_features/alt_text_button" to="." method="_on_alt_text_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/docs_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/text_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
@@ -763,3 +946,4 @@ position = Vector2(206, 981)
 [connection signal="done" from="alt_text_minigame" to="." method="_on_alt_text_minigame_done"]
 [connection signal="canceled" from="structure_minigame" to="." method="_on_structure_minigame_canceled"]
 [connection signal="done" from="structure_minigame" to="." method="_on_structure_minigame_done"]
+[connection signal="pressed" from="result_screen/cancel" to="." method="_on_cancel_pressed"]

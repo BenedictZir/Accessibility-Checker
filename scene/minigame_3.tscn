@@ -1,20 +1,42 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1dbxinucsq2g"]
+[gd_scene load_steps=20 format=3 uid="uid://c1dbxinucsq2g"]
 
 [ext_resource type="Script" uid="uid://betgdsyowkl1j" path="res://script/minigame_3.gd" id="1_0dvvu"]
-[ext_resource type="Texture2D" uid="uid://dyntvhdr10pkq" path="res://assets/minigame_1/Frame 53.png" id="2_85b5a"]
 [ext_resource type="PackedScene" uid="uid://ce053i0ellf0a" path="res://scene/struct_text.tscn" id="2_q8eg3"]
+[ext_resource type="Texture2D" uid="uid://byb47dw0rmxjf" path="res://assets/minigame_1/background.png" id="4_1yfil"]
 [ext_resource type="PackedScene" uid="uid://dgca0njoudcul" path="res://scene/struct_answer.tscn" id="4_88gds"]
-[ext_resource type="Texture2D" uid="uid://d3sr37sn2h3hs" path="res://assets/x_button.png" id="5_1yfil"]
+[ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="5_1yfil"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="6_i3mab"]
+[ext_resource type="Texture2D" uid="uid://dpeynsfm0vb1k" path="res://assets/minigame_2/simpan_pilihan_orange.png" id="7_x4jmi"]
+[ext_resource type="Texture2D" uid="uid://b5i7q3vvymfxq" path="res://assets/minigame_2/simpan_pilihan_putih.png" id="8_rjyxx"]
+[ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="9_x4jmi"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yfil"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klblt"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78gig"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkeb3"]
+texture = ExtResource("7_x4jmi")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2uyf6"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_061bg"]
+texture = ExtResource("7_x4jmi")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3mab"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3tfbp"]
+texture = ExtResource("7_x4jmi")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4jmi"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r7rc"]
+texture = ExtResource("7_x4jmi")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjyxx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klblt"]
+texture = ExtResource("9_x4jmi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wegjo"]
+texture = ExtResource("9_x4jmi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ldyw"]
+texture = ExtResource("9_x4jmi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2xryp"]
+texture = ExtResource("9_x4jmi")
 
 [node name="minigame_3" type="Node2D"]
 script = ExtResource("1_0dvvu")
@@ -22,28 +44,7 @@ struct_text_scene = ExtResource("2_q8eg3")
 struct_answer_scene = ExtResource("4_88gds")
 
 [node name="Frame53" type="Sprite2D" parent="."]
-position = Vector2(-25, -28)
-texture = ExtResource("2_85b5a")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -625.0
-offset_top = -368.0
-offset_right = 575.0
-offset_bottom = -296.0
-color = Color(0.964706, 0.752941, 0.407843, 1)
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 22.0
-offset_right = 174.0
-offset_bottom = 45.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Ubah Struktur Teks"
-
-[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
-position = Vector2(1137, 36)
-texture = ExtResource("5_1yfil")
+texture = ExtResource("4_1yfil")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -63,25 +64,58 @@ offset_bottom = -152.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="exit_button" type="Button" parent="."]
-offset_left = 500.0
-offset_top = -342.0
-offset_right = 525.0
-offset_bottom = -321.0
-focus_mode = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1yfil")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_78gig")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_2uyf6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_i3mab")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_x4jmi")
+[node name="Label" type="Label" parent="."]
+offset_left = 138.0
+offset_top = -368.0
+offset_right = 266.0
+offset_bottom = -316.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("5_1yfil")
+theme_override_font_sizes/font_size = 40
+text = "Ubah Struktur"
 
 [node name="submit_button" type="Button" parent="."]
-offset_left = -96.0
-offset_top = 232.0
-offset_right = 97.0
-offset_bottom = 263.0
-text = "SUBMIT"
+offset_left = -502.0
+offset_top = 272.0
+offset_right = -121.0
+offset_bottom = 424.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i3mab")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_klblt")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_tkeb3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_061bg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3tfbp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4r7rc")
+text = "SIMPAN PILIHAN"
+
+[node name="SimpanPilihanPutih" type="Sprite2D" parent="submit_button"]
+show_behind_parent = true
+position = Vector2(193, 76)
+texture = ExtResource("8_rjyxx")
+
+[node name="Polygon2D" type="Polygon2D" parent="submit_button"]
+position = Vector2(518, -272)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-535, 415, -533, 448, -160, 442, -147, 400, -156, 399, -165, 430, -521, 437, -525, 415)
+
+[node name="exit_button" type="Button" parent="."]
+offset_left = 488.0
+offset_top = -382.0
+offset_right = 635.0
+offset_bottom = -203.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rjyxx")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_klblt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wegjo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ldyw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2xryp")
 
 [connection signal="connecting" from="." to="." method="_on_connecting"]
-[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="submit_button" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

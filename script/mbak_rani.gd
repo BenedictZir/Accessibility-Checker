@@ -2,7 +2,7 @@ extends AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var is_mad := false
-var is_happy := true
+var is_happy := false
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
@@ -21,6 +21,8 @@ func _on_dialogic_signal(arg):
 		"mbak_rani_smile":
 			play("smile")
 		"mbak_rani_talk":
+			is_happy = false
+			is_mad = false
 			play("talk")
 		"mbak_rani_angry_blink":
 			is_mad = true

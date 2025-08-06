@@ -1,15 +1,20 @@
 if {poin_inklusif_harian} <= 500.0:
 	[signal arg="pak_anton_angry_talk"]
-	"pak bos": Bagaimana ini kerjamu!
+	"pak bos": “Hmm… ini hasilnya masih ngambang ya.”	
 	[signal arg="pak_anton_angry_talk"]
-	"pak bos": Jangan ulangi lagi besok!
+	"pak bos": “Kita bukan ngejar cepat, tapi ngejar benar.”
+	[signal arg="pak_anton_angry_talk"]
+	"pak bos": “Tolong dicek lagi, jangan setengah-setengah.”
 elif {poin_inklusif_harian} <= 1500.0:
 	[signal arg="pak_anton_talk"]
-	"pak bos": Kerja bagus hariini!
+	"pak bos": “Sudah selesai ya? Lumayan, bisa lebih cepat tadi.”
 	[signal arg="pak_anton_talk"]
-	"pak bos": Sampai jumpa besok!
+	"pak bos": “Tapi tetap, kerja yang konsisten itu yang penting.”
 else:
 	[signal arg="pak_anton_happy_talk"]
-	"pak bos": Wah {player_name}, kamu memang hebat!.
+	"pak bos": “Wah, hasil yang keren banget! Tugasnya diselesaikan dengan rapi dan tepat sasaran.”
 	[signal arg="pak_anton_happy_talk"]
-	"pak bos": Lanjutkan kerja bagusmu ini ya!
+	"pak bos": “Kamu mulai bikin saya bangga nih.”
+	[signal arg="pak_anton_happy_talk"]
+	"pak bos": "Pertahankan, ya!"
+[signal arg="end_day"]

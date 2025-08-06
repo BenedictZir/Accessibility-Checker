@@ -45,8 +45,8 @@ intended_structure = 2
 [node name="doc_text3" parent="texts" instance=ExtResource("2_ooohr")]
 offset_left = -426.0
 offset_top = 456.0
-offset_right = -32.0
-offset_bottom = 580.0
+offset_right = -89.0
+offset_bottom = 523.0
 text = "Pembaca Layar (Screen Reader)"
 intended_structure = 0
 structure = "judul"
@@ -64,8 +64,8 @@ part = 2
 [node name="doc_text6" parent="texts" instance=ExtResource("2_ooohr")]
 offset_left = 18.0
 offset_top = 870.0
-offset_right = 430.0
-offset_bottom = 1042.0
+offset_right = 394.0
+offset_bottom = 945.0
 text = "Papan Ketik Adaptif (Adaptive Keyboard)"
 intended_structure = 0
 structure = "judul"

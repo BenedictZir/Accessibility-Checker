@@ -1,15 +1,22 @@
 if {poin_inklusif_harian} <= 500.0:
-	[signal arg="mbak_intan_angry_talk"]
-	mbak_intan: Bagaimana ini kerjamu!
-	[signal arg="mbak_intan_angry_talk"]
-	mbak_intan: Jangan ulangi lagi besok!
+	[signal arg="mbak_rani_angry_talk"]
+	mbak_rani: “Judulnya masih lompat-lompat, dan teks alternatifnya kurang deskriptif.”
+	[signal arg="mbak_rani_angry_talk"]
+	mbak_rani: “Aku tahu kamu niat, tapi ini belum cukup aksesibel.”
+	[signal arg="mbak_rani_angry_talk"]
+	mbak_rani: “Ayo kita ulang lagi, bareng-bareng kalau perlu.”
 elif {poin_inklusif_harian} <= 1500.0:
-	[signal arg="mbak_intan_talk"]
-	mbak_intan: Kerja bagus hariini!
-	[signal arg="mbak_intan_talk"]
-	mbak_intan: Sampai jumpa besok!
+	[signal arg="mbak_rani_talk"]
+	mbak_rani: “Hmm… oke, ini sudah bisa dipakai sih.”
+	[signal arg="mbak_rani_talk"]
+	mbak_rani: “Beberapa bagian masih kurang runtut, tapi bisa aku lanjutkan.”
+	[signal arg="mbak_rani_talk"]
+	mbak_rani: “Makasih ya, udah mulai diberesin.”
 else:
-	[signal arg="mbak_intan_happy_talk"]
-	mbak_intan: Wah {player_name}, kamu memang hebat!.
-	[signal arg="mbak_intan_happy_talk"]
-	mbak_intan: Lanjutkan kerja bagusmu ini ya!
+	[signal arg="mbak_rani_happy_talk"]
+	mbak_rani: “Ini baru struktur yang enak dibaca!”
+	[signal arg="mbak_rani_happy_talk"]
+	mbak_rani: “Aku bisa navigasi pakai pembaca layar tanpa muter-muter.”
+	[signal arg="mbak_rani_happy_talk"]
+	mbak_rani: “Kamu ngerti banget cara bantu orang kayak aku.”
+[signal arg="end_day"]

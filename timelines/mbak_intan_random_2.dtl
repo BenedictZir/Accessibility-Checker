@@ -1,0 +1,20 @@
+[signal arg="mbak_intan_join"]
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Selamat pagi dari dunia tab 47. Aku baru selesai benerin kontras warna website jam lima tadi.”
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Kalau kamu lihat aku bengong, itu aku lagi buffering.”
+Kamu ketawa kecil, lalu duduk.
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Hari ini ada beberapa halaman yang butuh sentuhan tangan manusia.”
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Mau yang template ringan, yang udah setengah jadi, atau yang desainnya masih chaos?”
+- “Yang template ringan dulu aja, Mbak. Pelan-pelan bangun.” (Mudah)
+	[signal arg="easy_diff"]
+- “Yang setengah jadi, Mbak. Biar tinggal disambungin.” (Normal)
+	[signal arg="medium_diff"]
+- “Chaos? Sounds fun. Aku siap ngedesain dari nol!” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Hehe... Aruna bakal kasih kamu panduannya. Jangan takut, dia lebih rapi dari aku.”
+[signal arg="mbak_intan_leave"]
+[signal arg="end"]

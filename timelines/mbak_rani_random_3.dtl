@@ -1,0 +1,20 @@
+[signal arg="mbak_rani_join"]
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Pagi! Udah berani naik lift sendirian sekarang ya? Progres tuh.”
+[signal arg="mbak_rani_happy_talk"]
+mbak_rani: “Dulu aku juga seminggu pertama tiap pagi deg-degan. Sekarang? Deg-degannya pas liat feedback revisi.”
+Kamu tertawa bareng sambil nyalakan monitor.
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Oke, hari ini kamu bebas pilih tantangan. Kita punya beberapa tugas yang lagi antri.”
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Mau yang ringan-ringan dulu, level sedang, atau langsung ambil yang kompleks?”
+- “Ringan dulu, Mbak. Lagi pengen jalan santai hari ini.” (Mudah)
+	[signal arg="easy_diff"]
+- “Sedang aja, biar tetap terasa kerja tapi nggak stres.” (Normal)
+	[signal arg="medium_diff"]
+- “Langsung kompleks aja! Aku pengen ngebut hari ini.” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="mbak_rani_happy_talk"]
+mbak_rani: “Noted. Aruna udah siapin breakdown-nya buat kamu.”
+[signal arg="mbak_rani_leave"]
+[signal arg="end"]

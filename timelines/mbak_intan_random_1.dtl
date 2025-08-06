@@ -1,0 +1,20 @@
+[signal arg="mbak_intan_join"]
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Pagi, Intern… Kalau kamu tidur lebih dari 4 jam, aku iri.”
+[signal arg="mbak_intan_happy_talk"]
+mbak_intan: “Aku dan kopi sachet ini udah kayak pasangan LDR yang nggak pernah pisah.”
+Kamu tersenyum simpati dan duduk di sebelahnya.
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Anyway, kamu bisa pilih tantangan sendiri hari ini. Aku udah pilah-pilah keruwetan.”
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Mau yang santai kayak pagi, yang biasa aja, atau yang bikin otak nge-reboot?”
+- “Yang santai dulu deh, Mbak. Biar nggak ikutan nge-hang.” (Mudah)
+	[signal arg="easy_diff"]
+- “Standard aja, Mbak. Lagi stabil mood-nya.” (Normal)
+	[signal arg="medium_diff"]
+- “Yang reboot sekalian, Mbak. Biar kayak uji stress test CPU.” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Noted... Aruna udah standby kayak AI yang nggak pernah tidur. Cek dashboard kamu ya.”
+[signal arg="mbak_intan_leave"]
+[signal arg="end"]

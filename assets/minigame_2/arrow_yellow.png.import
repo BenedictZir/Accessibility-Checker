@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://betcs8uai6dps"
-path="res://.godot/imported/Group 49522.png-0d5204f5b2c656762d741411976a81a6.ctex"
+path="res://.godot/imported/arrow_yellow.png-f0d1183eb30ad33c16780fe49b3ae122.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/minigame_2/Group 49522.png"
-dest_files=["res://.godot/imported/Group 49522.png-0d5204f5b2c656762d741411976a81a6.ctex"]
+source_file="res://assets/minigame_2/arrow_yellow.png"
+dest_files=["res://.godot/imported/arrow_yellow.png-f0d1183eb30ad33c16780fe49b3ae122.ctex"]
 
 [params]
 
