@@ -33,12 +33,22 @@ var accessibility_score := 0.0
 var constaint_score := 0.0
 var difficulty_mult := 1
 var constraint_list  = []
+var constraint_correct = []
 var selected_outline = null
 var selected_object = null
 var all_object := []
 var all_images := []
 var all_texts := []
-
+const COLORS = {
+	"merah" : Color("#d10f0b"),
+	"oranye" : Color("#ff750a"),
+	"kuning" : Color("#ffeb3b"),
+	"hijau" : Color("#01b046"),
+	"biru" : Color("#296cd4"),
+	"hitam" : Color("#253238"),
+	"ungu" : Color("#5f006f"),
+	"putih" : Color("#fbfbfb")
+}
 signal image_clicked # untuk tutor 1
 signal done_working
 func _ready() -> void:
@@ -444,6 +454,109 @@ func _on_selesai_pressed() -> void:
 
 func set_constraint(constraint_set):
 	constraint_list = constraint_set
+	for constraint in constraint_list:
+		constraint_correct.append(false)
+
+func check_constraint():
+	for  i in range(constraint_list.size()):
+		var constraint = constraint_list[i]
+		if constraint.begins_with("Selesaikan tugas tidak lebih dari "):
+			var words = constraint.split(" ")
+			var time_constraint = int(words[5]) * 60
+			constraint_correct[i] = check_constraint_type_1(time_constraint)
+			
+		elif constraint.begins_with("Gunakan hanya 1 warna untuk setiap jenis teks"):
+			var words = constraint.split(" ")
+			constraint_correct[i] = check_constraint_type_2()
+			
+			
+		elif constraint.begins_with("Gunakan minimal "):
+			var words = constraint.split(" ")
+			var min_colors = int(words[2])
+			constraint_correct[i] = check_constraint_type_3(min_colors)
+			
+		elif constraint.begins_with("Jangan gunakan warna "):
+			var words = constraint.split(" ")
+			var forbidden_color = COLORS[words[3]]
+			constraint_correct[i] = check_constraint_type_4(forbidden_color)
+			
+		elif constraint.begins_with("Gunakan warna ") and "pada elemen teks" in constraint:
+			var words = constraint.split(" ")
+			var must_use_text_color = COLORS[words[2]]
+			constraint_correct[i] = check_constraint_type_5(must_use_text_color)
+
+		elif constraint.begins_with("Gunakan warna ") and "pada latar belakang" in constraint:
+			var words = constraint.split(" ")
+			var must_use_bg_color = COLORS[words[2]]
+			constraint_correct[i] = check_constraint_type_6(must_use_bg_color)
+
+		elif constraint.begins_with("Gunakan warna "):
+			var words = constraint.split(" ")
+			var must_use_color = COLORS[words[2]]
+			constraint_correct[i] = check_constraint_type_7(must_use_color)
+			
+			
+func check_constraint_type_1(time_constraint):
+	if timer.time_left > time_constraint:
+		return true
+func check_constraint_type_2():
+	var color_per_structure = {}
+	for text in all_texts:
+		var text_color = text.get_theme_color("font_color")
+		var structure = text.get_structure()
+		if structure in color_per_structure:
+			if not colors_equal(color_per_structure[structure], text_color):
+				return false
+		else:
+			color_per_structure[structure] = text_color
+	return true
+func check_constraint_type_3(min_colors):
+	var color_used = []
+	for text in all_texts:
+		var text_color = text.get_theme_color("font_color")
+		if not (text_color in color_used):
+			color_used.append(text_color)
+	var doc_color = document_paper.self_modulate
+	if not (doc_color in color_used):
+		color_used.append(doc_color)
+	
+	if color_used < min_colors:
+		return false
+	else:
+		return true
+	
+func check_constraint_type_4(forbidden_color):
+	for text in all_texts:
+		var text_color = text.get_theme_color("font_color")
+		if colors_equal(text_color, forbidden_color):
+			return false
+	return true
+	
+func check_constraint_type_5(must_use_text_color):
+	for text in all_texts:
+		var text_color = text.get_theme_color("font_color")
+		if colors_equal(text_color, must_use_text_color):
+			return true
+	return false
+	
+func check_constraint_type_6(must_use_bg_color):
+	var doc_color = document_paper.self_modulate
+	if colors_equal(doc_color, must_use_bg_color):
+		return true
+	return false
+	
+func check_constraint_type_7(must_use_color):
+	for text in all_texts:
+		var text_color = text.get_theme_color("font_color")
+		if colors_equal(text_color, must_use_color):
+			return true
+	var doc_color = document_paper.self_modulate
+	if colors_equal(doc_color, must_use_color):
+		return true
+	return false
+
+
+
 
 
 func _on_aruni_helper_aruna_pressed() -> void:
@@ -456,3 +569,6 @@ func _on_cancel_aruna_pressed() -> void:
 	animation_player.play("show_aruna_helper_screen", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
 	
+
+func colors_equal(c1: Color, c2: Color, tolerance := 0.01) -> bool:
+	return abs(c1.r - c2.r) < tolerance and abs(c1.g - c2.g) < tolerance and abs(c1.b - c2.b) < tolerance and abs(c1.a - c2.a) < tolerance

@@ -8,12 +8,10 @@ var document
 @onready var level_template: Node2D = $level_template
 
 const CONSTRAINT_SET = [
-	["", "", "", ""],
-	["", "", "", ""],
-	["", "", "", ""],
-	["", "", "", ""],
-	["", "", "", ""],
-	["", "", "", ""],
+	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan hanya 1 warna untuk setiap jenis teks", "Gunakan minimal 3 warna", "Jangan gunakan warna merah", "Gunakan warna biru", "Gunakan warna hitam pada elemen teks", "Gunakan warna putih pada latar belakang"],
+	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan hanya 1 warna untuk setiap jenis teks", "Gunakan minimal 3 warna", "Jangan gunakan warna hijau", "Gunakan warna kuning", "Gunakan warna putih pada elemen teks", "Gunakan warna hitam pada latar belakang"],
+	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan minimal 3 warna", "Gunakan warna oranye", "Gunakan warna kuning pada elemen teks", "Gunakan warna hitam pada latar belakang"],
+	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan hanya 1 warna untuk setiap jenis teks", "Gunakan minimal 3 warna", "Jangan gunakan warna putih", "Gunakan warna oranye", "Gunakan warna kuning pada elemen teks", "Gunakan warna ungu pada latar belakang"]
 ]
 
 
@@ -55,7 +53,7 @@ func _on_dialogic_signal(arg):
 			document = easy_document_list.pick_random()
 			level_template.set_document(document, "easy")
 			var constraints = []
-			for i in range(2):
+			for i in range(3):
 				var constraint = constraint_list.pick_random()
 				constraint_list.erase(constraint)
 				constraints.append(constraint)
@@ -63,7 +61,7 @@ func _on_dialogic_signal(arg):
 			document = medium_document_list.pick_random()
 			level_template.set_document(document, "medium")
 			var constraints = []
-			for i in range(3):
+			for i in range(4):
 				var constraint = constraint_list.pick_random()
 				constraint_list.erase(constraint)
 				constraints.append(constraint)
@@ -72,7 +70,12 @@ func _on_dialogic_signal(arg):
 		"hard_diff":
 			document = hard_document_list.pick_random()
 			level_template.set_document(document, "hard")
-			level_template.set_constraint(constraint_list)
+			var constraints = []
+			for i in range(5):
+				var constraint = constraint_list.pick_random()
+				constraint_list.erase(constraint)
+				constraints.append(constraint)
+			level_template.set_constraint(constraints)
 			
 
 
