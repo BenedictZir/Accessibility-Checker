@@ -7,6 +7,7 @@ extends Label
 @onready var subheading_selected: Sprite2D = $subheading_selected
 @onready var text_bg_selected: Sprite2D = $text_selected
 @onready var label: Label = $Label
+@onready var area_2d: Area2D = $Area2D
 
 signal selected
 signal deselect
@@ -26,6 +27,7 @@ func _ready() -> void:
 	heading.show()
 
 func _process(delta: float) -> void:
+	check_visibility()
 	label.text = display_name # gunakan display_name, bukan name
 	if display_name.containsn("subjudul"):
 		if is_selected:
@@ -76,3 +78,14 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	GlobalVar.interactable.erase(self)
+
+func check_visibility():
+	var scroll = find_parent_area()
+	if scroll:
+		var global_rect = Rect2(global_position, size)
+		var viewport_rect = Rect2(scroll.global_position, scroll.size)
+		area_2d.input_pickable = global_rect.intersects(viewport_rect)
+	
+func find_parent_area():
+	var current = get_parent().get_parent().get_parent().find_child("outline_area")
+	return current

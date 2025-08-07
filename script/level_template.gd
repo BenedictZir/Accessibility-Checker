@@ -444,3 +444,15 @@ func _on_selesai_pressed() -> void:
 
 func set_constraint(constraint_set):
 	constraint_list = constraint_set
+
+
+func _on_aruni_helper_aruna_pressed() -> void:
+	animation_player.play("show_aruna_helper_screen")
+	app.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+
+func _on_cancel_aruna_pressed() -> void:
+	animation_player.play("show_aruna_helper_screen", -1, -1.0, true)
+	app.process_mode = Node.PROCESS_MODE_INHERIT
+	

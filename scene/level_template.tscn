@@ -222,6 +222,18 @@ tracks/15/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("aruna_helper_screen:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, -675)]
+}
 
 [sub_resource type="Animation" id="Animation_p2f7k"]
 resource_name = "show_alt_text_minigame"
@@ -299,6 +311,51 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"enable_all_button"
+}, {
+"args": [],
+"method": &"disable_all_button"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dw8l3"]
+resource_name = "show_aruna_helper_screen"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("app:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.67451, 0.67451, 0.67451, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("aruna_helper_screen:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, -675), Vector2(960, 502)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -535,9 +592,6 @@ tracks/4/keys = {
 "method": &"disable_all_button"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_dw8l3"]
-resource_name = "show_aruna_helper_screen"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kemr8"]
 _data = {
@@ -833,6 +887,13 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_8rffd")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yo4d5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_p17l8")
 
+[node name="outline_area" type="ColorRect" parent="app"]
+offset_left = 77.0
+offset_top = 363.0
+offset_right = 391.0
+offset_bottom = 799.0
+color = Color(1, 1, 1, 0)
+
 [node name="ScrollContainer" type="ScrollContainer" parent="app"]
 layout_direction = 3
 offset_left = -391.0
@@ -1006,7 +1067,7 @@ theme_override_font_sizes/font_size = 40
 text = "Hasil Pekerjaan"
 
 [node name="aruna_helper_screen" type="Node2D" parent="."]
-position = Vector2(960, 502)
+position = Vector2(960, -675)
 
 [node name="Background" type="Sprite2D" parent="aruna_helper_screen"]
 texture = ExtResource("27_d23of")
@@ -1092,6 +1153,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="app/minigame_icons/docs_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/text_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/text_features/structure_button" to="." method="_on_structure_button_pressed"]
+[connection signal="aruna_pressed" from="app/aruni_helper" to="." method="_on_aruni_helper_aruna_pressed"]
 [connection signal="canceled" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_canceled"]
 [connection signal="done" from="color_wheel_minigame" to="." method="_on_color_wheel_minigame_done"]
 [connection signal="canceled" from="alt_text_minigame" to="." method="_on_alt_text_minigame_canceled"]
@@ -1099,3 +1161,4 @@ vertical_alignment = 1
 [connection signal="canceled" from="structure_minigame" to="." method="_on_structure_minigame_canceled"]
 [connection signal="done" from="structure_minigame" to="." method="_on_structure_minigame_done"]
 [connection signal="pressed" from="result_screen/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="aruna_helper_screen/cancel_aruna" to="." method="_on_cancel_aruna_pressed"]
