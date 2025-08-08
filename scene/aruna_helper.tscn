@@ -225,7 +225,6 @@ offset = Vector2(140, -90)
 [node name="Line2D" type="Line2D" parent="tugas"]
 position = Vector2(59, -136)
 rotation = 0.103876
-scale = Vector2(1, 1)
 points = PackedVector2Array(-10.2763, 17.1581, 94.346, 27.3649, 168.508, 34.7147)
 closed = true
 width = 50.0

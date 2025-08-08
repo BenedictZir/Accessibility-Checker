@@ -12,4 +12,4 @@ func _on_dialogic_signal(arg):
 		$backgrounds/background_2.show()
 
 	if arg == "end":
-		SceneTransition.change_scene("res://scene/scene_1_2.tscn")
+		SceneTransition.change_scene("res://story_scene//scene_1_2.tscn")

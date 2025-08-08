@@ -24,6 +24,10 @@ func _on_dialogic_signal(arg):
 			is_happy = false
 			is_mad = false
 			play("talk")
+		"mbak_rani_blink":
+			is_happy = false
+			is_mad = false
+			play("blink")
 		"mbak_rani_angry_blink":
 			is_mad = true
 			play("angry_blink")

@@ -17,21 +17,21 @@ extends Node2D
 @onready var text_tidak_jelas: Label = $app/accessibility_checker/Sprite2D/text_tidak_jelas
 @onready var tidak_ada_alt_text: Label = $app/accessibility_checker/Sprite2D2/tidak_ada_alt_text
 @onready var struktur_salah: Label = $app/accessibility_checker/Sprite2D3/struktur_salah
+@onready var selesai: Button = $app/selesai
 
-
-
-@export var document_scene: PackedScene
+const DOCUMENT_SCENE_1_2 = preload("res://scene/documents/document_scene_1_2.tscn")
 @export var outline_scene: PackedScene
 @export var time := 0
-@export var is_tutorial_1 := false
-@export var is_tutorial_2 := false
-@export var is_tutorial_3 := false
-@export var is_tutorial_4 := false
-@export var is_tutorial_5 := false
+var is_tutorial_1 := false
+var is_tutorial_2 := false
+var is_tutorial_3 := false
+var is_tutorial_4 := false
+var is_tutorial_5 := false
+var timer_score = 0
 var total_score := 0.0
 var accessibility_score := 0.0
-var constaint_score := 0.0
-var difficulty_mult := 1
+var constraint_score := 0.0
+var difficulty_mult := 1.0
 var constraint_list  = []
 var constraint_correct = []
 var selected_outline = null
@@ -39,6 +39,7 @@ var selected_object = null
 var all_object := []
 var all_images := []
 var all_texts := []
+
 const COLORS = {
 	"merah" : Color("#d10f0b"),
 	"oranye" : Color("#ff750a"),
@@ -50,12 +51,19 @@ const COLORS = {
 	"putih" : Color("#fbfbfb")
 }
 signal image_clicked # untuk tutor 1
+signal wrong_alt_text
+signal tutorial_done
+signal selesai_button_clicked
+
 signal done_working
 func _ready() -> void:
+	pass
+
+func _process(delta: float) -> void:
 	if is_tutorial_1:
-		$app/minigame_icons/image_features/structure_button.self_modulate = Color(0.451, 0.451, 0.451)
-		$app/minigame_icons/image_features/structure_button.disabled = true
 		
+		$app/aruni_helper.hide()
+		$app/Sprite2D.hide()
 		$app/minigame_icons/docs_features/color_wheel_button.self_modulate = Color(0.451, 0.451, 0.451)
 		$app/minigame_icons/docs_features/color_wheel_button.disabled = true
 		
@@ -64,31 +72,35 @@ func _ready() -> void:
 		
 		$app/minigame_icons/text_features/structure_button.self_modulate = Color(0.451, 0.451, 0.451)
 		$app/minigame_icons/text_features/structure_button.disabled = true
-	if document_scene:
-		var doc = document_scene.instantiate()
-		document.add_child(doc)
-		doc.global_position = document.global_position
-		get_all_obj()
-		timer.wait_time = time
-		timer.start()
 		examine()
-		$app/nama_dokumen.text = doc.judul
+		if accessibility_score < 36:
+			selesai.hide()
+		else:
+			emit_signal("tutorial_done")
+			selesai.show()
+		for obj in all_object:
+			if (obj.is_in_group("images")):
+				if obj.examine() == 1:
+					wrong_alt_text.emit()
 		
-
-func _process(delta: float) -> void:
-	var acc_score = (accessibility_score / (4 * all_object.size()) * 60 / 100 * 2500) # max 1500
-	var const_score = (constaint_score) # TODO
-	var timer_mult = 1 + (ceil(timer.time_left / 60)) / 10
-	$app/Sprite2D/timer_mult_label.text = str(timer_mult) + "x"
-	var total_score_before_mult = acc_score + const_score
-	
-	total_score = total_score_before_mult * timer_mult * difficulty_mult
-	
-	var minutes = int(timer.time_left) / 60
-	var seconds = int(timer.time_left) % 60
-	var minutes_str = str(minutes).pad_zeros(1)
-	var seconds_str = str(seconds).pad_zeros(2)
-	timer_label.text = minutes_str + ":" + seconds_str
+		
+		
+	elif is_tutorial_2:
+		pass
+		
+	elif is_tutorial_3:
+		pass
+	elif is_tutorial_4:
+		pass
+	elif is_tutorial_5:
+		pass
+	else:
+		timer_score = (ceil(timer.time_left / 60)) * 50
+		var minutes = int(timer.time_left) / 60
+		var seconds = int(timer.time_left) % 60
+		var minutes_str = str(minutes).pad_zeros(1)
+		var seconds_str = str(seconds).pad_zeros(2)
+		timer_label.text = minutes_str + ":" + seconds_str
 func get_all_images():
 	var images = find_child("document").get_child(0).get_images()
 	for image in images:
@@ -409,30 +421,10 @@ func set_document(document_random, diff):
 	doc.global_position = document.global_position
 	get_all_obj()
 	timer.wait_time = time
-	timer.start()
 	examine()
 
 
-func _on_cancel_pressed() -> void:
-	if is_tutorial_1:
-		pass
-		# TODO
-	elif is_tutorial_2:
-		pass
-		
-		# TODO
-	elif is_tutorial_3:
-		pass
-		# TODO
-	elif is_tutorial_4:
-		pass
-		# TODO
-	elif is_tutorial_5:
-		pass
-		# TODO
-	else:
-		emit_signal("done_working")
-		
+
 func disable_all_button():
 	$app/pause_button.disabled = true
 	$app/selesai.disabled = true
@@ -450,12 +442,45 @@ func enable_all_button():
 	$app/minigame_icons/text_features/structure_button.disabled = false
 
 func _on_selesai_pressed() -> void:
+	
+	selesai_button_clicked.emit()
+	check_constraint()
+		
 	animation_player.play("show_result_screen")
+	timer.stop()
+	var true_constraint_count = 0.0
+	for correct in constraint_correct:
+		if correct:
+			true_constraint_count += 1
 
+	var acc_score = (accessibility_score / (4 * all_object.size()) * 6 * 250) # max 1500
+	$result_screen/SkorAksesibel/acc_score_label.text = str(int(acc_score)).pad_zeros(4)
+	constraint_score = (true_constraint_count / constraint_list.size()) * 4 * 250
+	$result_screen/SkorMisi/misi_score_label.text = str(int(constraint_score)).pad_zeros(4)
+	$result_screen/Skortimer/timer_score_label.text = str(int(timer_score)).pad_zeros(4)
+	
+
+	var total_score_before_mult = acc_score + constraint_score + timer_score
+	$result_screen/mult_box/Label2.text = str(difficulty_mult)
+	Dialogic.VAR.poin_inklusif_harian = total_score_before_mult
+	total_score = total_score_before_mult * difficulty_mult
+	Dialogic.VAR.poin_inklusif += total_score
+	$result_screen/Total/total_score_label.text = str(int(total_score)).pad_zeros(4)
+	app.process_mode = Node.PROCESS_MODE_DISABLED
+	
 func set_constraint(constraint_set):
+	var constraint_labels = [$aruna_helper_screen/panduan_tugas/constraint_1_label, $aruna_helper_screen/panduan_tugas/constraint_2_label, $aruna_helper_screen/panduan_tugas/constraint_1_label3, $aruna_helper_screen/panduan_tugas/constraint_1_label4, $aruna_helper_screen/panduan_tugas/constraint_1_label5]
+	var constraint_labels_2 = [$mulai_kerja/constraint_1, $mulai_kerja/constraint_2, $mulai_kerja/constraint_3, $mulai_kerja/constraint_4, $mulai_kerja/constraint_5]
 	constraint_list = constraint_set
+	var count = 0
 	for constraint in constraint_list:
 		constraint_correct.append(false)
+		constraint_labels[count].text = constraint
+		constraint_labels_2[count].text = constraint
+		count += 1
+	for i in range(count, 5):
+		constraint_labels[i].hide()
+		constraint_labels_2[i].hide()
 
 func check_constraint():
 	for  i in range(constraint_list.size()):
@@ -499,6 +524,7 @@ func check_constraint():
 func check_constraint_type_1(time_constraint):
 	if timer.time_left > time_constraint:
 		return true
+	return false
 func check_constraint_type_2():
 	var color_per_structure = {}
 	for text in all_texts:
@@ -520,7 +546,7 @@ func check_constraint_type_3(min_colors):
 	if not (doc_color in color_used):
 		color_used.append(doc_color)
 	
-	if color_used < min_colors:
+	if color_used.size() < min_colors:
 		return false
 	else:
 		return true
@@ -530,6 +556,9 @@ func check_constraint_type_4(forbidden_color):
 		var text_color = text.get_theme_color("font_color")
 		if colors_equal(text_color, forbidden_color):
 			return false
+	var doc_color = document_paper.self_modulate
+	if colors_equal(forbidden_color, doc_color):
+		return false
 	return true
 	
 func check_constraint_type_5(must_use_text_color):
@@ -572,3 +601,47 @@ func _on_cancel_aruna_pressed() -> void:
 
 func colors_equal(c1: Color, c2: Color, tolerance := 0.01) -> bool:
 	return abs(c1.r - c2.r) < tolerance and abs(c1.g - c2.g) < tolerance and abs(c1.b - c2.b) < tolerance and abs(c1.a - c2.a) < tolerance
+
+
+func _on_lanjut_pressed() -> void:
+	GlobalVar.done_working_today = true
+	if is_tutorial_1:
+		pass
+		# TODO
+	elif is_tutorial_2:
+		pass
+		# TODO
+	elif is_tutorial_3:
+		pass
+		# TODO
+	elif is_tutorial_4:
+		pass
+		# TODO
+	elif is_tutorial_5:
+		pass
+		# TODO
+	else:
+		emit_signal("done_working")
+		
+
+
+func _on_panduan_warna_pressed() -> void:
+	if $aruna_helper_screen/tabel_warna.modulate == Color("ffffff00"):
+		animation_player.play("show_panduan", -1, -1.0, true)
+
+
+func _on_panduan_tugas_button_pressed() -> void:
+	if $aruna_helper_screen/panduan_tugas.modulate == Color("ffffff00"):
+		animation_player.play("show_panduan")
+
+func start():
+	disable_all_button()
+	animation_player.play("init")
+	app.process_mode = Node.PROCESS_MODE_DISABLED
+
+func _on_mulai_kerja_pressed() -> void:
+	timer.start()
+	animation_player.play("mulai_kerja")
+	enable_all_button()
+	app.process_mode = Node.PROCESS_MODE_INHERIT
+	

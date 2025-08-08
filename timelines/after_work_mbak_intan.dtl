@@ -1,11 +1,12 @@
-if {poin_inklusif_harian} <= 500.0:
+[signal arg="mbak_intan_join"]
+if {poin_inklusif_harian} <= 1000.0:
 	[signal arg="mbak_intan_angry_talk"]
 	mbak_intan: “Kenapa gini...?”
 	[signal arg="mbak_intan_angry_talk"]
 	mbak_intan: “Aku tahu kamu bisa lebih teliti dari ini.”
 	[signal arg="mbak_intan_angry_talk"]
 	mbak_intan: “Tolong di-review ulang, ini belum bisa naik tayang.”
-elif {poin_inklusif_harian} <= 1500.0:
+elif {poin_inklusif_harian} <= 2000.0:
 	[signal arg="mbak_intan_talk"]
 	mbak_intan: “Oke, desainnya lumayan stabil sekarang.”
 	[signal arg="mbak_intan_talk"]

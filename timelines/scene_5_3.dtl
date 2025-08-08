@@ -1,0 +1,38 @@
+Satu jam kemudian, tugasmu selesai.
+[signal arg="pak_anton_join"]
+[signal arg="pak_anton_talk"]
+"pak bos": “Sip. Rapi. Kamu kerja cepat, tapi tetap teliti.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Ngomong-ngomong, kamu udah denger soal sistem penilaian dampak inklusif di sini?”
+"Belum, Pak. Maksudnya gimana, ya?"
+[signal arg="pak_anton_talk"]
+"pak bos": “Setiap hari Jumat, kita punya sesi review bareng. Satu kantor kumpul, lihat kerjaan minggu ini—terutama yang berdampak buat aksesibilitas.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Biasanya yang nilai itu gabungan—tim inti, senior, kadang juga komentar dari user yang kebantu.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Nilainya nggak cuma soal cepat atau bersih, tapi\: apakah pekerjaanmu bikin orang lain lebih mudah mengakses informasi?”
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Kalau konsisten, nilaimu bisa naik, dan... siapa tahu—minggu depan kamu bisa menggantikan saya.”
+[signal arg="pak_anton_happy_talk"]
+"pak bos": "Saya bisa pensiun dini, dan buka warung kopi!”
+Kamu tertawa, meski sedikit deg-degan juga.
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Don’t worry! Kamu udah bikin perubahan nyata sejak hari pertama. Cuma tinggal lanjut aja.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Karena inklusif itu bukan soal sekali jadi—tapi soal konsisten nyalain lampu buat orang lain.”
+[signal arg="aruna_join"]
+[signal arg="aruna_smile"]
+aruna: "Selamat ya, Intern! Hari kelima selesai."
+[signal arg="aruna_smile"]
+aruna: "Dokumen yang ditinjau\: 1"
+[signal arg="aruna_smile"]
+aruna: "Gambar yang kini aksesibel\: 3"
+[signal arg="aruna_smile"]
+aruna: "Teks yang diberi struktur\: 9"
+[signal arg="aruna_smile"]
+aruna: "Kontras warna yang diperbaiki\: 9"
+[signal arg="aruna_smile"]
+aruna: "Tingkat kepercayaan diri\: Meningkatan."
+[signal arg="aruna_smile"]
+aruna: "Pengingat\: Tidur adalah bagian dari produktivitas. Menutup laptop sangat disarankan
+[signal arg="end"]

@@ -1,0 +1,34 @@
+Rasio kontrasnya aman. Judul kini terbaca.
+Kamu menekan Save, lalu klik Preview.
+[signal arg="mbak_intan_join"]
+[signal arg="mbak_intan_smile"]
+mbak_intan: "AKHIRNYA ARTIKELNYA BISA DIPOST"
+[signal arg="aruna_join"]
+[signal arg="mbak_intan_happy_blink"]
+[signal arg="aruna_happy"]
+aruna: “Kontras minimum terpenuhi. 7 elemen utama kini sesuai standar WCAG. Selamat, Intern.”
+[signal arg="mbak_intan_happy_talk"]
+mbak_intan: “Makasih banget. Web ini bisa dibaca sama orang kayak Mbak Rani, bahkan kalau brightness-nya cuma 10%.”
+Kamu menutup laptop. Rasanya seperti menyelesaikan sesuatu yang benar-benar penting—bukan hanya teknis, tapi manusiawi.
+[signal arg="pak_anton_join"]
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Kerjaan yang bagus. Orang jarang notice warna. Tapi begitu mereka nggak bisa baca, dampaknya besar.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Dan kamu baru aja mencegah itu terjadi.”
+Kamu tak menjawab langsung. Tapi di dalam hati, kamu tahu\: pekerjaan kecil hari ini bukan sekadar perbaikan tampilan. Itu soal memastikan semua orang bisa membaca cerita yang sama.
+Hari ketiga resmi selesai. Tapi efek dari warna teks yang kamu ubah… mungkin baru saja dimulai.
+[signal arg="aruna_happy"]
+aruna: "Selamat ya, Intern! Hari ketiga selesai."
+[signal arg="aruna_happy"]
+aruna: "Dokumen yang ditinjau\: 1"
+[signal arg="aruna_happy"]
+aruna: "Gambar yang kini aksesibel\: 3"
+[signal arg="aruna_happy"]
+aruna: "Teks yang diberi struktur\: 9"
+[signal arg="aruna_happy"]
+aruna: "Kontras warna yang dperbaiki\: 9"
+[signal arg="aruna_happy"]
+aruna: "Tingkat kepercayaan diri\: Meningkat."
+[signal arg="aruna_happy"]
+aruna: "Pengingat\: Kalau warnanya bikin silau… mungkin saatnya ganti, bukan menyalahkan mata."
+[signal arg="end"]

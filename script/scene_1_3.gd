@@ -1,7 +1,5 @@
 extends Node2D
-@onready var pak_anton: AnimatedSprite2D = $pak_anton
-@onready var aruna: AnimatedSprite2D = $aruna
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
@@ -9,4 +7,6 @@ func _ready() -> void:
 	
 
 func _on_dialogic_signal(arg):
-	pass
+	match arg:
+		"end":
+			SceneTransition.change_scene("res://scene/map.tscn")

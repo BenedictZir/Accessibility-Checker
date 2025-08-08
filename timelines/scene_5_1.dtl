@@ -1,0 +1,6 @@
+Hari ini terasa biasa saja. Kamu datang tepat waktu, lift tidak ramai, dan kamu bahkan tidak lupa bawa charger.
+[signal arg="pak_anton_join"]
+[signal arg="pak_anton_talk"]
+"pak bos": "Pagi. Seperti biasa, kamu bantu cek dokumen yang udah saya kirim di email, ya."
+Kamu mengangguk, membuka file, dan mulai bekerja. Tak ada kejutan, tak ada deadline mepet. Tapi tetap, kamu lakukan dengan cermat.
+[signal arg="end"]

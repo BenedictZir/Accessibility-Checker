@@ -120,7 +120,7 @@ position = Vector2(1575, 534)
 texture = ExtResource("4_4m74h")
 
 [node name="name_top" type="Sprite2D" parent="."]
-position = Vector2(1585, 302)
+position = Vector2(1585, 192)
 texture = ExtResource("5_bachi")
 
 [node name="name_top_label" type="Label" parent="name_top"]
@@ -184,6 +184,7 @@ position = Vector2(-77, -45)
 texture = ExtResource("8_3fel5")
 
 [node name="icon_hujan" type="Sprite2D" parent="date"]
+visible = false
 position = Vector2(-77, -52)
 texture = ExtResource("9_d60jh")
 
@@ -209,24 +210,23 @@ texture = ExtResource("7_amuei")
 
 [node name="desc_label" type="Label" parent="desc"]
 offset_left = -389.0
-offset_top = 12.0
+offset_top = 14.0
 offset_right = 534.0
-offset_bottom = 115.0
+offset_bottom = 155.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_3fel5")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 40
 text = "Hari ini mau jalan-jalan ke mana ya?"
-visible_characters = 0
-visible_ratio = 0.0
+autowrap_mode = 2
 
 [node name="name_box" type="Sprite2D" parent="."]
 position = Vector2(386, 832)
 texture = ExtResource("8_yqoch")
 
 [node name="name_label" type="Label" parent="name_box"]
-offset_left = -174.0
+offset_left = -175.0
 offset_top = -50.0
-offset_right = 180.0
+offset_right = 179.0
 offset_bottom = 40.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 18
@@ -345,7 +345,8 @@ offset_left = 1345.0
 offset_top = 440.0
 offset_right = 1806.0
 offset_bottom = 718.0
-value = 81.0
+max_value = 25000.0
+value = 3375.0
 texture_under = ExtResource("15_amuei")
 texture_over = ExtResource("16_yqoch")
 texture_progress = ExtResource("17_3fel5")
@@ -363,6 +364,20 @@ offset_right = 81.0
 offset_bottom = 22.0
 theme_override_fonts/font = ExtResource("21_ewrs0")
 theme_override_font_sizes/font_size = 25
+text = "Poin Inklusif"
+horizontal_alignment = 1
+
+[node name="poin_inklusif_label" type="Label" parent="title_progress"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 114.0
+offset_right = 324.0
+offset_bottom = 153.0
+rotation = -0.0617818
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("21_ewrs0")
+theme_override_font_sizes/font_size = 30
 text = "Poin Inklusif"
 horizontal_alignment = 1
 

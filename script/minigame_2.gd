@@ -14,10 +14,10 @@ signal done
 signal canceled
 
 var rotating := true
-var wheel_speed := 200
-const SLOW_SPEED = 200
-const MEDIUM_SPEED := 250
-const HARD_SPEED := 300
+var wheel_speed := 100
+const SLOW_SPEED = 100
+const MEDIUM_SPEED := 125
+const HARD_SPEED := 150
 const COLORS = {
 	"merah" : Color("#d10f0b"),
 	"oranye" : Color("#ff750a"),

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beiyoooxb0tm5"
-path="res://.godot/imported/red-right arrow.png-20f7e081a7c2d782d43a55ba57f66675.ctex"
+uid="uid://c0tbll8dpq2bj"
+path="res://.godot/imported/panduan_tugas_screen.png-d7dc7bb96ead848a66e5660c0c4cae3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tempassets/red-right arrow.png"
-dest_files=["res://.godot/imported/red-right arrow.png-20f7e081a7c2d782d43a55ba57f66675.ctex"]
+source_file="res://assets/aruna_helper_screen/panduan_tugas_screen.png"
+dest_files=["res://.godot/imported/panduan_tugas_screen.png-d7dc7bb96ead848a66e5660c0c4cae3b.ctex"]
 
 [params]
 

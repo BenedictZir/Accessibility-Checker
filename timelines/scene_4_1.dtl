@@ -1,0 +1,21 @@
+Tidak terasa, udah hampir seminggu kamu bekerja.
+Rasanya naik lift untuk masuk ke gedung setinggi ini udah seperti rutinitas saja.
+Kamu menyalakan laptop, menyeruput kopi, dan bahkan sempat menyapa satpam yang kini udah hafal namamu.
+[signal arg="pak_anton_join"]
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Wah, pagi-pagi udah rajin. Jangan-jangan kamu udah punya tempat tidur di bawah meja?”
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Kalau kamu terus rajin begini, hati-hati… nanti direkrut permanen sama negara. Kopi sachet udah nunggu.”
+Kamu tertawa kecil. Jokes bapak-bapak\: tidak pernah absen, kadang meleset… tapi selalu niat.
+[signal arg="mbak_rani_join"]
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Pagi! Kamu kelihatan udah adaptasi ya. Jadi, hari ini aku mau kamu bantuin satu dokumen lagi.”
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Ini untuk halaman FAQ Aksesibilitas. Kontennya lumayan informatif, tapi… formatnya masih campur aduk.”
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Tolong tata ulang strukturnya supaya lebih runtut, dan pastikan pemilihan warnanya cukup kontras—tapi tetap estetis.”
+[signal arg="mbak_rani_talk"]
+mbak_rani: Kamu mengangguk, membuka dokumen barunya.
+[signal arg="mbak_rani_talk"]
+mbak_rani: Tantangan baru. Tapi kamu udah tahu cara menanganinya.
+[signal arg="end"]

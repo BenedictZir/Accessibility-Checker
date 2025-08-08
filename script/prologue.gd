@@ -1,8 +1,6 @@
 extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var camera_2d: Camera2D = $Camera2D
-@onready var skip_timer: Timer = $skip/skip_timer
-@onready var skip: ProgressBar = $skip
 @onready var text_edit: TextEdit = $mail/TextEdit
 @onready var line: Label = $mail/line
 @onready var mail_screen_3: Sprite2D = $mail/MailScreen3
@@ -40,10 +38,6 @@ func _process(delta: float) -> void:
 			
 		$mail/acc_button.hide()
 		
-	if skip_timer.time_left == 0:
-		skip.value = 0
-	else:
-		skip.value = (skip_timer.wait_time - skip_timer.time_left) / skip_timer.wait_time * 100
 
 		
 	
@@ -56,7 +50,6 @@ func _on_dialogic_signal(arg):
 		$bg_2.hide()
 		$bg_3.show()
 	elif arg == "show_mail":
-		cant_skip()
 		animation_player.play("show_mail")
 		await animation_player.animation_finished
 		can_blink = true
@@ -68,27 +61,10 @@ func _on_dialogic_signal(arg):
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("right_click"):
-		if skip_timer.is_stopped():
-			skip_timer.start()
-		#print("skipping..." + str(timer.time_left))
-	if Input.is_action_just_released("right_click"):
-		#print("timer stopped")
-		skip_timer.stop()
+	pass
 
 
 
-func _on_skip_timer_timeout() -> void:
-	cant_skip()
-	Dialogic.start("prologue", "skip_1")
-
-func can_skip():
-	skip.show()
-	skip_timer.paused = false
-
-func cant_skip():
-	skip.hide()
-	skip_timer.paused = true
 
 
 
@@ -127,4 +103,4 @@ func _on_back_button_pressed() -> void:
 
 
 func _on_end_pressed() -> void:
-	SceneTransition.change_scene("res://scene/scene_1_1.tscn")
+	SceneTransition.change_scene("res://story_scene/scene_1_1.tscn")

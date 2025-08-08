@@ -7,11 +7,16 @@ script = ExtResource("1_aaosy")
 entries = {
 "Alt Text": {
 "case_sensitive": true,
-"color": Color(0, 0, 0, 1),
-"enabled": true,
+"color": Color(0.160784, 0.423529, 0.831373, 1),
 "name": "Alt Text",
 "text": "Alt Text (teks alternatif) adalah deskripsi singkat yang menjelaskan isi gambar atau elemen visual kepada pengguna yang tidak bisa melihatnya—baik karena gangguan penglihatan, penggunaan pembaca layar, atau koneksi internet yang lambat.",
 "title": "Alt Text"
+},
+"WCAG": {
+"color": Color(0.160784, 0.423529, 0.831373, 1),
+"name": "WCAG",
+"text": "Pedoman internasional yang memberikan standar teknis untuk membuat konten digital (seperti situs web dan aplikasi) dapat diakses oleh semua orang, termasuk penyandang disabilitas.",
+"title": "Web Content Accessibility Guidelines (WCAG)"
 }
 }
 enabled = true

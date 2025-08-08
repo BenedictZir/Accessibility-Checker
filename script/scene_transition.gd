@@ -13,6 +13,6 @@ func change_scene(target, color = "000000") -> void:
 
 func transition(color = "000000") -> void:
 	dissolve_rect.color = color
-	animation_player.play("dissolve")
+	animation_player.play("dissolve_slow")
 	await animation_player.animation_finished
-	animation_player.play_backwards("dissolve")
+	animation_player.play_backwards("dissolve_slow")

@@ -1,11 +1,12 @@
-if {poin_inklusif_harian} <= 500.0:
+[signal arg="pak_anton_join"]
+if {poin_inklusif_harian} <= 1000.0:
 	[signal arg="pak_anton_angry_talk"]
-	"pak bos": “Hmm… ini hasilnya masih ngambang ya.”	
+	"pak bos": “Hmm… ini hasilnya masih ngambang ya.”
 	[signal arg="pak_anton_angry_talk"]
 	"pak bos": “Kita bukan ngejar cepat, tapi ngejar benar.”
 	[signal arg="pak_anton_angry_talk"]
 	"pak bos": “Tolong dicek lagi, jangan setengah-setengah.”
-elif {poin_inklusif_harian} <= 1500.0:
+elif {poin_inklusif_harian} <= 2000.0:
 	[signal arg="pak_anton_talk"]
 	"pak bos": “Sudah selesai ya? Lumayan, bisa lebih cepat tadi.”
 	[signal arg="pak_anton_talk"]

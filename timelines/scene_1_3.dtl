@@ -1,4 +1,3 @@
-[style name="custom_style"]
 Kamu menyimpan pekerjaanmu, melampirkan file, mengirimkannya ke Pak Anton melalui email, lalu meregangkan punggungmu.
 Hari pertama. Tugas pertama. Selesai.
 join "pak bos" center
@@ -25,3 +24,4 @@ aruna: "Pengingat\: Tidur adalah bagian dari produktivitas. Menutup laptop sanga
 [signal arg="aruna_happy"]
 Kamu mengemasi barang-barangmu. Hari pertamamu bekerja di pemerintahan pun berakhir.
 Tidak buruk untuk seseorang yang dua hari lalu mengira “alt text” adalah nama band indie.
+[signal arg="end"]

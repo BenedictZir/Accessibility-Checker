@@ -22,11 +22,19 @@ join "pak bos" left
 [signal arg="pak_anton_talk"]
 "pak bos": "Ah, intern baru kita! Datang tepat waktu. Saya terkesan."
 [signal arg="pak_anton_talk"]
-"pak bos": "Selamat datang di Tim Aksesibilitas Digital—DAK. Jangan disamakan dengan… hal-hal yang menyenangkan ya."
+"pak bos": "Selamat datang di Tim Aksesibilitas Digital. Meski terdengar menyenangkan, tugas kita cukup menantang!"
 [signal arg="pak_anton_talk"]
 "pak bos": "Kamu akan mulai dari yang sederhana—bener-bener sederhana. Kita punya tumpukan slide presentasi yang... ya, dibuat dengan sangat tergesa."
 [signal arg="pak_anton_talk"]
 "pak bos": "Tugas kamu? Bikin mereka bisa dimengerti. Oleh manusia. Dan oleh screen reader. Alt Text sekarang sahabat barumu."
+- Berarti ini bukan cuma soal teks ya? Ini soal akses juga?
+	[signal arg="pak_anton_talk"]
+	"pak bos": "Tepat banget. Alt text itu salah satu bentuk kecil dari aksesibilitas digital. Buat pengguna tunanetra, itu satu-satunya cara mereka tahu isi gambar. "
+	[signal arg="pak_anton_talk"]
+	"pak bos": "Jadi yang kita kerjakan ini dampaknya besar, walaupun bentuknya kecil."
+- Alt text? Emang orang beneran baca itu ya?
+	[signal arg="pak_anton_talk"]
+	"pak bos": "Jangan salah, lho. Alt text sangat membantu pengguna tunanetra memahami isi gambar. Bagi mereka, itu satu-satunya cara 'melihat'."
 [signal arg="pak_anton_talk"]
 "pak bos": "Dan tolong ya, jangan ada lagi deskripsi kayak ‘image1.jpg’ atau ‘infografis_final_final_fix_beneran.png’. Oke?"
 [signal arg="pak_anton_happy_talk"]
@@ -35,8 +43,8 @@ join aruna center
 [signal arg="aruna_join"]
 aruna: "Halo, Intern! Tenang aja—aku akan jadi pemandu kamu di dunia seru aksesibilitas digital."
 [signal arg="aruna_happy"]
-aruna: "Anggap aku sebagai co-pilot yang ramah. Tapi dengan ingatan lebih tajam, dan nggak butuh tidur.""
+aruna: "Anggap aku sebagai co-pilot yang ramah. Tapi dengan ingatan lebih tajam, dan nggak butuh tidur."
 [signal arg="aruna_happy"]
-aruna: "Misi pertama\: ayo kita perbaiki—eh maksudku, tingkatkan—beberapa slide bareng-bareng, yuk!""
+aruna: "Misi pertama\: ayo kita perbaiki—eh maksudku, tingkatkan—beberapa slide bareng-bareng, yuk!"
 [signal arg="aruna_happy"]
 [signal arg="end"]

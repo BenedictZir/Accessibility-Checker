@@ -10,7 +10,6 @@ script = ExtResource("1_7rui3")
 
 [node name="paper_area" type="Area2D" parent="."]
 position = Vector2(0, -44)
-collision_priority = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paper_area"]
 position = Vector2(-6.5, 360)

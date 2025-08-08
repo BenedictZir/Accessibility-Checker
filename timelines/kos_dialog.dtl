@@ -1,0 +1,7 @@
+(Hari yang melelahkan...., aku harus beristirahat)
+- Mulai tidur
+	[signal arg="mulai_tidur"]
+return
+label selesai_tidur
+(Tidurku sangat nyenyak, saatnya melakukan aktivitas!)
+[signal arg="end"]

@@ -7,7 +7,7 @@ var mbak_intan_scene = preload("res://scene/mbak_intan.tscn")
 var document
 @onready var level_template: Node2D = $level_template
 
-const CONSTRAINT_SET = [
+var CONSTRAINT_SET = [
 	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan hanya 1 warna untuk setiap jenis teks", "Gunakan minimal 3 warna", "Jangan gunakan warna merah", "Gunakan warna biru", "Gunakan warna hitam pada elemen teks", "Gunakan warna putih pada latar belakang"],
 	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan hanya 1 warna untuk setiap jenis teks", "Gunakan minimal 3 warna", "Jangan gunakan warna hijau", "Gunakan warna kuning", "Gunakan warna putih pada elemen teks", "Gunakan warna hitam pada latar belakang"],
 	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan minimal 3 warna", "Gunakan warna oranye", "Gunakan warna kuning pada elemen teks", "Gunakan warna hitam pada latar belakang"],
@@ -57,8 +57,14 @@ func _on_dialogic_signal(arg):
 				var constraint = constraint_list.pick_random()
 				constraint_list.erase(constraint)
 				constraints.append(constraint)
+			level_template.set_constraint(constraints)
+			
 		"medium_diff":
 			document = medium_document_list.pick_random()
+			
+			#DEBUG
+			document = preload("res://scene/documents/document_scene_1_2.tscn")
+			
 			level_template.set_document(document, "medium")
 			var constraints = []
 			for i in range(4):
@@ -66,7 +72,6 @@ func _on_dialogic_signal(arg):
 				constraint_list.erase(constraint)
 				constraints.append(constraint)
 			level_template.set_constraint(constraints)
-			
 		"hard_diff":
 			document = hard_document_list.pick_random()
 			level_template.set_document(document, "hard")
@@ -76,12 +81,33 @@ func _on_dialogic_signal(arg):
 				constraint_list.erase(constraint)
 				constraints.append(constraint)
 			level_template.set_constraint(constraints)
-			
+		"end":
+			SceneTransition.transition()
+			await SceneTransition.animation_player.animation_finished
 
+			level_template.show()
+			level_template.start()
+		"show_leaderboard":
+			if Dialogic.VAR.can_promote:
+				$leaderboard_win.show()
+				GlobalVar.idx_title += 1
+			else:
+				$leaderboard_lose.show()
+		"end_day":
+			SceneTransition.change_scene("res://scene/map.tscn")
 
 func _on_level_template_done_working() -> void:
-	Dialogic.start("after_work_" + character_name)
-
+	SceneTransition.transition()
+	await SceneTransition.animation_player.animation_finished
+	level_template.hide()
+	if GlobalVar.day == "JUMAT":
+		character_node.get_child(0).queue_free()
+		character_node.add_child(pak_anton_scene.instantiate())
+		$character_node_left.add_child(mbak_rani_scene.instantiate())
+		$character_node_right.add_child(pak_anton_scene.instantiate())
+		Dialogic.start("naik_pangkat")
+	else:
+		Dialogic.start("after_work_" + character_name)
 
 
 

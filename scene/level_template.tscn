@@ -1,12 +1,14 @@
-[gd_scene load_steps=80 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=119 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
-[ext_resource type="PackedScene" uid="uid://1uu7h5hvpk3q" path="res://scene/documents/document_scene_1_2.tscn" id="2_epqjh"]
+[ext_resource type="Texture2D" uid="uid://bonr6w8rl5b0y" path="res://assets/pause_button_bg.png" id="4_7yd1f"]
 [ext_resource type="Texture2D" uid="uid://vw2o2kmqy6k6" path="res://assets/background_template.png" id="4_vaqec"]
+[ext_resource type="Texture2D" uid="uid://d0c6ntlnscecw" path="res://assets/selesai_button_bg.png" id="5_4gdte"]
 [ext_resource type="Texture2D" uid="uid://cwjnc0q17tabh" path="res://assets/left.png" id="7_vaqec"]
 [ext_resource type="Texture2D" uid="uid://d4hnykr43tltf" path="res://assets/1x/Rectangle 9776.png" id="9_epqjh"]
 [ext_resource type="Texture2D" uid="uid://croexrrv584mr" path="res://assets/accessibility_checker_icon.png" id="9_p2f7k"]
 [ext_resource type="Texture2D" uid="uid://bampgnrvu16pk" path="res://assets/1x/Frame 6.png" id="9_r31ky"]
+[ext_resource type="Texture2D" uid="uid://1c58pt5mlbax" path="res://assets/atasan_app.png" id="10_4gdte"]
 [ext_resource type="Texture2D" uid="uid://dvb6vydda63nf" path="res://assets/1x/Frame 5.png" id="10_i43we"]
 [ext_resource type="Texture2D" uid="uid://do8c62re4ntgw" path="res://assets/1x/Group 40.png" id="11_epqjh"]
 [ext_resource type="Texture2D" uid="uid://cbierkx8vidql" path="res://assets/outline.png" id="11_vaqec"]
@@ -16,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://0rl7r0rqrsdx" path="res://assets/minigame_buttons/color_wheel_button_mid.png" id="13_saxxy"]
 [ext_resource type="Texture2D" uid="uid://dq4oku0yjfj2p" path="res://assets/minigame_buttons/color_wheel_button.png" id="14_lmy6v"]
 [ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="14_xe1of"]
+[ext_resource type="Texture2D" uid="uid://deruydy22nf8g" path="res://assets/selesai_button.png" id="14_xufl2"]
 [ext_resource type="Texture2D" uid="uid://cs7q2hv8omh1h" path="res://assets/minigame_buttons/structure_button.png" id="15_io6bp"]
 [ext_resource type="Texture2D" uid="uid://c2lqu1gt0bmsc" path="res://assets/accessibility_checker_label.png" id="15_te1jt"]
 [ext_resource type="Texture2D" uid="uid://bdpha1s2poy3t" path="res://assets/CheckCircle.png" id="16_vaqec"]
@@ -24,13 +27,40 @@
 [ext_resource type="PackedScene" uid="uid://o6nhawy4oxte" path="res://scene/outline.tscn" id="19_vaqec"]
 [ext_resource type="PackedScene" uid="uid://d0yx6qprrjcg5" path="res://scene/minigame_1/minigame_1.tscn" id="19_xe1of"]
 [ext_resource type="PackedScene" uid="uid://2ekyfsfu3hj6" path="res://scene/minigame_2.tscn" id="21_xe1of"]
-[ext_resource type="Texture2D" uid="uid://byb47dw0rmxjf" path="res://assets/minigame_1/background.png" id="25_io6bp"]
+[ext_resource type="Texture2D" uid="uid://ddcrj73cwshxl" path="res://assets/result_screen/mult_box.png" id="24_ca6jy"]
+[ext_resource type="Texture2D" uid="uid://b2iot2sea5mli" path="res://assets/result_screen/result_background.png" id="24_p17l8"]
+[ext_resource type="Texture2D" uid="uid://crda2lpty0ojl" path="res://assets/result_screen/line.png" id="25_taf54"]
+[ext_resource type="Texture2D" uid="uid://b5b6hkgur2wa6" path="res://assets/result_screen/Union.png" id="26_065fq"]
 [ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="26_dw8l3"]
 [ext_resource type="Texture2D" uid="uid://br6i0galgqp8h" path="res://assets/aruna_helper_screen/background.png" id="27_d23of"]
 [ext_resource type="Texture2D" uid="uid://dkome85fhjdko" path="res://assets/aruna_helper_screen/Rectangle 10046.png" id="28_lan4c"]
+[ext_resource type="Texture2D" uid="uid://c1akjnsyltj6r" path="res://assets/result_screen/Union (1).png" id="28_wu83x"]
+[ext_resource type="Texture2D" uid="uid://45nqwm5klw0c" path="res://assets/result_screen/line_2.png" id="29_7yd1f"]
 [ext_resource type="Texture2D" uid="uid://dft0ybteii4cv" path="res://assets/aruna_helper_screen/tabel_warna.png" id="29_htgnh"]
+[ext_resource type="Texture2D" uid="uid://c1sifj8mh6ika" path="res://assets/result_screen/mult_box_2.png" id="30_4gdte"]
 [ext_resource type="Texture2D" uid="uid://bhqb54e5a7cov" path="res://assets/aruna_helper_screen/panduan_tugas.png" id="30_xrlcw"]
 [ext_resource type="Texture2D" uid="uid://di82g1amcmstg" path="res://assets/aruna_helper_screen/panduan_warna.png" id="31_3oy4v"]
+[ext_resource type="FontFile" uid="uid://bpju6a6dwhsm2" path="res://assets/fonts/Dosis-ExtraBold.ttf" id="31_xufl2"]
+[ext_resource type="Texture2D" uid="uid://dmkd4dkqfwyla" path="res://assets/result_screen/Lanjut.png" id="32_hl4pa"]
+[ext_resource type="Texture2D" uid="uid://cshm5kfxu3or0" path="res://assets/result_screen/skor_aksesibel.png" id="33_hpcmk"]
+[ext_resource type="Texture2D" uid="uid://ckm2fl07qp105" path="res://assets/result_screen/orange_box.png" id="33_taf54"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="34_6mc5q"]
+[ext_resource type="Texture2D" uid="uid://bbaf6ks3l145x" path="res://assets/result_screen/skor_misi.png" id="35_rx2j5"]
+[ext_resource type="Texture2D" uid="uid://baaj7h11g6eob" path="res://assets/result_screen/score_timer.png" id="36_qpo2v"]
+[ext_resource type="Texture2D" uid="uid://cuspn2nbt38p5" path="res://assets/result_screen/total_score.png" id="37_adr1w"]
+[ext_resource type="Texture2D" uid="uid://c0tbll8dpq2bj" path="res://assets/aruna_helper_screen/panduan_tugas_screen.png" id="49_xufl2"]
+[ext_resource type="Texture2D" uid="uid://cxo1aepfnm5an" path="res://assets/mulai_kerja_screen/Rectangle 10249.png" id="50_c1sqk"]
+[ext_resource type="Texture2D" uid="uid://cqteltv1f7qcx" path="res://assets/mulai_kerja_screen/Rectangle 10250.png" id="51_jobix"]
+[ext_resource type="Texture2D" uid="uid://3sipladxx4d2" path="res://assets/mulai_kerja_screen/Rectangle 10252.png" id="52_blmuj"]
+[ext_resource type="Texture2D" uid="uid://8v2uhjdldxvo" path="res://assets/mulai_kerja_screen/Rectangle 10251.png" id="52_jobix"]
+[ext_resource type="Texture2D" uid="uid://dtwymyy67mxuh" path="res://assets/mulai_kerja_screen/Group 1000007740.png" id="53_ql4i2"]
+[ext_resource type="Texture2D" uid="uid://ds7bvkva7sqjn" path="res://assets/mulai_kerja_screen/Group 1000007741.png" id="54_gvnwi"]
+[ext_resource type="Texture2D" uid="uid://cd280mhy7la42" path="res://assets/mulai_kerja_screen/Untitled430_20250722215005 5.png" id="55_nw5pu"]
+[ext_resource type="Texture2D" uid="uid://c1wlowtxxff6f" path="res://assets/mulai_kerja_screen/Group 1000007742 (1).png" id="56_swwa5"]
+[ext_resource type="Texture2D" uid="uid://gwuxr7jgy0e3" path="res://assets/mulai_kerja_screen/Subtract.png" id="58_nw5pu"]
+[ext_resource type="Texture2D" uid="uid://fc4xfps3me5v" path="res://assets/mulai_kerja_screen/Subtract-1.png" id="59_swwa5"]
+[ext_resource type="Texture2D" uid="uid://7emgo073wam1" path="res://assets/mulai_kerja_screen/Subtract-2.png" id="60_o62jr"]
+[ext_resource type="Texture2D" uid="uid://vww0rl8q8pi8" path="res://assets/mulai_kerja_screen/a.png" id="61_022r1"]
 
 [sub_resource type="Animation" id="Animation_xe1of"]
 length = 0.001
@@ -233,6 +263,98 @@ tracks/16/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(960, -675)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("aruna_helper_screen/panduan_tugas:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("aruna_helper_screen/tabel_warna:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("mulai_kerja:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, -531)]
+}
+
+[sub_resource type="Animation" id="Animation_jobix"]
+resource_name = "init"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mulai_kerja:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, -531), Vector2(960, 539)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("app:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.67451, 0.67451, 0.67451, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_blmuj"]
+resource_name = "mulai_kerja"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mulai_kerja:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 539), Vector2(960, 1668)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("app:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.67451, 0.67451, 0.67451, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_p2f7k"]
@@ -467,6 +589,34 @@ tracks/7/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_hl4pa"]
+resource_name = "show_panduan"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("aruna_helper_screen/panduan_tugas:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("aruna_helper_screen/tabel_warna:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_io6bp"]
 resource_name = "show_result_screen"
 length = 0.4
@@ -596,16 +746,17 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kemr8"]
 _data = {
 &"RESET": SubResource("Animation_xe1of"),
+&"init": SubResource("Animation_jobix"),
+&"mulai_kerja": SubResource("Animation_blmuj"),
 &"show_alt_text_minigame": SubResource("Animation_p2f7k"),
 &"show_aruna_helper_screen": SubResource("Animation_dw8l3"),
 &"show_color_wheel_minigame": SubResource("Animation_vaqec"),
+&"show_panduan": SubResource("Animation_hl4pa"),
 &"show_result_screen": SubResource("Animation_io6bp"),
 &"show_structure_minigame": SubResource("Animation_xnxwe")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw8l3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rffd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xrlcw"]
 texture = ExtResource("12_lmy6v")
@@ -615,6 +766,20 @@ texture = ExtResource("12_lmy6v")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4h6f"]
 texture = ExtResource("12_lmy6v")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hl4pa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rx2j5"]
+texture = ExtResource("14_xufl2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_blmuj"]
+texture = ExtResource("14_xufl2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ql4i2"]
+texture = ExtResource("14_xufl2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvnwi"]
+texture = ExtResource("14_xufl2")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_saxxy"]
 
@@ -664,16 +829,7 @@ texture = ExtResource("15_io6bp")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yo4d5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b8oo7"]
-texture = ExtResource("26_dw8l3")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rhc5g"]
-texture = ExtResource("26_dw8l3")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dkmjt"]
-texture = ExtResource("26_dw8l3")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ca6jy"]
-texture = ExtResource("26_dw8l3")
+texture = ExtResource("32_hl4pa")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mu5cy"]
 
@@ -717,10 +873,23 @@ texture = ExtResource("31_3oy4v")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jobix"]
 texture = ExtResource("31_3oy4v")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o62jr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_022r1"]
+texture = ExtResource("56_swwa5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ne6ew"]
+texture = ExtResource("56_swwa5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07xks"]
+texture = ExtResource("56_swwa5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1v00"]
+texture = ExtResource("56_swwa5")
+
 [node name="level_template" type="Node2D"]
 self_modulate = Color(0.450648, 0.450648, 0.450648, 1)
 script = ExtResource("1_lpc36")
-document_scene = ExtResource("2_epqjh")
 outline_scene = ExtResource("19_vaqec")
 time = 300
 
@@ -734,6 +903,14 @@ libraries = {
 [node name="background" type="Sprite2D" parent="app"]
 position = Vector2(960, 540)
 texture = ExtResource("4_vaqec")
+
+[node name="PauseButtonBg" type="Sprite2D" parent="app"]
+position = Vector2(1815, 917)
+texture = ExtResource("4_7yd1f")
+
+[node name="SelesaiButtonBg" type="Sprite2D" parent="app"]
+position = Vector2(1652, 824)
+texture = ExtResource("5_4gdte")
 
 [node name="black_bottom_border" type="Sprite2D" parent="app"]
 position = Vector2(960, 1044)
@@ -755,6 +932,11 @@ texture = ExtResource("9_epqjh")
 [node name="document" type="Node2D" parent="app"]
 position = Vector2(961, 408)
 
+[node name="AtasanApp" type="Sprite2D" parent="app"]
+position = Vector2(948, 144)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_4gdte")
+
 [node name="acc_checker_icon" type="Sprite2D" parent="app"]
 position = Vector2(1658, 208)
 texture = ExtResource("9_p2f7k")
@@ -768,32 +950,50 @@ position = Vector2(242, 259)
 texture = ExtResource("11_vaqec")
 
 [node name="pause_button" type="Button" parent="app"]
-offset_left = 1754.0
-offset_top = 908.0
-offset_right = 1894.0
-offset_bottom = 1055.0
+offset_left = 1739.0
+offset_top = 846.0
+offset_right = 1893.0
+offset_bottom = 989.0
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dw8l3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8rffd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xrlcw")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xrlcw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3oy4v")
 theme_override_styles/normal = SubResource("StyleBoxTexture_l4h6f")
 
 [node name="selesai" type="Button" parent="app"]
-offset_left = 1547.0
-offset_top = 816.0
-offset_right = 1832.0
-offset_bottom = 888.0
-text = "SELESAI"
+offset_left = 1447.0
+offset_top = 753.0
+offset_right = 1860.0
+offset_bottom = 883.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hl4pa")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rx2j5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_blmuj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ql4i2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gvnwi")
+
+[node name="selesai_label" type="Label" parent="app/selesai"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 30.0
+offset_right = 384.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 55
+text = "Selesai"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="app"]
-position = Vector2(1606, 981)
+position = Vector2(1671, 937)
 texture = ExtResource("13_io6bp")
 
 [node name="timer_label" type="Label" parent="app/Sprite2D"]
-offset_left = -90.0
+offset_left = -104.0
 offset_top = -49.0
-offset_right = 103.0
+offset_right = 89.0
 offset_bottom = 22.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("14_xe1of")
@@ -804,25 +1004,8 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="app/Sprite2D"]
 process_mode = 3
-
-[node name="TimerLabel" type="Sprite2D" parent="app/Sprite2D"]
-position = Vector2(127, 62)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("13_io6bp")
-flip_h = true
-flip_v = true
-
-[node name="timer_mult_label" type="Label" parent="app/Sprite2D"]
-offset_left = 30.0
-offset_top = 29.0
-offset_right = 223.0
-offset_bottom = 100.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("14_xe1of")
-theme_override_font_sizes/font_size = 40
-text = "1.25x"
-horizontal_alignment = 1
-vertical_alignment = 1
+wait_time = 300.0
+one_shot = true
 
 [node name="minigame_icons" type="Node2D" parent="app"]
 
@@ -834,6 +1017,7 @@ offset_left = 850.0
 offset_top = 40.0
 offset_right = 1097.0
 offset_bottom = 164.0
+focus_mode = 0
 theme_override_font_sizes/font_size = 47
 theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_d23of")
@@ -880,6 +1064,7 @@ offset_left = 994.0
 offset_top = 33.0
 offset_right = 1248.0
 offset_bottom = 155.0
+focus_mode = 0
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ng3r6")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_8rffd")
@@ -1038,33 +1223,198 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 scale = Vector2(0.1, 0.1)
 
-[node name="Sprite2D" type="Sprite2D" parent="result_screen"]
-texture = ExtResource("25_io6bp")
+[node name="bg_mult" type="Sprite2D" parent="result_screen"]
+position = Vector2(513.5, 133)
+texture = ExtResource("24_ca6jy")
 
-[node name="cancel" type="Button" parent="result_screen"]
-offset_left = 488.0
-offset_top = -382.0
-offset_right = 635.0
-offset_bottom = -203.0
+[node name="bg_line" type="Sprite2D" parent="result_screen"]
+position = Vector2(-41.5, 173)
+scale = Vector2(0.933506, 1)
+texture = ExtResource("25_taf54")
+
+[node name="bg_plus" type="Sprite2D" parent="result_screen"]
+position = Vector2(511, 162)
+texture = ExtResource("26_065fq")
+
+[node name="bg" type="Sprite2D" parent="result_screen"]
+texture = ExtResource("24_p17l8")
+
+[node name="plus" type="Sprite2D" parent="result_screen"]
+position = Vector2(511, 162)
+texture = ExtResource("28_wu83x")
+
+[node name="Line2" type="Sprite2D" parent="result_screen"]
+position = Vector2(-4, 173)
+texture = ExtResource("29_7yd1f")
+
+[node name="lanjut" type="Button" parent="result_screen"]
+offset_left = -142.0
+offset_top = 392.0
+offset_right = 239.0
+offset_bottom = 547.0
 focus_mode = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yo4d5")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_b8oo7")
-theme_override_styles/hover = SubResource("StyleBoxTexture_rhc5g")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dkmjt")
-theme_override_styles/normal = SubResource("StyleBoxTexture_ca6jy")
-
-[node name="Polygon2D" type="Polygon2D" parent="result_screen"]
-polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 491, -244, 491, -296)
-
-[node name="Label" type="Label" parent="result_screen"]
-offset_left = 138.0
-offset_top = -368.0
-offset_right = 266.0
-offset_bottom = -316.0
-theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("14_xe1of")
 theme_override_font_sizes/font_size = 40
-text = "Hasil Pekerjaan"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yo4d5")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_b8oo7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b8oo7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b8oo7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_b8oo7")
+
+[node name="Label" type="Label" parent="result_screen/lanjut"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 40.0
+offset_right = 265.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 40
+text = "LANJUT"
+
+[node name="Label" type="Label" parent="result_screen"]
+offset_left = -232.0
+offset_top = -435.0
+offset_right = 235.0
+offset_bottom = -339.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 75
+text = "Hasil "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkorAksesibel" type="Sprite2D" parent="result_screen"]
+position = Vector2(-254, -225)
+texture = ExtResource("33_hpcmk")
+
+[node name="Label" type="Label" parent="result_screen/SkorAksesibel"]
+offset_left = -113.0
+offset_top = -38.0
+offset_right = 195.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "Aksesibilitas"
+
+[node name="OrangeBox" type="Sprite2D" parent="result_screen/SkorAksesibel"]
+position = Vector2(547, 1)
+texture = ExtResource("33_taf54")
+
+[node name="acc_score_label" type="Label" parent="result_screen/SkorAksesibel"]
+offset_left = 377.0
+offset_top = -38.0
+offset_right = 685.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "0000"
+
+[node name="SkorMisi" type="Sprite2D" parent="result_screen"]
+position = Vector2(-245, -85)
+texture = ExtResource("35_rx2j5")
+
+[node name="Label2" type="Label" parent="result_screen/SkorMisi"]
+offset_left = -122.0
+offset_top = -36.0
+offset_right = 186.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "Misi"
+
+[node name="OrangeBox" type="Sprite2D" parent="result_screen/SkorMisi"]
+position = Vector2(532.5, 1)
+scale = Vector2(0.969925, 1)
+texture = ExtResource("33_taf54")
+
+[node name="misi_score_label" type="Label" parent="result_screen/SkorMisi"]
+offset_left = 368.0
+offset_top = -38.0
+offset_right = 676.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "0000"
+
+[node name="Skortimer" type="Sprite2D" parent="result_screen"]
+position = Vector2(-243, 60)
+texture = ExtResource("36_qpo2v")
+
+[node name="Label3" type="Label" parent="result_screen/Skortimer"]
+offset_left = -124.0
+offset_top = -40.0
+offset_right = 184.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "Sisa Waktu"
+
+[node name="OrangeBox" type="Sprite2D" parent="result_screen/Skortimer"]
+position = Vector2(531, 0)
+scale = Vector2(0.969925, 1)
+texture = ExtResource("33_taf54")
+
+[node name="timer_score_label" type="Label" parent="result_screen/Skortimer"]
+offset_left = 368.0
+offset_top = -38.0
+offset_right = 676.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "0000"
+
+[node name="Total" type="Sprite2D" parent="result_screen"]
+position = Vector2(-242, 298)
+texture = ExtResource("37_adr1w")
+
+[node name="Label3" type="Label" parent="result_screen/Total"]
+offset_left = -125.0
+offset_top = -46.0
+offset_right = 183.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "Total Skor"
+
+[node name="OrangeBox" type="Sprite2D" parent="result_screen/Total"]
+position = Vector2(511.25, -7)
+scale = Vector2(0.880953, 1)
+texture = ExtResource("33_taf54")
+
+[node name="total_score_label" type="Label" parent="result_screen/Total"]
+offset_left = 367.0
+offset_top = -46.0
+offset_right = 675.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "0000"
+
+[node name="mult_box" type="Sprite2D" parent="result_screen"]
+position = Vector2(513.5, 133)
+texture = ExtResource("30_4gdte")
+
+[node name="Label2" type="Label" parent="result_screen/mult_box"]
+offset_left = -49.5
+offset_top = -72.0
+offset_right = 258.5
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("31_xufl2")
+theme_override_font_sizes/font_size = 90
+text = "1.25"
 
 [node name="aruna_helper_screen" type="Node2D" parent="."]
 position = Vector2(960, -675)
@@ -1111,7 +1461,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_065fq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wu83x")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7yd1f")
 
-[node name="panduan_tugas" type="Button" parent="aruna_helper_screen"]
+[node name="panduan_tugas_button" type="Button" parent="aruna_helper_screen"]
 offset_left = 53.0
 offset_top = -244.0
 offset_right = 493.0
@@ -1148,6 +1498,199 @@ Aruna"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="panduan_tugas" type="Sprite2D" parent="aruna_helper_screen"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-400, 134)
+texture = ExtResource("49_xufl2")
+
+[node name="ColorRect2" type="ColorRect" parent="aruna_helper_screen/panduan_tugas"]
+offset_left = -245.0
+offset_top = -365.0
+offset_right = 397.0
+offset_bottom = -330.0
+
+[node name="ColorRect3" type="ColorRect" parent="aruna_helper_screen/panduan_tugas"]
+offset_left = 397.0
+offset_top = -331.0
+offset_right = 979.0
+offset_bottom = -283.0
+rotation = 1.5708
+
+[node name="constraint_1_label" type="Label" parent="aruna_helper_screen/panduan_tugas"]
+offset_left = -273.0
+offset_top = -289.0
+offset_right = 350.0
+offset_bottom = -196.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 34
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="constraint_2_label" type="Label" parent="aruna_helper_screen/panduan_tugas"]
+offset_left = -273.0
+offset_top = -179.0
+offset_right = 348.0
+offset_bottom = -86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 34
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="constraint_1_label3" type="Label" parent="aruna_helper_screen/panduan_tugas"]
+offset_left = -273.0
+offset_top = -62.0
+offset_right = 345.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 34
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="constraint_1_label4" type="Label" parent="aruna_helper_screen/panduan_tugas"]
+offset_left = -273.0
+offset_top = 52.0
+offset_right = 347.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 34
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="constraint_1_label5" type="Label" parent="aruna_helper_screen/panduan_tugas"]
+offset_left = -273.0
+offset_top = 164.0
+offset_right = 348.0
+offset_bottom = 257.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 34
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="mulai_kerja" type="Node2D" parent="."]
+position = Vector2(960, -531)
+
+[node name="Rectangle10249" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(-416, 333)
+texture = ExtResource("50_c1sqk")
+
+[node name="Rectangle10250" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(-415, 362)
+texture = ExtResource("51_jobix")
+
+[node name="Rectangle10251" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(-430, 128)
+texture = ExtResource("52_jobix")
+
+[node name="Rectangle10252" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(130, 363)
+texture = ExtResource("52_blmuj")
+
+[node name="Group1000007740" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(0, -5)
+texture = ExtResource("53_ql4i2")
+
+[node name="Group1000007741" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(-92, 123)
+texture = ExtResource("54_gvnwi")
+
+[node name="Untitled430202507222150055" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(-425, 57)
+texture = ExtResource("55_nw5pu")
+
+[node name="mulai_kerja" type="Button" parent="mulai_kerja"]
+offset_left = -88.0
+offset_top = 256.0
+offset_right = 341.0
+offset_bottom = 443.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o62jr")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_022r1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ne6ew")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_07xks")
+theme_override_styles/normal = SubResource("StyleBoxTexture_c1v00")
+
+[node name="Subtract" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(178, -189)
+texture = ExtResource("58_nw5pu")
+
+[node name="Subtract-1" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(175, -89)
+texture = ExtResource("59_swwa5")
+
+[node name="Subtract-2" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(173, 11)
+texture = ExtResource("60_o62jr")
+
+[node name="A" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(169, 111)
+scale = Vector2(1.01852, 1)
+texture = ExtResource("61_022r1")
+
+[node name="A2" type="Sprite2D" parent="mulai_kerja"]
+position = Vector2(165, 211)
+scale = Vector2(1.03086, 1)
+texture = ExtResource("61_022r1")
+
+[node name="constraint_1" type="Label" parent="mulai_kerja"]
+offset_left = -120.0
+offset_top = -215.0
+offset_right = 489.0
+offset_bottom = -144.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 27
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="constraint_2" type="Label" parent="mulai_kerja"]
+offset_left = -120.0
+offset_top = -128.0
+offset_right = 489.0
+offset_bottom = -55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 27
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="constraint_3" type="Label" parent="mulai_kerja"]
+offset_left = -120.0
+offset_top = -29.0
+offset_right = 489.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 27
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="constraint_4" type="Label" parent="mulai_kerja"]
+offset_left = -120.0
+offset_top = 71.0
+offset_right = 489.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 27
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="constraint_5" type="Label" parent="mulai_kerja"]
+offset_left = -120.0
+offset_top = 172.0
+offset_right = 489.0
+offset_bottom = 245.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 27
+vertical_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="app/selesai" to="." method="_on_selesai_pressed"]
 [connection signal="pressed" from="app/minigame_icons/image_features/alt_text_button" to="." method="_on_alt_text_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/docs_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
@@ -1160,5 +1703,8 @@ vertical_alignment = 1
 [connection signal="done" from="alt_text_minigame" to="." method="_on_alt_text_minigame_done"]
 [connection signal="canceled" from="structure_minigame" to="." method="_on_structure_minigame_canceled"]
 [connection signal="done" from="structure_minigame" to="." method="_on_structure_minigame_done"]
-[connection signal="pressed" from="result_screen/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="result_screen/lanjut" to="." method="_on_lanjut_pressed"]
 [connection signal="pressed" from="aruna_helper_screen/cancel_aruna" to="." method="_on_cancel_aruna_pressed"]
+[connection signal="pressed" from="aruna_helper_screen/panduan_tugas_button" to="." method="_on_panduan_tugas_button_pressed"]
+[connection signal="pressed" from="aruna_helper_screen/panduan_warna" to="." method="_on_panduan_warna_pressed"]
+[connection signal="pressed" from="mulai_kerja/mulai_kerja" to="." method="_on_mulai_kerja_pressed"]

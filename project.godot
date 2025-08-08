@@ -27,6 +27,7 @@ SceneTransition="*res://scene/scene_transition.tscn"
 directories/dch_directory={
 "Resources/unit_test_character": "res://Tests/Resources/unit_test_character.dch",
 "aruna": "res://characters/aruna.dch",
+"mas_gilang": "res://characters/mas_gilang.dch",
 "mbak_intan": "res://characters/mbak_intan.dch",
 "mbak_rani": "res://characters/mbak_rani.dch",
 "pak bos": "res://characters/pak bos.dch",
@@ -37,6 +38,7 @@ directories/dtl_directory={
 "after_work_mbak_rani": "res://timelines/after_work_mbak_rani.dtl",
 "after_work_pak_anton": "res://timelines/after_work_pak_anton.dtl",
 "introduction": "res://timelines/introduction.dtl",
+"kos_dialog": "res://timelines/kos_dialog.dtl",
 "map": "res://timelines/map.dtl",
 "mbak_intan_random_1": "res://timelines/mbak_intan_random_1.dtl",
 "mbak_intan_random_2": "res://timelines/mbak_intan_random_2.dtl",
@@ -44,6 +46,7 @@ directories/dtl_directory={
 "mbak_rani_random_1": "res://timelines/mbak_rani_random_1.dtl",
 "mbak_rani_random_2": "res://timelines/mbak_rani_random_2.dtl",
 "mbak_rani_random_3": "res://timelines/mbak_rani_random_3.dtl",
+"naik_pangkat": "res://timelines/naik_pangkat.dtl",
 "pak_anton_random_1": "res://timelines/pak_anton_random_1.dtl",
 "pak_anton_random_2": "res://timelines/pak_anton_random_2.dtl",
 "pak_anton_random_3": "res://timelines/pak_anton_random_3.dtl",
@@ -53,15 +56,26 @@ directories/dtl_directory={
 "scene_1_3": "res://timelines/scene_1_3.dtl",
 "scene_2_1": "res://timelines/scene_2_1.dtl",
 "scene_2_2": "res://timelines/scene_2_2.dtl",
+"scene_3_1": "res://timelines/scene_3_1.dtl",
+"scene_3_2": "res://timelines/scene_3_2.dtl",
+"scene_3_3": "res://timelines/scene_3_3.dtl",
+"scene_4_1": "res://timelines/scene_4_1.dtl",
+"scene_4_2": "res://timelines/scene_4_2.dtl",
+"scene_4_3": "res://timelines/scene_4_3.dtl",
+"scene_5_1": "res://timelines/scene_5_1.dtl",
+"scene_5_3": "res://timelines/scene_5_3.dtl",
 "test_signal": "res://timelines/test_signal.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://style/custom_style.tres", "res://style/custom_narrator_style.tres"]
 layout/default_style="res://style/custom_style.tres"
 variables={
-"ans": "a",
-"player_name": "BEBEN",
-"poin_inklusif_harian": 2000.0
+"can_promote": false,
+"jabatan": "",
+"player_name": "name",
+"poin_inklusif": 0.0,
+"poin_inklusif_harian": 2000.0,
+"title": ""
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
