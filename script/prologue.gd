@@ -1,11 +1,11 @@
 extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var camera_2d: Camera2D = $Camera2D
-@onready var text_edit: TextEdit = $mail/TextEdit
 @onready var line: Label = $mail/line
 @onready var mail_screen_3: Sprite2D = $mail/MailScreen3
 @onready var mail_screen_2: Sprite2D = $mail/MailScreen2
 @onready var back_button: Button = $mail/back_button
+@onready var text_edit: LineEdit = $mail/TextEdit
 
 var blink_interval := 0.4 
 var blink_timer := 0.0
@@ -73,7 +73,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_acc_button_pressed() -> void:
-	Dialogic.VAR.player_name = (text_edit.text).to_upper()
+	Dialogic.VAR.player_name = str((text_edit.text).to_upper())
 	line.hide()
 	$mail/ColorRect.hide()
 	text_edit.hide()

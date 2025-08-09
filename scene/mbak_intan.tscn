@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ynf3tsl7c7me"]
+[gd_scene load_steps=20 format=3 uid="uid://ynf3tsl7c7me"]
 
 [ext_resource type="Texture2D" uid="uid://3x4gydfwam0" path="res://assets/mbak_intan/Idle (Panda)-20250804T183646Z-1-001/Idle (Panda)/Copy of Mingkem (Panda).png" id="1_gki5o"]
 [ext_resource type="Texture2D" uid="uid://5bjido6nymha" path="res://assets/mbak_intan/Marah (Panda)-20250804T183645Z-1-001/Marah (Panda)/Untitled429_20250801071034.png" id="1_k4nls"]
@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://do7boedqpccmc" path="res://assets/mbak_intan/Idle (Panda)-20250804T183646Z-1-001/Idle (Panda)/Copy of Plis wok (Panda).png" id="2_441kk"]
 [ext_resource type="Texture2D" uid="uid://cun111kge3me" path="res://assets/mbak_intan/Marah (Panda)-20250804T183645Z-1-001/Marah (Panda)/Untitled429_20250801071650.png" id="2_kmqy7"]
 [ext_resource type="Texture2D" uid="uid://c1soga3ej3tw4" path="res://assets/mbak_intan/Marah (Panda)-20250804T183645Z-1-001/Marah (Panda)/Untitled429_20250801071045.png" id="3_tt0be"]
+[ext_resource type="Texture2D" uid="uid://bvsoavs7xtrwl" path="res://assets/mbak_intan/Untitled429_20250808224736.png" id="6_kurf2"]
 [ext_resource type="Texture2D" uid="uid://qthbdtn8iel8" path="res://assets/mbak_intan/Senang (Panda)-20250804T183645Z-1-001/Senang (Panda)/Untitled429_20250804171853.png" id="6_rg8js"]
+[ext_resource type="Texture2D" uid="uid://opixyqsusq5" path="res://assets/mbak_intan/Untitled429_20250808224703.png" id="7_mo4mu"]
 [ext_resource type="Texture2D" uid="uid://em7n4ways6mb" path="res://assets/mbak_intan/Senang (Panda)-20250804T183645Z-1-001/Kedip dengan ukuran blush disesuaikan.png" id="7_rg8js"]
 [ext_resource type="Texture2D" uid="uid://cwkk64ljd1bdg" path="res://assets/mbak_intan/Senang (Panda)-20250804T183645Z-1-001/Senang (Panda)/Untitled429_20250804171826.png" id="7_tt0be"]
 [ext_resource type="Texture2D" uid="uid://bmpe2tqxjt74a" path="res://assets/mbak_intan/Idle (Panda)-20250804T183646Z-1-001/Idle (Panda)/Copy of AAAA (Panda).png" id="8_d3sbt"]
-[ext_resource type="Texture2D" uid="uid://oxtp7hfaw33h" path="res://assets/mbak_intan/Senang (Panda)-20250804T183645Z-1-001/Senang (Panda)/Untitled429_20250804171753.png" id="8_rg8js"]
+[ext_resource type="Texture2D" uid="uid://dmb0nnkl442us" path="res://assets/mbak_intan/Senang (Panda)-20250804T183645Z-1-001/Untitled429_20250804171747.png" id="9_rg8js"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oag8s"]
 animations = [{
@@ -110,6 +112,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_kurf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mo4mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kurf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mo4mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kurf2")
+}],
+"loop": false,
+"name": &"capek",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kurf2")
+}],
+"loop": true,
+"name": &"capek_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_rg8js")
 }, {
 "duration": 1.0,
@@ -157,7 +187,7 @@ animations = [{
 "texture": ExtResource("7_tt0be")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_rg8js")
+"texture": ExtResource("9_rg8js")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_rg8js")
@@ -256,7 +286,7 @@ _data = {
 position = Vector2(0, 1440)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_oag8s")
-animation = &"happy_blink"
+animation = &"capek"
 autoplay = "blink"
 script = ExtResource("1_oag8s")
 

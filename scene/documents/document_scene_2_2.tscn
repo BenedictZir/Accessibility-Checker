@@ -1,0 +1,174 @@
+[gd_scene load_steps=4 format=3 uid="uid://by66cni37swbl"]
+
+[ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_3m384"]
+[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="2_5w8pr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
+resource_local_to_scene = true
+size = Vector2(905, 2343)
+
+[node name="document_template" type="Node2D" groups=["document"]]
+script = ExtResource("1_3m384")
+judul = "Prinsip WCAG"
+
+[node name="paper_area" type="Area2D" parent="."]
+position = Vector2(0, -44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paper_area"]
+position = Vector2(-6.5, 985.5)
+shape = SubResource("RectangleShape2D_wjaii")
+
+[node name="texts" type="Node2D" parent="."]
+
+[node name="doc_text" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -424.0
+offset_top = -119.0
+offset_right = 333.0
+offset_bottom = -87.0
+text = "Prinsip WCAG - Perceivable"
+intended_structure = 0
+
+[node name="doc_text2" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -423.0
+offset_top = -71.0
+offset_right = 330.0
+offset_bottom = -4.0
+text = "Akses Visual untuk Semua Orang"
+intended_structure = 1
+
+[node name="doc_text3" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -423.0
+offset_top = -16.0
+offset_right = 362.0
+offset_bottom = 121.0
+text = "Konten yang baik harus bisa dilihat atau dirasakan oleh semua orang. Termasuk mereka yang memiliki gangguan penglihatan, disleksia, atau buta warna."
+intended_structure = 2
+structure = "subjudul"
+
+[node name="doc_text4" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -421.0
+offset_top = 129.0
+offset_right = 358.0
+offset_bottom = 266.0
+text = "Salah satu teknik penting adalah penggunaan teks alternatif (alt text) pada gambar dan kontras warna yang mencukupi. Kontras minimum untuk teks normal adalah rasio 4.5:1 sesuai standar WCAG 2.1."
+intended_structure = 2
+structure = "judul"
+
+[node name="doc_text5" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -425.0
+offset_top = 480.0
+offset_right = 342.0
+offset_bottom = 512.0
+text = "Prinsip WCAG - Operable"
+intended_structure = 0
+structure = "judul"
+part = 2
+
+[node name="doc_text6" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -424.0
+offset_top = 528.0
+offset_right = 356.0
+offset_bottom = 560.0
+text = "Bukan Sekadar Klik"
+intended_structure = 1
+part = 2
+
+[node name="doc_text7" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -424.0
+offset_top = 583.0
+offset_right = 370.0
+offset_bottom = 685.0
+text = "Situs atau aplikasi harus dapat digunakan oleh siapa pun, dengan atau tanpa mouse. Pengguna harus bisa menavigasi hanya dengan keyboard, atau alat bantu lain seperti switch dan eye-tracking."
+intended_structure = 2
+structure = "subjudul"
+part = 2
+
+[node name="doc_text8" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -422.0
+offset_top = 747.0
+offset_right = 359.0
+offset_bottom = 849.0
+text = "Fokus yang terlihat saat menggunakan tab sangat penting, begitu juga penggunaan shortcut logis dan urutan tab yang sesuai. Hindari elemen yang terjebak atau tidak bisa diakses sama sekali."
+intended_structure = 2
+part = 2
+
+[node name="doc_text9" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -425.0
+offset_top = 1088.0
+offset_right = 342.0
+offset_bottom = 1120.0
+text = "Prinsip WCAG - Understandable"
+intended_structure = 0
+part = 3
+
+[node name="doc_text10" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -424.0
+offset_top = 1136.0
+offset_right = 356.0
+offset_bottom = 1168.0
+text = "Struktur yang Masuk Akal"
+intended_structure = 1
+part = 3
+
+[node name="doc_text11" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -424.0
+offset_top = 1191.0
+offset_right = 370.0
+offset_bottom = 1293.0
+text = "Pengguna harus bisa memahami konten dan navigasi tanpa bingung. Gunakan heading secara hierarkis: H1 untuk judul utama, H2 untuk subjudul, H3 untuk detail dalam subbagian."
+intended_structure = 2
+part = 3
+
+[node name="doc_text12" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -422.0
+offset_top = 1355.0
+offset_right = 359.0
+offset_bottom = 1457.0
+text = "Gunakan bahasa yang jelas, hindari jargon teknis berlebihan, dan berikan feedback saat pengguna melakukan aksi (seperti mengirim form atau mengklik tombol)."
+intended_structure = 2
+part = 3
+
+[node name="doc_text13" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -425.0
+offset_top = 1630.0
+offset_right = 342.0
+offset_bottom = 1662.0
+text = "Prinsip WCAG - Robust"
+intended_structure = 0
+structure = "subjudul"
+part = 4
+
+[node name="doc_text14" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -424.0
+offset_top = 1678.0
+offset_right = 356.0
+offset_bottom = 1710.0
+text = "Siap untuk Hari Ini dan Esok"
+intended_structure = 1
+structure = "subjudul"
+part = 4
+
+[node name="doc_text15" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -424.0
+offset_top = 1733.0
+offset_right = 370.0
+offset_bottom = 1835.0
+text = "Website dan dokumen harus kompatibel dengan berbagai teknologi bantu—termasuk screen reader, browser lama, dan perangkat mobile."
+intended_structure = 2
+structure = "subjudul"
+part = 4
+
+[node name="doc_text16" parent="texts" instance=ExtResource("2_5w8pr")]
+offset_left = -422.0
+offset_top = 1880.0
+offset_right = 359.0
+offset_bottom = 2017.0
+text = "Gunakan kode HTML yang valid dan hindari elemen yang tidak semantik. Implementasi ARIA (Accessible Rich Internet Applications) dapat membantu screen reader memahami konteks halaman lebih baik."
+intended_structure = 2
+structure = "subjudul"
+part = 4
+
+[node name="images" type="Node2D" parent="."]
+
+[connection signal="selected" from="." to="." method="_on_selected"]
+[connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

@@ -1,5 +1,5 @@
 [signal arg="mbak_intan_join"]
-[signal arg="mbak_intan_talk"]
+[signal arg="mbak_intan_capek_talk"]
 mbak_intan: “Pagi, Intern… Kalau kamu tidur lebih dari 4 jam, aku iri.”
 [signal arg="mbak_intan_happy_talk"]
 mbak_intan: “Aku dan kopi sachet ini udah kayak pasangan LDR yang nggak pernah pisah.”

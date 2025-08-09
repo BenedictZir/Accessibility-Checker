@@ -1,24 +1,221 @@
-[gd_scene load_steps=3 format=3 uid="uid://k2mgj6rqukji"]
+[gd_scene load_steps=10 format=3 uid="uid://k2mgj6rqukji"]
 
 [ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_truvv"]
+[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="2_goj36"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="3_r6xq5"]
+[ext_resource type="Texture2D" uid="uid://d4n2hy1avs4ro" path="res://assets/document_images/routine_2/routine_2_1.jpg" id="4_bs3b0"]
+[ext_resource type="Texture2D" uid="uid://dku4jua1nkxok" path="res://assets/document_images/routine_2/routine_2_2.jpg" id="5_q8y0e"]
+[ext_resource type="Texture2D" uid="uid://c3r5j2kw7a88t" path="res://assets/document_images/routine_2/routine_2_3.jpg" id="6_mcsdy"]
+[ext_resource type="Texture2D" uid="uid://5wrtuqvm08of" path="res://assets/document_images/routine_2/routine_2_4.jpg" id="7_7di8n"]
+[ext_resource type="Texture2D" uid="uid://c33tlecm3byvb" path="res://assets/document_images/routine_2/routine_2_5.jpg" id="8_tuv6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
-size = Vector2(905, 1092)
+size = Vector2(905, 2189)
 
 [node name="document_hard_2" type="Node2D" groups=["document"]]
 script = ExtResource("1_truvv")
+paper_color = "merah"
+judul = "Aksesibilitas Transportasi Publik"
 
 [node name="paper_area" type="Area2D" parent="."]
 position = Vector2(0, -44)
 collision_priority = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paper_area"]
-position = Vector2(-6.5, 360)
+position = Vector2(-6.5, 908.5)
 shape = SubResource("RectangleShape2D_wjaii")
 
 [node name="texts" type="Node2D" parent="."]
 
+[node name="doc_text" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = -435.0
+offset_top = -193.0
+offset_right = -37.0
+offset_bottom = -161.0
+theme_override_colors/font_color = Color(1, 0.921569, 0.231373, 1)
+text = "Aksesibilitas Bukan Sekadar Ramp"
+intended_structure = 0
+structure = "judul"
+
+[node name="doc_text2" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = -434.0
+offset_top = -124.0
+offset_right = -36.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(1, 0.921569, 0.231373, 1)
+text = "Banyak transportasi publik sudah memiliki ramp, tapi masih minim informasi audio atau visual bagi penyandang disabilitas sensorik."
+intended_structure = 2
+structure = "subjudul"
+
+[node name="doc_text3" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = 12.0
+offset_top = 220.0
+offset_right = 410.0
+offset_bottom = 252.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Informasi Visual dan Audio"
+intended_structure = 0
+part = 2
+
+[node name="doc_text4" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = 13.0
+offset_top = 289.0
+offset_right = 411.0
+offset_bottom = 391.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Membantu pengguna dengan gangguan penglihatan dan pendengaran"
+intended_structure = 2
+part = 2
+
+[node name="doc_text5" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = 13.0
+offset_top = 421.0
+offset_right = 411.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Informasi harus tersedia dalam bentuk suara dan tulisan agar inklusif."
+intended_structure = 2
+structure = "subjudul"
+part = 2
+
+[node name="doc_text6" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = -434.0
+offset_top = 611.0
+offset_right = -36.0
+offset_bottom = 643.0
+theme_override_colors/font_color = Color(1, 0.458824, 0.0392157, 1)
+text = "Tombol Prioritas di Halte dan Stasiun"
+intended_structure = 0
+structure = "subjudul"
+part = 3
+
+[node name="doc_text7" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = -433.0
+offset_top = 711.0
+offset_right = -35.0
+offset_bottom = 848.0
+theme_override_colors/font_color = Color(0.160784, 0.423529, 0.831373, 1)
+text = "Penempatan tombol bantuan darurat atau pemanggil layanan harus berada dalam jangkauan pengguna kursi roda."
+intended_structure = 2
+structure = "subjudul"
+part = 3
+
+[node name="doc_text8" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = -433.0
+offset_top = 883.0
+offset_right = -35.0
+offset_bottom = 950.0
+text = "Kontras warna dan label braille juga penting untuk akses yang adil."
+intended_structure = 2
+structure = "judul"
+part = 3
+
+[node name="doc_text9" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = 17.0
+offset_top = 1065.0
+offset_right = 415.0
+offset_bottom = 1132.0
+text = "Navigasi Mandiri untuk Semua"
+intended_structure = 0
+part = 4
+
+[node name="doc_text10" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = 18.0
+offset_top = 1165.0
+offset_right = 416.0
+offset_bottom = 1302.0
+theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
+text = "Peta digital dan fisik harus ramah bagi tunanetra, misalnya dengan fitur pembaca layar atau permukaan timbul."
+intended_structure = 2
+structure = "subjudul"
+part = 4
+
+[node name="doc_text11" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = -422.0
+offset_top = 1599.0
+offset_right = -8.0
+offset_bottom = 1666.0
+theme_override_colors/font_color = Color(0.160784, 0.423529, 0.831373, 1)
+text = "Kursi Prioritas dan Edukasi Pengguna"
+intended_structure = 0
+part = 5
+
+[node name="doc_text12" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = -421.0
+offset_top = 1699.0
+offset_right = -23.0
+offset_bottom = 1766.0
+theme_override_colors/font_color = Color(0.160784, 0.423529, 0.831373, 1)
+text = "Mengedukasi seluruh penumpang penting untuk mendukung inklusi"
+intended_structure = 2
+structure = "subjudul"
+part = 5
+
+[node name="doc_text13" parent="texts" instance=ExtResource("2_goj36")]
+offset_left = -421.0
+offset_top = 1785.0
+offset_right = -23.0
+offset_bottom = 1852.0
+text = "Penanda kursi prioritas harus jelas dan tidak mudah terhapus."
+intended_structure = 2
+part = 5
+
 [node name="images" type="Node2D" parent="."]
+
+[node name="images" parent="images" instance=ExtResource("3_r6xq5")]
+offset_left = 21.0
+offset_top = -196.0
+offset_right = 417.0
+offset_bottom = 69.0
+texture = ExtResource("4_bs3b0")
+correct_alt_text = "Beberapa orang berjalan di sepanjang jalan layang modern yang terdiri dari beberapa tingkat."
+wrong_alt_text = "Jalanan yang berkelok-kelok dengan pegangan tangan yang terbuat dari besi."
+wrong_alt_text_2 = "Orang-orang yang berjalan di atas jembatan."
+wrong_alt_text_3 = "Sebuah bangunan dengan arsitektur yang modern."
+
+[node name="images2" parent="images" instance=ExtResource("3_r6xq5")]
+offset_left = -434.0
+offset_top = 228.0
+offset_right = -14.0
+offset_bottom = 508.0
+texture = ExtResource("5_q8y0e")
+correct_alt_text = "Sebuah pengeras suara megafon berwarna putih dipasang pada tiang kayu dengan latar belakang langit biru cerah."
+wrong_alt_text = "Sebuah pengeras suara yang dipasang di luar ruangan."
+wrong_alt_text_2 = "Megafon dengan latar belakang langit."
+wrong_alt_text_3 = "Tiang kayu dengan sebuah alat elektronik."
+
+[node name="images3" parent="images" instance=ExtResource("3_r6xq5")]
+offset_left = 13.0
+offset_top = 618.0
+offset_right = 424.0
+offset_bottom = 898.0
+texture = ExtResource("6_mcsdy")
+correct_alt_text = "Tombol merah bundar untuk menghentikan mesin darurat dengan tulisan \"EMERGENCY ENGINE STOP PUSH\" di atasnya, dipasang pada panel berwarna putih."
+wrong_alt_text = "Sebuah tombol darurat berwarna merah di tengah panel."
+wrong_alt_text_2 = "Tulisan \"EMERGENCY ENGINE STOP PUSH\" di atas sebuah tombol."
+wrong_alt_text_3 = "Tombol yang berfungsi untuk mematikan mesin."
+
+[node name="images4" parent="images" instance=ExtResource("3_r6xq5")]
+offset_left = -408.0
+offset_top = 1079.0
+offset_right = -52.0
+offset_bottom = 1522.0
+texture = ExtResource("7_7di8n")
+correct_alt_text = "Sebuah tangan sedang memegang ponsel pintar yang menampilkan peta navigasi, dengan latar belakang jalanan yang berkelok di antara pepohonan saat musim gugur."
+wrong_alt_text = "Seseorang sedang melihat peta di ponsel saat berjalan."
+wrong_alt_text_2 = "Sebuah ponsel yang menampilkan aplikasi peta."
+wrong_alt_text_3 = "Tangan yang memegang ponsel dengan latar belakang jalan."
+
+[node name="images5" parent="images" instance=ExtResource("3_r6xq5")]
+offset_left = 25.0
+offset_top = 1617.0
+offset_right = 415.0
+offset_bottom = 1915.0
+texture = ExtResource("8_tuv6n")
+correct_alt_text = "Bagian dalam gerbong kereta api dengan bangku bergaris merah, jendela yang memperlihatkan pepohonan hijau, dan plang 'Tempat Duduk Prioritas' di dinding."
+wrong_alt_text = "Interior sebuah gerbong kereta api yang sepi."
+wrong_alt_text_2 = "Tanda tempat duduk prioritas di dalam kereta."
+wrong_alt_text_3 = "Bangku kosong di dalam sebuah kendaraan umum."
 
 [connection signal="selected" from="." to="." method="_on_selected"]
 [connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

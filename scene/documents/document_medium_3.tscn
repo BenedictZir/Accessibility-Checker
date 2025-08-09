@@ -1,24 +1,165 @@
-[gd_scene load_steps=3 format=3 uid="uid://5eoypn3x0koi"]
+[gd_scene load_steps=9 format=3 uid="uid://26trv2rse8of"]
 
-[ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_pn1uf"]
+[ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_gafy5"]
+[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="2_jx6oo"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="3_xswkg"]
+[ext_resource type="Texture2D" uid="uid://d57qa54t2147" path="res://assets/document_images/routine_3/Routine 3/routine_3_1.jpg" id="4_an2nh"]
+[ext_resource type="Texture2D" uid="uid://dlhhxgtbawuae" path="res://assets/document_images/routine_3/Routine 3/routine_3_2.jpg" id="5_p8sou"]
+[ext_resource type="Texture2D" uid="uid://0scbgj4ijssk" path="res://assets/document_images/routine_3/Routine 3/routine_3_3.jpg" id="6_imajs"]
+[ext_resource type="Texture2D" uid="uid://cvhrvrfvy5aw4" path="res://assets/document_images/routine_3/Routine 3/routine_3_4.jpg" id="7_alkn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
-size = Vector2(905, 1092)
+size = Vector2(905, 1581)
 
-[node name="document_medium_3" type="Node2D" groups=["document"]]
-script = ExtResource("1_pn1uf")
+[node name="document_template" type="Node2D" groups=["document"]]
+script = ExtResource("1_gafy5")
+paper_color = "biru"
+judul = "Taman untuk  Semua"
 
 [node name="paper_area" type="Area2D" parent="."]
 position = Vector2(0, -44)
-collision_priority = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paper_area"]
-position = Vector2(-6.5, 360)
+position = Vector2(-6.5, 623.5)
 shape = SubResource("RectangleShape2D_wjaii")
 
 [node name="texts" type="Node2D" parent="."]
 
+[node name="doc_text" parent="texts" instance=ExtResource("2_jx6oo")]
+offset_left = -127.0
+offset_top = -195.0
+offset_right = 112.0
+offset_bottom = -163.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Taman untuk Semua"
+horizontal_alignment = 1
+intended_structure = 0
+
+[node name="doc_text2" parent="texts" instance=ExtResource("2_jx6oo")]
+offset_left = -416.0
+offset_top = -80.0
+offset_right = -2.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Taman publik seharusnya dapat diakses oleh semua orang, termasuk penyandang disabilitas, lanjut usia, dan anak-anak."
+intended_structure = 2
+
+[node name="doc_text3" parent="texts" instance=ExtResource("2_jx6oo")]
+offset_left = -438.0
+offset_top = 231.0
+offset_right = -4.0
+offset_bottom = 263.0
+theme_override_colors/font_color = Color(1, 0.921569, 0.231373, 1)
+text = "Jalur Ramah Kursi Roda"
+intended_structure = 0
+structure = "subjudul"
+part = 2
+
+[node name="doc_text4" parent="texts" instance=ExtResource("2_jx6oo")]
+offset_left = -32.0
+offset_top = 323.0
+offset_right = 418.0
+offset_bottom = 425.0
+theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
+text = "Permukaan jalur yang rata dan lebar memudahkan mobilitas pengguna kursi roda dan alat bantu jalan."
+intended_structure = 2
+structure = "judul"
+part = 2
+
+[node name="doc_text5" parent="texts" instance=ExtResource("2_jx6oo")]
+offset_left = -442.0
+offset_top = 628.0
+offset_right = -9.0
+offset_bottom = 660.0
+theme_override_colors/font_color = Color(1, 0.458824, 0.0392157, 1)
+text = "Informasi dengan Braille"
+intended_structure = 0
+part = 3
+
+[node name="doc_text6" parent="texts" instance=ExtResource("2_jx6oo")]
+offset_left = -33.0
+offset_top = 722.0
+offset_right = 429.0
+offset_bottom = 859.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Papan informasi yang dilengkapi dengan tulisan Braille memberi kesempatan pengguna tunanetra untuk menikmati fasilitas taman secara mandiri."
+intended_structure = 2
+structure = "subheading"
+part = 3
+
+[node name="doc_text7" parent="texts" instance=ExtResource("2_jx6oo")]
+offset_left = -32.0
+offset_top = 884.0
+offset_right = 421.0
+offset_bottom = 951.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Kombinasi audio dan simbol visual juga dapat memperkaya pengalaman inklusif."
+intended_structure = 2
+part = 3
+
+[node name="doc_text8" parent="texts" instance=ExtResource("2_jx6oo")]
+offset_left = -440.0
+offset_top = 1046.0
+offset_right = -7.0
+offset_bottom = 1078.0
+theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
+text = "Area Bermain yang Aman dan Inklusif"
+intended_structure = 0
+structure = "judul"
+part = 4
+
+[node name="doc_text9" parent="texts" instance=ExtResource("2_jx6oo")]
+offset_left = -38.0
+offset_top = 1138.0
+offset_right = 429.0
+offset_bottom = 1275.0
+theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
+text = "Perosotan rendah, ayunan berpenahan, dan permainan sensorik mendukung keterlibatan anak-anak dengan beragam kebutuhan."
+intended_structure = 2
+structure = "subheading"
+part = 4
+
 [node name="images" type="Node2D" parent="."]
+
+[node name="images" parent="images" instance=ExtResource("3_xswkg")]
+offset_left = 26.0
+offset_top = -99.0
+offset_right = 400.0
+offset_bottom = 154.0
+texture = ExtResource("4_an2nh")
+
+[node name="images2" parent="images" instance=ExtResource("3_xswkg")]
+offset_left = -438.0
+offset_top = 299.0
+offset_right = -64.0
+offset_bottom = 552.0
+texture = ExtResource("5_p8sou")
+correct_alt_text = "Seorang wanita lanjut usia duduk di kursi roda dengan membelakangi kamera di halaman berumput, menghadap jalan setapak yang mengarah ke sebuah rumah."
+wrong_alt_text = "Seorang wanita yang mengenakan kursi roda di luar ruangan."
+wrong_alt_text_2 = "Sebuah kursi roda dengan latar belakang sebuah rumah."
+wrong_alt_text_3 = "Seorang nenek yang sedang bersantai di halaman rumah."
+
+[node name="images3" parent="images" instance=ExtResource("3_xswkg")]
+offset_left = -441.0
+offset_top = 694.0
+offset_right = -67.0
+offset_bottom = 947.0
+texture = ExtResource("6_imajs")
+correct_alt_text = "Sebuah teks timbul dalam huruf Braille yang diukir pada permukaan abu-abu seperti batu, memenuhi seluruh bingkai gambar."
+wrong_alt_text = "Permukaan bertekstur dengan banyak titik-titik kecil."
+wrong_alt_text_2 = "Teks Braille yang sulit dibaca di dinding."
+wrong_alt_text_3 = "Sebuah ukiran di atas batu yang menyerupai huruf Braille."
+
+[node name="images4" parent="images" instance=ExtResource("3_xswkg")]
+offset_left = -439.0
+offset_top = 1102.0
+offset_right = -65.0
+offset_bottom = 1355.0
+texture = ExtResource("7_alkn5")
+correct_alt_text = "Sebuah set mainan perosotan dan tangga berwarna-warni di taman bermain dengan latar belakang langit biru cerah."
+wrong_alt_text = "Perosotan kuning dan perosotan hijau di taman bermain."
+wrong_alt_text_2 = "Sebuah taman bermain yang kosong di bawah sinar matahari."
+wrong_alt_text_3 = "Struktur permainan anak-anak dengan berbagai warna yang cerah."
 
 [connection signal="selected" from="." to="." method="_on_selected"]
 [connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

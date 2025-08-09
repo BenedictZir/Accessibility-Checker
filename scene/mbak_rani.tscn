@@ -1,13 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxtncf3tm4oh1"]
+[gd_scene load_steps=16 format=3 uid="uid://dxtncf3tm4oh1"]
 
 [ext_resource type="Script" uid="uid://2fjbaom6xrc1" path="res://script/mbak_rani.gd" id="1_4yotn"]
 [ext_resource type="Texture2D" uid="uid://b5ph031elll1b" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Marah/buka_mata_tutup_mulat.png" id="1_53tuh"]
 [ext_resource type="Texture2D" uid="uid://oub1lnixsc1u" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Marah/tutup_mata_tutup_mulut.png" id="2_oph35"]
 [ext_resource type="Texture2D" uid="uid://bdpnjxpx7g8dk" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Marah/buka_mata_buka_mulut.png" id="3_5aflj"]
 [ext_resource type="Texture2D" uid="uid://b6uysv7tmudcn" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Idle/buka_mata.png" id="4_i7nv2"]
-[ext_resource type="Texture2D" uid="uid://b6d06qiljmo4n" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Idle/tutup_mata_senyum.png" id="5_l05sn"]
+[ext_resource type="Texture2D" uid="uid://bafy1hglnifh5" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Untitled429_20250808231059.png" id="6_53tuh"]
 [ext_resource type="Texture2D" uid="uid://d62a8gts4533" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Senang/buka_mata_tutup_mulut.png" id="6_h8vob"]
-[ext_resource type="Texture2D" uid="uid://3cw20kmliunc" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Senang/tutup_mata_tutup_mulut.png" id="7_gw85n"]
 [ext_resource type="Texture2D" uid="uid://38sk36ilq7pf" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Idle/buka_mata_buka_mulut.png" id="8_gfnjd"]
 [ext_resource type="Texture2D" uid="uid://t4iulc7uhoqs" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Idle/tutup_mata_buka_mulut.png" id="9_aytoi"]
 [ext_resource type="Texture2D" uid="uid://bldmyhhco44d7" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Senang/buka_mata_buka_mulut.png" id="10_20xur"]
@@ -74,34 +73,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_i7nv2")
+"texture": ExtResource("6_h8vob")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_i7nv2")
+"texture": ExtResource("6_h8vob")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_i7nv2")
+"texture": ExtResource("6_h8vob")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_i7nv2")
+"texture": ExtResource("6_h8vob")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_i7nv2")
+"texture": ExtResource("6_h8vob")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_i7nv2")
+"texture": ExtResource("6_h8vob")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_i7nv2")
+"texture": ExtResource("6_h8vob")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_i7nv2")
+"texture": ExtResource("6_h8vob")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_i7nv2")
+"texture": ExtResource("6_h8vob")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_l05sn")
+"texture": ExtResource("2_oph35")
 }],
 "loop": true,
 "name": &"blink",
@@ -109,34 +108,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_h8vob")
+"texture": ExtResource("4_i7nv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_h8vob")
+"texture": ExtResource("4_i7nv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_h8vob")
+"texture": ExtResource("4_i7nv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_h8vob")
+"texture": ExtResource("4_i7nv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_h8vob")
+"texture": ExtResource("4_i7nv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_h8vob")
+"texture": ExtResource("4_i7nv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_h8vob")
+"texture": ExtResource("4_i7nv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_h8vob")
+"texture": ExtResource("4_i7nv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_h8vob")
+"texture": ExtResource("4_i7nv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_gw85n")
+"texture": ExtResource("6_53tuh")
 }],
 "loop": true,
 "name": &"happy_blink",
@@ -187,7 +186,7 @@ animations = [{
 "texture": ExtResource("8_gfnjd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_l05sn")
+"texture": ExtResource("6_53tuh")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_i7nv2")
@@ -225,7 +224,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 1440), Vector2(0, 564)]
+"values": [Vector2(0, 1440), Vector2(0, 500)]
 }
 
 [sub_resource type="Animation" id="Animation_1s7jr"]
@@ -255,8 +254,9 @@ _data = {
 position = Vector2(0, 1440)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_4yotn")
-animation = &"blink"
-frame_progress = 0.447938
+animation = &"talk"
+frame = 5
+frame_progress = 1.0
 script = ExtResource("1_4yotn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

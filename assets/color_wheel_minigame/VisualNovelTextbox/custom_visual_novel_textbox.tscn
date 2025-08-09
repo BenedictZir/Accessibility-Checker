@@ -230,7 +230,7 @@ name_label_use_character_color = false
 name_label_use_global_font_size = false
 name_label_box_panel = "uid://bq5y5hndahin1"
 name_label_box_modulate = Color(0, 0, 0, 1)
-next_indicator_texture = "uid://dyos5d02n1ao7"
+next_indicator_enabled = false
 
 [node name="Animations" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

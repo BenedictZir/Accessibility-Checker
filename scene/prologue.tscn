@@ -149,18 +149,17 @@ offset_right = 331.0
 offset_bottom = -57.0
 color = Color(0.0941176, 0.462745, 0.823529, 1)
 
-[node name="TextEdit" type="TextEdit" parent="mail"]
+[node name="TextEdit" type="LineEdit" parent="mail"]
 offset_left = -498.0
 offset_top = -106.0
 offset_right = -307.0
-offset_bottom = -54.0
+offset_bottom = -50.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_3d53y")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3d53y")
+max_length = 9
 context_menu_enabled = false
-scroll_fit_content_height = true
-scroll_fit_content_width = true
 caret_blink = true
 
 [node name="line" type="Label" parent="mail"]

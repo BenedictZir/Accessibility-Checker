@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjs0jylsv0t8l"]
+
+[ext_resource type="Script" uid="uid://d0l5k3blyc8b" path="res://script/scene_3_1.gd" id="1_2srs8"]
+[ext_resource type="PackedScene" uid="uid://c8lv21odaka5g" path="res://scene/pak_anton.tscn" id="2_ng65n"]
+[ext_resource type="PackedScene" uid="uid://dxtncf3tm4oh1" path="res://scene/mbak_rani.tscn" id="3_yw5lu"]
+[ext_resource type="PackedScene" uid="uid://ynf3tsl7c7me" path="res://scene/mbak_intan.tscn" id="4_euv47"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2srs8")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(506, 0)
+
+[node name="pak_anton" parent="Node2D" instance=ExtResource("2_ng65n")]
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(1034, 0)
+
+[node name="mbak_rani" parent="Node2D2" instance=ExtResource("3_yw5lu")]
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(1515, 0)
+
+[node name="mbak_intan" parent="Node2D3" instance=ExtResource("4_euv47")]

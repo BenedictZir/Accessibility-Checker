@@ -7,15 +7,57 @@ Kamu menyalakan laptop, menyeruput kopi, dan bahkan sempat menyapa satpam yang k
 [signal arg="pak_anton_happy_talk"]
 "pak bos": “Kalau kamu terus rajin begini, hati-hati… nanti direkrut permanen sama negara. Kopi sachet udah nunggu.”
 Kamu tertawa kecil. Jokes bapak-bapak\: tidak pernah absen, kadang meleset… tapi selalu niat.
+[signal arg="pak_anton_talk"]
+"pak bos": “Ngomong-ngomong, kamu udah denger soal sistem penilaian dampak inklusif di sini?”
+player: "Belum, Pak. Maksudnya gimana, ya?"
+[signal arg="pak_anton_talk"]
+"pak bos": “Setiap hari Jumat, kita punya sesi review bareng. Satu kantor kumpul, lihat kerjaan minggu ini—terutama yang berdampak buat aksesibilitas.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Biasanya yang nilai itu gabungan—tim inti, senior, kadang juga komentar dari user yang kebantu.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Nilainya nggak cuma soal cepat atau bersih, tapi\: apakah pekerjaanmu bikin orang lain lebih mudah mengakses informasi?”
+Kamu mengangguk pelan. Ini bukan sekadar kerja rapi—tapi kerja yang berdampak.
 [signal arg="mbak_rani_join"]
 [signal arg="mbak_rani_talk"]
-mbak_rani: “Pagi! Kamu kelihatan udah adaptasi ya. Jadi, hari ini aku mau kamu bantuin satu dokumen lagi.”
+mbak_rani: "Pagi Intern!, sepertinya kamu sudah beradaptasi ya."
 [signal arg="mbak_rani_talk"]
-mbak_rani: “Ini untuk halaman FAQ Aksesibilitas. Kontennya lumayan informatif, tapi… formatnya masih campur aduk.”
+mbak_rani: "Jadi, hari ini aku mau kamu bantuin satu dokumen lagi."
 [signal arg="mbak_rani_talk"]
-mbak_rani: “Tolong tata ulang strukturnya supaya lebih runtut, dan pastikan pemilihan warnanya cukup kontras—tapi tetap estetis.”
+mbak_rani: “Karena masa training kamu udah selesai, sekarang kamu bisa milih sendiri tugas yang mau kamu ambil.”
 [signal arg="mbak_rani_talk"]
-mbak_rani: Kamu mengangguk, membuka dokumen barunya.
+mbak_rani: “Karena masa training kamu udah selesai, sekarang kamu bisa milih sendiri tugas yang mau kamu ambil.”
 [signal arg="mbak_rani_talk"]
-mbak_rani: Tantangan baru. Tapi kamu udah tahu cara menanganinya.
+mbak_rani: “Ada tugas yang lebih ringan, ada juga yang lebih menantang.”
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Jadi, tingkat kesulitan ditentukan dari seberapa banyak elemen dalam dokumen yang harus kamu perbaiki."
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Semakin sulit, biasanya makin banyak syarat desain yang harus ditepati. Kadang juga kamu harus kerja lebih cepat dari biasanya.”
+[signal arg="pak_anton_talk"]
+"pak bos": “Tapi makin sulit tugasnya, makin besar juga dampaknya. Nilai inklusifmu bisa naik signifikan.”
+[signal arg="pak_anton_happy_talk"]
+[signal arg="mbak_rani_happy_blink"]
+"pak bos": “Kalau konsisten, siapa tahu—mulai Jumat besok kamu bisa gantikan saya.”
+[signal arg="pak_anton_happy_talk"]
+"pak bos": "Saya bisa pensiun dini, dan buka warung kopi!”
+Kamu tertawa, meski sedikit deg-degan juga.
+[signal arg="mbak_rani_happy_talk"]
+mbak_rani: “Haha, jangan bully intern-nya gitu dong, Pak.”
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Jadi, gimana? Hari ini kamu pilih yang lembut-lembut aja, yang standar, atau yang bikin mikir sambil gigit pulpen?”
+- “Yang lembut-lembut aja, Mbak… biar hatinya tetap tenang.” (Mudah)
+	[signal arg="easy_diff"]
+- “Standar aja, Mbak. Biar otaknya tetap jalan tapi nggak ngebut.” (Normal)
+	[signal arg="medium_diff"]
+- “Yang paling menantang dong! Biar ngetes sejauh apa aku bisa.” (Sulit)
+	[signal arg="hard_diff"]
+[signal arg="mbak_rani_talk"]
+mbak_rani: “Siap! Aruna udah nyiapin semua. Dia bakal jelasin langkah-langkahnya.”
+[signal arg="pak_anton_leave"]
+[signal arg="mbak_rani_leave"]
 [signal arg="end"]
+return
+label after_start
+aruna: "Tiap pekerjaan memiliki permintaan-permintaan unik khusus, seperti penggunaan warna dan kecepatan mengerjakan"
+aruna: "Tenang saja, aku akan memberikan panduan tugas pada saat kamu mulai bekerja"
+aruna: "Kamu juga bisa memanggilku jika lupa mengenai tugasnya!"
+aruna: "Tapi ingat, walaupun kamu perlu memenuhi permintaan, kamu juga perlu menjaga agar dokumen itu tetap aksesibel untuk semua orang!"

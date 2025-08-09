@@ -27,6 +27,8 @@ const ENABLED_COLOR := Color(1, 1, 1)
 var buttons: Array[Button] = []
 
 func _ready() -> void:
+	SoundManager.play_map_music()
+	title_label.text = Dialogic.VAR.title
 	if GlobalVar.musim[GlobalVar.musim_idx] == "kemarau":
 		icon_panas.show()
 		icon_hujan.hide()
@@ -59,11 +61,11 @@ func _ready() -> void:
 		button.self_modulate = DISABLED_COLOR if button.disabled else ENABLED_COLOR
 		await button.ready  
 		button.pivot_offset = Vector2(button.size.x / 2, button.size.y)
-
+	
 func _process(delta: float) -> void:
-	name_top_label.text = GlobalVar.player_name
+	name_top_label.text = str(GlobalVar.player_name)
 	date_label.text = str(GlobalVar.date)
-	name_label.text = GlobalVar.player_name
+	name_label.text = str(GlobalVar.player_name)
 	day_label.text = GlobalVar.day
 	desc_label.visible_ratio += 1.8 * delta
 	for button in buttons:
@@ -75,19 +77,30 @@ func _process(delta: float) -> void:
 
 
 func _on_cafe_button_pressed() -> void:
-	pass # Replace with function body.
+	desc_label.text = "Aku masih belum bisa ke sini...."
+	desc_label.visible_ratio = 0
 
 
 func _on_kantor_button_pressed() -> void:
 	if GlobalVar.done_working_today:
 		desc_label.text = "Aku sudah bekerja keras hari ini, saatnya untuk pulang dan istirahat."
 		desc_label.visible_ratio = 0
+	elif GlobalVar.date == 2:
+		SceneTransition.change_scene("res://story_scene/scene_2_1.tscn")
+	elif GlobalVar.date == 3:
+		SceneTransition.change_scene("res://story_scene/scene_3_1.tscn")
+	elif GlobalVar.date == 4:
+		SceneTransition.change_scene("res://story_scene/scene_4_1.tscn")
 	else:
 		SceneTransition.change_scene("res://scene/kantor_scene.tscn")
 
 func _on_taman_button_pressed() -> void:
-	pass # Replace with function body.
-
+	if GlobalVar.done_working_today:
+		desc_label.text = "Aku sudah terlalu lelah, saatnya pulang dan beristirahat"
+		desc_label.visible_ratio = 0
+	else:
+		SceneTransition.change_scene("res://scene/taman_scene.tscn")
+		
 
 func _on_kos_button_pressed() -> void:
 	if not GlobalVar.done_working_today:
@@ -97,4 +110,5 @@ func _on_kos_button_pressed() -> void:
 		SceneTransition.change_scene("res://scene/kos_scene.tscn")
 
 func _on_supermarket_button_pressed() -> void:
-	pass # Replace with function body.
+	desc_label.text = "Aku masih belum bisa ke sini...."
+	desc_label.visible_ratio = 0

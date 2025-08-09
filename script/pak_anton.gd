@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	if !is_playing():
 		if is_mad:
 			play("angry_blink")
-		if is_happy:
+		elif is_happy:
 			play("happy_blink")
 		else:
 			play("blink")

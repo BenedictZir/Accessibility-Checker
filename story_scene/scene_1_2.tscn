@@ -102,6 +102,7 @@ position = Vector2(920, 102)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_nbnvm")
 
+[connection signal="done_working" from="level_template" to="." method="_on_level_template_done_working"]
 [connection signal="image_clicked" from="level_template" to="." method="_on_level_template_image_clicked"]
 [connection signal="selesai_button_clicked" from="level_template" to="." method="_on_level_template_selesai_button_clicked"]
 [connection signal="tutorial_done" from="level_template" to="." method="_on_level_template_tutorial_done"]

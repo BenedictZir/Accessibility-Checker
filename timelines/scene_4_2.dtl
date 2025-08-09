@@ -1,0 +1,28 @@
+player: Kamu baru saja menyimpan versi final dokumen. Heading sudah rapi, warna sudah kontras, foto sudah ada alt textnya.
+Kamu merenggangkan bahu. Lalu terdengar langkah cepat dan... dentingan gelas plastik.
+[signal arg="mbak_intan_join"]
+[signal arg="mbak_intan_smile"]
+mbak_intan: “Hei! Hei! Artikel kemarin udah naik! Udah live di portal pusat!”
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Tadi pagi aku cek. Rapi. Terstruktur. Dan—yang paling penting—bisa dibaca pembaca layar tanpa skip bagian.”
+Ia menunjuk layar monitornya. Kamu berdiri dan ikut melihat.
+Komentar mulai bermunculan di bawah artikel\:
+“Saya pakai pembaca layar—dan bisa baca semua heading dengan runtut. Teksnya juga nggak bikin capek mata.”
+“Sebagai desainer, ini bantu banget buat ngejelasin ke tim kenapa aksesibilitas itu penting. Makasih artikelnya!”
+“Sebagai low vision user, ini pertama kalinya saya bisa baca konten web kayak gini tanpa harus zoom 300%.”
+[signal arg="mbak_intan_talk"]
+mbak_intan: “Kamu yang bantu bikin ini bisa terjadi, lho. Terima kasih, Intern.”
+- "Aku senang bisa bantu."
+	[signal arg="mbak_intan_talk"]
+	mbak_intan: “Dan dampaknya langsung terasa. Bukan cuma bikin dokumen lebih bagus—tapi bikin orang merasa dihargai karena bisa ikut paham.”
+- "Tapi beneran segitu pentingnya ya? Kayaknya nggak semua orang peduli juga."
+	[signal arg="mbak_intan_talk"]
+	mbak_intan: “Nggak semua orang sadar, tapi orang yang butuh—sadar banget. Dan kadang, cukup satu orang yang merasa dilibatkan… itu udah mengubah cara kita kerja.”
+[signal arg="pak_anton_join"]
+[signal arg="pak_anton_happy_talk"]
+"pak bos": “Hati-hati, nanti kamu bikin standar kita naik terus. Harus saya kasih kopi sachet premiummu sekarang?”
+[signal arg="pak_anton_happy_talk"]
+"pak bos": "Kita kasih gelar aja ya. Intern yang Menaklukkan Standar Internasional."
+Kamu hanya tertawa... tapi di dalam hati, kamu merasa ada yang tumbuh.
+Hari keempat. Dan untuk pertama kalinya, kamu nggak cuma merasa kerja bagus—tapi juga merasa berguna.
+[signal arg="end_day"]

@@ -5,6 +5,7 @@ func _ready():
 	pass
 
 func change_scene(target, color = "000000") -> void:
+	SoundManager.stop_music()
 	dissolve_rect.color = color
 	animation_player.play("dissolve")
 	await animation_player.animation_finished

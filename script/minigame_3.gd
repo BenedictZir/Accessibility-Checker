@@ -51,7 +51,9 @@ func create_child():
 	create_answers()
 	
 func create_struct_texts():
-	for doc in doc_texts:
+	var randomized_texts = doc_texts.duplicate()
+	randomized_texts.shuffle()
+	for doc in randomized_texts:
 		var struct_text = struct_text_scene.instantiate()
 		text_container.add_child(struct_text)
 		struct_text.label.text = doc.text

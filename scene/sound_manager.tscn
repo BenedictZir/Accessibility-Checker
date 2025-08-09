@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://uw5qtpdcypnf"]
+
+[ext_resource type="Script" uid="uid://bu7j5w2kve573" path="res://script/sound_manager.gd" id="1_6i8hr"]
+[ext_resource type="AudioStream" uid="uid://cueox1mthbfce" path="res://assets/music/map_music.wav" id="2_2xa14"]
+[ext_resource type="AudioStream" uid="uid://bw8t2tg5uwaux" path="res://assets/music/minigame_music.wav" id="3_6d0mt"]
+[ext_resource type="AudioStream" uid="uid://d171d47vfuhrp" path="res://assets/music/kantor_musik.wav" id="4_6d0mt"]
+[ext_resource type="AudioStream" uid="uid://kf5yjlrb6788" path="res://assets/music/hover_sfx.mp3" id="5_5c1a0"]
+
+[node name="SoundManager" type="Node2D"]
+script = ExtResource("1_6i8hr")
+
+[node name="map_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_2xa14")
+volume_db = -10.0
+
+[node name="minigame_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6d0mt")
+volume_db = -5.0
+
+[node name="kantor_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6d0mt")
+volume_db = -10.0
+
+[node name="button_hover_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5c1a0")
+volume_db = 5.0

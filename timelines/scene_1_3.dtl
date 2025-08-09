@@ -17,7 +17,9 @@ join aruna center
 aruna: "Selamat ya, Intern! Hari pertama selesai."
 [signal arg="aruna_happy"]
 aruna: "Dokumen yang ditinjau\: 1. "
+[signal arg="aruna_happy"]
 aruna: "Gambar yang kini aksesibel\: 3"
+[signal arg="aruna_happy"]
 aruna: "Tingkat kepercayaan diri\: Meningkat."
 [signal arg="aruna_happy"]
 aruna: "Pengingat\: Tidur adalah bagian dari produktivitas. Menutup laptop sangat disarankan."

@@ -12,8 +12,28 @@ label after_leaderboard
 if {can_promote} == true:
 	mas_gilang: "Kak {player_name}!”
 	mas_gilang: “Kak [Player] berhasil mencuri perhatian minggu ini—dari perbaikan heading yang tadinya loncat-loncat, sampai layout kontras yang sekarang adem di mata.”
-	mas_gilang: “Kak [Player] berhasil mencuri perhatian minggu ini—dari perbaikan heading yang tadinya loncat-loncat, sampai layout kontras yang sekarang adem di mata.”
 	Tepuk tangan lebih riuh. Beberapa rekan melirik ke arahmu, senyum bangga.
+	[signal arg="mbak_rani_talk"]
 	mbak_rani: “Kerennn. Aku tadi cek juga—alt text-nya kamu tulis jelas banget. Nggak cuma benar, tapi terasa ada perhatiannya.”
+	[signal arg="mbak_intan_talk"]
 	mbak_intan: “Wuhuuu! Keren! Gantiin aku dong minggu depan yaaa~”
-	mbak_rani: “Selamat! Kamu berhasil bikin perubahan yang diakui semua tim.”
+	[signal arg="pak_anton_talk"]
+	"pak bos": “Selamat! Kamu berhasil bikin perubahan yang diakui semua tim.”
+	Kamu menahan senyum lebar, dada terasa sedikit hangat. Rasanya kayak... diakui.
+	aruna: Gelar\: {title}!
+else:
+	mas_gilang: "Kak Lintang!”
+	mas_gilang: “Kak Lintang tetap mempertahankan gelar—dengan kontribusi besar di audit visual dan panduan akses untuk halaman onboarding.”
+	Tepuk tangan lebih riuh. Beberapa rekan melirik ke arahmu, senyum bangga.
+	[signal arg="mbak_rani_talk"]
+	mbak_rani: “Aku liat kerjaan kamu minggu ini. Udah makin rapi, makin jelas. Tinggal sedikit polesan aja.”
+	[signal arg="mbak_intan_talk"]
+	mbak_intan: "Tetap semangat!!!"
+	[signal arg="pak_anton_talk"]
+	"pak bos": “Progress-mu tetap dicatat. Nggak juara hari ini bukan berarti nggak berdampak.”
+	Kamu mengangguk kecil. Bukan waktumu hari ini, tapi langkahmu tetap penting.
+	aruna: Gelar\: Belum ada kenaikan minggu ini.
+mas_gilang: “Okeee, itu dia rekap kita minggu ini. Terima kasih buat semua kerja keras, ide keren, dan niat baik yang terus kalian nyalain tiap hari.”
+mas_gilang: “Ingat, aksesibilitas itu bukan perlombaan cepat-cepat… tapi perjalanan yang kita tempuh bareng-bareng. Satu perbaikan kecil, satu perubahan besar untuk banyak orang.”
+mas_gilang: “Sampai ketemu Jumat depan, dengan dampak yang makin terasa dan semangat yang nggak kalah cerah. Tetap inklusif, tetap keren!”
+[signal arg="end_day"]

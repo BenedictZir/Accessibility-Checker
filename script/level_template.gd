@@ -26,7 +26,6 @@ var is_tutorial_1 := false
 var is_tutorial_2 := false
 var is_tutorial_3 := false
 var is_tutorial_4 := false
-var is_tutorial_5 := false
 var timer_score = 0
 var total_score := 0.0
 var accessibility_score := 0.0
@@ -51,12 +50,18 @@ const COLORS = {
 	"putih" : Color("#fbfbfb")
 }
 signal image_clicked # untuk tutor 1
+signal text_clicked # untuk tutor 2
+signal button_structure_clicked
+
 signal wrong_alt_text
 signal tutorial_done
 signal selesai_button_clicked
 
 signal done_working
 func _ready() -> void:
+	#set_document(preload("res://scene/documents/document_scene_2_2.tscn"), "easy")
+	
+	
 	pass
 
 func _process(delta: float) -> void:
@@ -75,25 +80,53 @@ func _process(delta: float) -> void:
 		examine()
 		if accessibility_score < 36:
 			selesai.hide()
+			$app/SelesaiButtonBg.hide()
 		else:
 			emit_signal("tutorial_done")
 			selesai.show()
+			$app/SelesaiButtonBg.show()
+			
 		for obj in all_object:
 			if (obj.is_in_group("images")):
 				if obj.examine() == 1:
 					wrong_alt_text.emit()
-		
-		
-		
 	elif is_tutorial_2:
-		pass
+		$app/aruni_helper.hide()
+		$app/Sprite2D.hide()
+		$app/minigame_icons/docs_features/color_wheel_button.self_modulate = Color(0.451, 0.451, 0.451)
+		$app/minigame_icons/docs_features/color_wheel_button.disabled = true
 		
+		$app/minigame_icons/text_features/color_wheel_button.self_modulate = Color(0.451, 0.451, 0.451)
+		$app/minigame_icons/text_features/color_wheel_button.disabled = true
+		examine()
+		if accessibility_score < 64:
+			selesai.hide()
+			$app/SelesaiButtonBg.hide()
+			
+		else:
+			selesai.show()
+			$app/SelesaiButtonBg.show()
+			
 	elif is_tutorial_3:
-		pass
+		$app/Sprite2D.hide()
+		$aruna_helper_screen/panduan_tugas_button.hide()
+		$app/minigame_icons/image_features/alt_text_button.self_modulate = Color(0.451, 0.451, 0.451)
+		$app/minigame_icons/image_features/alt_text_button.disabled = true
+		$app/minigame_icons/text_features/structure_button.self_modulate = Color(0.451, 0.451, 0.451)
+		$app/minigame_icons/text_features/structure_button.disabled = true
+		examine()
+		if accessibility_score < 36:
+			selesai.hide()
+			$app/SelesaiButtonBg.hide()
+			
+		else:
+			selesai.show()
+			$app/SelesaiButtonBg.show()
+			
+
 	elif is_tutorial_4:
 		pass
-	elif is_tutorial_5:
-		pass
+
 	else:
 		timer_score = (ceil(timer.time_left / 60)) * 50
 		var minutes = int(timer.time_left) / 60
@@ -116,40 +149,51 @@ func get_all_obj():
 	get_all_images()
 	get_all_text()
 	
+	all_object.clear()
 	for text in all_texts:
 		all_object.append(text)
 	for image in all_images:
 		all_object.append(image)
 	all_object.sort_custom(sort_by_pos)
+
 	var subjudul_count = 0
 	var judul_count = 0
 	var text_count = 0
 	var image_count = 1
+	var unique_id = 1  # ID unik supaya nama tidak bentrok
 	
 	for obj in all_object:
 		if obj.is_in_group("texts"):
 			if obj.get_structure().contains("subjudul"):
 				subjudul_count += 1
-				text_count = 0 
-				obj.name = obj.get_structure() + " " + str(subjudul_count)
-			elif obj.get_structure().contains("judul"):
-				subjudul_count = 0
-				judul_count += 1
 				text_count = 0
-				obj.name = obj.get_structure() + " " + str(judul_count)
+				obj.display_name = "subjudul " + str(subjudul_count)
+			
+			elif obj.get_structure().contains("judul"):
+				judul_count += 1
+				subjudul_count = 0
+				text_count = 0
+				image_count = 1
+				obj.display_name = "judul " + str(judul_count)
 				
 			else:
 				text_count += 1
-				obj.name = obj.get_structure() + " " + str(text_count)
-			obj.display_name = obj.name
+				obj.display_name = "teks " + str(text_count)
+
+			# name harus unik supaya Godot nggak rename otomatis
+			obj.name = obj.display_name + "#" + str(unique_id)
+			unique_id += 1
+
 			create_outline(obj, obj.display_name)
-			text_count += 1
-		else:
-			obj.name = "foto " + str(image_count)
-			obj.display_name = obj.name
+
+		elif obj.is_in_group("images"):
+			obj.display_name = "foto " + str(image_count)
+			obj.name = obj.display_name + "#" + str(unique_id)
+			unique_id += 1
 			create_outline(obj, obj.display_name)
 			image_count += 1
-			
+
+
 func create_outline(obj, display_name):
 	var outline = outline_scene.instantiate()
 	outline.name = obj.name + "_outline"
@@ -178,7 +222,8 @@ func select(obj):
 	obj.emit_signal("selected")
 	if (obj.is_in_group("images")):
 			emit_signal("image_clicked")
-
+	if obj.is_in_group("texts"):
+		emit_signal("text_clicked")
 func find_outline(obj):
 	for outline in v_box_container.get_children():
 		if outline.get_bound_object() == obj:
@@ -204,6 +249,8 @@ func select_outline(outline):
 	show_features()
 	if selected_object.is_in_group("images"):
 		emit_signal("image_clicked")
+	if selected_object.is_in_group("texts"):
+		emit_signal("text_clicked")
 	selected_object.emit_signal("selected")
 func sort_by_pos(a, b):
 	if a.global_position.y < b.global_position.y:
@@ -343,6 +390,7 @@ func _on_alt_text_minigame_done(text) -> void:
 	
 	
 func _on_structure_button_pressed() -> void:
+	button_structure_clicked.emit()
 	if selected_object == null:
 		return
 	animation_player.play("show_structure_minigame")
@@ -379,30 +427,51 @@ func find_outline_text(target_text):
 			return child
 
 func update_text_outline():
-	var judul_count = 0
-	var subjudul_count = 0
-	var teks_count = 0
-
+	var outlines = v_box_container.get_children()
+	for outline in outlines:
+		outline.queue_free()
+	all_object.clear()
 	for text in all_texts:
-		var outline = find_outline(text)
-		var display_name = ""
+		all_object.append(text)
+	for image in all_images:
+		all_object.append(image)
+	all_object.sort_custom(sort_by_pos)
+	
+	var subjudul_count = 0
+	var judul_count = 0
+	var text_count = 0
+	var image_count = 1
+	var unique_id = 1
+	
+	for obj in all_object:
+		if obj.is_in_group("texts"):
+			if obj.get_structure().containsn("subjudul"):
+				subjudul_count += 1
+				text_count = 0
+				obj.display_name = "subjudul " + str(subjudul_count)
+			
+			elif obj.get_structure().containsn("judul"):
+				judul_count += 1
+				subjudul_count = 0
+				text_count = 0
+				image_count = 1
+				obj.display_name = "judul " + str(judul_count)
+				
+			else:
+				text_count += 1
+				obj.display_name = "teks " + str(text_count)
+			
+			obj.name = obj.display_name + "#" + str(unique_id)
+			unique_id += 1
 
-		if text.structure.containsn("subjudul"):
-			subjudul_count += 1
-			teks_count = 0
-			display_name = "subjudul " + str(subjudul_count)
-		elif text.structure.containsn("judul"):
-			judul_count += 1
-			subjudul_count = 0
-			teks_count = 0
-			display_name = "judul " + str(judul_count)
-		else:
-			teks_count += 1
-			display_name = "teks " + str(teks_count)
+			create_outline(obj, obj.display_name)
 
-		text.display_name = display_name
-		if outline:
-			outline.set_display_name(display_name)
+		elif obj.is_in_group("images"):
+			obj.display_name = "foto " + str(image_count)
+			obj.name = obj.display_name + "#" + str(unique_id)
+			unique_id += 1
+			create_outline(obj, obj.display_name)
+			image_count += 1
 func _on_structure_minigame_canceled() -> void:
 	animation_player.play("show_structure_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
@@ -416,6 +485,8 @@ func set_document(document_random, diff):
 		difficulty_mult = 1.5
 	color_wheel_minigame.set_speed(diff)
 	var doc = document_random.instantiate()
+	if doc.paper_color in COLORS:
+		document_paper.self_modulate = COLORS[doc.paper_color]
 	$app/nama_dokumen.text = doc.judul
 	document.add_child(doc)
 	doc.global_position = document.global_position
@@ -455,17 +526,26 @@ func _on_selesai_pressed() -> void:
 
 	var acc_score = (accessibility_score / (4 * all_object.size()) * 6 * 250) # max 1500
 	$result_screen/SkorAksesibel/acc_score_label.text = str(int(acc_score)).pad_zeros(4)
-	constraint_score = (true_constraint_count / constraint_list.size()) * 4 * 250
+	if constraint_list.size() > 0:
+		constraint_score = (true_constraint_count / constraint_list.size()) * 4 * 250
 	$result_screen/SkorMisi/misi_score_label.text = str(int(constraint_score)).pad_zeros(4)
 	$result_screen/Skortimer/timer_score_label.text = str(int(timer_score)).pad_zeros(4)
 	
 
 	var total_score_before_mult = acc_score + constraint_score + timer_score
+
 	$result_screen/mult_box/Label2.text = str(difficulty_mult)
+	if is_tutorial_1 or is_tutorial_2 or is_tutorial_3:
+		$result_screen/SkorMisi.hide()
+		$result_screen/Skortimer.hide()
+		$result_screen/mult_box.hide()
+		$result_screen/bg_mult.hide()
+		total_score_before_mult -= timer_score + constraint_score
+		
 	Dialogic.VAR.poin_inklusif_harian = total_score_before_mult
 	total_score = total_score_before_mult * difficulty_mult
-	Dialogic.VAR.poin_inklusif += total_score
 	$result_screen/Total/total_score_label.text = str(int(total_score)).pad_zeros(4)
+	Dialogic.VAR.poin_inklusif += total_score
 	app.process_mode = Node.PROCESS_MODE_DISABLED
 	
 func set_constraint(constraint_set):
@@ -522,7 +602,7 @@ func check_constraint():
 			
 			
 func check_constraint_type_1(time_constraint):
-	if timer.time_left > time_constraint:
+	if timer.time_left > timer.wait_time - time_constraint:
 		return true
 	return false
 func check_constraint_type_2():
@@ -605,23 +685,7 @@ func colors_equal(c1: Color, c2: Color, tolerance := 0.01) -> bool:
 
 func _on_lanjut_pressed() -> void:
 	GlobalVar.done_working_today = true
-	if is_tutorial_1:
-		pass
-		# TODO
-	elif is_tutorial_2:
-		pass
-		# TODO
-	elif is_tutorial_3:
-		pass
-		# TODO
-	elif is_tutorial_4:
-		pass
-		# TODO
-	elif is_tutorial_5:
-		pass
-		# TODO
-	else:
-		emit_signal("done_working")
+	emit_signal("done_working")
 		
 
 
@@ -635,6 +699,7 @@ func _on_panduan_tugas_button_pressed() -> void:
 		animation_player.play("show_panduan")
 
 func start():
+	SoundManager.play_minigame_music()
 	disable_all_button()
 	animation_player.play("init")
 	app.process_mode = Node.PROCESS_MODE_DISABLED

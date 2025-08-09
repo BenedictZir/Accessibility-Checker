@@ -41,6 +41,8 @@ overrides = {
 "name_label_font": "\"res://assets/fonts/Dosis-ExtraBold.ttf\"",
 "name_label_use_global_font": "false",
 "name_label_use_global_font_size": "false",
+"next_indicator_enabled": "false",
+"next_indicator_show_on_questions": "false",
 "normal_font": "\"res://assets/fonts/Dosis-Medium.ttf\"",
 "text_size": "40.0",
 "text_use_global_font": "false",

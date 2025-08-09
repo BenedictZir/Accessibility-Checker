@@ -1,0 +1,116 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds7kthlsogk40"]
+
+[ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_tvjrs"]
+[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="2_gdo2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
+size = Vector2(905, 1092)
+
+[node name="document_template" type="Node2D" groups=["document"]]
+script = ExtResource("1_tvjrs")
+paper_color = "kuning"
+judul = "Kontras Warna"
+
+[node name="paper_area" type="Area2D" parent="."]
+position = Vector2(0, -44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paper_area"]
+position = Vector2(-6.5, 360)
+shape = SubResource("RectangleShape2D_wjaii")
+
+[node name="texts" type="Node2D" parent="."]
+
+[node name="doc_text" parent="texts" instance=ExtResource("2_gdo2x")]
+offset_left = -441.0
+offset_top = -144.0
+offset_right = 440.0
+offset_bottom = -112.0
+theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
+text = "Apa Itu Kontras Warna?"
+intended_structure = 0
+structure = "judul"
+
+[node name="doc_text2" parent="texts" instance=ExtResource("2_gdo2x")]
+offset_left = -442.0
+offset_top = -55.0
+offset_right = 435.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0.819608, 0.0588235, 0.0431373, 1)
+text = "Kontras warna adalah perbedaan terang-gelap antara teks dan latar belakang. Kontras yang cukup membuat teks mudah dibaca."
+intended_structure = 2
+
+[node name="doc_text3" parent="texts" instance=ExtResource("2_gdo2x")]
+offset_left = -438.0
+offset_top = 30.0
+offset_right = 435.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0.819608, 0.0588235, 0.0431373, 1)
+text = "Penggunaan kontras warna yang baik membantu pengguna dengan gangguan penglihatan membedakan elemen visual secara jelas."
+intended_structure = 2
+
+[node name="doc_text4" parent="texts" instance=ExtResource("2_gdo2x")]
+offset_left = -438.0
+offset_top = 207.0
+offset_right = 435.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
+text = "Rasio Kontras yang Direkomendasikan"
+intended_structure = 0
+structure = "judul"
+part = 2
+
+[node name="doc_text5" parent="texts" instance=ExtResource("2_gdo2x")]
+offset_left = -438.0
+offset_top = 306.0
+offset_right = 435.0
+offset_bottom = 373.0
+theme_override_colors/font_color = Color(1, 0.458824, 0.0392157, 1)
+text = "WCAG menetapkan standar rasio kontras untuk keterbacaan yang optimal."
+intended_structure = 2
+part = 2
+
+[node name="doc_text6" parent="texts" instance=ExtResource("2_gdo2x")]
+offset_left = -438.0
+offset_top = 370.0
+offset_right = 435.0
+offset_bottom = 437.0
+theme_override_colors/font_color = Color(1, 0.458824, 0.0392157, 1)
+text = "Teks biasa harus memiliki rasio kontras minimal 4.5:1, dan untuk teks besar minimal 3:1. Hal ini berlaku untuk teks dan elemen UI."
+intended_structure = 2
+part = 2
+
+[node name="doc_text7" parent="texts" instance=ExtResource("2_gdo2x")]
+offset_left = -443.0
+offset_top = 537.0
+offset_right = 430.0
+offset_bottom = 604.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Kontras Buruk Bisa Menyulitkan Akses"
+intended_structure = 0
+structure = "judul"
+part = 3
+
+[node name="doc_text8" parent="texts" instance=ExtResource("2_gdo2x")]
+offset_left = -443.0
+offset_top = 636.0
+offset_right = 430.0
+offset_bottom = 703.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Kontras yang buruk menyulitkan pengguna membaca konten, terutama dalam cahaya terang atau bagi pengguna dengan low vision."
+intended_structure = 2
+part = 3
+
+[node name="doc_text9" parent="texts" instance=ExtResource("2_gdo2x")]
+offset_left = -443.0
+offset_top = 724.0
+offset_right = 430.0
+offset_bottom = 791.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Desain dengan warna yang terlalu mirip atau redup dapat menghalangi pemahaman informasi dan pengalaman pengguna."
+intended_structure = 2
+part = 3
+
+[node name="images" type="Node2D" parent="."]
+
+[connection signal="selected" from="." to="." method="_on_selected"]
+[connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

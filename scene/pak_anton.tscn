@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://686b61o8gmys" path="res://assets/Pak Anton lari maraton/Untitled439_20250727174314.png" id="6_ih4at"]
 [ext_resource type="Texture2D" uid="uid://d2d3ev6m41syq" path="res://assets/Pak Anton lari maraton/Ngomong.png" id="7_8pfpq"]
 [ext_resource type="Texture2D" uid="uid://dgtgv4tc7kca8" path="res://assets/Pak Anton lari maraton/Tanpa Blush-20250805T164246Z-1-001/Tanpa Blush/senyum_tutup_mata.png" id="7_rjdl2"]
-[ext_resource type="Texture2D" uid="uid://dspct8mfcnuwy" path="res://assets/Pak Anton lari maraton/Tanpa Blush-20250805T164246Z-1-001/Tanpa Blush/senyum_buka_mulut.png" id="8_1s7jr"]
+[ext_resource type="Texture2D" uid="uid://dwb4lfxmppkh3" path="res://assets/Pak Anton lari maraton/Tanpa Blush-20250805T164246Z-1-001/Tanpa Blush/buka_mulut_buka_mata.png" id="8_hmh34"]
 [ext_resource type="Script" uid="uid://deu3bvahp47o5" path="res://script/pak_anton.gd" id="8_nxa61"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_idsj1"]
@@ -147,19 +147,19 @@ animations = [{
 "texture": ExtResource("6_hmh34")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_1s7jr")
+"texture": ExtResource("8_hmh34")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_hmh34")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_1s7jr")
+"texture": ExtResource("8_hmh34")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_rjdl2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ih4at")
+"texture": ExtResource("6_hmh34")
 }],
 "loop": false,
 "name": &"happy_talk",
@@ -255,8 +255,10 @@ _data = {
 position = Vector2(0, 1440)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_idsj1")
-animation = &"happy_blink"
+animation = &"happy_talk"
 autoplay = "blink"
+frame = 5
+frame_progress = 1.0
 script = ExtResource("8_nxa61")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

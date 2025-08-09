@@ -49,8 +49,8 @@ func _ready() -> void:
 	
 func _on_dialogic_signal(arg):
 	match arg:
-		"easy_diff":
-			document = easy_document_list.pick_random()
+		"easy_diff":	
+			document = get_random_document("easy")
 			level_template.set_document(document, "easy")
 			var constraints = []
 			for i in range(3):
@@ -60,11 +60,7 @@ func _on_dialogic_signal(arg):
 			level_template.set_constraint(constraints)
 			
 		"medium_diff":
-			document = medium_document_list.pick_random()
-			
-			#DEBUG
-			document = preload("res://scene/documents/document_scene_1_2.tscn")
-			
+			document = get_random_document("medium")
 			level_template.set_document(document, "medium")
 			var constraints = []
 			for i in range(4):
@@ -73,7 +69,7 @@ func _on_dialogic_signal(arg):
 				constraints.append(constraint)
 			level_template.set_constraint(constraints)
 		"hard_diff":
-			document = hard_document_list.pick_random()
+			document = get_random_document("hard")
 			level_template.set_document(document, "hard")
 			var constraints = []
 			for i in range(5):
@@ -104,7 +100,7 @@ func _on_level_template_done_working() -> void:
 		character_node.get_child(0).queue_free()
 		character_node.add_child(pak_anton_scene.instantiate())
 		$character_node_left.add_child(mbak_rani_scene.instantiate())
-		$character_node_right.add_child(pak_anton_scene.instantiate())
+		$character_node_right.add_child(mbak_intan_scene.instantiate())
 		Dialogic.start("naik_pangkat")
 	else:
 		Dialogic.start("after_work_" + character_name)
@@ -127,3 +123,28 @@ func load_documents():
 					hard_document_list.append(load(path))
 			file_name = dir.get_next()
 		dir.list_dir_end()
+	GlobalVar.easy_remaining = easy_document_list.duplicate()
+	GlobalVar.medium_remaining = medium_document_list.duplicate()
+	GlobalVar.hard_remaining = hard_document_list.duplicate()
+	
+func get_random_document(difficulty: String):
+	var remaining_list
+	var full_list
+
+	match difficulty:
+		"easy":
+			remaining_list = GlobalVar.easy_remaining
+			full_list = easy_document_list
+		"medium":
+			remaining_list = GlobalVar.medium_remaining
+			full_list = medium_document_list
+		"hard":
+			remaining_list = GlobalVar.hard_remaining
+			full_list = hard_document_list
+
+	if remaining_list.size() == 0:
+		remaining_list.append_array(full_list)
+
+	var doc = remaining_list.pick_random()
+	remaining_list.erase(doc)
+	return doc

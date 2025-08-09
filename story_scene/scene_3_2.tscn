@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2ilflb30cgs1"]
+
+[ext_resource type="Script" uid="uid://b8w6qto2n2lwn" path="res://script/scene_3_2.gd" id="1_fl5a4"]
+[ext_resource type="PackedScene" uid="uid://bao1ug3shuin" path="res://scene/level_template.tscn" id="2_bt1tj"]
+
+[node name="scene_3_2" type="Node2D"]
+script = ExtResource("1_fl5a4")
+
+[node name="level_template" parent="." instance=ExtResource("2_bt1tj")]
+
+[connection signal="done_working" from="level_template" to="." method="_on_level_template_done_working"]

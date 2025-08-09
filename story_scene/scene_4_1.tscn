@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfslj3t4t85sf"]
+
+[ext_resource type="Script" uid="uid://dggfkrt4l75k8" path="res://script/scene_4_1.gd" id="1_dsyx8"]
+[ext_resource type="PackedScene" uid="uid://bao1ug3shuin" path="res://scene/level_template.tscn" id="2_namb7"]
+[ext_resource type="PackedScene" uid="uid://c8lv21odaka5g" path="res://scene/pak_anton.tscn" id="3_7ko2g"]
+[ext_resource type="PackedScene" uid="uid://dxtncf3tm4oh1" path="res://scene/mbak_rani.tscn" id="4_ddd31"]
+
+[node name="scene_4_1" type="Node2D"]
+script = ExtResource("1_dsyx8")
+
+[node name="level_template" parent="." instance=ExtResource("2_namb7")]
+visible = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(480, 0)
+
+[node name="pak_anton" parent="Node2D" instance=ExtResource("3_7ko2g")]
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(1440, 0)
+
+[node name="mbak_rani" parent="Node2D2" instance=ExtResource("4_ddd31")]
+
+[connection signal="done_working" from="level_template" to="." method="_on_level_template_done_working"]

@@ -7,6 +7,7 @@ var image_clicked = false
 var wrong_alt_text = false
 var done = false
 func _ready() -> void:
+	SoundManager.play_minigame_music()
 	$level_template.is_tutorial_1 = true
 	$level_template.set_document(document, "easy")
 	Dialogic.signal_event.connect(_on_dialogic_signal)
@@ -23,8 +24,7 @@ func _on_dialogic_signal(arg):
 		animation_player.play("arrow_aruna")
 	elif arg == "wait_image_clicked":
 		yellow_arrow.hide()
-	elif arg == "end":
-		SceneTransition.change_scene("res://scene/scene_1_3.tscn")
+
 
 func _process(delta: float) -> void:
 	pass
@@ -51,3 +51,7 @@ func _on_level_template_tutorial_done() -> void:
 func _on_level_template_selesai_button_clicked() -> void:
 	Dialogic.start("scene_1_2", "result")
 	
+
+
+func _on_level_template_done_working() -> void:
+	SceneTransition.change_scene("res://story_scene/scene_1_3.tscn")

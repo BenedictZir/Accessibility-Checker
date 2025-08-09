@@ -1,8 +1,8 @@
 extends Node2D
 var original_y
-@export var scroll_speed := 30.0
+@export var scroll_speed := 40.0
 @onready var paper_area: Area2D = $paper_area
-
+@export var paper_color = ""
 signal selected
 signal deselect
 var ori_area_pos
@@ -37,4 +37,8 @@ func get_images():
 func get_texts():
 	return $texts.get_children()
 func _on_selected() -> void:
+	pass # Replace with function body.
+
+
+func _on_paper_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	pass # Replace with function body.

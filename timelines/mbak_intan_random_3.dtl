@@ -1,5 +1,5 @@
 [signal arg="mbak_intan_join"]
-[signal arg="mbak_intan_talk"]
+[signal arg="mbak_intan_capek"]
 mbak_intan: “Oh, kamu udah datang? Hebat. Aku aja baru sadar hari ini hari kerja.”
 [signal arg="mbak_intan_happy_talk"]
 mbak_intan: “Kopi habis, deadline numpuk, tapi semangat harus tetap bisa diakses.”

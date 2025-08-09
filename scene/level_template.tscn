@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=117 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="Texture2D" uid="uid://bonr6w8rl5b0y" path="res://assets/pause_button_bg.png" id="4_7yd1f"]
@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://dvb6vydda63nf" path="res://assets/1x/Frame 5.png" id="10_i43we"]
 [ext_resource type="Texture2D" uid="uid://do8c62re4ntgw" path="res://assets/1x/Group 40.png" id="11_epqjh"]
 [ext_resource type="Texture2D" uid="uid://cbierkx8vidql" path="res://assets/outline.png" id="11_vaqec"]
-[ext_resource type="Texture2D" uid="uid://cr2pv4xtfm88e" path="res://assets/pause_button.png" id="12_lmy6v"]
 [ext_resource type="Texture2D" uid="uid://n8psgm8laco5" path="res://assets/minigame_buttons/alt_text_button_mid.png" id="12_te1jt"]
 [ext_resource type="Texture2D" uid="uid://bpppdvpt05ebi" path="res://assets/timer_label.png" id="13_io6bp"]
 [ext_resource type="Texture2D" uid="uid://0rl7r0rqrsdx" path="res://assets/minigame_buttons/color_wheel_button_mid.png" id="13_saxxy"]
 [ext_resource type="Texture2D" uid="uid://dq4oku0yjfj2p" path="res://assets/minigame_buttons/color_wheel_button.png" id="14_lmy6v"]
+[ext_resource type="Texture2D" uid="uid://vl2ahvdlush7" path="res://assets/pause_icon.png" id="14_nw5pu"]
 [ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="14_xe1of"]
 [ext_resource type="Texture2D" uid="uid://deruydy22nf8g" path="res://assets/selesai_button.png" id="14_xufl2"]
 [ext_resource type="Texture2D" uid="uid://cs7q2hv8omh1h" path="res://assets/minigame_buttons/structure_button.png" id="15_io6bp"]
@@ -759,13 +759,7 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw8l3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xrlcw"]
-texture = ExtResource("12_lmy6v")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3oy4v"]
-texture = ExtResource("12_lmy6v")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4h6f"]
-texture = ExtResource("12_lmy6v")
+texture = ExtResource("14_nw5pu")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hl4pa"]
 
@@ -958,8 +952,8 @@ focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dw8l3")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_xrlcw")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xrlcw")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_3oy4v")
-theme_override_styles/normal = SubResource("StyleBoxTexture_l4h6f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xrlcw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xrlcw")
 
 [node name="selesai" type="Button" parent="app"]
 offset_left = 1447.0
@@ -1239,13 +1233,13 @@ texture = ExtResource("26_065fq")
 [node name="bg" type="Sprite2D" parent="result_screen"]
 texture = ExtResource("24_p17l8")
 
-[node name="plus" type="Sprite2D" parent="result_screen"]
-position = Vector2(511, 162)
-texture = ExtResource("28_wu83x")
-
 [node name="Line2" type="Sprite2D" parent="result_screen"]
 position = Vector2(-4, 173)
 texture = ExtResource("29_7yd1f")
+
+[node name="plus" type="Sprite2D" parent="result_screen"]
+position = Vector2(511, 162)
+texture = ExtResource("28_wu83x")
 
 [node name="lanjut" type="Button" parent="result_screen"]
 offset_left = -142.0

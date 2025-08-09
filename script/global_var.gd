@@ -3,7 +3,7 @@ var is_clicking := false
 var is_dragging := false
 var can_click := true
 var can_drag := false
-var player_name = ""
+var player_name := ""
 var date := 1
 var date_bulan_ini := 1
 var idx_title = 0
@@ -14,6 +14,9 @@ var skor_list = [0, 25000, 50000, 75000, 10000]
 var musim = ["kemarau", "hujan"]
 var musim_idx = 0
 var day := "SENIN"
+var easy_remaining = []
+var medium_remaining = []
+var hard_remaining = []
 
 var inclusive_point := 0
 var done_working_today := false
@@ -22,7 +25,7 @@ var grab_cursor = load("res://assets/cursors/cursor_grab.png")
 var interactable_cursor = load("res://assets/cursors/cursor_point.png")
 var interactable := []
 func next_day():
-
+	Dialogic.VAR.poin_inklusif_harian = 0
 	done_working_today = false
 	date += 1
 	date_bulan_ini += 1
@@ -36,7 +39,7 @@ func _process(delta: float) -> void:
 	Dialogic.VAR.jabatan = jabatan_list[idx_title]
 	if Dialogic.VAR.poin_inklusif >= skor_list[idx_title]:
 		Dialogic.VAR.can_promote = true
-	player_name = Dialogic.VAR.player_name
+	player_name = str(Dialogic.VAR.player_name)
 	if is_dragging:
 		Input.set_custom_mouse_cursor(grab_cursor, Input.CURSOR_ARROW, Vector2(50, 50))
 	elif is_mouse_over_button() or interactable.size() > 0:
