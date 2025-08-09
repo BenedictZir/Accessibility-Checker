@@ -19,21 +19,22 @@ func _ready() -> void:
 
 	
 func _process(delta: float) -> void:
+	if $mail/end.visible or $mail/acc_button.visible:
+		$background_button.show()
+	else:
+		$background_button.hide()
 	if text_edit.size.x >= 1155:
 		text_edit.size.x = 1155
 		text_edit.scroll_fit_content_width = false
-	$mail/ColorRect.size.x = min(text_edit.size.x, 1155)
 	if (text_edit.text != ""):
 		line.hide()
-		if (mail_screen_2.visible == false and mail_screen_3.visible == false):
-			$mail/ColorRect.show()
+
 		$mail/acc_button.show()
 	else:
 		blink_timer += delta
 		if blink_timer >= blink_interval and can_blink:
 			line.visible = not line.visible
 			blink_timer = 0.0
-		$mail/ColorRect.hide()
 			
 		$mail/acc_button.hide()
 		
@@ -74,7 +75,6 @@ func _input(event: InputEvent) -> void:
 func _on_acc_button_pressed() -> void:
 	Dialogic.VAR.player_name = str((text_edit.text).to_upper())
 	line.hide()
-	$mail/ColorRect.hide()
 	text_edit.hide()
 	if (mail_screen_2.visible == false):
 		mail_screen_2.show()

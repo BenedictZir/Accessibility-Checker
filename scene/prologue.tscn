@@ -1,32 +1,36 @@
-[gd_scene load_steps=20 format=3 uid="uid://byrbri3utieqw"]
+[gd_scene load_steps=23 format=3 uid="uid://byrbri3utieqw"]
 
 [ext_resource type="Script" uid="uid://b3sudv0emiiq1" path="res://script/prologue.gd" id="1_e7qxw"]
 [ext_resource type="Texture2D" uid="uid://dius85o5je6xd" path="res://assets/background/jakarta.png" id="2_3hlow"]
 [ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Regular.ttf" id="3_3d53y"]
 [ext_resource type="Texture2D" uid="uid://b7ceh8srflwbk" path="res://assets/background/kamar_pagi.png" id="3_3hlow"]
 [ext_resource type="Texture2D" uid="uid://bcaqqlddm0v7l" path="res://assets/prologue/Frame 125.png" id="4_i7q1p"]
-[ext_resource type="Texture2D" uid="uid://d27x5i4d345vh" path="res://assets/tempassets/Primary.png" id="5_wf4c6"]
-[ext_resource type="Texture2D" uid="uid://b2fp4olk2kxnn" path="res://assets/mail_screen_2.png" id="7_3hlow"]
-[ext_resource type="Texture2D" uid="uid://dmkd4dkqfwyla" path="res://assets/result_screen/Lanjut.png" id="8_1b644"]
-[ext_resource type="Texture2D" uid="uid://ywoq6o4au51" path="res://assets/mail_screen_3.png" id="8_i7q1p"]
+[ext_resource type="Texture2D" uid="uid://ogbxhaa8tvj6" path="res://assets/prologue/Group 1000007787.png" id="5_i7q1p"]
+[ext_resource type="Texture2D" uid="uid://bs5u3pg7qk5oe" path="res://assets/prologue/Rectangle 10320 (1).png" id="5_o5et1"]
+[ext_resource type="Texture2D" uid="uid://bmnosq5v7v2m8" path="res://assets/prologue/Group 49525.png" id="7_o5et1"]
+[ext_resource type="Texture2D" uid="uid://de4fu0ufucft8" path="res://assets/prologue/Group 49525 (1).png" id="8_wtakk"]
+[ext_resource type="Texture2D" uid="uid://b4qh3q8kc8mwr" path="res://assets/prologue/Rectangle 10320.png" id="9_wtakk"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="10_s86ot"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5et1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtakk"]
-texture = ExtResource("8_1b644")
+texture = ExtResource("9_wtakk")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s86ot"]
-texture = ExtResource("8_1b644")
+texture = ExtResource("9_wtakk")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qjv0"]
-texture = ExtResource("8_1b644")
+texture = ExtResource("9_wtakk")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nvcbn"]
-texture = ExtResource("8_1b644")
+texture = ExtResource("9_wtakk")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3d53y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l3ne"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s86ot"]
 
 [sub_resource type="Animation" id="Animation_i7q1p"]
 length = 0.001
@@ -127,6 +131,7 @@ texture = ExtResource("2_3hlow")
 expand_mode = 1
 
 [node name="bg_2" type="TextureRect" parent="."]
+visible = false
 offset_left = -960.0
 offset_top = -540.0
 offset_right = 960.0
@@ -135,81 +140,106 @@ texture = ExtResource("3_3hlow")
 expand_mode = 1
 
 [node name="bg_3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, 1)
 texture = ExtResource("4_i7q1p")
 
+[node name="background_button" type="Sprite2D" parent="."]
+position = Vector2(33, 292)
+texture = ExtResource("5_o5et1")
+
 [node name="mail" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-texture = ExtResource("5_wf4c6")
+texture = ExtResource("5_i7q1p")
 
 [node name="MailScreen2" type="Sprite2D" parent="mail"]
 visible = false
-texture = ExtResource("7_3hlow")
+texture = ExtResource("7_o5et1")
 
 [node name="MailScreen3" type="Sprite2D" parent="mail"]
 visible = false
-texture = ExtResource("8_i7q1p")
+texture = ExtResource("8_wtakk")
 
 [node name="acc_button" type="Button" parent="mail"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -940.0
-offset_top = -254.0
-offset_right = -559.0
-offset_bottom = -99.0
+offset_left = -824.0
+offset_top = -123.5
+offset_right = -450.0
+offset_bottom = -5.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(187, 59)
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o5et1")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_wtakk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_s86ot")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_6qjv0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_nvcbn")
+
+[node name="Label" type="Label" parent="mail/acc_button"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 32.0
+offset_right = 258.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_s86ot")
+theme_override_font_sizes/font_size = 50
 text = "LANJUT"
 
-[node name="ColorRect" type="ColorRect" parent="mail"]
-visible = false
-offset_left = -498.0
-offset_top = -104.0
-offset_right = 331.0
-offset_bottom = -57.0
-color = Color(0.0941176, 0.462745, 0.823529, 1)
-
 [node name="TextEdit" type="LineEdit" parent="mail"]
-offset_left = -498.0
-offset_top = -106.0
-offset_right = -307.0
-offset_bottom = -50.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("3_3d53y")
+offset_left = -416.0
+offset_top = -93.0
+offset_right = -79.0
+offset_bottom = -37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_s86ot")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3d53y")
-max_length = 9
+max_length = 12
 context_menu_enabled = false
 caret_blink = true
 
 [node name="line" type="Label" parent="mail"]
 visible = false
-offset_left = -497.0
-offset_top = -79.0
-offset_right = -457.0
-offset_bottom = -56.0
+offset_left = -407.0
+offset_top = -62.0
+offset_right = -222.0
+offset_bottom = -39.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_3d53y")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3l3ne")
-text = "________________________"
+text = "__________________________________________"
 
 [node name="end" type="Button" parent="mail"]
 visible = false
-offset_left = 382.0
-offset_top = 225.0
-offset_right = 573.0
-offset_bottom = 283.0
-text = "SELESAI BACA"
+offset_left = -156.0
+offset_top = 233.0
+offset_right = 218.0
+offset_bottom = 351.0
+pivot_offset = Vector2(187, 59)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s86ot")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_s86ot")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s86ot")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s86ot")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s86ot")
+
+[node name="Label" type="Label" parent="mail/end"]
+offset_left = 112.0
+offset_top = 32.0
+offset_right = 271.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_s86ot")
+theme_override_font_sizes/font_size = 50
+text = "MULAI"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

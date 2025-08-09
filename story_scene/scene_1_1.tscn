@@ -18,6 +18,7 @@ offset_bottom = 1079.0
 texture = ExtResource("2_l8bus")
 
 [node name="background_2" type="TextureRect" parent="backgrounds"]
+visible = false
 self_modulate = Color(0.881937, 0.881937, 0.881937, 1)
 offset_right = 1920.0
 offset_bottom = 1080.0
