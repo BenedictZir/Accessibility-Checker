@@ -1,6 +1,7 @@
 label adegan_1
 [style name="custom_style"]
 Tampilan gedung kaca menjulang tinggi, memantulkan langit Jakarta yang kelabu di pagi hari.
+[signal arg="move_camera"]
 player: (Wow. Tinggi banget. Belum pernah ke gedung setinggi ini sebelumnya.)
 player: (Apakah ini aroma profesionalisme? Aroma hand sanitizer dan kopi tubruk?)
 Orang-orang bersetelan jas berlalu cepat di sekitarmu, mata mereka terpaku pada tablet seolah sedang menjinakkan bom.

@@ -38,7 +38,11 @@ var selected_object = null
 var all_object := []
 var all_images := []
 var all_texts := []
-
+var buttons
+var total_score_before_mult
+const HOVER_SCALE := 1.1
+const NORMAL_SCALE := 1.0
+const LERP_SPEED := 25.0
 const COLORS = {
 	"merah" : Color("#d10f0b"),
 	"oranye" : Color("#ff750a"),
@@ -59,12 +63,16 @@ signal selesai_button_clicked
 
 signal done_working
 func _ready() -> void:
-	#set_document(preload("res://scene/documents/document_scene_2_2.tscn"), "easy")
-	
-	
-	pass
+	buttons = [$aruna_helper_screen/cancel_aruna, $aruna_helper_screen/panduan_tugas_button, $aruna_helper_screen/panduan_warna, 
+	$mulai_kerja/mulai_kerja, $result_screen/lanjut, $app/minigame_icons/text_features/structure_button, $app/minigame_icons/text_features/color_wheel_button,
+	$app/minigame_icons/docs_features/color_wheel_button, $app/minigame_icons/image_features/alt_text_button, $app/selesai, $app/pause_button]
 
 func _process(delta: float) -> void:
+	for button in buttons:
+		var target_scale = HOVER_SCALE if button.is_hovered() and not button.disabled and button.visible else NORMAL_SCALE
+		var current_scale = button.scale.x
+		var new_scale = lerp(current_scale, target_scale, delta * LERP_SPEED)
+		button.scale = Vector2(new_scale, new_scale)
 	if is_tutorial_1:
 		
 		$app/aruni_helper.hide()
@@ -128,7 +136,8 @@ func _process(delta: float) -> void:
 		pass
 
 	else:
-		timer_score = (ceil(timer.time_left / 60)) * 50
+		if not timer.is_stopped():
+			timer_score = (ceil(timer.time_left / 60)) * 50
 		var minutes = int(timer.time_left) / 60
 		var seconds = int(timer.time_left) % 60
 		var minutes_str = str(minutes).pad_zeros(1)
@@ -298,7 +307,6 @@ func examine():
 			accessibility_score += obj.examine()
 			if obj.examine() <= 0:
 				image_dont_have_alt_text += 1
-			
 		else:
 			accessibility_score += obj.examine_structure()
 			if obj.examine_structure() <= 0:
@@ -517,7 +525,6 @@ func _on_selesai_pressed() -> void:
 	selesai_button_clicked.emit()
 	check_constraint()
 		
-	animation_player.play("show_result_screen")
 	timer.stop()
 	var true_constraint_count = 0.0
 	for correct in constraint_correct:
@@ -525,27 +532,19 @@ func _on_selesai_pressed() -> void:
 			true_constraint_count += 1
 
 	var acc_score = (accessibility_score / (4 * all_object.size()) * 6 * 250) # max 1500
-	$result_screen/SkorAksesibel/acc_score_label.text = str(int(acc_score)).pad_zeros(4)
+
 	if constraint_list.size() > 0:
 		constraint_score = (true_constraint_count / constraint_list.size()) * 4 * 250
-	$result_screen/SkorMisi/misi_score_label.text = str(int(constraint_score)).pad_zeros(4)
-	$result_screen/Skortimer/timer_score_label.text = str(int(timer_score)).pad_zeros(4)
-	
 
-	var total_score_before_mult = acc_score + constraint_score + timer_score
+	total_score_before_mult = acc_score + constraint_score + timer_score
 
 	$result_screen/mult_box/Label2.text = str(difficulty_mult)
-	if is_tutorial_1 or is_tutorial_2 or is_tutorial_3:
-		$result_screen/SkorMisi.hide()
-		$result_screen/Skortimer.hide()
-		$result_screen/mult_box.hide()
-		$result_screen/bg_mult.hide()
-		total_score_before_mult -= timer_score + constraint_score
+
 		
 	Dialogic.VAR.poin_inklusif_harian = total_score_before_mult
 	total_score = total_score_before_mult * difficulty_mult
-	$result_screen/Total/total_score_label.text = str(int(total_score)).pad_zeros(4)
 	Dialogic.VAR.poin_inklusif += total_score
+	animation_player.play("show_result_screen")
 	app.process_mode = Node.PROCESS_MODE_DISABLED
 	
 func set_constraint(constraint_set):
@@ -699,6 +698,7 @@ func _on_panduan_tugas_button_pressed() -> void:
 		animation_player.play("show_panduan")
 
 func start():
+	SoundManager.stop_music()
 	SoundManager.play_minigame_music()
 	disable_all_button()
 	animation_player.play("init")
@@ -710,3 +710,43 @@ func _on_mulai_kerja_pressed() -> void:
 	enable_all_button()
 	app.process_mode = Node.PROCESS_MODE_INHERIT
 	
+func anim_acc_score():
+	var acc_score = (accessibility_score / (4 * all_object.size()) * 6 * 250)
+	var tween = create_tween()
+	$result_screen/OrangeBox/SkorBoxPurple.show()
+	#result_screen/SkorAksesibel/acc_score_label.text = str(int(acc_score)).pad_zeros(4)
+	tween.tween_property($result_screen/OrangeBox/acc_score_label, "text", str(int(acc_score)).pad_zeros(4), 1.0) 
+	await tween.finished
+	anim_misi_score()
+
+func anim_misi_score():
+	$result_screen/OrangeBox/SkorBoxPurple.hide()
+	$result_screen/OrangeBox2/SkorBoxPurple.show()
+	var tween = create_tween()
+	tween.tween_property($result_screen/OrangeBox2/misi_score_label, "text", str(int(constraint_score)).pad_zeros(4), 1.0) 
+	await tween.finished
+	anim_timer_score()
+	
+func anim_timer_score():
+	$result_screen/OrangeBox2/SkorBoxPurple.hide()
+	$result_screen/OrangeBox3/SkorTimerPurple.show()
+	var tween = create_tween()
+	tween.tween_property($result_screen/OrangeBox3/timer_score_label, "text", str(int(timer_score)).pad_zeros(4), 1.0) 
+	await tween.finished
+	anim_total_before_mult()
+	
+func anim_total_before_mult():
+	$result_screen/OrangeBox3/SkorTimerPurple.hide()
+	$result_screen/OrangeBox4/SkorTotalPurple.show()
+	var tween = create_tween()
+	tween.tween_property($result_screen/OrangeBox4/total_score_label, "text", str(int(total_score_before_mult)).pad_zeros(4), 1) 
+	await tween.finished
+	await get_tree().create_timer(1.0).timeout
+	animation_player.play("show_mult")
+
+func anim_total_after_mult():
+	$result_screen/OrangeBox4/SkorTotalPurple.show()
+	var tween = create_tween()
+	tween.tween_property($result_screen/OrangeBox4/total_score_label, "text", str(int(total_score)).pad_zeros(4), 1) 
+	await tween.finished
+	$result_screen/lanjut.show()

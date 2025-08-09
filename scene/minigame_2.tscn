@@ -65,9 +65,6 @@ script = ExtResource("1_ymxsy")
 [node name="Frame54" type="Sprite2D" parent="."]
 texture = ExtResource("2_uv5bk")
 
-[node name="Polygon2D" type="Polygon2D" parent="Frame54"]
-polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 491, -288)
-
 [node name="wheel" type="Sprite2D" parent="."]
 position = Vector2(275, 102)
 rotation = -0.693704
@@ -157,6 +154,7 @@ offset_left = 199.0
 offset_top = 26.0
 offset_right = 351.0
 offset_bottom = 178.0
+pivot_offset = Vector2(76, 76)
 focus_mode = 0
 mouse_filter = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_71roq")
@@ -174,6 +172,7 @@ offset_left = 199.0
 offset_top = 26.0
 offset_right = 351.0
 offset_bottom = 178.0
+pivot_offset = Vector2(76, 76)
 focus_mode = 0
 mouse_filter = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_71roq")
@@ -249,6 +248,7 @@ offset_left = -517.0
 offset_top = 280.0
 offset_right = -136.0
 offset_bottom = 432.0
+pivot_offset = Vector2(190, 76)
 focus_mode = 0
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -274,19 +274,24 @@ texture = ExtResource("13_cxyst")
 [node name="Polygon2D" type="Polygon2D" parent="accept"]
 position = Vector2(517, -280)
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-535, 415, -533, 448, -160, 442, -147, 400, -156, 399, -165, 430, -521, 437, -525, 415)
+polygon = PackedVector2Array(-536, 408, -533, 448, -160, 442, -146, 397, -155, 396, -165, 430, -521, 437, -526, 408)
 
 [node name="cancel_button" type="Button" parent="."]
 offset_left = 487.0
 offset_top = -382.0
 offset_right = 634.0
 offset_bottom = -203.0
+pivot_offset = Vector2(73, 89)
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8ektc")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_dmnm4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ro16u")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_u3kdj")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cxyst")
+
+[node name="Polygon2D" type="Polygon2D" parent="cancel_button"]
+position = Vector2(-487, 382)
+polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 490, -279, 490, -290)
 
 [connection signal="pressed" from="retry_button" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="stop_button" to="." method="_on_stop_button_pressed"]

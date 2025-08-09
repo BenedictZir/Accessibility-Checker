@@ -1,5 +1,5 @@
 [signal arg="mbak_intan_join"]
-[signal arg="mbak_intan_capek"]
+[signal arg="mbak_intan_capek_talk"]
 mbak_intan: “Selamat pagi dari dunia tab 47. Aku baru selesai benerin kontras warna website jam lima tadi.”
 [signal arg="mbak_intan_capek"]
 mbak_intan: “Kalau kamu lihat aku bengong, itu aku lagi buffering.”

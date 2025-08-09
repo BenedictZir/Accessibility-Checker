@@ -99,22 +99,27 @@ show_behind_parent = true
 position = Vector2(193, 76)
 texture = ExtResource("8_rjyxx")
 
-[node name="Polygon2D" type="Polygon2D" parent="submit_button"]
+[node name="Polygon2D2" type="Polygon2D" parent="submit_button"]
 position = Vector2(518, -272)
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-535, 415, -533, 448, -160, 442, -147, 400, -156, 399, -165, 430, -521, 437, -525, 415)
+polygon = PackedVector2Array(-535, 411, -533, 448, -160, 442, -146, 395, -153, 393, -165, 430, -521, 437, -525, 410)
 
 [node name="exit_button" type="Button" parent="."]
 offset_left = 488.0
 offset_top = -382.0
 offset_right = 635.0
 offset_bottom = -203.0
+pivot_offset = Vector2(73, 89)
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rjyxx")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_klblt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wegjo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_6ldyw")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2xryp")
+
+[node name="Polygon2D" type="Polygon2D" parent="exit_button"]
+position = Vector2(-487, 382)
+polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 490, -279, 490, -290)
 
 [connection signal="connecting" from="." to="." method="_on_connecting"]
 [connection signal="pressed" from="submit_button" to="." method="_on_submit_button_pressed"]

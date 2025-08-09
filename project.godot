@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="Inspektur Inklusif"
-run/main_scene="uid://byrbri3utieqw"
+run/main_scene="uid://8146oq3lnsyn"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/fullsize=false
+boot_splash/image="uid://ch7kor8nj5egs"
 config/icon="res://icon.svg"
 
 [autoload]

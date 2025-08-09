@@ -14,9 +14,9 @@ var skor_list = [0, 25000, 50000, 75000, 10000]
 var musim = ["kemarau", "hujan"]
 var musim_idx = 0
 var day := "SENIN"
-var easy_remaining = []
-var medium_remaining = []
-var hard_remaining = []
+var easy_doc_used = []
+var medium_doc_used = []
+var hard_doc_used = []
 
 var inclusive_point := 0
 var done_working_today := false
@@ -37,8 +37,11 @@ func next_day():
 func _process(delta: float) -> void:
 	Dialogic.VAR.title = title_list[idx_title]
 	Dialogic.VAR.jabatan = jabatan_list[idx_title]
-	if Dialogic.VAR.poin_inklusif >= skor_list[idx_title]:
+	if Dialogic.VAR.poin_inklusif >= skor_list[idx_title + 1]:
 		Dialogic.VAR.can_promote = true
+	else:
+		Dialogic.VAR.can_promote = false
+	
 	player_name = str(Dialogic.VAR.player_name)
 	if is_dragging:
 		Input.set_custom_mouse_cursor(grab_cursor, Input.CURSOR_ARROW, Vector2(50, 50))
@@ -50,6 +53,7 @@ func _process(delta: float) -> void:
 func is_mouse_over_button() -> bool:
 	var hovered = get_viewport().gui_get_hovered_control()
 	if hovered != null and hovered is Button:
-		if not hovered.is_disabled():
+		
+		if not hovered.is_disabled() and hovered.visible:
 			return true
 	return false

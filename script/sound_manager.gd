@@ -15,9 +15,12 @@ func stop_music():
 func _process(delta: float) -> void:
 	var hovered = get_viewport().gui_get_hovered_control()
 
-	if hovered != null and hovered is Button and not hovered.is_disabled():
-		if hovered != last_hovered_button:
-			$button_hover_sfx.play()
-			last_hovered_button = hovered
+	if hovered != null and hovered is Button:
+		if not hovered.is_disabled() and hovered.visible:
+			if hovered != last_hovered_button:
+				$button_hover_sfx.play()
+				last_hovered_button = hovered
 	else:
 		last_hovered_button = null
+	if hovered != null and hovered is Button and Input.is_action_just_pressed("click"):
+		$button_click_sfx.play()

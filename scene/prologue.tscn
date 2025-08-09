@@ -1,13 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://byrbri3utieqw"]
+[gd_scene load_steps=20 format=3 uid="uid://byrbri3utieqw"]
 
 [ext_resource type="Script" uid="uid://b3sudv0emiiq1" path="res://script/prologue.gd" id="1_e7qxw"]
-[ext_resource type="Texture2D" uid="uid://cyy5asns1ke6l" path="res://assets/tempassets/Frame 0.png" id="2_3l3ne"]
+[ext_resource type="Texture2D" uid="uid://dius85o5je6xd" path="res://assets/background/jakarta.png" id="2_3hlow"]
 [ext_resource type="FontFile" uid="uid://vrrmdx83skor" path="res://addons/dialogic/Example Assets/Fonts/Roboto-Regular.ttf" id="3_3d53y"]
-[ext_resource type="Texture2D" uid="uid://12cogcc603cr" path="res://assets/tempassets/Frame 1.png" id="3_j71ak"]
-[ext_resource type="Texture2D" uid="uid://sg0gjvp4xhyq" path="res://assets/tempassets/Frame 2.png" id="4_0cpi0"]
+[ext_resource type="Texture2D" uid="uid://b7ceh8srflwbk" path="res://assets/background/kamar_pagi.png" id="3_3hlow"]
+[ext_resource type="Texture2D" uid="uid://bcaqqlddm0v7l" path="res://assets/prologue/Frame 125.png" id="4_i7q1p"]
 [ext_resource type="Texture2D" uid="uid://d27x5i4d345vh" path="res://assets/tempassets/Primary.png" id="5_wf4c6"]
 [ext_resource type="Texture2D" uid="uid://b2fp4olk2kxnn" path="res://assets/mail_screen_2.png" id="7_3hlow"]
+[ext_resource type="Texture2D" uid="uid://dmkd4dkqfwyla" path="res://assets/result_screen/Lanjut.png" id="8_1b644"]
 [ext_resource type="Texture2D" uid="uid://ywoq6o4au51" path="res://assets/mail_screen_3.png" id="8_i7q1p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5et1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtakk"]
+texture = ExtResource("8_1b644")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s86ot"]
+texture = ExtResource("8_1b644")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qjv0"]
+texture = ExtResource("8_1b644")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nvcbn"]
+texture = ExtResource("8_1b644")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3d53y"]
 
@@ -103,19 +118,25 @@ script = ExtResource("1_e7qxw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="bg_1" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
-texture = ExtResource("2_3l3ne")
+[node name="bg_1" type="TextureRect" parent="."]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("2_3hlow")
+expand_mode = 1
 
-[node name="bg_2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, 1)
-texture = ExtResource("3_j71ak")
+[node name="bg_2" type="TextureRect" parent="."]
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("3_3hlow")
+expand_mode = 1
 
 [node name="bg_3" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0, 1)
-texture = ExtResource("4_0cpi0")
+texture = ExtResource("4_i7q1p")
 
 [node name="mail" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -135,10 +156,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -365.0
+offset_left = -940.0
 offset_top = -254.0
-offset_right = -174.0
-offset_bottom = -196.0
+offset_right = -559.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o5et1")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_wtakk")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s86ot")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6qjv0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nvcbn")
 text = "LANJUT"
 
 [node name="ColorRect" type="ColorRect" parent="mail"]
@@ -174,14 +203,6 @@ theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3l3ne")
 text = "________________________"
 
-[node name="back_button" type="Button" parent="mail"]
-visible = false
-offset_left = -573.0
-offset_top = 226.0
-offset_right = -382.0
-offset_bottom = 285.0
-text = "KEMBALI"
-
 [node name="end" type="Button" parent="mail"]
 visible = false
 offset_left = 382.0
@@ -197,5 +218,4 @@ libraries = {
 
 [connection signal="pressed" from="mail/acc_button" to="." method="_on_acc_button_pressed"]
 [connection signal="text_changed" from="mail/TextEdit" to="." method="_on_text_edit_text_changed"]
-[connection signal="pressed" from="mail/back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="mail/end" to="." method="_on_end_pressed"]

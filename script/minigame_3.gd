@@ -7,6 +7,10 @@ var subjudul_count = 0
 var teks_count = 0
 var text_and_struct : Dictionary = {}
 var all_connected := false
+var buttons
+const HOVER_SCALE := 1.1
+const NORMAL_SCALE := 1.0
+const LERP_SPEED := 25.0
 @export var struct_text_scene : PackedScene
 @export var struct_answer_scene : PackedScene
 @onready var text_container: VBoxContainer = $text_container
@@ -16,6 +20,7 @@ var all_connected := false
 signal done
 signal canceled
 signal connecting(text, answer)
+
 func init(texts):
 	reset()
 	for text in texts:
@@ -69,8 +74,13 @@ func create_answers():
 func _ready() -> void:
 	text_container.position.y = -(text_container.size.y / 2)
 	answer_container.position.y = -(answer_container.size.y / 2)
-	
+	buttons = [$submit_button, $exit_button]
 func _process(delta: float) -> void:
+	for button in buttons:
+		var target_scale = HOVER_SCALE if button.is_hovered() and not button.disabled and button.visible else NORMAL_SCALE
+		var current_scale = button.scale.x
+		var new_scale = lerp(current_scale, target_scale, delta * LERP_SPEED)
+		button.scale = Vector2(new_scale, new_scale)
 	check_all_connected()
 	if all_connected:
 		submit_button.show()

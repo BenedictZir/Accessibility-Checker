@@ -17,7 +17,7 @@ extends Node2D
 @onready var desc_label: Label = $desc/desc_label
 @onready var title_progress: TextureProgressBar = $title_progress
 @onready var poin_inklusif: Label = $title_progress/Sprite2D/poin_inklusif
-
+var done_init = false
 const HOVER_SCALE := 1.2
 const NORMAL_SCALE := 1.0
 const LERP_SPEED := 25.0
@@ -27,6 +27,7 @@ const ENABLED_COLOR := Color(1, 1, 1)
 var buttons: Array[Button] = []
 
 func _ready() -> void:
+	desc_label.visible_ratio = 0 
 	SoundManager.play_map_music()
 	title_label.text = Dialogic.VAR.title
 	if GlobalVar.musim[GlobalVar.musim_idx] == "kemarau":
@@ -36,17 +37,17 @@ func _ready() -> void:
 		icon_panas.hide()
 		icon_hujan.show()
 		
+	title_progress.value = 0  
 	if GlobalVar.idx_title < 4:
 		title_progress.max_value = GlobalVar.skor_list[GlobalVar.idx_title + 1]
-		poin_inklusif_label.text = str(int(Dialogic.VAR.poin_inklusif)) + " / " + str(GlobalVar.skor_list[GlobalVar.idx_title + 1])
+		poin_inklusif_label.text = str(int(0)) + " / " + str(GlobalVar.skor_list[GlobalVar.idx_title + 1])
 	else:
 		title_progress.max_value = GlobalVar.skor_list[GlobalVar.idx_title]
-		poin_inklusif_label.text = str(Dialogic.VAR.poin_inklusif) + " / " + str(GlobalVar.skor_list[GlobalVar.idx_title])
+		poin_inklusif_label.text = str(0) + " / " + str(GlobalVar.skor_list[GlobalVar.idx_title])
 	if GlobalVar.done_working_today:
 		desc_label.text = "Saatnya pulang dan beristirahat"
 	else:
 		desc_label.text = "Hari ini mau jalan-jalan ke mana ya?"
-	title_progress.value = Dialogic.VAR.poin_inklusif
 		
 	var is_weekend := (GlobalVar.day == "SABTU" or GlobalVar.day == "MINGGU")
 	kantor_button.disabled = is_weekend
@@ -67,9 +68,10 @@ func _process(delta: float) -> void:
 	date_label.text = str(GlobalVar.date)
 	name_label.text = str(GlobalVar.player_name)
 	day_label.text = GlobalVar.day
-	desc_label.visible_ratio += 1.8 * delta
+	if done_init:
+		desc_label.visible_ratio += 1.8 * delta
 	for button in buttons:
-		var target_scale = HOVER_SCALE if button.is_hovered() and not button.disabled else NORMAL_SCALE
+		var target_scale = HOVER_SCALE if button.is_hovered() and not button.disabled and button.visible else NORMAL_SCALE
 		var current_scale = button.scale.x
 		var new_scale = lerp(current_scale, target_scale, delta * LERP_SPEED)
 		button.scale = Vector2(new_scale, new_scale)
@@ -112,3 +114,16 @@ func _on_kos_button_pressed() -> void:
 func _on_supermarket_button_pressed() -> void:
 	desc_label.text = "Aku masih belum bisa ke sini...."
 	desc_label.visible_ratio = 0
+
+
+func init_anim_done():
+	done_init = true
+	var tween = create_tween()
+	tween.tween_property(title_progress, "value", Dialogic.VAR.poin_inklusif, 1.0) 
+	
+	title_progress.value_changed.connect(func(new_value):
+		if GlobalVar.idx_title < 4:
+			poin_inklusif_label.text = str(int(new_value)) + " / " + str(GlobalVar.skor_list[GlobalVar.idx_title + 1])
+		else:
+			poin_inklusif_label.text = str(int(new_value)) + " / " + str(GlobalVar.skor_list[GlobalVar.idx_title])
+	)

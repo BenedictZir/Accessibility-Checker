@@ -1,18 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnm0y2g0ns05m"]
+[gd_scene load_steps=6 format=3 uid="uid://bnm0y2g0ns05m"]
 
 [ext_resource type="Script" uid="uid://dkw32n17yt6w4" path="res://script/scene_1_1.gd" id="1_t8xpy"]
 [ext_resource type="PackedScene" uid="uid://c8lv21odaka5g" path="res://scene/pak_anton.tscn" id="2_32ww4"]
+[ext_resource type="Texture2D" uid="uid://dg88uyfvw1erm" path="res://assets/background/kantor_tinggi.png" id="2_l8bus"]
 [ext_resource type="PackedScene" uid="uid://fkdu00lqfjkp" path="res://scene/aruna.tscn" id="3_2hy5q"]
+[ext_resource type="Texture2D" uid="uid://b3yuhf1xxorwx" path="res://assets/background/kantor_depan.png" id="3_dn53d"]
 
 [node name="scene_1_1" type="Node2D"]
 script = ExtResource("1_t8xpy")
 
 [node name="backgrounds" type="Node2D" parent="."]
 
-[node name="backrgound_1" type="Sprite2D" parent="backgrounds"]
+[node name="backrgound_1" type="TextureRect" parent="backgrounds"]
+offset_top = -1921.0
+offset_right = 2000.0
+offset_bottom = 1079.0
+texture = ExtResource("2_l8bus")
 
-[node name="background_2" type="Sprite2D" parent="backgrounds"]
-visible = false
+[node name="background_2" type="TextureRect" parent="backgrounds"]
+self_modulate = Color(0.881937, 0.881937, 0.881937, 1)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_dn53d")
+expand_mode = 1
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(576, 0)
@@ -23,3 +33,6 @@ position = Vector2(576, 0)
 position = Vector2(1459, 0)
 
 [node name="aruna" parent="Node2D2" instance=ExtResource("3_2hy5q")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)

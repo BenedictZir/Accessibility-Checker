@@ -4,7 +4,18 @@ const CHARACTER_LIST = ["mbak_intan", "pak_anton", "mbak_rani"]
 var pak_anton_scene = preload("res://scene/pak_anton.tscn")
 var mbak_rani_scene = preload("res://scene/mbak_rani.tscn")
 var mbak_intan_scene = preload("res://scene/mbak_intan.tscn")
+const DOCUMENT_EASY_1 = preload("res://scene/documents/document_easy_1.tscn")
+const DOCUMENT_EASY_2 = preload("res://scene/documents/document_easy_2.tscn")
+const DOCUMENT_EASY_3 = preload("res://scene/documents/document_easy_3.tscn")
+const DOCUMENT_HARD_1 = preload("res://scene/documents/document_hard_1.tscn")
+const DOCUMENT_HARD_2 = preload("res://scene/documents/document_hard_2.tscn")
+const DOCUMENT_HARD_3 = preload("res://scene/documents/document_hard_3.tscn")
+const DOCUMENT_MEDIUM_1 = preload("res://scene/documents/document_medium_1.tscn")
+const DOCUMENT_MEDIUM_2 = preload("res://scene/documents/document_medium_2.tscn")
+const DOCUMENT_MEDIUM_3 = preload("res://scene/documents/document_medium_3.tscn")
 var document
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 @onready var level_template: Node2D = $level_template
 
 var CONSTRAINT_SET = [
@@ -32,7 +43,16 @@ var character_name = ""
 var character_sprite: Node2D
 var constraint_list
 func _ready() -> void:
-	load_documents()
+	SoundManager.play_kantor_music()
+	easy_document_list = [DOCUMENT_EASY_1, DOCUMENT_EASY_2,DOCUMENT_EASY_3]
+	medium_document_list = [DOCUMENT_MEDIUM_1, DOCUMENT_MEDIUM_2, DOCUMENT_MEDIUM_3]
+	hard_document_list = [DOCUMENT_HARD_1, DOCUMENT_HARD_2, DOCUMENT_HARD_3]
+	if GlobalVar.easy_doc_used.size() == easy_document_list.size():
+		GlobalVar.easy_doc_used.clear()
+	if GlobalVar.medium_doc_used.size() == medium_document_list.size():
+		GlobalVar.medium_doc_used.clear()
+	if GlobalVar.hard_doc_used.size() == hard_document_list.size():
+		GlobalVar.hard_doc_used.clear()
 	constraint_list = CONSTRAINT_SET.pick_random()
 	character_name = CHARACTER_LIST.pick_random()
 	match character_name:
@@ -85,10 +105,9 @@ func _on_dialogic_signal(arg):
 			level_template.start()
 		"show_leaderboard":
 			if Dialogic.VAR.can_promote:
-				$leaderboard_win.show()
-				GlobalVar.idx_title += 1
+				show_win_leaderboard()
 			else:
-				$leaderboard_lose.show()
+				show_lose_leaderboard()
 		"end_day":
 			SceneTransition.change_scene("res://scene/map.tscn")
 
@@ -107,44 +126,55 @@ func _on_level_template_done_working() -> void:
 
 
 
-func load_documents():
-	var dir = DirAccess.open("res://scene/documents/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".tscn"):
-				var path = "res://scene/documents/" + file_name
-				if file_name.begins_with("document_easy"):
-					easy_document_list.append(load(path))
-				elif file_name.begins_with("document_medium"):
-					medium_document_list.append(load(path))
-				elif file_name.begins_with("document_hard"):
-					hard_document_list.append(load(path))
-			file_name = dir.get_next()
-		dir.list_dir_end()
-	GlobalVar.easy_remaining = easy_document_list.duplicate()
-	GlobalVar.medium_remaining = medium_document_list.duplicate()
-	GlobalVar.hard_remaining = hard_document_list.duplicate()
 	
 func get_random_document(difficulty: String):
-	var remaining_list
-	var full_list
-
+	var doc
+	for easy in GlobalVar.easy_doc_used:
+		easy_document_list.erase(easy)
+	for medium in GlobalVar.medium_doc_used:
+		medium_document_list.erase(medium)
+	for hard in GlobalVar.hard_doc_used:
+		hard_document_list.erase(hard)
 	match difficulty:
 		"easy":
-			remaining_list = GlobalVar.easy_remaining
-			full_list = easy_document_list
+			doc = easy_document_list.pick_random()
+			GlobalVar.easy_doc_used.append(doc)
 		"medium":
-			remaining_list = GlobalVar.medium_remaining
-			full_list = medium_document_list
+			doc = medium_document_list.pick_random()
+			GlobalVar.medium_doc_used.append(doc)
 		"hard":
-			remaining_list = GlobalVar.hard_remaining
-			full_list = hard_document_list
-
-	if remaining_list.size() == 0:
-		remaining_list.append_array(full_list)
-
-	var doc = remaining_list.pick_random()
-	remaining_list.erase(doc)
+			doc = hard_document_list.pick_random()
+			GlobalVar.hard_doc_used.append(doc)
 	return doc
+
+func show_lose_leaderboard():
+	$leaderboard_lose.show()
+	
+	$leaderboard_lose/LeaderboardLabel2/label_name2.text = str(Dialogic.VAR.player_name)
+	
+	$leaderboard_lose/LeaderboardLabel/Label_point.text = str(int(GlobalVar.skor_list[GlobalVar.idx_title + 1] + 2500))
+	$leaderboard_lose/LeaderboardLabel2/Label_point2.text = str(int(Dialogic.VAR.poin_inklusif))
+	$leaderboard_lose/LeaderboardLabel3/Label_point3.text = str(int(Dialogic.VAR.poin_inklusif - 150))
+	$leaderboard_lose/LeaderboardLabel4/Label_point4.text = str(int(Dialogic.VAR.poin_inklusif - 400))
+	
+	animation_player.play("show_lose_leaderboard")
+	await animation_player.animation_finished
+	Dialogic.start("naik_pangkat", "after_leaderboard")
+	
+func show_win_leaderboard():
+	$leaderboard_win.show()
+	
+	$leaderboard_win/LeaderboardLabel/label_name.text = str(Dialogic.VAR.player_name)
+	$leaderboard_win/LeaderboardLabel/Label_point.text = str(int(Dialogic.VAR.poin_inklusif))
+	$leaderboard_win/LeaderboardLabel2/Label_point2.text = str(int(Dialogic.VAR.poin_inklusif - 50))
+	$leaderboard_win/LeaderboardLabel3/Label_point3.text = str(int(Dialogic.VAR.poin_inklusif - 150))
+	$leaderboard_win/LeaderboardLabel4/Label_point4.text = str(int(Dialogic.VAR.poin_inklusif - 400))
+	
+	animation_player.play("show_win_leaderboard")
+	await animation_player.animation_finished
+	Dialogic.start("naik_pangkat", "after_leaderboard")
+	GlobalVar.idx_title += 1
+	Dialogic.VAR.can_promote = false
+	
+	
+	

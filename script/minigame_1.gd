@@ -7,21 +7,31 @@ extends Node2D
 @onready var alt_text_3: Area2D = $alt_text3
 @onready var answer_box: Area2D = $answer_box
 @onready var submit: Button = $submit
+var buttons
+const HOVER_SCALE := 1.1
+const NORMAL_SCALE := 1.0
+const LERP_SPEED := 25.0
 
 signal done
 signal canceled
 var alt_texts = []
+func _ready() -> void:
+	buttons = [$cancel, $submit]
+	alt_texts.append(alt_text)
+	alt_texts.append(alt_text_1)
+	alt_texts.append(alt_text_2)
+	alt_texts.append(alt_text_3)
 func _process(delta: float) -> void:
+	for button in buttons:
+		var target_scale = HOVER_SCALE if button.is_hovered() and not button.disabled and button.visible else NORMAL_SCALE
+		var current_scale = button.scale.x
+		var new_scale = lerp(current_scale, target_scale, delta * LERP_SPEED)
+		button.scale = Vector2(new_scale, new_scale)
 	if answer_box.occupied_by:
 		submit.show()
 	else:
 		submit.hide()
 	
-func _ready() -> void:
-	alt_texts.append(alt_text)
-	alt_texts.append(alt_text_1)
-	alt_texts.append(alt_text_2)
-	alt_texts.append(alt_text_3)
 	
 func init_alt_text(texts, texture, used_text):
 	image.texture = texture

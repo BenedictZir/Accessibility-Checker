@@ -30,7 +30,20 @@ const COLORS = {
 	
 }
 var color = null
+var buttons
+const HOVER_SCALE := 1.1
+const NORMAL_SCALE := 1.0
+const LERP_SPEED := 25.0
+
+func _ready() -> void:
+	buttons = [$retry_button, $stop_button, $accept, $cancel_button]
+
 func _process(delta: float) -> void:
+	for button in buttons:
+		var target_scale = HOVER_SCALE if button.is_hovered() and not button.disabled and button.visible else NORMAL_SCALE
+		var current_scale = button.scale.x
+		var new_scale = lerp(current_scale, target_scale, delta * LERP_SPEED)
+		button.scale = Vector2(new_scale, new_scale)
 	if color != null:
 		$retry_button.show()
 		$accept.show()

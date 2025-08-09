@@ -1,7 +1,245 @@
-[gd_scene load_steps=3 format=3 uid="uid://igsxm17lpmpk"]
+[gd_scene load_steps=11 format=3 uid="uid://igsxm17lpmpk"]
 
 [ext_resource type="Script" uid="uid://cqh6e65tcai6c" path="res://script/kantor_scene.gd" id="1_6c7bi"]
 [ext_resource type="PackedScene" uid="uid://bao1ug3shuin" path="res://scene/level_template.tscn" id="2_j7eit"]
+[ext_resource type="Texture2D" uid="uid://vnmjlcsw1qre" path="res://assets/leaderboard/leaderboard.png" id="3_23e1i"]
+[ext_resource type="Texture2D" uid="uid://cfodbbu7q0ecg" path="res://assets/leaderboard/leaderboard label.png" id="4_orovf"]
+[ext_resource type="FontFile" uid="uid://bpju6a6dwhsm2" path="res://assets/fonts/Dosis-ExtraBold.ttf" id="5_vtk1n"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="6_tqmxi"]
+
+[sub_resource type="Animation" id="Animation_orovf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("leaderboard_lose/LeaderboardLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.0326433, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("leaderboard_lose/LeaderboardLabel2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("leaderboard_lose/LeaderboardLabel4:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("leaderboard_lose/LeaderboardLabel4:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_23e1i"]
+resource_name = "show_lose_leaderboard"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("leaderboard_lose/LeaderboardLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.233333, 0.433333),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector2(0.0326433, 1.69421), Vector2(1.20382, 0.61157), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("leaderboard_lose/LeaderboardLabel2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.433333, 0.666667, 0.866667),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector2(0.0326433, 1.69421), Vector2(1.20382, 0.61157), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("leaderboard_lose/LeaderboardLabel2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.432915),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("leaderboard_lose/LeaderboardLabel3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 0.872104),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("leaderboard_lose/LeaderboardLabel3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.866667, 1.1, 1.3),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector2(0.0326433, 1.69421), Vector2(1.20382, 0.61157), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("leaderboard_lose/LeaderboardLabel4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("leaderboard_lose/LeaderboardLabel4:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.3, 1.53333, 1.73333),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector2(0.0326433, 1.69421), Vector2(1.20382, 0.61157), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vtk1n"]
+resource_name = "show_win_leaderboard"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("leaderboard_win/LeaderboardLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(-2, 2, 2),
+"update": 0,
+"values": [Vector2(0.0326433, 1.69421), Vector2(1.20382, 0.61157), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("leaderboard_win/LeaderboardLabel2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.633333, 0.833333),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector2(0.0326433, 1.69421), Vector2(1.20382, 0.61157), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("leaderboard_win/LeaderboardLabel2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.399581),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("leaderboard_win/LeaderboardLabel3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.83877),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("leaderboard_win/LeaderboardLabel3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.833333, 1.06667, 1.26667),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector2(0.0326433, 1.69421), Vector2(1.20382, 0.61157), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("leaderboard_win/LeaderboardLabel4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("leaderboard_win/LeaderboardLabel4:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.26123, 1.49456, 1.69456),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector2(0.0326433, 1.69421), Vector2(1.20382, 0.61157), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtk1n"]
+_data = {
+&"RESET": SubResource("Animation_orovf"),
+&"show_lose_leaderboard": SubResource("Animation_23e1i"),
+&"show_win_leaderboard": SubResource("Animation_vtk1n")
+}
 
 [node name="kantor_scene" type="Node2D"]
 script = ExtResource("1_6c7bi")
@@ -21,7 +259,301 @@ position = Vector2(384, 0)
 position = Vector2(1536, 0)
 
 [node name="leaderboard_lose" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("3_23e1i")
+
+[node name="LeaderboardLabel" type="Sprite2D" parent="leaderboard_lose"]
+position = Vector2(-641, -260)
+scale = Vector2(0.0326433, 1)
+texture = ExtResource("4_orovf")
+offset = Vector2(628, 0)
+
+[node name="Label" type="Label" parent="leaderboard_lose/LeaderboardLabel"]
+offset_left = 120.0
+offset_top = -93.0
+offset_right = 160.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="label_name" type="Label" parent="leaderboard_lose/LeaderboardLabel"]
+offset_left = 306.0
+offset_top = -82.0
+offset_right = 759.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tqmxi")
+theme_override_font_sizes/font_size = 100
+text = "Kak Lintang"
+
+[node name="Label_point" type="Label" parent="leaderboard_lose/LeaderboardLabel"]
+offset_left = 835.0
+offset_top = -61.0
+offset_right = 1056.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 70
+text = "100000"
+
+[node name="LeaderboardLabel2" type="Sprite2D" parent="leaderboard_lose"]
+position = Vector2(-641, 0)
+texture = ExtResource("4_orovf")
+offset = Vector2(628, 0)
+
+[node name="Label2" type="Label" parent="leaderboard_lose/LeaderboardLabel2"]
+offset_left = 119.0
+offset_top = -93.0
+offset_right = 171.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 100
+text = "2"
+
+[node name="label_name2" type="Label" parent="leaderboard_lose/LeaderboardLabel2"]
+offset_left = 316.0
+offset_top = -83.0
+offset_right = 769.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tqmxi")
+theme_override_font_sizes/font_size = 100
+text = "name"
+text_overrun_behavior = 1
+
+[node name="Label_point2" type="Label" parent="leaderboard_lose/LeaderboardLabel2"]
+offset_left = 835.0
+offset_top = -62.0
+offset_right = 1056.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 70
+text = "100000"
+
+[node name="LeaderboardLabel3" type="Sprite2D" parent="leaderboard_lose"]
+position = Vector2(-641, 260)
+texture = ExtResource("4_orovf")
+offset = Vector2(628, 0)
+
+[node name="Label3" type="Label" parent="leaderboard_lose/LeaderboardLabel3"]
+offset_left = 120.0
+offset_top = -87.0
+offset_right = 173.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 100
+text = "3"
+
+[node name="label_name3" type="Label" parent="leaderboard_lose/LeaderboardLabel3"]
+offset_left = 297.0
+offset_top = -81.0
+offset_right = 750.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tqmxi")
+theme_override_font_sizes/font_size = 100
+text = "Mbak Putri"
+
+[node name="Label_point3" type="Label" parent="leaderboard_lose/LeaderboardLabel3"]
+offset_left = 835.0
+offset_top = -57.0
+offset_right = 1056.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 70
+text = "100000"
+
+[node name="LeaderboardLabel4" type="Sprite2D" parent="leaderboard_lose"]
+position = Vector2(-641, 520)
+texture = ExtResource("4_orovf")
+offset = Vector2(628, 0)
+
+[node name="Label4" type="Label" parent="leaderboard_lose/LeaderboardLabel4"]
+offset_left = 120.0
+offset_top = -97.0
+offset_right = 173.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 100
+text = "4"
+
+[node name="label_name4" type="Label" parent="leaderboard_lose/LeaderboardLabel4"]
+offset_left = 299.0
+offset_top = -81.0
+offset_right = 752.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tqmxi")
+theme_override_font_sizes/font_size = 100
+text = "Mbak Sari"
+
+[node name="Label_point4" type="Label" parent="leaderboard_lose/LeaderboardLabel4"]
+offset_left = 837.0
+offset_top = -58.0
+offset_right = 1058.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 70
+text = "100000"
 
 [node name="leaderboard_win" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("3_23e1i")
+
+[node name="LeaderboardLabel" type="Sprite2D" parent="leaderboard_win"]
+position = Vector2(-641, -260)
+texture = ExtResource("4_orovf")
+offset = Vector2(628, 0)
+
+[node name="Label" type="Label" parent="leaderboard_win/LeaderboardLabel"]
+offset_left = 120.0
+offset_top = -93.0
+offset_right = 160.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="label_name" type="Label" parent="leaderboard_win/LeaderboardLabel"]
+offset_left = 306.0
+offset_top = -82.0
+offset_right = 759.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tqmxi")
+theme_override_font_sizes/font_size = 100
+text = "name"
+
+[node name="Label_point" type="Label" parent="leaderboard_win/LeaderboardLabel"]
+offset_left = 835.0
+offset_top = -61.0
+offset_right = 1056.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 70
+text = "100000"
+
+[node name="LeaderboardLabel2" type="Sprite2D" parent="leaderboard_win"]
+position = Vector2(-641, 0)
+texture = ExtResource("4_orovf")
+offset = Vector2(628, 0)
+
+[node name="Label2" type="Label" parent="leaderboard_win/LeaderboardLabel2"]
+offset_left = 119.0
+offset_top = -93.0
+offset_right = 171.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 100
+text = "2"
+
+[node name="label_name2" type="Label" parent="leaderboard_win/LeaderboardLabel2"]
+offset_left = 316.0
+offset_top = -83.0
+offset_right = 769.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tqmxi")
+theme_override_font_sizes/font_size = 100
+text = "Kak Lintang"
+text_overrun_behavior = 1
+
+[node name="Label_point2" type="Label" parent="leaderboard_win/LeaderboardLabel2"]
+offset_left = 835.0
+offset_top = -62.0
+offset_right = 1056.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 70
+text = "100000"
+
+[node name="LeaderboardLabel3" type="Sprite2D" parent="leaderboard_win"]
+position = Vector2(-641, 260)
+texture = ExtResource("4_orovf")
+offset = Vector2(628, 0)
+
+[node name="Label3" type="Label" parent="leaderboard_win/LeaderboardLabel3"]
+offset_left = 120.0
+offset_top = -87.0
+offset_right = 173.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 100
+text = "3"
+
+[node name="label_name3" type="Label" parent="leaderboard_win/LeaderboardLabel3"]
+offset_left = 297.0
+offset_top = -81.0
+offset_right = 750.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tqmxi")
+theme_override_font_sizes/font_size = 100
+text = "Mbak Putri"
+
+[node name="Label_point3" type="Label" parent="leaderboard_win/LeaderboardLabel3"]
+offset_left = 835.0
+offset_top = -57.0
+offset_right = 1056.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 70
+text = "100000"
+
+[node name="LeaderboardLabel4" type="Sprite2D" parent="leaderboard_win"]
+position = Vector2(-641, 520)
+texture = ExtResource("4_orovf")
+offset = Vector2(628, 0)
+
+[node name="Label4" type="Label" parent="leaderboard_win/LeaderboardLabel4"]
+offset_left = 120.0
+offset_top = -97.0
+offset_right = 173.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 100
+text = "4"
+
+[node name="label_name4" type="Label" parent="leaderboard_win/LeaderboardLabel4"]
+offset_left = 299.0
+offset_top = -81.0
+offset_right = 752.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_tqmxi")
+theme_override_font_sizes/font_size = 100
+text = "Mbak Sari"
+
+[node name="Label_point4" type="Label" parent="leaderboard_win/LeaderboardLabel4"]
+offset_left = 837.0
+offset_top = -58.0
+offset_right = 1058.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_vtk1n")
+theme_override_font_sizes/font_size = 70
+text = "100000"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vtk1n")
+}
 
 [connection signal="done_working" from="level_template" to="." method="_on_level_template_done_working"]

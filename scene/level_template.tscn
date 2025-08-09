@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=121 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="Texture2D" uid="uid://bonr6w8rl5b0y" path="res://assets/pause_button_bg.png" id="4_7yd1f"]
@@ -47,7 +47,10 @@
 [ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="34_6mc5q"]
 [ext_resource type="Texture2D" uid="uid://bbaf6ks3l145x" path="res://assets/result_screen/skor_misi.png" id="35_rx2j5"]
 [ext_resource type="Texture2D" uid="uid://baaj7h11g6eob" path="res://assets/result_screen/score_timer.png" id="36_qpo2v"]
-[ext_resource type="Texture2D" uid="uid://cuspn2nbt38p5" path="res://assets/result_screen/total_score.png" id="37_adr1w"]
+[ext_resource type="Texture2D" uid="uid://b2b8tk5qs4rs2" path="res://assets/result_screen/total_skor.png" id="39_nw5pu"]
+[ext_resource type="Texture2D" uid="uid://b4m7arwt084n1" path="res://assets/result_screen/skor_box_purple.png" id="41_022r1"]
+[ext_resource type="Texture2D" uid="uid://bdvr2rhsb8dh3" path="res://assets/result_screen/skor_total_purple.png" id="41_swwa5"]
+[ext_resource type="Texture2D" uid="uid://ks2lgiaxx7ep" path="res://assets/result_screen/skor_timer_purple.png" id="42_ne6ew"]
 [ext_resource type="Texture2D" uid="uid://c0tbll8dpq2bj" path="res://assets/aruna_helper_screen/panduan_tugas_screen.png" id="49_xufl2"]
 [ext_resource type="Texture2D" uid="uid://cxo1aepfnm5an" path="res://assets/mulai_kerja_screen/Rectangle 10249.png" id="50_c1sqk"]
 [ext_resource type="Texture2D" uid="uid://cqteltv1f7qcx" path="res://assets/mulai_kerja_screen/Rectangle 10250.png" id="51_jobix"]
@@ -279,26 +282,158 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("aruna_helper_screen/tabel_warna:modulate")
+tracks/18/path = NodePath("mulai_kerja:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(960, -531)]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("mulai_kerja:position")
+tracks/19/path = NodePath("aruna_helper_screen/tabel_warna:position")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(960, -531)]
+"values": [Vector2(-338, 130)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("aruna_helper_screen/panduan_tugas:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-400, -971)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("result_screen/SkorAksesibel:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.154631, 1.68041)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("result_screen/OrangeBox:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("result_screen/SkorAksesibel:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("result_screen/OrangeBox:scale")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("result_screen/SkorMisi:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("result_screen/plus:visible")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("result_screen/bg_plus:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("result_screen/bg_plus:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.28319]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("result_screen/bg_plus:scale")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("result_screen/mult_box:scale")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_jobix"]
@@ -616,10 +751,34 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("aruna_helper_screen/tabel_warna:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-338, 130), Vector2(-338, -971)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("aruna_helper_screen/panduan_tugas:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-400, -971), Vector2(-400, 134)]
+}
 
 [sub_resource type="Animation" id="Animation_io6bp"]
 resource_name = "show_result_screen"
-length = 0.4
+length = 2.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -628,7 +787,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(-2, -2),
 "update": 0,
 "values": [Vector2(0.1, 0.1), Vector2(1, 1)]
 }
@@ -640,7 +799,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(-2, -2),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
@@ -652,7 +811,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(-2, -2),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.67451, 0.67451, 0.67451, 1)]
 }
@@ -672,6 +831,368 @@ tracks/3/keys = {
 "args": [],
 "method": &"disable_all_button"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("result_screen/SkorAksesibel:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.401068, 0.5, 0.600908),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("result_screen/OrangeBox:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.602296, 0.701228, 0.8),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("result_screen/OrangeBox:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.600908),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("result_screen/mult_box:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("result_screen/bg_mult:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-2),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("result_screen/SkorAksesibel:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_acc_score"
+}]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("result_screen/SkorMisi:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("result_screen/SkorMisi:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.8, 0.898932, 0.997704),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("result_screen/OrangeBox2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("result_screen/OrangeBox2:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 1, 1.09893, 1.1977),
+"transitions": PackedFloat32Array(1, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("result_screen/Skortimer:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("result_screen/Skortimer:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.29893, 1.3977),
+"transitions": PackedFloat32Array(1, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("result_screen/OrangeBox3:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("result_screen/OrangeBox3:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.49893, 1.5977),
+"transitions": PackedFloat32Array(1, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("result_screen/bg_line:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("result_screen/bg_line:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.69893, 1.7977),
+"transitions": PackedFloat32Array(1, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("result_screen/Line2:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("result_screen/Line2:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.69893, 1.7977),
+"transitions": PackedFloat32Array(1, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("result_screen/bg_plus:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 1.59889),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("result_screen/plus:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 1.59889),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("result_screen/bg_plus:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(1.60155, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("result_screen/bg_plus:scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("result_screen/plus:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 1.60155, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 6.28319]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("result_screen/plus:scale")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("result_screen/lanjut:visible")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("result_screen/Total:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("result_screen/Total:scale")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 1.8, 1.89893, 1.9977),
+"transitions": PackedFloat32Array(1, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("result_screen/OrangeBox4:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("result_screen/OrangeBox4:scale")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0, 2, 2.09893, 2.1977),
+"transitions": PackedFloat32Array(1, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.154631, 1.68041), Vector2(1.07366, 0.56701), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_xnxwe"]
@@ -743,6 +1264,48 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_022r1"]
+resource_name = "show_mult"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("result_screen/mult_box:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("result_screen/mult_box:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_total_after_mult"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kemr8"]
 _data = {
 &"RESET": SubResource("Animation_xe1of"),
@@ -751,6 +1314,7 @@ _data = {
 &"show_alt_text_minigame": SubResource("Animation_p2f7k"),
 &"show_aruna_helper_screen": SubResource("Animation_dw8l3"),
 &"show_color_wheel_minigame": SubResource("Animation_vaqec"),
+&"show_mult": SubResource("Animation_022r1"),
 &"show_panduan": SubResource("Animation_hl4pa"),
 &"show_result_screen": SubResource("Animation_io6bp"),
 &"show_structure_minigame": SubResource("Animation_xnxwe")
@@ -960,6 +1524,7 @@ offset_left = 1447.0
 offset_top = 753.0
 offset_right = 1860.0
 offset_bottom = 883.0
+pivot_offset = Vector2(206, 130)
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hl4pa")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_rx2j5")
@@ -1011,6 +1576,7 @@ offset_left = 850.0
 offset_top = 40.0
 offset_right = 1097.0
 offset_bottom = 164.0
+pivot_offset = Vector2(123, 124)
 focus_mode = 0
 theme_override_font_sizes/font_size = 47
 theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
@@ -1027,6 +1593,7 @@ offset_left = 850.0
 offset_top = 40.0
 offset_right = 1097.0
 offset_bottom = 164.0
+pivot_offset = Vector2(123, 124)
 focus_mode = 0
 mouse_filter = 1
 theme_override_font_sizes/font_size = 150
@@ -1045,6 +1612,7 @@ offset_left = 672.0
 offset_top = 37.0
 offset_right = 940.0
 offset_bottom = 164.0
+pivot_offset = Vector2(268, 127)
 focus_mode = 0
 theme_override_font_sizes/font_size = 61
 theme_override_styles/focus = SubResource("StyleBoxEmpty_saxxy")
@@ -1058,6 +1626,7 @@ offset_left = 994.0
 offset_top = 33.0
 offset_right = 1248.0
 offset_bottom = 155.0
+pivot_offset = Vector2(0, 122)
 focus_mode = 0
 theme_override_font_sizes/font_size = 31
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ng3r6")
@@ -1218,16 +1787,18 @@ position = Vector2(960, 540)
 scale = Vector2(0.1, 0.1)
 
 [node name="bg_mult" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(513.5, 133)
 texture = ExtResource("24_ca6jy")
 
 [node name="bg_line" type="Sprite2D" parent="result_screen"]
 position = Vector2(-41.5, 173)
-scale = Vector2(0.933506, 1)
 texture = ExtResource("25_taf54")
 
 [node name="bg_plus" type="Sprite2D" parent="result_screen"]
 position = Vector2(511, 162)
+rotation = 6.28319
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("26_065fq")
 
 [node name="bg" type="Sprite2D" parent="result_screen"]
@@ -1239,13 +1810,16 @@ texture = ExtResource("29_7yd1f")
 
 [node name="plus" type="Sprite2D" parent="result_screen"]
 position = Vector2(511, 162)
+rotation = 6.28319
 texture = ExtResource("28_wu83x")
 
 [node name="lanjut" type="Button" parent="result_screen"]
+visible = false
 offset_left = -142.0
 offset_top = 392.0
 offset_right = 239.0
 offset_bottom = 547.0
+pivot_offset = Vector2(190, 77)
 focus_mode = 0
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -1283,115 +1857,147 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SkorAksesibel" type="Sprite2D" parent="result_screen"]
-position = Vector2(-254, -225)
+position = Vector2(-571.386, -225)
+scale = Vector2(0.154631, 1.68041)
 texture = ExtResource("33_hpcmk")
+offset = Vector2(318, 0)
 
 [node name="Label" type="Label" parent="result_screen/SkorAksesibel"]
-offset_left = -113.0
+offset_left = 207.0
 offset_top = -38.0
-offset_right = 195.0
+offset_right = 515.0
 offset_bottom = 45.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("34_6mc5q")
 theme_override_font_sizes/font_size = 65
 text = "Aksesibilitas"
 
-[node name="OrangeBox" type="Sprite2D" parent="result_screen/SkorAksesibel"]
-position = Vector2(547, 1)
-texture = ExtResource("33_taf54")
-
-[node name="acc_score_label" type="Label" parent="result_screen/SkorAksesibel"]
-offset_left = 377.0
-offset_top = -38.0
-offset_right = 685.0
-offset_bottom = 45.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("34_6mc5q")
-theme_override_font_sizes/font_size = 65
-text = "0000"
-
 [node name="SkorMisi" type="Sprite2D" parent="result_screen"]
-position = Vector2(-245, -85)
+position = Vector2(-556, -85)
 texture = ExtResource("35_rx2j5")
+offset = Vector2(311, 0)
 
 [node name="Label2" type="Label" parent="result_screen/SkorMisi"]
-offset_left = -122.0
+offset_left = 191.0
 offset_top = -36.0
-offset_right = 186.0
+offset_right = 499.0
 offset_bottom = 47.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("34_6mc5q")
 theme_override_font_sizes/font_size = 65
 text = "Misi"
 
-[node name="OrangeBox" type="Sprite2D" parent="result_screen/SkorMisi"]
-position = Vector2(532.5, 1)
-scale = Vector2(0.969925, 1)
-texture = ExtResource("33_taf54")
-
-[node name="misi_score_label" type="Label" parent="result_screen/SkorMisi"]
-offset_left = 368.0
-offset_top = -38.0
-offset_right = 676.0
-offset_bottom = 45.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("34_6mc5q")
-theme_override_font_sizes/font_size = 65
-text = "0000"
-
 [node name="Skortimer" type="Sprite2D" parent="result_screen"]
-position = Vector2(-243, 60)
+position = Vector2(-554, 60)
 texture = ExtResource("36_qpo2v")
+offset = Vector2(311, 0)
 
 [node name="Label3" type="Label" parent="result_screen/Skortimer"]
-offset_left = -124.0
+offset_left = 190.0
 offset_top = -40.0
-offset_right = 184.0
+offset_right = 498.0
 offset_bottom = 43.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("34_6mc5q")
 theme_override_font_sizes/font_size = 65
 text = "Sisa Waktu"
 
-[node name="OrangeBox" type="Sprite2D" parent="result_screen/Skortimer"]
-position = Vector2(531, 0)
-scale = Vector2(0.969925, 1)
-texture = ExtResource("33_taf54")
-
-[node name="timer_score_label" type="Label" parent="result_screen/Skortimer"]
-offset_left = 368.0
-offset_top = -38.0
-offset_right = 676.0
-offset_bottom = 45.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("34_6mc5q")
-theme_override_font_sizes/font_size = 65
-text = "0000"
-
 [node name="Total" type="Sprite2D" parent="result_screen"]
-position = Vector2(-242, 298)
-texture = ExtResource("37_adr1w")
+position = Vector2(-553, 298)
+texture = ExtResource("39_nw5pu")
+offset = Vector2(311, 0)
 
 [node name="Label3" type="Label" parent="result_screen/Total"]
-offset_left = -125.0
+offset_left = 193.0
 offset_top = -46.0
-offset_right = 183.0
+offset_right = 501.0
 offset_bottom = 37.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("34_6mc5q")
 theme_override_font_sizes/font_size = 65
 text = "Total Skor"
 
-[node name="OrangeBox" type="Sprite2D" parent="result_screen/Total"]
-position = Vector2(511.25, -7)
-scale = Vector2(0.880953, 1)
+[node name="OrangeBox" type="Sprite2D" parent="result_screen"]
+visible = false
+position = Vector2(95, -224)
+texture = ExtResource("33_taf54")
+offset = Vector2(199, 0)
+
+[node name="SkorBoxPurple" type="Sprite2D" parent="result_screen/OrangeBox"]
+visible = false
+position = Vector2(198.5, 0.50001)
+scale = Vector2(1.07796, 0.958763)
+texture = ExtResource("41_022r1")
+
+[node name="acc_score_label" type="Label" parent="result_screen/OrangeBox"]
+anchors_preset = -1
+anchor_left = 0.00125313
+anchor_right = 0.0037594
+offset_left = 29.5
+offset_top = -39.0
+offset_right = 337.5
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "0000"
+metadata/_edit_use_anchors_ = true
+
+[node name="OrangeBox2" type="Sprite2D" parent="result_screen"]
+position = Vector2(287.5, -84)
 texture = ExtResource("33_taf54")
 
-[node name="total_score_label" type="Label" parent="result_screen/Total"]
-offset_left = 367.0
-offset_top = -46.0
-offset_right = 675.0
-offset_bottom = 37.0
+[node name="SkorBoxPurple" type="Sprite2D" parent="result_screen/OrangeBox2"]
+visible = false
+scale = Vector2(1.07535, 0.969072)
+texture = ExtResource("41_022r1")
+
+[node name="misi_score_label" type="Label" parent="result_screen/OrangeBox2"]
+offset_left = -169.601
+offset_top = -39.0
+offset_right = 138.399
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "0000"
+metadata/_edit_use_anchors_ = true
+
+[node name="OrangeBox3" type="Sprite2D" parent="result_screen"]
+position = Vector2(288, 60)
+texture = ExtResource("33_taf54")
+
+[node name="SkorTimerPurple" type="Sprite2D" parent="result_screen/OrangeBox3"]
+visible = false
+position = Vector2(-0.515531, 0)
+scale = Vector2(1.07812, 1)
+texture = ExtResource("42_ne6ew")
+
+[node name="timer_score_label" type="Label" parent="result_screen/OrangeBox3"]
+offset_left = -168.054
+offset_top = -38.0
+offset_right = 139.946
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 65
+text = "0000"
+metadata/_edit_use_anchors_ = true
+
+[node name="OrangeBox4" type="Sprite2D" parent="result_screen"]
+position = Vector2(269.25, 291)
+texture = ExtResource("33_taf54")
+
+[node name="SkorTotalPurple" type="Sprite2D" parent="result_screen/OrangeBox4"]
+visible = false
+scale = Vector2(1.13513, 1)
+texture = ExtResource("41_swwa5")
+
+[node name="total_score_label" type="Label" parent="result_screen/OrangeBox4"]
+offset_left = -163.743
+offset_top = -39.0
+offset_right = 144.257
+offset_bottom = 44.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("34_6mc5q")
 theme_override_font_sizes/font_size = 65
@@ -1448,6 +2054,7 @@ offset_left = 476.0
 offset_top = -381.0
 offset_right = 623.0
 offset_bottom = -202.0
+pivot_offset = Vector2(73, 89)
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mu5cy")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_taf54")
@@ -1460,6 +2067,7 @@ offset_left = 53.0
 offset_top = -244.0
 offset_right = 493.0
 offset_bottom = -33.0
+pivot_offset = Vector2(210, 105)
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4gdte")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_xufl2")
@@ -1472,6 +2080,7 @@ offset_left = 53.0
 offset_top = -16.0
 offset_right = 487.0
 offset_bottom = 185.0
+pivot_offset = Vector2(217, 100)
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rx2j5")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_qpo2v")
@@ -1494,7 +2103,7 @@ vertical_alignment = 1
 
 [node name="panduan_tugas" type="Sprite2D" parent="aruna_helper_screen"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(-400, 134)
+position = Vector2(-400, -971)
 texture = ExtResource("49_xufl2")
 
 [node name="ColorRect2" type="ColorRect" parent="aruna_helper_screen/panduan_tugas"]
@@ -1601,6 +2210,7 @@ offset_left = -88.0
 offset_top = 256.0
 offset_right = 341.0
 offset_bottom = 443.0
+pivot_offset = Vector2(214, 93)
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o62jr")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_022r1")

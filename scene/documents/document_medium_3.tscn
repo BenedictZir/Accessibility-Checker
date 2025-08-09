@@ -84,7 +84,7 @@ offset_bottom = 859.0
 theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
 text = "Papan informasi yang dilengkapi dengan tulisan Braille memberi kesempatan pengguna tunanetra untuk menikmati fasilitas taman secara mandiri."
 intended_structure = 2
-structure = "subheading"
+structure = "subjudul"
 part = 3
 
 [node name="doc_text7" parent="texts" instance=ExtResource("2_jx6oo")]
@@ -116,7 +116,7 @@ offset_bottom = 1275.0
 theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
 text = "Perosotan rendah, ayunan berpenahan, dan permainan sensorik mendukung keterlibatan anak-anak dengan beragam kebutuhan."
 intended_structure = 2
-structure = "subheading"
+structure = "subjudul"
 part = 4
 
 [node name="images" type="Node2D" parent="."]
@@ -127,6 +127,10 @@ offset_top = -99.0
 offset_right = 400.0
 offset_bottom = 154.0
 texture = ExtResource("4_an2nh")
+correct_alt_text = "Pemandangan taman yang luas dengan pepohonan, rumput hijau, dan beberapa orang sedang bersepeda, berjalan, dan bersantai di bawah sinar matahari."
+wrong_alt_text = "Sekelompok orang sedang bermain di taman kota."
+wrong_alt_text_2 = "Pohon-pohon besar yang rindang di sebuah lapangan."
+wrong_alt_text_3 = "Aktivitas santai yang dilakukan di ruang terbuka."
 
 [node name="images2" parent="images" instance=ExtResource("3_xswkg")]
 offset_left = -438.0

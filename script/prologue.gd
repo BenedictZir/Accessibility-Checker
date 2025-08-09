@@ -4,7 +4,6 @@ extends Node2D
 @onready var line: Label = $mail/line
 @onready var mail_screen_3: Sprite2D = $mail/MailScreen3
 @onready var mail_screen_2: Sprite2D = $mail/MailScreen2
-@onready var back_button: Button = $mail/back_button
 @onready var text_edit: LineEdit = $mail/TextEdit
 
 var blink_interval := 0.4 
@@ -79,27 +78,13 @@ func _on_acc_button_pressed() -> void:
 	text_edit.hide()
 	if (mail_screen_2.visible == false):
 		mail_screen_2.show()
-		back_button.show()
 	elif mail_screen_3.visible == false:
 		mail_screen_2.hide()
 		mail_screen_3.show()
-		back_button.show()
 		$mail/acc_button.hide()
 		$mail/end.show()
 
-func _on_back_button_pressed() -> void:
-	if mail_screen_2.visible == true:
-		$mail/acc_button.show()
-		text_edit.show()
-		mail_screen_2.hide()
-		back_button.hide()
-	elif mail_screen_3.visible == true:
-		$mail/acc_button.show()
-		$mail/end.hide()
-		
-		mail_screen_3.hide()
-		mail_screen_2.show()
-		
+
 
 
 func _on_end_pressed() -> void:
