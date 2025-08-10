@@ -19,4 +19,5 @@ mbak_intan: “Aku selesain… sampai jam tiga tadi…. Udah coba bikin lebih ra
 Kamu membuka dokumennya. Tampilan visualnya memang bersih—margin rapi, font konsisten, dan elemen-elemen visual sudah diatur. Tapi kontennya masih belum nyaman dibaca\: beberapa heading terasa lompat-lompat.
 Kamu menarik napas, menyeruput kopi susu, dan mulai bekerja.
 Hari kedua. Dan kamu tahu pasti, pekerjaan ini bukan soal membenahi file—tapi membantu orang lain menyampaikan idenya dengan lebih jernih.
+[signal arg="mbak_intan_leave"]
 [signal arg="end"]

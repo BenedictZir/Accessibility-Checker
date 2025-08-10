@@ -1,6 +1,3 @@
-[signal arg="mbak_rani_join"]
-[signal arg="mbak_intan_join"]
-[signal arg="pak_anton_join"]
 Suara meja ditarik, tawa kecil di sudut ruangan. Layar proyektor menyala, musik instrumental pelan terdengar.
 mas_gilang: “Selamat sore, Direktorat Komunikasi Inklusif! Kembali bersama saya, Gilang—dari Divisi Admin & Semangat Jumat!”
 mas_gilang: “Seperti biasa, saya di sini bukan buat ngasih surat peringatan, tapi buat ngumumin siapa yang minggu ini paling bersinar dalam urusan… membuka akses untuk semua!”
@@ -13,6 +10,10 @@ if {can_promote} == true:
 	mas_gilang: "Kak {player_name}!”
 	mas_gilang: “Kak [Player] berhasil mencuri perhatian minggu ini—dari perbaikan heading yang tadinya loncat-loncat, sampai layout kontras yang sekarang adem di mata.”
 	Tepuk tangan lebih riuh. Beberapa rekan melirik ke arahmu, senyum bangga.
+	[signal arg="hide_leaderboard"]
+	[signal arg="mbak_rani_join"]
+	[signal arg="mbak_intan_join"]
+	[signal arg="pak_anton_join"]
 	[signal arg="mbak_rani_talk"]
 	mbak_rani: “Kerennn. Aku tadi cek juga—alt text-nya kamu tulis jelas banget. Nggak cuma benar, tapi terasa ada perhatiannya.”
 	[signal arg="mbak_intan_talk"]
@@ -21,10 +22,15 @@ if {can_promote} == true:
 	"pak bos": “Selamat! Kamu berhasil bikin perubahan yang diakui semua tim.”
 	Kamu menahan senyum lebar, dada terasa sedikit hangat. Rasanya kayak... diakui.
 	aruna: Gelar\: {title}!
+	[signal arg="done_promoting"]
 else:
 	mas_gilang: "Kak Lintang!”
 	mas_gilang: “Kak Lintang tetap mempertahankan gelar—dengan kontribusi besar di audit visual dan panduan akses untuk halaman onboarding.”
 	Tepuk tangan lebih riuh. Beberapa rekan melirik ke arahmu, senyum bangga.
+	[signal arg="hide_leaderboard"]
+	[signal arg="mbak_rani_join"]
+	[signal arg="mbak_intan_join"]
+	[signal arg="pak_anton_join"]
 	[signal arg="mbak_rani_talk"]
 	mbak_rani: “Aku liat kerjaan kamu minggu ini. Udah makin rapi, makin jelas. Tinggal sedikit polesan aja.”
 	[signal arg="mbak_intan_talk"]

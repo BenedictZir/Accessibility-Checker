@@ -65,7 +65,7 @@ signal done_working
 func _ready() -> void:
 	buttons = [$aruna_helper_screen/cancel_aruna, $aruna_helper_screen/panduan_tugas_button, $aruna_helper_screen/panduan_warna, 
 	$mulai_kerja/mulai_kerja, $result_screen/lanjut, $app/minigame_icons/text_features/structure_button, $app/minigame_icons/text_features/color_wheel_button,
-	$app/minigame_icons/docs_features/color_wheel_button, $app/minigame_icons/image_features/alt_text_button, $app/selesai, $app/pause_button]
+	$app/minigame_icons/docs_features/color_wheel_button, $app/minigame_icons/image_features/alt_text_button, $app/selesai, $app/pause_button, $pause_screen/Background/exit_credit]
 
 func _process(delta: float) -> void:
 	for button in buttons:
@@ -223,7 +223,7 @@ func select(obj):
 		selected_object = null
 	selected_object = obj
 	show_features()
-	
+	SoundManager.play_select_obj_sfx()
 	selected_outline = find_outline(selected_object)
 	if (selected_outline != null):
 		selected_outline.emit_signal("selected")
@@ -712,41 +712,133 @@ func _on_mulai_kerja_pressed() -> void:
 	
 func anim_acc_score():
 	var acc_score = (accessibility_score / (4 * all_object.size()) * 6 * 250)
-	var tween = create_tween()
 	$result_screen/OrangeBox/SkorBoxPurple.show()
-	#result_screen/SkorAksesibel/acc_score_label.text = str(int(acc_score)).pad_zeros(4)
-	tween.tween_property($result_screen/OrangeBox/acc_score_label, "text", str(int(acc_score)).pad_zeros(4), 1.0) 
+
+	if $result_screen/OrangeBox/acc_score_label.has_meta("tween"):
+		$result_screen/OrangeBox/acc_score_label.get_meta("tween").kill()
+
+	var start_value = int($result_screen/OrangeBox/acc_score_label.text)
+	var end_value = int(acc_score)
+
+	var tween = create_tween()
+	$result_screen/OrangeBox/acc_score_label.set_meta("tween", tween)
+	tween.tween_method(
+		func(v):
+		$result_screen/OrangeBox/acc_score_label.text = str(v).pad_zeros(4)
+		, start_value, end_value, 1.0
+	).set_trans(Tween.TRANS_LINEAR)
+	SoundManager.play_score_sfx()
 	await tween.finished
 	anim_misi_score()
+
 
 func anim_misi_score():
 	$result_screen/OrangeBox/SkorBoxPurple.hide()
 	$result_screen/OrangeBox2/SkorBoxPurple.show()
+
+	if $result_screen/OrangeBox2/misi_score_label.has_meta("tween"):
+		$result_screen/OrangeBox2/misi_score_label.get_meta("tween").kill()
+
+	var start_value = int($result_screen/OrangeBox2/misi_score_label.text)
+	var end_value = int(constraint_score)
+
 	var tween = create_tween()
-	tween.tween_property($result_screen/OrangeBox2/misi_score_label, "text", str(int(constraint_score)).pad_zeros(4), 1.0) 
+	$result_screen/OrangeBox2/misi_score_label.set_meta("tween", tween)
+	tween.tween_method(
+		func(v):
+		$result_screen/OrangeBox2/misi_score_label.text = str(v).pad_zeros(4)
+		, start_value, end_value, 1.0
+	).set_trans(Tween.TRANS_LINEAR)
+	SoundManager.play_score_sfx()
+
 	await tween.finished
 	anim_timer_score()
-	
+
+
 func anim_timer_score():
 	$result_screen/OrangeBox2/SkorBoxPurple.hide()
 	$result_screen/OrangeBox3/SkorTimerPurple.show()
+
+	if $result_screen/OrangeBox3/timer_score_label.has_meta("tween"):
+		$result_screen/OrangeBox3/timer_score_label.get_meta("tween").kill()
+
+	var start_value = int($result_screen/OrangeBox3/timer_score_label.text)
+	var end_value = int(timer_score)
+
 	var tween = create_tween()
-	tween.tween_property($result_screen/OrangeBox3/timer_score_label, "text", str(int(timer_score)).pad_zeros(4), 1.0) 
+	$result_screen/OrangeBox3/timer_score_label.set_meta("tween", tween)
+	tween.tween_method(
+		func(v):
+		$result_screen/OrangeBox3/timer_score_label.text = str(v).pad_zeros(4)
+		, start_value, end_value, 1.0
+	).set_trans(Tween.TRANS_LINEAR)
+	SoundManager.play_score_sfx()
+
 	await tween.finished
 	anim_total_before_mult()
-	
+
+
 func anim_total_before_mult():
 	$result_screen/OrangeBox3/SkorTimerPurple.hide()
 	$result_screen/OrangeBox4/SkorTotalPurple.show()
+
+	if $result_screen/OrangeBox4/total_score_label.has_meta("tween"):
+		$result_screen/OrangeBox4/total_score_label.get_meta("tween").kill()
+
+	var start_value = int($result_screen/OrangeBox4/total_score_label.text)
+	var end_value = int(total_score_before_mult)
+
 	var tween = create_tween()
-	tween.tween_property($result_screen/OrangeBox4/total_score_label, "text", str(int(total_score_before_mult)).pad_zeros(4), 1) 
+	$result_screen/OrangeBox4/total_score_label.set_meta("tween", tween)
+	tween.tween_method(
+		func(v):
+		$result_screen/OrangeBox4/total_score_label.text = str(v).pad_zeros(4)
+		, start_value, end_value, 1.0
+	).set_trans(Tween.TRANS_LINEAR)
+	SoundManager.play_score_sfx()
+
 	await tween.finished
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.8).timeout
+	SoundManager.play_mult_sfx()
+	await get_tree().create_timer(0.2).timeout
+	
 	animation_player.play("show_mult")
 
+func play_mult_sfx():
+	SoundManager.play_mult_sfx()
+	
 func anim_total_after_mult():
 	$result_screen/OrangeBox4/SkorTotalPurple.show()
+
+	if $result_screen/OrangeBox4/total_score_label.has_meta("tween"):
+		$result_screen/OrangeBox4/total_score_label.get_meta("tween").kill()
+
+	var start_value = int($result_screen/OrangeBox4/total_score_label.text)
+	var end_value = int(total_score)
+
 	var tween = create_tween()
-	tween.tween_property($result_screen/OrangeBox4/total_score_label, "text", str(int(total_score)).pad_zeros(4), 1) 
+	$result_screen/OrangeBox4/total_score_label.set_meta("tween", tween)
+	tween.tween_method(
+		func(v):
+		$result_screen/OrangeBox4/total_score_label.text = str(v).pad_zeros(4)
+		, start_value, end_value, 1.0
+	).set_trans(Tween.TRANS_LINEAR)
+	SoundManager.play_score_sfx()
+
 	await tween.finished
 	$result_screen/lanjut.show()
+
+
+
+func _on_pause_button_pressed() -> void:
+	animation_player.play("show_pause_menu")
+	timer.paused = true
+	app.process_mode = Node.PROCESS_MODE_DISABLED
+	
+
+
+func _on_exit_credit_pressed() -> void:
+	animation_player.play("show_pause_menu", -1, -1.0, true)
+	timer.paused = false
+	app.process_mode = Node.PROCESS_MODE_INHERIT
+	

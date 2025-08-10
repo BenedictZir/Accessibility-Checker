@@ -1,0 +1,5 @@
+player: (Taman sejuk seperti biasa)
+player: (Sepertinya hariini tidak ada acara apa-apa)
+player: "Oke sepertinya cukup jalan-jalannya, saatnya pulang!"
+[signal arg="end"]
+[end_timeline]

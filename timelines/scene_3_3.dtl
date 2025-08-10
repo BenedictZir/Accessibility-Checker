@@ -31,4 +31,7 @@ aruna: "Kontras warna yang dperbaiki\: 9"
 aruna: "Tingkat kepercayaan diri\: Meningkat."
 [signal arg="aruna_happy"]
 aruna: "Pengingat\: Kalau warnanya bikin silau… mungkin saatnya ganti, bukan menyalahkan mata."
+[signal arg="mbak_intan_leave"]
+[signal arg="pak_anton_leave"]
+[signal arg="aruna_leave"]
 [signal arg="end"]

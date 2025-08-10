@@ -232,6 +232,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_s86ot")
 theme_override_styles/normal = SubResource("StyleBoxTexture_s86ot")
 
 [node name="Label" type="Label" parent="mail/end"]
+layout_mode = 0
 offset_left = 112.0
 offset_top = 32.0
 offset_right = 271.0

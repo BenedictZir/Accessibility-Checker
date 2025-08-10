@@ -19,10 +19,13 @@ func _process(delta: float) -> void:
 func _on_dialogic_signal(arg):
 	match arg:
 		"pak_anton_smile":
+
 			play("smile")
 		"pak_anton_talk":
 			is_happy = false
 			is_mad = false
+			if animation == "talk":
+				stop()
 			play("talk")
 		"pak_anton_blink":
 			is_happy = false
@@ -33,12 +36,16 @@ func _on_dialogic_signal(arg):
 			play("angry_blink")
 		"pak_anton_angry_talk":
 			is_mad = true
+			if animation == "angry_talk":
+				stop()
 			play("angry_talk")
 		"pak_anton_happy_blink":
 			is_happy = true
 			play("happy_blink")
 		"pak_anton_happy_talk":
 			is_happy = true
+			if animation == "happy_talk":
+				stop()
 			play("happy_talk")
 		"pak_anton_join":
 			animation_player.play("join")

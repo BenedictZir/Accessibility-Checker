@@ -34,6 +34,7 @@ directories/dch_directory={
 "mbak_intan": "res://characters/mbak_intan.dch",
 "mbak_rani": "res://characters/mbak_rani.dch",
 "pak bos": "res://characters/pak bos.dch",
+"pembawa_acara": "res://characters/pembawa_acara.dch",
 "player": "res://characters/player.dch"
 }
 directories/dtl_directory={
@@ -53,6 +54,7 @@ directories/dtl_directory={
 "pak_anton_random_1": "res://timelines/pak_anton_random_1.dtl",
 "pak_anton_random_2": "res://timelines/pak_anton_random_2.dtl",
 "pak_anton_random_3": "res://timelines/pak_anton_random_3.dtl",
+"park_after_minigame": "res://timelines/park_after_minigame.dtl",
 "prologue": "res://timelines/prologue.dtl",
 "scene_1_1": "res://timelines/scene_1_1.dtl",
 "scene_1_2": "res://timelines/scene_1_2.dtl",
@@ -68,6 +70,9 @@ directories/dtl_directory={
 "scene_4_3": "res://timelines/scene_4_3.dtl",
 "scene_5_1": "res://timelines/scene_5_1.dtl",
 "scene_5_3": "res://timelines/scene_5_3.dtl",
+"taman_event": "res://timelines/taman_event.dtl",
+"taman_first_time": "res://timelines/taman_first_time.dtl",
+"taman_no_event": "res://timelines/taman_no_event.dtl",
 "test_signal": "res://timelines/test_signal.dtl"
 }
 glossary/default_case_sensitive=true
@@ -78,7 +83,7 @@ variables={
 "jabatan": "",
 "player_name": "name",
 "poin_inklusif": 0.0,
-"poin_inklusif_harian": 2000.0,
+"poin_inklusif_harian": 0,
 "title": ""
 }
 extensions_folder="res://addons/dialogic_additions"
@@ -103,6 +108,7 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 glossary/glossary_files=["res://glossary/glossary.tres"]
 glossary/default_color=Color(0, 0, 0, 1)
+audio/type_sound_bus="SFX"
 
 [display]
 

@@ -18,8 +18,6 @@ Kalian tertawa.
 [signal arg="pak_anton_happy_talk"]
 "pak bos": “Tapi hasilnya oke. Rapi, konsisten, dan bisa diakses. Besok bantuin lagi ya, ada satu dokumen dari Mbak Rani juga.”
 Kamu mengangguk.
-[signal arg="mbak_intan_leave"]
-[signal arg="pak_anton_leave"]
 [signal arg="aruna_join"]
 Hari kedua selesai. Tapi rasanya kamu justru baru mulai.
 [signal arg="aruna_happy"]
@@ -34,4 +32,7 @@ aruna: Teks yang diberi struktur\: 9. "
 aruna: "Tingkat kepercayaan diri\: Meningkat."
 [signal arg="aruna_happy"]
 aruna: "Pengingat\: Semua tugas akan lebih mudah dengan pikiran yang segar."
+[signal arg="mbak_intan_leave"]
+[signal arg="pak_anton_leave"]
+[signal arg="aruna_leave"]
 [signal arg="end"]

@@ -103,10 +103,8 @@ _data = {
 position = Vector2(0, 1440)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_thcox")
-animation = &"angry"
+animation = &"normal"
 autoplay = "normal"
-frame = 3
-frame_progress = 1.0
 script = ExtResource("3_g5gw7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

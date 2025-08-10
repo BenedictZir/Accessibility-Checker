@@ -29,7 +29,7 @@ var buttons: Array[Button] = []
 func _ready() -> void:
 	desc_label.visible_ratio = 0 
 	SoundManager.play_map_music()
-	title_label.text = Dialogic.VAR.title
+	title_label.text = GlobalVar.title_list[GlobalVar.idx_title]
 	if GlobalVar.musim[GlobalVar.musim_idx] == "kemarau":
 		icon_panas.show()
 		icon_hujan.hide()
@@ -55,7 +55,7 @@ func _ready() -> void:
 	supermarket_button.disabled = not is_weekend
 	taman_button.disabled = not is_weekend
 
-	buttons = [cafe_button, kantor_button, kos_button, supermarket_button, taman_button]
+	buttons = [cafe_button, kantor_button, kos_button, supermarket_button, taman_button, $pause, $pause_screen/Background/exit_credit]
 
 	for button in buttons:
 		button.scale = Vector2(NORMAL_SCALE, NORMAL_SCALE)
@@ -71,7 +71,15 @@ func _process(delta: float) -> void:
 	if done_init:
 		desc_label.visible_ratio += 1.8 * delta
 	for button in buttons:
-		var target_scale = HOVER_SCALE if button.is_hovered() and not button.disabled and button.visible else NORMAL_SCALE
+		var target_scale
+		if button.is_hovered() and not button.disabled and button.visible and (button.process_mode != PROCESS_MODE_DISABLED):
+			target_scale = HOVER_SCALE if button.is_hovered() and not button.disabled and button.visible else NORMAL_SCALE
+			if button == $pause_screen/Background/exit_credit:
+				target_scale = 1.1 
+			else:
+				target_scale = HOVER_SCALE
+		else:
+			target_scale = NORMAL_SCALE
 		var current_scale = button.scale.x
 		var new_scale = lerp(current_scale, target_scale, delta * LERP_SPEED)
 		button.scale = Vector2(new_scale, new_scale)
@@ -105,7 +113,7 @@ func _on_taman_button_pressed() -> void:
 		
 
 func _on_kos_button_pressed() -> void:
-	if not GlobalVar.done_working_today:
+	if not GlobalVar.done_working_today and not GlobalVar.day == "SABTU" and not GlobalVar.day == "MINGGU":
 		desc_label.text = "Hari baru mulai, aku harus melakukan aktivitas."
 		desc_label.visible_ratio = 0
 	else:
@@ -127,3 +135,16 @@ func init_anim_done():
 		else:
 			poin_inklusif_label.text = str(int(new_value)) + " / " + str(GlobalVar.skor_list[GlobalVar.idx_title])
 	)
+
+
+func _on_pause_pressed() -> void:
+	for button in buttons:
+		if button != $pause_screen/Background/exit_credit:
+			button.process_mode = Node.PROCESS_MODE_DISABLED
+	$AnimationPlayer.play("show_pause_screen")
+
+
+func _on_exit_credit_pressed() -> void:
+	for button in buttons:
+		button.process_mode = Node.PROCESS_MODE_INHERIT
+	$AnimationPlayer.play("show_pause_screen", -1, -1.0, true)

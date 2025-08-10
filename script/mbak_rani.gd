@@ -23,6 +23,8 @@ func _on_dialogic_signal(arg):
 		"mbak_rani_talk":
 			is_happy = false
 			is_mad = false
+			if animation == "talk":
+				stop()
 			play("talk")
 		"mbak_rani_blink":
 			is_happy = false
@@ -33,12 +35,16 @@ func _on_dialogic_signal(arg):
 			play("angry_blink")
 		"mbak_rani_angry_talk":
 			is_mad = true
+			if animation == "angry_talk":
+				stop()
 			play("angry_talk")
 		"mbak_rani_happy_blink":
 			is_happy = true
 			play("happy_blink")
 		"mbak_rani_happy_talk":
 			is_happy = true
+			if animation == "happy_talk":
+				stop()
 			play("happy_talk")
 		"mbak_rani_join":
 			animation_player.play("join")

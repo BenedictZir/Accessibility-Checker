@@ -43,4 +43,7 @@ mbak_rani: “Siap, Intern! Tenang saja kamu ngga sendiri!”
 Hari ketiga, aksesibilitas bukan cuma soal kata dan struktur—tapi juga tentang warna.
 Tentang siapa yang bisa melihat, membaca, dan merespons dengan nyaman.
 Karena kontras yang cukup bukan sekadar estetika, tapi pintu agar semua orang bisa masuk.
+[signal arg="pak_anton_leave"]
+[signal arg="mbak_intan_leave"]
+[signal arg="mbak_rani_leave"]
 [signal arg="end"]

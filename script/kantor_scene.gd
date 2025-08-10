@@ -1,18 +1,7 @@
 extends Node2D
 
 const CHARACTER_LIST = ["mbak_intan", "pak_anton", "mbak_rani"]
-var pak_anton_scene = preload("res://scene/pak_anton.tscn")
-var mbak_rani_scene = preload("res://scene/mbak_rani.tscn")
-var mbak_intan_scene = preload("res://scene/mbak_intan.tscn")
-const DOCUMENT_EASY_1 = preload("res://scene/documents/document_easy_1.tscn")
-const DOCUMENT_EASY_2 = preload("res://scene/documents/document_easy_2.tscn")
-const DOCUMENT_EASY_3 = preload("res://scene/documents/document_easy_3.tscn")
-const DOCUMENT_HARD_1 = preload("res://scene/documents/document_hard_1.tscn")
-const DOCUMENT_HARD_2 = preload("res://scene/documents/document_hard_2.tscn")
-const DOCUMENT_HARD_3 = preload("res://scene/documents/document_hard_3.tscn")
-const DOCUMENT_MEDIUM_1 = preload("res://scene/documents/document_medium_1.tscn")
-const DOCUMENT_MEDIUM_2 = preload("res://scene/documents/document_medium_2.tscn")
-const DOCUMENT_MEDIUM_3 = preload("res://scene/documents/document_medium_3.tscn")
+
 var document
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -44,9 +33,9 @@ var character_sprite: Node2D
 var constraint_list
 func _ready() -> void:
 	SoundManager.play_kantor_music()
-	easy_document_list = [DOCUMENT_EASY_1, DOCUMENT_EASY_2,DOCUMENT_EASY_3]
-	medium_document_list = [DOCUMENT_MEDIUM_1, DOCUMENT_MEDIUM_2, DOCUMENT_MEDIUM_3]
-	hard_document_list = [DOCUMENT_HARD_1, DOCUMENT_HARD_2, DOCUMENT_HARD_3]
+	easy_document_list = [GlobalVar.DOCUMENT_EASY_1, GlobalVar.DOCUMENT_EASY_2,GlobalVar.DOCUMENT_EASY_3]
+	medium_document_list = [GlobalVar.DOCUMENT_MEDIUM_1, GlobalVar.DOCUMENT_MEDIUM_2, GlobalVar.DOCUMENT_MEDIUM_3]
+	hard_document_list = [GlobalVar.DOCUMENT_HARD_1, GlobalVar.DOCUMENT_HARD_2, GlobalVar.DOCUMENT_HARD_3]
 	if GlobalVar.easy_doc_used.size() == easy_document_list.size():
 		GlobalVar.easy_doc_used.clear()
 	if GlobalVar.medium_doc_used.size() == medium_document_list.size():
@@ -57,14 +46,15 @@ func _ready() -> void:
 	character_name = CHARACTER_LIST.pick_random()
 	match character_name:
 		"pak_anton":
-			character_sprite = pak_anton_scene.instantiate()
+			character_sprite = GlobalVar.pak_anton_scene.instantiate()
 		"mbak_rani":
-			character_sprite = mbak_rani_scene.instantiate()
+			character_sprite = GlobalVar.mbak_rani_scene.instantiate()
 		"mbak_intan":
-			character_sprite = mbak_intan_scene.instantiate()
+			character_sprite = GlobalVar.mbak_intan_scene.instantiate()
 	character_node.add_child(character_sprite)
 	var timeline = character_name + "_random_" + str(randi_range(1, 3))
-	Dialogic.signal_event.connect(_on_dialogic_signal)
+	if not Dialogic.signal_event.is_connected(_on_dialogic_signal):
+		Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.start(timeline)
 	
 func _on_dialogic_signal(arg):
@@ -110,18 +100,29 @@ func _on_dialogic_signal(arg):
 				show_lose_leaderboard()
 		"end_day":
 			SceneTransition.change_scene("res://scene/map.tscn")
-
+		"hide_leaderboard":
+			$leaderboard_lose.hide()
+			$leaderboard_win.hide()
+		"done_promoting":
+			GlobalVar.idx_title += 1
+			Dialogic.VAR.can_promote = false
 func _on_level_template_done_working() -> void:
 	SceneTransition.transition()
 	await SceneTransition.animation_player.animation_finished
 	level_template.hide()
 	if GlobalVar.day == "JUMAT":
 		character_node.get_child(0).queue_free()
-		character_node.add_child(pak_anton_scene.instantiate())
-		$character_node_left.add_child(mbak_rani_scene.instantiate())
-		$character_node_right.add_child(mbak_intan_scene.instantiate())
+		character_node.add_child(GlobalVar.pak_anton_scene.instantiate())
+		$character_node_left.add_child(GlobalVar.mbak_rani_scene.instantiate())
+		$character_node_right.add_child(GlobalVar.mbak_intan_scene.instantiate())
+		if Dialogic.signal_event.is_connected(_on_dialogic_signal):
+			Dialogic.signal_event.disconnect(_on_dialogic_signal)
+		Dialogic.signal_event.connect(_on_dialogic_signal)
 		Dialogic.start("naik_pangkat")
 	else:
+		if Dialogic.signal_event.is_connected(_on_dialogic_signal):
+			Dialogic.signal_event.disconnect(_on_dialogic_signal)
+		Dialogic.signal_event.connect(_on_dialogic_signal)
 		Dialogic.start("after_work_" + character_name)
 
 
@@ -173,8 +174,7 @@ func show_win_leaderboard():
 	animation_player.play("show_win_leaderboard")
 	await animation_player.animation_finished
 	Dialogic.start("naik_pangkat", "after_leaderboard")
-	GlobalVar.idx_title += 1
-	Dialogic.VAR.can_promote = false
+
 	
 	
 	

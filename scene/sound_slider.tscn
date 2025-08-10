@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv5tbmnoua2oh"]
+
+[ext_resource type="Script" uid="uid://cj4n7otaw3eeb" path="res://script/sound_slider.gd" id="1_tbx2l"]
+
+[node name="sound_slider" type="HSlider"]
+offset_right = 327.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_tbx2l")
+bus_name = "Music"

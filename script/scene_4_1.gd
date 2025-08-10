@@ -8,15 +8,7 @@ var CONSTRAINT_SET = [
 	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan minimal 3 warna", "Gunakan warna oranye", "Gunakan warna kuning pada elemen teks", "Gunakan warna hitam pada latar belakang"],
 	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan hanya 1 warna untuk setiap jenis teks", "Gunakan minimal 3 warna", "Jangan gunakan warna putih", "Gunakan warna oranye", "Gunakan warna kuning pada elemen teks", "Gunakan warna ungu pada latar belakang"]
 ]
-const DOCUMENT_EASY_1 = preload("res://scene/documents/document_easy_1.tscn")
-const DOCUMENT_EASY_2 = preload("res://scene/documents/document_easy_2.tscn")
-const DOCUMENT_EASY_3 = preload("res://scene/documents/document_easy_3.tscn")
-const DOCUMENT_HARD_1 = preload("res://scene/documents/document_hard_1.tscn")
-const DOCUMENT_HARD_2 = preload("res://scene/documents/document_hard_2.tscn")
-const DOCUMENT_HARD_3 = preload("res://scene/documents/document_hard_3.tscn")
-const DOCUMENT_MEDIUM_1 = preload("res://scene/documents/document_medium_1.tscn")
-const DOCUMENT_MEDIUM_2 = preload("res://scene/documents/document_medium_2.tscn")
-const DOCUMENT_MEDIUM_3 = preload("res://scene/documents/document_medium_3.tscn")
+
 var easy_document_list = []
 var medium_document_list = []
 var hard_document_list = []
@@ -24,9 +16,9 @@ var constraint_list
 
 func _ready() -> void:
 	SoundManager.play_kantor_music()
-	easy_document_list = [DOCUMENT_EASY_1, DOCUMENT_EASY_2,DOCUMENT_EASY_3]
-	medium_document_list = [DOCUMENT_MEDIUM_1, DOCUMENT_MEDIUM_2, DOCUMENT_MEDIUM_3]
-	hard_document_list = [DOCUMENT_HARD_1, DOCUMENT_HARD_2, DOCUMENT_HARD_3]
+	easy_document_list = [GlobalVar.DOCUMENT_EASY_1, GlobalVar.DOCUMENT_EASY_2,GlobalVar.DOCUMENT_EASY_3]
+	medium_document_list = [GlobalVar.DOCUMENT_MEDIUM_1, GlobalVar.DOCUMENT_MEDIUM_2, GlobalVar.DOCUMENT_MEDIUM_3]
+	hard_document_list = [GlobalVar.DOCUMENT_HARD_1, GlobalVar.DOCUMENT_HARD_2, GlobalVar.DOCUMENT_HARD_3]
 	if GlobalVar.easy_doc_used.size() == easy_document_list.size():
 		GlobalVar.easy_doc_used.clear()
 	if GlobalVar.medium_doc_used.size() == medium_document_list.size():

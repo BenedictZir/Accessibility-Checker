@@ -48,4 +48,6 @@ aruna: "Anggap aku sebagai co-pilot yang ramah. Tapi dengan ingatan lebih tajam,
 [signal arg="aruna_happy"]
 aruna: "Misi pertama\: ayo kita perbaiki—eh maksudku, tingkatkan—beberapa slide bareng-bareng, yuk!"
 [signal arg="aruna_happy"]
+[signal arg="pak_anton_leave"]
+[signal arg="aruna_leave"]
 [signal arg="end"]

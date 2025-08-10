@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://8146oq3lnsyn"]
+[gd_scene load_steps=37 format=3 uid="uid://8146oq3lnsyn"]
 
 [ext_resource type="Script" uid="uid://voovxxg0pnjx" path="res://script/title_screen.gd" id="1_0ctqs"]
 [ext_resource type="Texture2D" uid="uid://bchnaivijo3um" path="res://assets/title_screen_assets/title_screen.png" id="1_pkupl"]
@@ -13,6 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://cdyb6ysttkgtd" path="res://assets/title_screen_assets/Accessibility Checker Game (17)/Group 1000007689.png" id="11_o67lm"]
 [ext_resource type="Texture2D" uid="uid://bi8hbp1nltw8s" path="res://assets/title_screen_assets/Accessibility Checker Game (18)/Group 49.png" id="12_1tx3d"]
 [ext_resource type="Texture2D" uid="uid://jyejwnlmgt4i" path="res://assets/title_screen_assets/Accessibility Checker Game (19)/Vector.png" id="13_trhgc"]
+[ext_resource type="Texture2D" uid="uid://byb47dw0rmxjf" path="res://assets/minigame_1/background.png" id="14_miuoy"]
+[ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="15_kgdf7"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="16_1tx3d"]
+[ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="16_k01l3"]
+[ext_resource type="PackedScene" uid="uid://dv5tbmnoua2oh" path="res://scene/sound_slider.tscn" id="18_trhgc"]
 
 [sub_resource type="Animation" id="Animation_0ctqs"]
 length = 0.001
@@ -99,6 +104,58 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1065, 948)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("credit:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("credit:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_miuoy"]
+resource_name = "show_credit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("credit:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("credit:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_pkupl"]
@@ -191,6 +248,7 @@ tracks/6/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i58fu"]
 _data = {
 &"RESET": SubResource("Animation_0ctqs"),
+&"show_credit": SubResource("Animation_miuoy"),
 &"start": SubResource("Animation_pkupl")
 }
 
@@ -217,6 +275,20 @@ texture = ExtResource("7_tn2ht")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aege2"]
 texture = ExtResource("12_1tx3d")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o67lm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1tx3d"]
+texture = ExtResource("16_k01l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trhgc"]
+texture = ExtResource("16_k01l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wpyj1"]
+texture = ExtResource("16_k01l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_focru"]
+texture = ExtResource("16_k01l3")
 
 [node name="title_screen" type="Node2D"]
 script = ExtResource("1_0ctqs")
@@ -317,4 +389,124 @@ texture = ExtResource("8_miuoy")
 position = Vector2(180, 165)
 texture = ExtResource("13_trhgc")
 
+[node name="credit" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+
+[node name="Background" type="Sprite2D" parent="credit"]
+texture = ExtResource("14_miuoy")
+
+[node name="Label" type="Label" parent="credit/Background"]
+offset_left = 138.0
+offset_top = -368.0
+offset_right = 266.0
+offset_bottom = -316.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("15_kgdf7")
+theme_override_font_sizes/font_size = 40
+text = "Credits & Settings"
+
+[node name="Label2" type="Label" parent="credit/Background"]
+offset_left = -147.0
+offset_top = -276.0
+offset_right = 144.0
+offset_bottom = -224.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("15_kgdf7")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="credit/Background"]
+offset_left = -147.0
+offset_top = 89.0
+offset_right = 144.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("15_kgdf7")
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="credit/Background"]
+offset_left = -147.0
+offset_top = -182.0
+offset_right = 144.0
+offset_bottom = -130.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("16_1tx3d")
+theme_override_font_sizes/font_size = 35
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="credit/Background"]
+offset_left = -400.0
+offset_top = 153.0
+offset_right = -109.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("16_1tx3d")
+theme_override_font_sizes/font_size = 35
+text = "Music by Crescendo, Ludoloon Studio, midimoon "
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="credit/Background"]
+offset_left = -400.0
+offset_top = 228.0
+offset_right = 328.0
+offset_bottom = 280.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("16_1tx3d")
+theme_override_font_sizes/font_size = 35
+text = "SFX by Cyrex Studios and JDSherbert"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="credit/Background"]
+offset_left = -142.0
+offset_top = -73.0
+offset_right = 149.0
+offset_bottom = -21.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("16_1tx3d")
+theme_override_font_sizes/font_size = 35
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exit_credit" type="Button" parent="credit/Background"]
+offset_left = 489.0
+offset_top = -384.0
+offset_right = 636.0
+offset_bottom = -205.0
+pivot_offset = Vector2(73, 89)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o67lm")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_1tx3d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_trhgc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wpyj1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_focru")
+
+[node name="Polygon2D" type="Polygon2D" parent="credit/Background/exit_credit"]
+position = Vector2(-487, 382)
+polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 490, -279, 490, -290)
+
+[node name="music_slider" parent="credit" instance=ExtResource("18_trhgc")]
+offset_left = -393.0
+offset_top = -134.0
+offset_right = 341.0
+offset_bottom = -77.0
+
+[node name="sfx_slider" parent="credit" instance=ExtResource("18_trhgc")]
+offset_left = -393.0
+offset_top = -31.0
+offset_right = 341.0
+offset_bottom = 26.0
+bus_name = "SFX"
+
+[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="credit_button" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="credit/Background/exit_credit" to="." method="_on_exit_credit_pressed"]

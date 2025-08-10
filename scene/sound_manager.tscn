@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://uw5qtpdcypnf"]
+[gd_scene load_steps=18 format=3 uid="uid://uw5qtpdcypnf"]
 
 [ext_resource type="Script" uid="uid://bu7j5w2kve573" path="res://script/sound_manager.gd" id="1_6i8hr"]
 [ext_resource type="AudioStream" uid="uid://cueox1mthbfce" path="res://assets/music/map_music.wav" id="2_2xa14"]
@@ -6,6 +6,17 @@
 [ext_resource type="AudioStream" uid="uid://d171d47vfuhrp" path="res://assets/music/kantor_musik.wav" id="4_6d0mt"]
 [ext_resource type="AudioStream" uid="uid://kf5yjlrb6788" path="res://assets/music/hover_sfx.mp3" id="5_5c1a0"]
 [ext_resource type="AudioStream" uid="uid://bfg0flfjil8hm" path="res://assets/music/click_sfx.mp3" id="6_qbflo"]
+[ext_resource type="AudioStream" uid="uid://cylmvnr0xtaoy" path="res://assets/music/prologue_music.wav" id="7_w0wq2"]
+[ext_resource type="AudioStream" uid="uid://erb2nbax268h" path="res://assets/music/kos_music.mp3" id="7_wh1rs"]
+[ext_resource type="AudioStream" uid="uid://8h6xw5lcpcj" path="res://assets/music/score_count.wav" id="8_47vek"]
+[ext_resource type="AudioStream" uid="uid://7vewn3kbynif" path="res://assets/music/mult_sfx.wav" id="9_eyfsq"]
+[ext_resource type="AudioStream" uid="uid://dy7q86rc0b52f" path="res://assets/music/notif_sfx.mp3" id="11_gbkah"]
+[ext_resource type="AudioStream" uid="uid://cstgl6j76o84a" path="res://assets/music/title_screen_music.wav" id="12_gbkah"]
+[ext_resource type="AudioStream" uid="uid://dbikkcluo851f" path="res://assets/music/taman_music.wav" id="13_wb5tk"]
+[ext_resource type="AudioStream" uid="uid://d4ej5w7vxr15y" path="res://assets/music/minigame_taman_music.wav" id="14_40s4b"]
+[ext_resource type="AudioStream" uid="uid://b3dk4fybih8in" path="res://assets/music/wrong_answer_sfx.wav" id="15_imd7u"]
+[ext_resource type="AudioStream" uid="uid://dr8m5racwfd24" path="res://assets/music/correct_answer_sfx.wav" id="16_lnoso"]
+[ext_resource type="AudioStream" uid="uid://b6bageylxcbf6" path="res://assets/music/select_sfx.wav" id="17_bqrkb"]
 
 [node name="SoundManager" type="Node2D"]
 script = ExtResource("1_6i8hr")
@@ -13,18 +24,81 @@ script = ExtResource("1_6i8hr")
 [node name="map_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_2xa14")
 volume_db = -10.0
+bus = &"Music"
 
 [node name="minigame_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_6d0mt")
 volume_db = -5.0
+bus = &"Music"
 
 [node name="kantor_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6d0mt")
 volume_db = -10.0
+bus = &"Music"
 
 [node name="button_hover_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_5c1a0")
 volume_db = 5.0
+bus = &"SFX"
 
 [node name="button_click_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_qbflo")
+bus = &"SFX"
+
+[node name="kos_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_w0wq2")
+volume_db = -5.0
+bus = &"Music"
+playback_type = 1
+
+[node name="score_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_47vek")
+pitch_scale = 1.2
+bus = &"SFX"
+playback_type = 1
+
+[node name="mult_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_eyfsq")
+pitch_scale = 0.8
+bus = &"SFX"
+playback_type = 1
+
+[node name="prologue_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_wh1rs")
+volume_db = -5.0
+bus = &"Music"
+playback_type = 1
+
+[node name="notif_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_gbkah")
+bus = &"SFX"
+
+[node name="title_screen_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_gbkah")
+volume_db = -5.0
+bus = &"Music"
+
+[node name="taman_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_wb5tk")
+volume_db = -5.0
+bus = &"Music"
+
+[node name="taman_kuis_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_40s4b")
+volume_db = -5.0
+bus = &"Music"
+
+[node name="wrong_answer_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_imd7u")
+bus = &"SFX"
+
+[node name="correct_answer_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_lnoso")
+pitch_scale = 1.1
+bus = &"SFX"
+
+[node name="select_obj_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_bqrkb")
+pitch_scale = 1.1
+bus = &"SFX"
+playback_type = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://bao1ug3shuin"]
+[gd_scene load_steps=129 format=3 uid="uid://bao1ug3shuin"]
 
 [ext_resource type="Script" uid="uid://bnhj8ituhuohk" path="res://script/level_template.gd" id="1_lpc36"]
 [ext_resource type="Texture2D" uid="uid://bonr6w8rl5b0y" path="res://assets/pause_button_bg.png" id="4_7yd1f"]
@@ -64,6 +64,8 @@
 [ext_resource type="Texture2D" uid="uid://fc4xfps3me5v" path="res://assets/mulai_kerja_screen/Subtract-1.png" id="59_swwa5"]
 [ext_resource type="Texture2D" uid="uid://7emgo073wam1" path="res://assets/mulai_kerja_screen/Subtract-2.png" id="60_o62jr"]
 [ext_resource type="Texture2D" uid="uid://vww0rl8q8pi8" path="res://assets/mulai_kerja_screen/a.png" id="61_022r1"]
+[ext_resource type="Texture2D" uid="uid://byb47dw0rmxjf" path="res://assets/minigame_1/background.png" id="65_07xks"]
+[ext_resource type="PackedScene" uid="uid://dv5tbmnoua2oh" path="res://scene/sound_slider.tscn" id="66_c1v00"]
 
 [sub_resource type="Animation" id="Animation_xe1of"]
 length = 0.001
@@ -435,6 +437,30 @@ tracks/30/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("pause_screen:scale")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("pause_screen:modulate")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_jobix"]
 resource_name = "init"
@@ -721,6 +747,48 @@ tracks/7/keys = {
 }, {
 "args": [],
 "method": &"disable_all_button"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_022r1"]
+resource_name = "show_mult"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("result_screen/mult_box:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("result_screen/mult_box:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_total_after_mult"
 }]
 }
 
@@ -1264,45 +1332,60 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_022r1"]
-resource_name = "show_mult"
-length = 0.1
+[sub_resource type="Animation" id="Animation_4opbm"]
+resource_name = "show_pause_menu"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("result_screen/mult_box:visible")
+tracks/0/path = NodePath("pause_screen:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("result_screen/mult_box:scale")
+tracks/1/path = NodePath("pause_screen:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2, 2), Vector2(1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("app:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.67451, 0.67451, 0.67451, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"anim_total_after_mult"
+"method": &"enable_all_button"
+}, {
+"args": [],
+"method": &"disable_all_button"
 }]
 }
 
@@ -1316,6 +1399,7 @@ _data = {
 &"show_color_wheel_minigame": SubResource("Animation_vaqec"),
 &"show_mult": SubResource("Animation_022r1"),
 &"show_panduan": SubResource("Animation_hl4pa"),
+&"show_pause_menu": SubResource("Animation_4opbm"),
 &"show_result_screen": SubResource("Animation_io6bp"),
 &"show_structure_minigame": SubResource("Animation_xnxwe")
 }
@@ -1444,6 +1528,20 @@ texture = ExtResource("56_swwa5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1v00"]
 texture = ExtResource("56_swwa5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_atvw4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4oqj0"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h6r5b"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j1o1s"]
+texture = ExtResource("26_dw8l3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d58xn"]
+texture = ExtResource("26_dw8l3")
 
 [node name="level_template" type="Node2D"]
 self_modulate = Color(0.450648, 0.450648, 0.450648, 1)
@@ -1792,6 +1890,7 @@ position = Vector2(513.5, 133)
 texture = ExtResource("24_ca6jy")
 
 [node name="bg_line" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(-41.5, 173)
 texture = ExtResource("25_taf54")
 
@@ -1805,12 +1904,12 @@ texture = ExtResource("26_065fq")
 texture = ExtResource("24_p17l8")
 
 [node name="Line2" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(-4, 173)
 texture = ExtResource("29_7yd1f")
 
 [node name="plus" type="Sprite2D" parent="result_screen"]
 position = Vector2(511, 162)
-rotation = 6.28319
 texture = ExtResource("28_wu83x")
 
 [node name="lanjut" type="Button" parent="result_screen"]
@@ -1874,6 +1973,7 @@ text = "Aksesibilitas"
 
 [node name="SkorMisi" type="Sprite2D" parent="result_screen"]
 position = Vector2(-556, -85)
+scale = Vector2(0.154631, 1.68041)
 texture = ExtResource("35_rx2j5")
 offset = Vector2(311, 0)
 
@@ -1888,6 +1988,7 @@ theme_override_font_sizes/font_size = 65
 text = "Misi"
 
 [node name="Skortimer" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(-554, 60)
 texture = ExtResource("36_qpo2v")
 offset = Vector2(311, 0)
@@ -1903,6 +2004,7 @@ theme_override_font_sizes/font_size = 65
 text = "Sisa Waktu"
 
 [node name="Total" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(-553, 298)
 texture = ExtResource("39_nw5pu")
 offset = Vector2(311, 0)
@@ -1944,6 +2046,7 @@ text = "0000"
 metadata/_edit_use_anchors_ = true
 
 [node name="OrangeBox2" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(287.5, -84)
 texture = ExtResource("33_taf54")
 
@@ -1964,6 +2067,7 @@ text = "0000"
 metadata/_edit_use_anchors_ = true
 
 [node name="OrangeBox3" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(288, 60)
 texture = ExtResource("33_taf54")
 
@@ -1985,6 +2089,7 @@ text = "0000"
 metadata/_edit_use_anchors_ = true
 
 [node name="OrangeBox4" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(269.25, 291)
 texture = ExtResource("33_taf54")
 
@@ -2295,6 +2400,91 @@ theme_override_font_sizes/font_size = 27
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="pause_screen" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Background" type="Sprite2D" parent="pause_screen"]
+texture = ExtResource("65_07xks")
+
+[node name="Label" type="Label" parent="pause_screen/Background"]
+offset_left = 157.0
+offset_top = -374.0
+offset_right = 388.0
+offset_bottom = -322.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 40
+text = "Pause"
+
+[node name="Label2" type="Label" parent="pause_screen/Background"]
+offset_left = -147.0
+offset_top = -276.0
+offset_right = 144.0
+offset_bottom = -224.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("14_xe1of")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="pause_screen/Background"]
+offset_left = -147.0
+offset_top = -182.0
+offset_right = 144.0
+offset_bottom = -130.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 35
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="pause_screen/Background"]
+offset_left = -142.0
+offset_top = -73.0
+offset_right = 149.0
+offset_bottom = -21.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("34_6mc5q")
+theme_override_font_sizes/font_size = 35
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exit_credit" type="Button" parent="pause_screen/Background"]
+offset_left = 489.0
+offset_top = -384.0
+offset_right = 636.0
+offset_bottom = -205.0
+pivot_offset = Vector2(73, 89)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_atvw4")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_4oqj0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h6r5b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_j1o1s")
+theme_override_styles/normal = SubResource("StyleBoxTexture_d58xn")
+
+[node name="Polygon2D" type="Polygon2D" parent="pause_screen/Background/exit_credit"]
+position = Vector2(-487, 382)
+polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 490, -279, 490, -290)
+
+[node name="music_slider" parent="pause_screen" instance=ExtResource("66_c1v00")]
+offset_left = -393.0
+offset_top = -134.0
+offset_right = 341.0
+offset_bottom = -77.0
+
+[node name="sfx_slider" parent="pause_screen" instance=ExtResource("66_c1v00")]
+offset_left = -393.0
+offset_top = -31.0
+offset_right = 341.0
+offset_bottom = 26.0
+bus_name = "SFX"
+
+[connection signal="pressed" from="app/pause_button" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="app/selesai" to="." method="_on_selesai_pressed"]
 [connection signal="pressed" from="app/minigame_icons/image_features/alt_text_button" to="." method="_on_alt_text_button_pressed"]
 [connection signal="pressed" from="app/minigame_icons/docs_features/color_wheel_button" to="." method="_on_color_wheel_button_pressed"]
@@ -2312,3 +2502,4 @@ autowrap_mode = 2
 [connection signal="pressed" from="aruna_helper_screen/panduan_tugas_button" to="." method="_on_panduan_tugas_button_pressed"]
 [connection signal="pressed" from="aruna_helper_screen/panduan_warna" to="." method="_on_panduan_warna_pressed"]
 [connection signal="pressed" from="mulai_kerja/mulai_kerja" to="." method="_on_mulai_kerja_pressed"]
+[connection signal="pressed" from="pause_screen/Background/exit_credit" to="." method="_on_exit_credit_pressed"]

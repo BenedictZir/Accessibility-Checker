@@ -1,0 +1,5 @@
+player: (Seperitnya ada acara Kuis Taman Inklusif lagi hariini, aku akan coba mendekat)
+pembawa_acara: "SELAMAT DATANG SEMUANYA, SELAMAT DATANG KEMBALI DI..."
+pembawa_acara: "KUIS TAMAN INKLUSIFFF!!!"
+pembawa_acara: "Silahkan siapapun yang berani mengikuti untuk maju dan bermain bersama kami"
+[signal arg="start_quiz"]

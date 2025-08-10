@@ -25,6 +25,8 @@ func on_dialogic_signal(arg):
 		"aruna_angry":
 			play("angry")
 		"aruna_happy":
+			if animation == "happy":
+				stop()
 			play("happy")
 		"aruna_normal":
 			play("normal")

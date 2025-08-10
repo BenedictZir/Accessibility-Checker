@@ -12,6 +12,7 @@ var can_blink := false
 
 
 func _ready() -> void:
+	SoundManager.play_prologue_music()
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.start("prologue")
 	
@@ -48,6 +49,7 @@ func _on_dialogic_signal(arg):
 		$bg_2.show()
 	elif arg == "change_bg_2":
 		$bg_2.hide()
+		SoundManager.play_notif_sfx()
 		$bg_3.show()
 	elif arg == "show_mail":
 		animation_player.play("show_mail")

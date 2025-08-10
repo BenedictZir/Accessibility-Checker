@@ -34,6 +34,8 @@ func _on_dialogic_signal(arg):
 			is_happy = false
 			is_mad = false
 			capek = false
+			if animation == "talk":
+				stop()
 			play("talk")
 		"mbak_intan_blink":
 			is_happy = false
@@ -47,6 +49,8 @@ func _on_dialogic_signal(arg):
 		"mbak_intan_angry_talk":
 			is_mad = true
 			capek = false
+			if animation == "angry_talk":
+				stop()
 			play("angry_talk")
 		"mbak_intan_happy_blink":
 			is_happy = true
@@ -55,6 +59,8 @@ func _on_dialogic_signal(arg):
 		"mbak_intan_happy_talk":
 			is_happy = true
 			capek = false
+			if animation == "happy_talk":
+				stop()
 			play("happy_talk")
 		"mbak_intan_join":
 			animation_player.play("join")

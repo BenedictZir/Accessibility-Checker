@@ -61,3 +61,5 @@ aruna: "Tiap pekerjaan memiliki permintaan-permintaan unik khusus, seperti pengg
 aruna: "Tenang saja, aku akan memberikan panduan tugas pada saat kamu mulai bekerja"
 aruna: "Kamu juga bisa memanggilku jika lupa mengenai tugasnya!"
 aruna: "Tapi ingat, walaupun kamu perlu memenuhi permintaan, kamu juga perlu menjaga agar dokumen itu tetap aksesibel untuk semua orang!"
+[signal arg="aruna_leave"]
+[end_timeline]

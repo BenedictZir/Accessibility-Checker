@@ -1,0 +1,25 @@
+[signal arg="aruna_join"]
+player: "Wah taman kota ternyata adem banget, makasih ya Aruna mau nemenin aku kesini\:
+[signal arg="aruna_happy"]
+aruna: "Sama-sama {player_name}! aku kan partner terbaikmu hehehe."
+[signal arg="aruna_happy"]
+aruna: "{player_name} coba lihat disitu ada orang ramai, mereka sedang ngapain ya?"
+player: "Betul juga kamu, ayo coba dekatin!"
+player: "Aku juga penasaran."
+Kamu dan aruna mendekati panggung dengan dekorasi meriah yang penuh dengan penonton.
+pembawa_acara: "SELAMAT SORE PARA HADIRIN SEKALIAN, SELAMAT DATANG KEMBALI DI....."
+pembawa_acara: "KUISSSSS TAMANNNN INKLUSIFFFFF!!!!!"
+pembawa_acara: "Seperti biasa, kita akan mengajak para hadirin sekalian untuk bermain mengerjakan kuis inklusif ini."
+pembawa_acara: "Apakah ada yang berani untuk maju kedepan?!?! Hahahahaha."
+pembawa_acara: "Hey kamu anak muda yang bersama robot, coba kamu maju kesini dan selesaikan tantangan ini."
+Pembawa acara menunjukkan jari telunjukknya kepada dirimu diantara keramaian orang di taman.
+- "A-Aku? Siapa takut, ayo kita main!"
+	pembawa_acara: "Bagus sekali, aku sangat suka dengan anak muda yang sadar tentang inklusivitas!"
+- "Baiklah aku akan coba ikut main."
+	pembawa_acara: "Bagus sekali, aku sangat suka dengan anak muda yang sadar tentang inklusivitas!"
+player: (Sebenarnya aku tidak tau apakah bisa)
+player: (Tetapi sebagai staff yang menjaga inklusivitas dan agar terlihat keren di depan Aruna, aku tidak boleh mundur!)
+[signal arg="aruna_happy"]
+aruna: {player_name} kamu keren sekali!
+[signal arg="start_quiz"]
+return

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/kos_music.mp3-d77728bb54df0618b0dfbb9aa1933dd
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
