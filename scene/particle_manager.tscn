@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5vglujcpdyca"]
+
+[ext_resource type="Script" uid="uid://dwch7lm6uhvue" path="res://script/particle_manager.gd" id="1_kn3sa"]
+[ext_resource type="Texture2D" uid="uid://d1u5w12g3jqqk" path="res://assets/50_poin.png" id="2_mx6mc"]
+[ext_resource type="Texture2D" uid="uid://xlm3m6qpvsa7" path="res://assets/1000_poin.png" id="3_mx6mc"]
+
+[sub_resource type="Gradient" id="Gradient_07g1o"]
+offsets = PackedFloat32Array(0.353234, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="ParticleManager" type="Node2D"]
+z_index = 1
+script = ExtResource("1_kn3sa")
+
+[node name="particle_50" type="CPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 1
+texture = ExtResource("2_mx6mc")
+lifetime = 0.4
+one_shot = true
+gravity = Vector2(0, -980)
+color_ramp = SubResource("Gradient_07g1o")
+
+[node name="particle_1000" type="CPUParticles2D" parent="."]
+z_index = 1
+rotation = -0.00197034
+emitting = false
+amount = 1
+texture = ExtResource("3_mx6mc")
+lifetime = 0.4
+one_shot = true
+gravity = Vector2(0, -980)
+color_ramp = SubResource("Gradient_07g1o")

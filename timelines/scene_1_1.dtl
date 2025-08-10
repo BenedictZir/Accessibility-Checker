@@ -29,6 +29,7 @@ join "pak bos" left
 [signal arg="pak_anton_talk"]
 "pak bos": "Tugas kamu? Bikin mereka bisa dimengerti. Oleh manusia. Dan oleh screen reader. Alt Text sekarang sahabat barumu."
 - Berarti ini bukan cuma soal teks ya? Ini soal akses juga?
+	[signal arg="jawaban_benar"]
 	[signal arg="pak_anton_talk"]
 	"pak bos": "Tepat banget. Alt text itu salah satu bentuk kecil dari aksesibilitas digital. Buat pengguna tunanetra, itu satu-satunya cara mereka tahu isi gambar. "
 	[signal arg="pak_anton_talk"]

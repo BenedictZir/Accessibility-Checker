@@ -7,3 +7,6 @@ func _ready() -> void:
 func _on_dialogic_signal(arg):  
 	if arg == "end_day":
 		SceneTransition.change_scene("res://scene/map.tscn")
+	if arg == "jawaban_benar":
+		ParticleManager.emit_50()
+		Dialogic.VAR.poin_inklusif += 50

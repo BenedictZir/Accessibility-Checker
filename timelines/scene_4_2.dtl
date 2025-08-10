@@ -13,6 +13,7 @@ Komentar mulai bermunculan di bawah artikel\:
 [signal arg="mbak_intan_talk"]
 mbak_intan: “Kamu yang bantu bikin ini bisa terjadi, lho. Terima kasih, Intern.”
 - "Aku senang bisa bantu."
+	[signal arg="jawaban_benar"]
 	[signal arg="mbak_intan_talk"]
 	mbak_intan: “Dan dampaknya langsung terasa. Bukan cuma bikin dokumen lebih bagus—tapi bikin orang merasa dihargai karena bisa ikut paham.”
 - "Tapi beneran segitu pentingnya ya? Kayaknya nggak semua orang peduli juga."

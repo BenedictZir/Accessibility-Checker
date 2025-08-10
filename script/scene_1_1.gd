@@ -14,3 +14,6 @@ func _on_dialogic_signal(arg):
 		tween.tween_property($Camera2D, "position:y", -1307, 1)
 	if arg == "end":
 		SceneTransition.change_scene("res://story_scene/scene_1_2.tscn")
+	if arg == "jawaban_benar":
+		ParticleManager.emit_50()
+		Dialogic.VAR.poin_inklusif += 50

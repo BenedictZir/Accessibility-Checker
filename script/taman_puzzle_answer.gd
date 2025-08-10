@@ -32,10 +32,14 @@ func reveal_answer():
 	if is_correct_answer:
 		$correct_box.show()
 		SoundManager.play_correct_answer_sfx()
+		ParticleManager.emit_1000()
+		
 		Dialogic.VAR.poin_inklusif += 1000
 	else:
 		$wrong_box.show()
 		SoundManager.play_wrong_answer_sfx()
+		ParticleManager.emit_50()
+		
 		Dialogic.VAR.poin_inklusif += 50
 	if count_question == 5:
 		last_question_done.emit()

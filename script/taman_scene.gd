@@ -1,8 +1,14 @@
 extends Node2D
 var answers = []
 @onready var label: Label = $question/Label
-const HOVER_SCALE := 1.1
-const NORMAL_SCALE := 1.0
+@onready var question: Sprite2D = $question/QuestionMark
+var rotation_speed := 3.0 
+var rotation_amount := 0.05 
+var rotation_time := 0.0
+var quiz_active := false
+
+const HOVER_SCALE := 0.9
+const NORMAL_SCALE := 0.7
 const LERP_SPEED := 25.0
 const QUESTION_SET = [
 	{
@@ -54,6 +60,66 @@ const QUESTION_SET = [
 			{"text": "", "image": "res://assets/park_quiz_image/question_1_4.png"}
 		],
 		"correct_index": 2
+	},
+		{
+		"text": "Kalau video di website tidak punya teks terjemahan (subtitle), siapa yang dirugikan?",
+		"choices": [
+			{"text": "Pengguna yang sedang belajar bahasa", "image": null},
+			{"text": "Pengguna dengan gangguan pendengaran", "image": null},
+			{"text": "Pengguna yang suka baca cepat", "image": null},
+			{"text": "Semua orang yang punya headphone", "image": null}
+		],
+		"correct_index": 1
+	},
+	{
+		"text": "Kalau form pendaftaran tidak memberi tahu letak kesalahan setelah submit, apa yang terjadi?",
+		"choices": [
+			{"text": "Pengguna jadi tebak-tebakan salahnya di mana", "image": null},
+			{"text": "Form jadi lebih singkat", "image": null},
+			{"text": "Form lebih aman dari spam", "image": null},
+			{"text": "Pengguna jadi langsung sukses submit", "image": null}
+		],
+		"correct_index": 0
+	},
+	{
+		"text": "Kalau link di website hanya dibedakan dengan warna tanpa garis bawah, siapa yang mungkin tidak sadar kalau itu link?",
+		"choices": [
+			{"text": "Pengguna yang sedang buru-buru", "image": null},
+			{"text": "Pengguna dengan buta warna", "image": null},
+			{"text": "Pengguna yang pakai kacamata", "image": null},
+			{"text": "Semua orang yang pakai ponsel", "image": null}
+		],
+		"correct_index": 1
+	},
+	{
+		"text": "Kalau tombol di aplikasi terlalu kecil, siapa yang akan kesulitan mengklik?",
+		"choices": [
+			{"text": "Pengguna dengan jari besar", "image": null},
+			{"text": "Pengguna yang pakai stylus", "image": null},
+			{"text": "Pengguna dengan gangguan motorik", "image": null},
+			{"text": "Semua orang yang main game", "image": null}
+		],
+		"correct_index": 2
+	},
+	{
+		"text": "Tombol 'Next' hanya bisa digerakkan dengan swipe layar sentuh, siapa yang akan kesulitan?",
+		"choices": [
+			{"text": "Pengguna dengan gangguan motorik", "image": null},
+			{"text": "Pengguna yang pakai sarung tangan", "image": null},
+			{"text": "Pengguna yang pakai keyboard", "image": null},
+			{"text": "Semua jawaban benar", "image": null}
+		],
+		"correct_index": 3
+	},
+		{
+		"text": "Teks putih di atas latar kuning termasuk contoh apa?",
+		"choices": [
+			{"text": "Kontras rendah", "image": null},
+			{"text": "Kontras tinggi", "image": null},
+			{"text": "Desain minimalis", "image": null},
+			{"text": "Aksen visual", "image": null}
+		],
+		"correct_index": 0
 	}
 ]
 var remaining_questions = []
@@ -82,6 +148,7 @@ func _on_dialogic_signal(arg):
 			SoundManager.stop_music()
 			SoundManager.play_taman_kuis_music()
 			set_puzzle()
+			quiz_active = true
 			$AnimationPlayer.play("start_quiz")
 		
 
@@ -123,6 +190,8 @@ func _on_taman_puzzle_answer_answer_revealed() -> void:
 	set_puzzle()
 
 func _on_taman_puzzle_answer_last_question_done() -> void:
+	quiz_active = false
+	question.rotation = 0.0
 	$AnimationPlayer.play("start_quiz", -1, -1.0, true)
 	await $AnimationPlayer.animation_finished
 	Dialogic.start("park_after_minigame")
@@ -133,3 +202,8 @@ func _process(delta: float) -> void:
 		var current_scale = answer.scale.x
 		var new_scale = lerp(current_scale, target_scale, delta * LERP_SPEED)
 		answer.scale = Vector2(new_scale, new_scale)
+	if quiz_active:
+		rotation_time += delta * rotation_speed
+		question.rotation = sin(rotation_time) * rotation_amount
+	else:
+		question.rotation = 0.0

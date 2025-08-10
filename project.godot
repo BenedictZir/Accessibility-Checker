@@ -24,6 +24,7 @@ GlobalVar="*res://scene/global_var.tscn"
 AudioManager="*res://scene/audio_manager.tscn"
 SceneTransition="*res://scene/scene_transition.tscn"
 SoundManager="*res://scene/sound_manager.tscn"
+ParticleManager="*res://scene/particle_manager.tscn"
 
 [dialogic]
 
