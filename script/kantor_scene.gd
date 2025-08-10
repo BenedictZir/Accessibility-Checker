@@ -109,6 +109,7 @@ func _on_dialogic_signal(arg):
 func _on_level_template_done_working() -> void:
 	SceneTransition.transition()
 	await SceneTransition.animation_player.animation_finished
+	$TextureRect2.show()
 	level_template.hide()
 	if GlobalVar.day == "JUMAT":
 		character_node.get_child(0).queue_free()

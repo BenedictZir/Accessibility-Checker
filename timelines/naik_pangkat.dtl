@@ -42,4 +42,6 @@ else:
 mas_gilang: “Okeee, itu dia rekap kita minggu ini. Terima kasih buat semua kerja keras, ide keren, dan niat baik yang terus kalian nyalain tiap hari.”
 mas_gilang: “Ingat, aksesibilitas itu bukan perlombaan cepat-cepat… tapi perjalanan yang kita tempuh bareng-bareng. Satu perbaikan kecil, satu perubahan besar untuk banyak orang.”
 mas_gilang: “Sampai ketemu Jumat depan, dengan dampak yang makin terasa dan semangat yang nggak kalah cerah. Tetap inklusif, tetap keren!”
+[signal arg="pak_anton_leave"]
+[signal arg="mbak_intan_leave"]
 [signal arg="end_day"]

@@ -19,6 +19,8 @@ func set_answer(text, image, correctness):
 	
 	if image != null:
 		$TextureRect.texture = image
+	else:
+		$TextureRect.texture = null
 	
 
 

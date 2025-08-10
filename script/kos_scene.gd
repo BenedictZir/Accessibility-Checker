@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
+	$malam.show()
 	SoundManager.play_kos_music()
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.start("kos_dialog")
@@ -12,6 +13,7 @@ func _on_dialogic_signal(arg):
 			SceneTransition.transition()
 			await SceneTransition.animation_player.animation_finished
 			SoundManager.kos_music.stream_paused = false
+			$malam.hide()
 			Dialogic.start("kos_dialog", "selesai_tidur")
 		"end":
 			GlobalVar.next_day()

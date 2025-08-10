@@ -22,4 +22,5 @@ player: (Tetapi sebagai staff yang menjaga inklusivitas dan agar terlihat keren 
 [signal arg="aruna_happy"]
 aruna: {player_name} kamu keren sekali!
 [signal arg="start_quiz"]
+[signal arg="aruna_leave"]
 return

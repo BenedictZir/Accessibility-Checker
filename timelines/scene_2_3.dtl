@@ -24,7 +24,6 @@ Hari kedua selesai. Tapi rasanya kamu justru baru mulai.
 aruna: "Selamat ya, Intern! Hari kedua selesai."
 [signal arg="aruna_happy"]
 aruna: "Dokumen yang ditinjau\: 1. "
-[signal arg="aruna_happy"]
 aruna: "Gambar yang kini aksesibel\: 3. "
 [signal arg="aruna_happy"]
 aruna: Teks yang diberi struktur\: 9. "

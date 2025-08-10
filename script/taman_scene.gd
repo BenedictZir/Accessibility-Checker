@@ -46,7 +46,7 @@ const QUESTION_SET = [
 		"correct_index": 1
 	},
 	{
-		"text": "Mana kombinasi warna yang tidak kontras?",
+		"text": "Mana kombinasi warna yang kontras?",
 		"choices": [
 			{"text": "", "image": "res://assets/park_quiz_image/question_1_1.png"},
 			{"text": "", "image": "res://assets/park_quiz_image/question_1_2.png"},

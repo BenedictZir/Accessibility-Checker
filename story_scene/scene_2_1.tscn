@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://fxsydmkb7bpi"]
+[gd_scene load_steps=5 format=3 uid="uid://fxsydmkb7bpi"]
 
 [ext_resource type="Script" uid="uid://cu3ynqixc6fb0" path="res://script/scene_2_1.gd" id="1_s3a2m"]
 [ext_resource type="PackedScene" uid="uid://ynf3tsl7c7me" path="res://scene/mbak_intan.tscn" id="2_5nl05"]
 [ext_resource type="PackedScene" uid="uid://c8lv21odaka5g" path="res://scene/pak_anton.tscn" id="3_60wi1"]
+[ext_resource type="Texture2D" uid="uid://desd0s861mx7b" path="res://assets/background/dalam_kantor.png" id="4_5nl05"]
 
 [node name="scene_2_1" type="Node2D"]
 script = ExtResource("1_s3a2m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_5nl05")
+expand_mode = 1
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(1359, 0)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://igsxm17lpmpk"]
+[gd_scene load_steps=13 format=3 uid="uid://igsxm17lpmpk"]
 
 [ext_resource type="Script" uid="uid://cqh6e65tcai6c" path="res://script/kantor_scene.gd" id="1_6c7bi"]
 [ext_resource type="PackedScene" uid="uid://bao1ug3shuin" path="res://scene/level_template.tscn" id="2_j7eit"]
+[ext_resource type="Texture2D" uid="uid://desd0s861mx7b" path="res://assets/background/dalam_kantor.png" id="2_vtk1n"]
 [ext_resource type="Texture2D" uid="uid://vnmjlcsw1qre" path="res://assets/leaderboard/leaderboard.png" id="3_23e1i"]
+[ext_resource type="Texture2D" uid="uid://dimh58d3g1tva" path="res://assets/background/audit.png" id="3_tqmxi"]
 [ext_resource type="Texture2D" uid="uid://cfodbbu7q0ecg" path="res://assets/leaderboard/leaderboard label.png" id="4_orovf"]
 [ext_resource type="FontFile" uid="uid://bpju6a6dwhsm2" path="res://assets/fonts/Dosis-ExtraBold.ttf" id="5_vtk1n"]
 [ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="6_tqmxi"]
@@ -243,6 +245,23 @@ _data = {
 
 [node name="kantor_scene" type="Node2D"]
 script = ExtResource("1_6c7bi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+process_mode = 4
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("2_vtk1n")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+process_mode = 4
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("3_tqmxi")
+expand_mode = 1
 
 [node name="background_kantor" type="Sprite2D" parent="."]
 
