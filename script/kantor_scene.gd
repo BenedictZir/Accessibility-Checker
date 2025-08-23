@@ -109,9 +109,9 @@ func _on_dialogic_signal(arg):
 func _on_level_template_done_working() -> void:
 	SceneTransition.transition()
 	await SceneTransition.animation_player.animation_finished
-	$TextureRect2.show()
 	level_template.hide()
 	if GlobalVar.day == "JUMAT":
+		$TextureRect2.show()
 		character_node.get_child(0).queue_free()
 		character_node.add_child(GlobalVar.pak_anton_scene.instantiate())
 		$character_node_left.add_child(GlobalVar.mbak_rani_scene.instantiate())

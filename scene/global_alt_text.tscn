@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgoavyh4m73t4"]
+
+[ext_resource type="Script" uid="uid://mnddqkqjptxn" path="res://script/global_alt_text.gd" id="1_o8gjf"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="2_4xovl"]
+
+[node name="GlobalAltText" type="Node2D"]
+z_index = 1
+script = ExtResource("1_o8gjf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -147.0
+offset_top = -165.0
+offset_right = 147.0
+offset_bottom = -35.0
+pivot_offset = Vector2(147, 160)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+z_index = 1
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 290.0
+offset_bottom = 123.0
+
+[node name="Polygon2D2" type="Polygon2D" parent="ColorRect"]
+show_behind_parent = true
+z_index = 1
+position = Vector2(147, 165)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-32, -38, 0, 0, 32, -38)
+
+[node name="Polygon2D" type="Polygon2D" parent="ColorRect/Polygon2D2"]
+show_behind_parent = true
+z_index = 1
+position = Vector2(1.66893e-06, 0)
+scale = Vector2(0.933333, 1)
+polygon = PackedVector2Array(-26.7857, -33, 0, -2, 27.8571, -33, -1.78814e-06, -33)
+
+[node name="Label" type="Label" parent="ColorRect"]
+z_index = 1
+offset_left = 9.0
+offset_top = 12.0
+offset_right = 284.0
+offset_bottom = 118.0
+pivot_offset = Vector2(137, 53)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4xovl")
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ColorRect"]
+position = Vector2(146.5, 62)
+scale = Vector2(14.75, 6.8)

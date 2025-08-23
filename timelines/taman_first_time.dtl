@@ -1,12 +1,12 @@
 [signal arg="aruna_join"]
-player: "Wah taman kota ternyata adem banget, makasih ya Aruna mau nemenin aku kesini\:
+player: "Wah taman kota ternyata adem banget, makasih ya Aruna mau nemenin aku kesini"
 [signal arg="aruna_happy"]
 aruna: "Sama-sama {player_name}! aku kan partner terbaikmu hehehe."
 [signal arg="aruna_happy"]
 aruna: "{player_name} coba lihat disitu ada orang ramai, mereka sedang ngapain ya?"
 player: "Betul juga kamu, ayo coba dekatin!"
 player: "Aku juga penasaran."
-Kamu dan aruna mendekati panggung dengan dekorasi meriah yang penuh dengan penonton.
+Kamu dan Aruna mendekati panggung dengan dekorasi meriah yang penuh dengan penonton.
 pembawa_acara: "SELAMAT SORE PARA HADIRIN SEKALIAN, SELAMAT DATANG KEMBALI DI....."
 pembawa_acara: "KUISSSSS TAMANNNN INKLUSIFFFFF!!!!!"
 pembawa_acara: "Seperti biasa, kita akan mengajak para hadirin sekalian untuk bermain mengerjakan kuis inklusif ini."

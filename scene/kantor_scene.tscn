@@ -336,7 +336,7 @@ text = "2"
 [node name="label_name2" type="Label" parent="leaderboard_lose/LeaderboardLabel2"]
 offset_left = 316.0
 offset_top = -83.0
-offset_right = 769.0
+offset_right = 753.0
 offset_bottom = 44.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_tqmxi")
@@ -447,7 +447,7 @@ text = "1"
 [node name="label_name" type="Label" parent="leaderboard_win/LeaderboardLabel"]
 offset_left = 306.0
 offset_top = -82.0
-offset_right = 759.0
+offset_right = 760.0
 offset_bottom = 45.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_tqmxi")

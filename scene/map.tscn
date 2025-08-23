@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://243ahq71s8x8"]
+[gd_scene load_steps=63 format=3 uid="uid://243ahq71s8x8"]
 
 [ext_resource type="Texture2D" uid="uid://yug54vejcn5h" path="res://assets/map/background.png" id="1_44fbv"]
 [ext_resource type="Script" uid="uid://c1apehyilrdsk" path="res://script/map.gd" id="1_l8r8p"]
@@ -18,15 +18,15 @@
 [ext_resource type="Texture2D" uid="uid://cw6ae00ddw5bu" path="res://assets/map/supermarket.png" id="11_lfekj"]
 [ext_resource type="Texture2D" uid="uid://w6n7li52h48p" path="res://assets/map/taman.png" id="12_d6soc"]
 [ext_resource type="Texture2D" uid="uid://du4oncgqmbypd" path="res://assets/map/cafe.png" id="13_uhta6"]
+[ext_resource type="Script" uid="uid://b206y87avo52b" path="res://script/general_button.gd" id="15_23w2h"]
 [ext_resource type="Texture2D" uid="uid://bxux1qp1pqlcr" path="res://assets/map/background_progress_bar.png" id="15_amuei"]
 [ext_resource type="Texture2D" uid="uid://c7e1srcncqvgu" path="res://assets/map/over_progress_bar.png" id="16_yqoch"]
 [ext_resource type="Texture2D" uid="uid://gb1mdqtivvgr" path="res://assets/map/progress.png" id="17_3fel5"]
-[ext_resource type="Texture2D" uid="uid://dd7ravhf5pl4q" path="res://assets/map/pause_icon/Group 49505.png" id="18_pa0f6"]
-[ext_resource type="Texture2D" uid="uid://cj8d6g8h5dt3q" path="res://assets/map/pause_icon/Rectangle 9969.png" id="19_lfekj"]
-[ext_resource type="Texture2D" uid="uid://cyts260btwbha" path="res://assets/map/peringkat.png" id="20_uhta6"]
+[ext_resource type="Texture2D" uid="uid://unv61rbcil1p" path="res://assets/map/purple_pause.png" id="20_xkx26"]
 [ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="21_ewrs0"]
 [ext_resource type="Texture2D" uid="uid://c1nw6eh5yod42" path="res://assets/map/title_label.png" id="22_pa0f6"]
 [ext_resource type="Texture2D" uid="uid://cvmoennlylxec" path="res://assets/map/poin_inklusif.png" id="25_d60jh"]
+[ext_resource type="Texture2D" uid="uid://bv4xkvtl2qj65" path="res://assets/map/poin_inklusif_box.png" id="26_23w2h"]
 [ext_resource type="Texture2D" uid="uid://byb47dw0rmxjf" path="res://assets/minigame_1/background.png" id="28_xkx26"]
 [ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="29_23w2h"]
 [ext_resource type="PackedScene" uid="uid://dv5tbmnoua2oh" path="res://scene/sound_slider.tscn" id="30_h4w2u"]
@@ -89,16 +89,7 @@ texture = ExtResource("11_lfekj")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d6soc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ewrs0"]
-texture = ExtResource("18_pa0f6")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkx26"]
-texture = ExtResource("18_pa0f6")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23w2h"]
-texture = ExtResource("18_pa0f6")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h4w2u"]
-texture = ExtResource("18_pa0f6")
+texture = ExtResource("20_xkx26")
 
 [sub_resource type="Animation" id="Animation_i8ww0"]
 length = 0.001
@@ -378,6 +369,18 @@ tracks/22/keys = {
 "update": 0,
 "values": [Vector2(1e-05, 1e-05)]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("pause_screen:visible")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_d60jh"]
 resource_name = "new_animation"
@@ -440,7 +443,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.166667, 0.266667),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector2(1585, -97), Vector2(1585, 192)]
+"values": [Vector2(1585, -97), Vector2(1585, 302)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -676,6 +679,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pause_screen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6ctjw"]
 _data = {
@@ -697,6 +712,8 @@ texture = ExtResource("29_23w2h")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbemj"]
 texture = ExtResource("29_23w2h")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xkx26"]
 
 [node name="map" type="Node2D"]
 script = ExtResource("1_l8r8p")
@@ -726,12 +743,10 @@ position = Vector2(1585, -97)
 texture = ExtResource("5_bachi")
 
 [node name="name_top_label" type="Label" parent="name_top"]
-offset_left = -138.0
-offset_top = -91.0
-offset_right = 127.0
-offset_bottom = 104.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 18
+offset_left = -176.0
+offset_top = -97.0
+offset_right = 192.0
+offset_bottom = 98.0
 theme_override_fonts/font = ExtResource("6_gmpll")
 theme_override_font_sizes/font_size = 40
 text = "NAME"
@@ -850,6 +865,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_44fbv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_44fbv")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_l8r8p")
 theme_override_styles/normal = SubResource("StyleBoxTexture_gmpll")
+script = ExtResource("15_23w2h")
+alt_text = "Pergi ke kafe"
 
 [node name="kantor_button" type="Button" parent="."]
 custom_minimum_size = Vector2(167, 295)
@@ -864,6 +881,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_bachi")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bachi")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ui0ov")
 theme_override_styles/normal = SubResource("StyleBoxTexture_amuei")
+script = ExtResource("15_23w2h")
+alt_text = "Pergi ke kantor"
 
 [node name="taman_button" type="Button" parent="."]
 offset_left = 260.0
@@ -877,6 +896,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_4m74h")
 theme_override_styles/hover = SubResource("StyleBoxTexture_4m74h")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_yqoch")
 theme_override_styles/normal = SubResource("StyleBoxTexture_3fel5")
+script = ExtResource("15_23w2h")
+alt_text = "Pergi ke taman"
 
 [node name="kos_button" type="Button" parent="."]
 offset_left = 866.0
@@ -890,6 +911,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_lfekj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lfekj")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_d6soc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_uhta6")
+script = ExtResource("15_23w2h")
+alt_text = "Pergi ke kos"
 
 [node name="supermarket_button" type="Button" parent="."]
 offset_left = 1038.0
@@ -903,6 +926,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_i8ww0")
 theme_override_styles/hover = SubResource("StyleBoxTexture_d60jh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_i8ww0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6ctjw")
+script = ExtResource("15_23w2h")
+alt_text = "Pergi ke supermarket"
 
 [node name="pause" type="Button" parent="."]
 offset_left = 1349.0
@@ -913,15 +938,11 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(70, 73.5)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d6soc")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_ewrs0")
-theme_override_styles/hover = SubResource("StyleBoxTexture_xkx26")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_23w2h")
-theme_override_styles/normal = SubResource("StyleBoxTexture_h4w2u")
-
-[node name="Sprite2D" type="Sprite2D" parent="pause"]
-show_behind_parent = true
-position = Vector2(69.25, 74.25)
-scale = Vector2(0.990196, 0.996894)
-texture = ExtResource("19_lfekj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ewrs0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ewrs0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ewrs0")
+script = ExtResource("15_23w2h")
+alt_text = "Tombol untuk pergi ke menu pause"
 
 [node name="title" type="Sprite2D" parent="."]
 position = Vector2(2193, 461)
@@ -929,27 +950,26 @@ texture = ExtResource("22_pa0f6")
 
 [node name="title_label" type="Label" parent="title"]
 offset_left = -182.0
-offset_top = -50.0
+offset_top = -41.0
 offset_right = 257.0
-offset_bottom = 40.0
+offset_bottom = 49.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("21_ewrs0")
 theme_override_font_sizes/font_size = 30
+text = "
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="jabatan" type="Sprite2D" parent="title"]
-position = Vector2(-194, -106)
-texture = ExtResource("20_uhta6")
-
-[node name="jabatan_label" type="Label" parent="title/jabatan"]
-offset_left = -48.0
-offset_top = -18.0
-offset_right = 50.0
-offset_bottom = 14.0
+[node name="jabatan_label" type="Label" parent="title"]
+offset_left = 39.0
+offset_top = -81.0
+offset_right = 225.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_ewrs0")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 35
 text = "Gelar"
 horizontal_alignment = 1
 
@@ -965,16 +985,21 @@ texture_over = ExtResource("16_yqoch")
 texture_progress = ExtResource("17_3fel5")
 texture_progress_offset = Vector2(8, 90)
 
-[node name="Sprite2D" type="Sprite2D" parent="title_progress"]
+[node name="PoinInklusifBox" type="Sprite2D" parent="title_progress"]
 show_behind_parent = true
-position = Vector2(129, 72)
+position = Vector2(140, 72)
+texture = ExtResource("26_23w2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="title_progress"]
+position = Vector2(141, 72)
 texture = ExtResource("25_d60jh")
 
 [node name="poin_inklusif" type="Label" parent="title_progress/Sprite2D"]
-offset_left = -85.0
-offset_top = -17.0
-offset_right = 81.0
-offset_bottom = 22.0
+offset_left = -82.0
+offset_top = -15.0
+offset_right = 84.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("21_ewrs0")
 theme_override_font_sizes/font_size = 25
 text = "Poin Inklusif"
@@ -1001,6 +1026,7 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="pause_screen" type="Node2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 scale = Vector2(1e-05, 1e-05)
@@ -1066,10 +1092,34 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_fecvx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ok7wf")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_la8v5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_pbemj")
+script = ExtResource("15_23w2h")
+alt_text = "Tombol untuk keluar dari menu setting"
 
 [node name="Polygon2D" type="Polygon2D" parent="pause_screen/Background/exit_credit"]
 position = Vector2(-487, 382)
 polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 490, -279, 490, -290)
+
+[node name="Label8" type="Label" parent="pause_screen/Background"]
+offset_left = -280.0
+offset_top = 106.0
+offset_right = 11.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("10_3fel5")
+theme_override_font_sizes/font_size = 35
+text = "Alternative Texts:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="pause_screen/Background"]
+offset_left = -12.0
+offset_top = 97.0
+offset_right = 32.0
+offset_bottom = 121.0
+scale = Vector2(3, 3)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xkx26")
+button_pressed = true
 
 [node name="music_slider" parent="pause_screen" instance=ExtResource("30_h4w2u")]
 offset_left = -393.0
@@ -1082,7 +1132,6 @@ offset_left = -393.0
 offset_top = -31.0
 offset_right = 341.0
 offset_bottom = 26.0
-bus_name = "SFX"
 
 [connection signal="pressed" from="cafe_button" to="." method="_on_cafe_button_pressed"]
 [connection signal="pressed" from="kantor_button" to="." method="_on_kantor_button_pressed"]
@@ -1091,3 +1140,4 @@ bus_name = "SFX"
 [connection signal="pressed" from="supermarket_button" to="." method="_on_supermarket_button_pressed"]
 [connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="pause_screen/Background/exit_credit" to="." method="_on_exit_credit_pressed"]
+[connection signal="toggled" from="pause_screen/Background/CheckButton" to="." method="_on_check_button_toggled"]

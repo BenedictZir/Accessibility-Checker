@@ -37,9 +37,7 @@ func _on_level_template_image_clicked() -> void:
 
 
 func _on_level_template_wrong_alt_text() -> void:
-	if not wrong_alt_text:
-		Dialogic.start("scene_1_2", "wrong_alt_text")
-	wrong_alt_text = true
+	Dialogic.start("scene_1_2", "wrong_alt_text")
 
 
 func _on_level_template_tutorial_done() -> void:

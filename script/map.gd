@@ -23,10 +23,13 @@ const NORMAL_SCALE := 1.0
 const LERP_SPEED := 25.0
 const DISABLED_COLOR := Color(0.451, 0.451, 0.451)
 const ENABLED_COLOR := Color(1, 1, 1)
+@onready var check_button: CheckButton = $pause_screen/Background/CheckButton
 
 var buttons: Array[Button] = []
 
 func _ready() -> void:
+	check_button.button_pressed = GlobalAltText.alt_text_on
+
 	desc_label.visible_ratio = 0 
 	SoundManager.play_map_music()
 	title_label.text = GlobalVar.title_list[GlobalVar.idx_title]
@@ -148,3 +151,10 @@ func _on_exit_credit_pressed() -> void:
 	for button in buttons:
 		button.process_mode = Node.PROCESS_MODE_INHERIT
 	$AnimationPlayer.play("show_pause_screen", -1, -1.0, true)
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		GlobalAltText.alt_text_on = true
+	else:
+		GlobalAltText.alt_text_on = false

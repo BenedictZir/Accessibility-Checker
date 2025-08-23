@@ -8,7 +8,7 @@ return
 label after_leaderboard
 if {can_promote} == true:
 	mas_gilang: "Kak {player_name}!”
-	mas_gilang: “Kak [Player] berhasil mencuri perhatian minggu ini—dari perbaikan heading yang tadinya loncat-loncat, sampai layout kontras yang sekarang adem di mata.”
+	mas_gilang: “Kak {player_name} berhasil mencuri perhatian minggu ini—dari perbaikan heading yang tadinya loncat-loncat, sampai layout kontras yang sekarang adem di mata.”
 	Tepuk tangan lebih riuh. Beberapa rekan melirik ke arahmu, senyum bangga.
 	[signal arg="hide_leaderboard"]
 	[signal arg="mbak_rani_join"]
@@ -21,7 +21,7 @@ if {can_promote} == true:
 	[signal arg="pak_anton_talk"]
 	"pak bos": “Selamat! Kamu berhasil bikin perubahan yang diakui semua tim.”
 	Kamu menahan senyum lebar, dada terasa sedikit hangat. Rasanya kayak... diakui.
-	aruna: Gelar\: {title}!
+	aruna: Gelar\: {title_next}!
 	[signal arg="done_promoting"]
 else:
 	mas_gilang: "Kak Lintang!”
@@ -44,4 +44,5 @@ mas_gilang: “Ingat, aksesibilitas itu bukan perlombaan cepat-cepat… tapi per
 mas_gilang: “Sampai ketemu Jumat depan, dengan dampak yang makin terasa dan semangat yang nggak kalah cerah. Tetap inklusif, tetap keren!”
 [signal arg="pak_anton_leave"]
 [signal arg="mbak_intan_leave"]
+[signal arg="mbak_rani_leave"]
 [signal arg="end_day"]

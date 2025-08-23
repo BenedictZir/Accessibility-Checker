@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c1dbxinucsq2g"]
+[gd_scene load_steps=21 format=3 uid="uid://c1dbxinucsq2g"]
 
 [ext_resource type="Script" uid="uid://betgdsyowkl1j" path="res://script/minigame_3.gd" id="1_0dvvu"]
 [ext_resource type="PackedScene" uid="uid://ce053i0ellf0a" path="res://scene/struct_text.tscn" id="2_q8eg3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dpeynsfm0vb1k" path="res://assets/minigame_2/simpan_pilihan_orange.png" id="7_x4jmi"]
 [ext_resource type="Texture2D" uid="uid://b5i7q3vvymfxq" path="res://assets/minigame_2/simpan_pilihan_putih.png" id="8_rjyxx"]
 [ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="9_x4jmi"]
+[ext_resource type="Script" uid="uid://b206y87avo52b" path="res://script/general_button.gd" id="10_rjyxx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klblt"]
 
@@ -92,7 +93,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_tkeb3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_061bg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3tfbp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_4r7rc")
-text = "SIMPAN PILIHAN"
+text = "Simpan Pilihan"
 
 [node name="SimpanPilihanPutih" type="Sprite2D" parent="submit_button"]
 show_behind_parent = true
@@ -116,6 +117,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_klblt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wegjo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_6ldyw")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2xryp")
+script = ExtResource("10_rjyxx")
+alt_text = "Tombol untuk keluar dari fitur struktur"
 
 [node name="Polygon2D" type="Polygon2D" parent="exit_button"]
 position = Vector2(-487, 382)

@@ -174,10 +174,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="doc_text14" parent="texts" instance=ExtResource("2_wgesd")]
 offset_left = -422.0
-offset_top = 1999.0
+offset_top = 1966.0
 offset_right = 0.0
-offset_bottom = 2066.0
+offset_bottom = 2033.0
 theme_override_colors/font_color = Color(0.160784, 0.423529, 0.831373, 1)
+theme_override_font_sizes/font_size = 33
 text = "Kontras dalam Elemen Interaktif"
 intended_structure = 0
 part = 5
@@ -185,9 +186,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="doc_text15" parent="texts" instance=ExtResource("2_wgesd")]
 offset_left = -421.0
-offset_top = 2067.0
+offset_top = 2071.0
 offset_right = -2.0
-offset_bottom = 2204.0
+offset_bottom = 2208.0
 theme_override_colors/font_color = Color(0.160784, 0.423529, 0.831373, 1)
 text = "Tombol, link, dan ikon"
 intended_structure = 1

@@ -29,7 +29,6 @@ const DOCUMENT_HARD_3 = preload("res://scene/documents/document_hard_3.tscn")
 const DOCUMENT_MEDIUM_1 = preload("res://scene/documents/document_medium_1.tscn")
 const DOCUMENT_MEDIUM_2 = preload("res://scene/documents/document_medium_2.tscn")
 const DOCUMENT_MEDIUM_3 = preload("res://scene/documents/document_medium_3.tscn")
-var inclusive_point := 0
 var done_working_today := false
 var default_cursor = load("res://assets/cursors/cursor_default.png")
 var grab_cursor = load("res://assets/cursors/cursor_grab.png")
@@ -49,15 +48,16 @@ func next_day():
 	
 func _process(delta: float) -> void:
 	if Dialogic.VAR.can_promote:
-		Dialogic.VAR.title = title_list[idx_title + 1] # buat dialog aruna pas congrats
+		Dialogic.VAR.title_next = title_list[idx_title + 1] # buat dialog aruna pas congrats
 	else:
-		Dialogic.VAR.title = title_list[idx_title]
+		Dialogic.VAR.title_next = title_list[idx_title]
 	Dialogic.VAR.jabatan = jabatan_list[idx_title]
-	if Dialogic.VAR.poin_inklusif >= skor_list[idx_title + 1]:
-		Dialogic.VAR.can_promote = true
-	else:
-		Dialogic.VAR.can_promote = false
-	
+	if idx_title < 4: # jika blm max maka bisa promote
+		if Dialogic.VAR.poin_inklusif >= skor_list[idx_title + 1]:
+			Dialogic.VAR.can_promote = true
+		else:
+			Dialogic.VAR.can_promote = false
+		
 	player_name = str(Dialogic.VAR.player_name)
 	if is_dragging:
 		Input.set_custom_mouse_cursor(grab_cursor, Input.CURSOR_ARROW, Vector2(50, 50))

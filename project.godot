@@ -24,6 +24,7 @@ GlobalVar="*res://scene/global_var.tscn"
 AudioManager="*res://scene/audio_manager.tscn"
 SceneTransition="*res://scene/scene_transition.tscn"
 SoundManager="*res://scene/sound_manager.tscn"
+GlobalAltText="*res://scene/global_alt_text.tscn"
 ParticleManager="*res://scene/particle_manager.tscn"
 
 [dialogic]
@@ -83,9 +84,10 @@ variables={
 "can_promote": false,
 "jabatan": "",
 "player_name": "name",
-"poin_inklusif": 0.0,
+"poin_inklusif": 0,
 "poin_inklusif_harian": 0,
-"title": ""
+"title_next": "",
+"title_now": ""
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

@@ -6,6 +6,8 @@ func _ready() -> void:
 
 func _on_dialogic_signal(arg):  
 	if arg == "change_background":
+		SceneTransition.transition()
+		await get_tree().create_timer(1).timeout
 		$Camera2D.position = Vector2(960, 540)
 		$backgrounds/backrgound_1.hide()
 		$backgrounds/background_2.show()

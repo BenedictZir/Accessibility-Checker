@@ -99,9 +99,9 @@ part = 3
 
 [node name="doc_text8" parent="texts" instance=ExtResource("2_jx6oo")]
 offset_left = -440.0
-offset_top = 1046.0
+offset_top = 1014.0
 offset_right = -7.0
-offset_bottom = 1078.0
+offset_bottom = 1099.0
 theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
 text = "Area Bermain yang Aman dan Inklusif"
 intended_structure = 0
@@ -110,9 +110,9 @@ part = 4
 
 [node name="doc_text9" parent="texts" instance=ExtResource("2_jx6oo")]
 offset_left = -38.0
-offset_top = 1138.0
+offset_top = 1117.0
 offset_right = 429.0
-offset_bottom = 1275.0
+offset_bottom = 1254.0
 theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
 text = "Perosotan rendah, ayunan berpenahan, dan permainan sensorik mendukung keterlibatan anak-anak dengan beragam kebutuhan."
 intended_structure = 2
@@ -156,9 +156,9 @@ wrong_alt_text_3 = "Sebuah ukiran di atas batu yang menyerupai huruf Braille."
 
 [node name="images4" parent="images" instance=ExtResource("3_xswkg")]
 offset_left = -439.0
-offset_top = 1102.0
+offset_top = 1113.0
 offset_right = -65.0
-offset_bottom = 1355.0
+offset_bottom = 1366.0
 texture = ExtResource("7_alkn5")
 correct_alt_text = "Sebuah set mainan perosotan dan tangga berwarna-warni di taman bermain dengan latar belakang langit biru cerah."
 wrong_alt_text = "Perosotan kuning dan perosotan hijau di taman bermain."

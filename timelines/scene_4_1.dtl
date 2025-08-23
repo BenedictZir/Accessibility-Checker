@@ -25,8 +25,6 @@ mbak_rani: "Jadi, hari ini aku mau kamu bantuin satu dokumen lagi."
 [signal arg="mbak_rani_talk"]
 mbak_rani: “Karena masa training kamu udah selesai, sekarang kamu bisa milih sendiri tugas yang mau kamu ambil.”
 [signal arg="mbak_rani_talk"]
-mbak_rani: “Karena masa training kamu udah selesai, sekarang kamu bisa milih sendiri tugas yang mau kamu ambil.”
-[signal arg="mbak_rani_talk"]
 mbak_rani: “Ada tugas yang lebih ringan, ada juga yang lebih menantang.”
 [signal arg="mbak_rani_talk"]
 mbak_rani: “Jadi, tingkat kesulitan ditentukan dari seberapa banyak elemen dalam dokumen yang harus kamu perbaiki."

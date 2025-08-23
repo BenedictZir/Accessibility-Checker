@@ -63,6 +63,7 @@ signal selesai_button_clicked
 
 signal done_working
 func _ready() -> void:
+	$pause_screen/Background/CheckButton.button_pressed = GlobalAltText.alt_text_on
 	buttons = [$aruna_helper_screen/cancel_aruna, $aruna_helper_screen/panduan_tugas_button, $aruna_helper_screen/panduan_warna, 
 	$mulai_kerja/mulai_kerja, $result_screen/lanjut, $app/minigame_icons/text_features/structure_button, $app/minigame_icons/text_features/color_wheel_button,
 	$app/minigame_icons/docs_features/color_wheel_button, $app/minigame_icons/image_features/alt_text_button, $app/selesai, $app/pause_button, $pause_screen/Background/exit_credit]
@@ -94,10 +95,7 @@ func _process(delta: float) -> void:
 			selesai.show()
 			$app/SelesaiButtonBg.show()
 			
-		for obj in all_object:
-			if (obj.is_in_group("images")):
-				if obj.examine() == 1:
-					wrong_alt_text.emit()
+
 	elif is_tutorial_2:
 		$app/aruni_helper.hide()
 		$app/Sprite2D.hide()
@@ -387,12 +385,17 @@ func _on_alt_text_minigame_canceled() -> void:
 	app.process_mode = Node.PROCESS_MODE_INHERIT
 
 
+
 func _on_alt_text_minigame_done(text) -> void:
 	selected_object.set_alt_text(text)
 	animation_player.play("show_alt_text_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
 	examine()
-	
+	if is_tutorial_1:
+		if selected_object != null:
+			if selected_object.is_in_group("images"):
+				if selected_object.examine() == 1:
+					wrong_alt_text.emit()
 	
 	
 	
@@ -713,7 +716,7 @@ func _on_mulai_kerja_pressed() -> void:
 func anim_acc_score():
 	var acc_score = (accessibility_score / (4 * all_object.size()) * 6 * 250)
 	$result_screen/OrangeBox/SkorBoxPurple.show()
-
+	$result_screen/OrangeBox/acc_score_label.add_theme_color_override("font_color", "white")
 	if $result_screen/OrangeBox/acc_score_label.has_meta("tween"):
 		$result_screen/OrangeBox/acc_score_label.get_meta("tween").kill()
 
@@ -734,8 +737,11 @@ func anim_acc_score():
 
 func anim_misi_score():
 	$result_screen/OrangeBox/SkorBoxPurple.hide()
+	$result_screen/OrangeBox/acc_score_label.add_theme_color_override("font_color", "black")
+	
 	$result_screen/OrangeBox2/SkorBoxPurple.show()
-
+	$result_screen/OrangeBox2/misi_score_label.add_theme_color_override("font_color", "white")
+	
 	if $result_screen/OrangeBox2/misi_score_label.has_meta("tween"):
 		$result_screen/OrangeBox2/misi_score_label.get_meta("tween").kill()
 
@@ -757,7 +763,10 @@ func anim_misi_score():
 
 func anim_timer_score():
 	$result_screen/OrangeBox2/SkorBoxPurple.hide()
+	$result_screen/OrangeBox2/misi_score_label.add_theme_color_override("font_color", "black")
+	
 	$result_screen/OrangeBox3/SkorTimerPurple.show()
+	$result_screen/OrangeBox3/timer_score_label.add_theme_color_override("font_color", "white")
 
 	if $result_screen/OrangeBox3/timer_score_label.has_meta("tween"):
 		$result_screen/OrangeBox3/timer_score_label.get_meta("tween").kill()
@@ -780,7 +789,10 @@ func anim_timer_score():
 
 func anim_total_before_mult():
 	$result_screen/OrangeBox3/SkorTimerPurple.hide()
+	$result_screen/OrangeBox3/timer_score_label.add_theme_color_override("font_color", "black")
 	$result_screen/OrangeBox4/SkorTotalPurple.show()
+	
+	$result_screen/OrangeBox4/total_score_label.add_theme_color_override("font_color", "white")
 
 	if $result_screen/OrangeBox4/total_score_label.has_meta("tween"):
 		$result_screen/OrangeBox4/total_score_label.get_meta("tween").kill()
@@ -842,3 +854,10 @@ func _on_exit_credit_pressed() -> void:
 	timer.paused = false
 	app.process_mode = Node.PROCESS_MODE_INHERIT
 	
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		GlobalAltText.alt_text_on = true
+	else:
+		GlobalAltText.alt_text_on = false

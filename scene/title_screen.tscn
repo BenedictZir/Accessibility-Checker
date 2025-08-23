@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://8146oq3lnsyn"]
+[gd_scene load_steps=39 format=3 uid="uid://8146oq3lnsyn"]
 
 [ext_resource type="Script" uid="uid://voovxxg0pnjx" path="res://script/title_screen.gd" id="1_0ctqs"]
 [ext_resource type="Texture2D" uid="uid://bchnaivijo3um" path="res://assets/title_screen_assets/title_screen.png" id="1_pkupl"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://2p5f0gaf288d" path="res://assets/title_screen_assets/Mask group (1).png" id="5_t18hh"]
 [ext_resource type="Texture2D" uid="uid://iaews8qh4iao" path="res://assets/title_screen_assets/Accessibility Checker Game (17)/Group 49.png" id="7_tn2ht"]
 [ext_resource type="Texture2D" uid="uid://j416iryhja6l" path="res://assets/title_screen_assets/Accessibility Checker Game (18)/Rectangle 9773.png" id="8_miuoy"]
+[ext_resource type="Script" uid="uid://b206y87avo52b" path="res://script/general_button.gd" id="8_trhgc"]
 [ext_resource type="Texture2D" uid="uid://y2ecsx0pdduq" path="res://assets/title_screen_assets/Accessibility Checker Game (18)/Group 1000007670.png" id="9_kgdf7"]
 [ext_resource type="Texture2D" uid="uid://sfreb33epaax" path="res://assets/title_screen_assets/Accessibility Checker Game (17)/Rectangle 9773.png" id="10_k01l3"]
 [ext_resource type="Texture2D" uid="uid://cdyb6ysttkgtd" path="res://assets/title_screen_assets/Accessibility Checker Game (17)/Group 1000007689.png" id="11_o67lm"]
@@ -129,6 +130,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("credit:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_miuoy"]
 resource_name = "show_credit"
@@ -156,6 +169,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("credit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_pkupl"]
@@ -215,10 +240,10 @@ tracks/4/path = NodePath("play_button:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.6, 0.866667),
+"times": PackedFloat32Array(0.666667, 0.866667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1433, 1104), Vector2(1483, 531)]
+"values": [Vector2(1188, 1104), Vector2(1121, 661)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -242,7 +267,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0.666667, 0.933333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1221, 1098), Vector2(1171, 661)]
+"values": [Vector2(1563, 1098), Vector2(1533, 531)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i58fu"]
@@ -251,6 +276,16 @@ _data = {
 &"show_credit": SubResource("Animation_miuoy"),
 &"start": SubResource("Animation_pkupl")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focru"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aege2"]
+texture = ExtResource("12_1tx3d")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k01l3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o67lm"]
+texture = ExtResource("7_tn2ht")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nohhj"]
 
@@ -266,15 +301,7 @@ texture = ExtResource("7_tn2ht")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kgdf7"]
 texture = ExtResource("7_tn2ht")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k01l3"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o67lm"]
-texture = ExtResource("7_tn2ht")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focru"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aege2"]
-texture = ExtResource("12_1tx3d")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trhgc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o67lm"]
 
@@ -320,28 +347,30 @@ texture = ExtResource("4_gh7ws")
 [node name="MaskGroup(1)" type="Sprite2D" parent="Star1"]
 texture = ExtResource("5_t18hh")
 
-[node name="play_button" type="Button" parent="."]
-offset_left = 1355.0
-offset_top = 1004.0
-offset_right = 1750.0
-offset_bottom = 1285.0
-pivot_offset = Vector2(197, 281)
+[node name="exit_button" type="Button" parent="."]
+offset_left = 1065.0
+offset_top = 948.0
+offset_right = 1452.0
+offset_bottom = 1221.0
+pivot_offset = Vector2(193, 273)
 focus_mode = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nohhj")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_t65bv")
-theme_override_styles/hover = SubResource("StyleBoxTexture_tn2ht")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_miuoy")
-theme_override_styles/normal = SubResource("StyleBoxTexture_kgdf7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focru")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_aege2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_aege2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_aege2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_aege2")
+script = ExtResource("8_trhgc")
+alt_text = "Tombol untuk keluar dari permainan"
 
-[node name="Rectangle9774" type="Sprite2D" parent="play_button"]
+[node name="Rectangle9774" type="Sprite2D" parent="exit_button"]
 self_modulate = Color(0, 0, 0, 1)
 show_behind_parent = true
-position = Vector2(200, 129)
+position = Vector2(196, 129)
 texture = ExtResource("8_miuoy")
 
-[node name="Rectangle9775" type="Sprite2D" parent="play_button"]
-position = Vector2(208, 166)
-texture = ExtResource("9_kgdf7")
+[node name="Rectangle9775" type="Sprite2D" parent="exit_button"]
+position = Vector2(180, 165)
+texture = ExtResource("13_trhgc")
 
 [node name="credit_button" type="Button" parent="."]
 offset_left = 1240.0
@@ -355,6 +384,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_o67lm")
 theme_override_styles/hover = SubResource("StyleBoxTexture_o67lm")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_o67lm")
 theme_override_styles/normal = SubResource("StyleBoxTexture_o67lm")
+script = ExtResource("8_trhgc")
+alt_text = "Tombol untuk membuka menu credit dan settings"
 
 [node name="Rectangle9773" type="Sprite2D" parent="credit_button"]
 self_modulate = Color(0, 0, 0, 1)
@@ -366,30 +397,33 @@ texture = ExtResource("10_k01l3")
 position = Vector2(185, 169)
 texture = ExtResource("11_o67lm")
 
-[node name="exit_button" type="Button" parent="."]
-offset_left = 1065.0
-offset_top = 948.0
-offset_right = 1452.0
-offset_bottom = 1221.0
-pivot_offset = Vector2(193, 273)
+[node name="play_button" type="Button" parent="."]
+offset_left = 1355.0
+offset_top = 1004.0
+offset_right = 1750.0
+offset_bottom = 1285.0
+pivot_offset = Vector2(197, 281)
 focus_mode = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_focru")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_aege2")
-theme_override_styles/hover = SubResource("StyleBoxTexture_aege2")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_aege2")
-theme_override_styles/normal = SubResource("StyleBoxTexture_aege2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nohhj")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_t65bv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tn2ht")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_miuoy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kgdf7")
+script = ExtResource("8_trhgc")
+alt_text = "Tombol untuk memulai permainan"
 
-[node name="Rectangle9774" type="Sprite2D" parent="exit_button"]
+[node name="Rectangle9774" type="Sprite2D" parent="play_button"]
 self_modulate = Color(0, 0, 0, 1)
 show_behind_parent = true
-position = Vector2(196, 129)
+position = Vector2(200, 129)
 texture = ExtResource("8_miuoy")
 
-[node name="Rectangle9775" type="Sprite2D" parent="exit_button"]
-position = Vector2(180, 165)
-texture = ExtResource("13_trhgc")
+[node name="Rectangle9775" type="Sprite2D" parent="play_button"]
+position = Vector2(208, 166)
+texture = ExtResource("9_kgdf7")
 
 [node name="credit" type="Node2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 
@@ -432,9 +466,9 @@ vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="credit/Background"]
 offset_left = -147.0
-offset_top = -182.0
+offset_top = -219.0
 offset_right = 144.0
-offset_bottom = -130.0
+offset_bottom = -167.0
 theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
 theme_override_fonts/font = ExtResource("16_1tx3d")
 theme_override_font_sizes/font_size = 35
@@ -450,7 +484,7 @@ offset_bottom = 205.0
 theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
 theme_override_fonts/font = ExtResource("16_1tx3d")
 theme_override_font_sizes/font_size = 35
-text = "Music by Crescendo, Ludoloon Studio, midimoon "
+text = "Music by Crescendo, Ludoloon Studio, midimoon , zakiro101"
 vertical_alignment = 1
 
 [node name="Label7" type="Label" parent="credit/Background"]
@@ -466,15 +500,37 @@ vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="credit/Background"]
 offset_left = -142.0
-offset_top = -73.0
+offset_top = -110.0
 offset_right = 149.0
-offset_bottom = -21.0
+offset_bottom = -58.0
 theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
 theme_override_fonts/font = ExtResource("16_1tx3d")
 theme_override_font_sizes/font_size = 35
 text = "SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="credit/Background"]
+offset_left = -294.0
+offset_top = 18.0
+offset_right = -3.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("16_1tx3d")
+theme_override_font_sizes/font_size = 35
+text = "Alternative Texts:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="credit/Background"]
+offset_left = -26.0
+offset_top = 9.0
+offset_right = 18.0
+offset_bottom = 33.0
+scale = Vector2(3, 3)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_trhgc")
+button_pressed = true
 
 [node name="exit_credit" type="Button" parent="credit/Background"]
 offset_left = 489.0
@@ -488,6 +544,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_1tx3d")
 theme_override_styles/hover = SubResource("StyleBoxTexture_trhgc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wpyj1")
 theme_override_styles/normal = SubResource("StyleBoxTexture_focru")
+script = ExtResource("8_trhgc")
+alt_text = "Tombol untuk keluar dari menu credit"
 
 [node name="Polygon2D" type="Polygon2D" parent="credit/Background/exit_credit"]
 position = Vector2(-487, 382)
@@ -495,18 +553,27 @@ polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -2
 
 [node name="music_slider" parent="credit" instance=ExtResource("18_trhgc")]
 offset_left = -393.0
-offset_top = -134.0
+offset_top = -171.0
 offset_right = 341.0
-offset_bottom = -77.0
+offset_bottom = -114.0
 
 [node name="sfx_slider" parent="credit" instance=ExtResource("18_trhgc")]
 offset_left = -393.0
-offset_top = -31.0
+offset_top = -68.0
 offset_right = 341.0
-offset_bottom = 26.0
-bus_name = "SFX"
+offset_bottom = -11.0
 
-[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="credit_button" to="." method="_on_credit_button_pressed"]
+[node name="load_button" type="Button" parent="."]
+offset_left = 791.0
+offset_top = 494.0
+offset_right = 1019.0
+offset_bottom = 595.0
+theme_override_font_sizes/font_size = 50
+text = "LOAD"
+
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="credit_button" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
+[connection signal="toggled" from="credit/Background/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="credit/Background/exit_credit" to="." method="_on_exit_credit_pressed"]
+[connection signal="pressed" from="load_button" to="." method="_load"]

@@ -3,11 +3,16 @@ extends AnimatedSprite2D
 
 var is_mad := false
 var is_happy := false
+var other_people_talking = true
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _process(delta: float) -> void:
 	if !is_playing():
+		if other_people_talking:
+			animation_player.play("hide")
+		else:
+			animation_player.play("hide", -1, -1.0, true)	
 		if is_mad:
 			play("angry_blink")
 		elif is_happy:
@@ -19,7 +24,6 @@ func _process(delta: float) -> void:
 func _on_dialogic_signal(arg):
 	match arg:
 		"pak_anton_smile":
-
 			play("smile")
 		"pak_anton_talk":
 			is_happy = false

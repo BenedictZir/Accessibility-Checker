@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://2ekyfsfu3hj6"]
+[gd_scene load_steps=33 format=3 uid="uid://2ekyfsfu3hj6"]
 
 [ext_resource type="Script" uid="uid://dou3ltxklt1xd" path="res://script/minigame_2.gd" id="1_ymxsy"]
 [ext_resource type="Texture2D" uid="uid://bpf16rkpsm7qm" path="res://assets/minigame_2/Group 49523.png" id="2_uv5bk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cbidvdwy6x1rp" path="res://assets/minigame_2/circle_ungu.png" id="7_ro16u"]
 [ext_resource type="Texture2D" uid="uid://u5x1ldcbiej5" path="res://assets/minigame_2/Group 49520 (1).png" id="8_dmnm4"]
 [ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="8_g1lo2"]
+[ext_resource type="Script" uid="uid://b206y87avo52b" path="res://script/general_button.gd" id="8_qbkwt"]
 [ext_resource type="Texture2D" uid="uid://ca8mgxd1awxf2" path="res://assets/minigame_2/kotak.png" id="9_cxyst"]
 [ext_resource type="Texture2D" uid="uid://b6b42n3a0ammg" path="res://assets/minigame_2/Group 49521.png" id="9_ro16u"]
 [ext_resource type="Texture2D" uid="uid://betcs8uai6dps" path="res://assets/minigame_2/arrow_yellow.png" id="10_u3kdj"]
@@ -162,6 +163,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_qbkwt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uv5bk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qlcb6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_yjccl")
+script = ExtResource("8_qbkwt")
+alt_text = "Tombol untuk memutar ulang roda warna"
 
 [node name="Retry" type="Sprite2D" parent="retry_button"]
 position = Vector2(78, 74)
@@ -180,6 +183,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_qbkwt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uv5bk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qlcb6")
 theme_override_styles/normal = SubResource("StyleBoxTexture_yjccl")
+script = ExtResource("8_qbkwt")
+alt_text = "Tombol untuk menghentikan roda warna"
 
 [node name="Stop" type="Sprite2D" parent="stop_button"]
 position = Vector2(78, 74)
@@ -263,7 +268,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_nj0yb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_yaq54")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_n1j74")
 theme_override_styles/normal = SubResource("StyleBoxTexture_u4106")
-text = "SIMPAN PILIHAN"
+text = "Simpan Pilihan"
 metadata/_edit_use_anchors_ = true
 
 [node name="SimpanPilihanPutih" type="Sprite2D" parent="accept"]
@@ -288,6 +293,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_dmnm4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ro16u")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_u3kdj")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cxyst")
+script = ExtResource("8_qbkwt")
+alt_text = "Tombol untuk keluar dari fitur ubah warna"
 
 [node name="Polygon2D" type="Polygon2D" parent="cancel_button"]
 position = Vector2(-487, 382)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d0yx6qprrjcg5"]
+[gd_scene load_steps=21 format=3 uid="uid://d0yx6qprrjcg5"]
 
 [ext_resource type="Script" uid="uid://cgttu2c1d8e" path="res://script/minigame_1.gd" id="1_b5gn6"]
 [ext_resource type="Texture2D" uid="uid://byb47dw0rmxjf" path="res://assets/minigame_1/background.png" id="2_knvvk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c00svsqxgxjhc" path="res://scene/alt_text.tscn" id="5_s26uh"]
 [ext_resource type="Texture2D" uid="uid://dpeynsfm0vb1k" path="res://assets/minigame_2/simpan_pilihan_orange.png" id="6_mnan0"]
 [ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="6_s4te0"]
+[ext_resource type="Script" uid="uid://b206y87avo52b" path="res://script/general_button.gd" id="6_ysrc6"]
 [ext_resource type="Texture2D" uid="uid://b5i7q3vvymfxq" path="res://assets/minigame_2/simpan_pilihan_putih.png" id="7_ysrc6"]
 [ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="8_4uvys"]
 
@@ -98,6 +99,8 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_k61xt")
 theme_override_styles/hover = SubResource("StyleBoxTexture_4a7fk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s4te0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_juauh")
+script = ExtResource("6_ysrc6")
+alt_text = "Tombol untuk keluar dari fitur alt text"
 
 [node name="Polygon2D" type="Polygon2D" parent="cancel"]
 position = Vector2(-488, 382)
@@ -122,7 +125,7 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_mgy2v")
 theme_override_styles/hover = SubResource("StyleBoxTexture_hklak")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_gqvc0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hcq8i")
-text = "SIMPAN PILIHAN"
+text = "Simpan Pilihan"
 
 [node name="SimpanPilihanPutih" type="Sprite2D" parent="submit"]
 show_behind_parent = true
