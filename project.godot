@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GlobalVar="*res://scene/global_var.tscn"
-AudioManager="*res://scene/audio_manager.tscn"
 SceneTransition="*res://scene/scene_transition.tscn"
 SoundManager="*res://scene/sound_manager.tscn"
 GlobalAltText="*res://scene/global_alt_text.tscn"

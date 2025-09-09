@@ -48,7 +48,7 @@ func next_day():
 	
 func _process(delta: float) -> void:
 	if Dialogic.VAR.can_promote:
-		Dialogic.VAR.title_next = title_list[idx_title + 1] # buat dialog aruna pas congrats
+		Dialogic.VAR.title_next = title_list[idx_title + 1] # buat dialog aruna 
 	else:
 		Dialogic.VAR.title_next = title_list[idx_title]
 	Dialogic.VAR.jabatan = jabatan_list[idx_title]
