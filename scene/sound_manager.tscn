@@ -34,6 +34,7 @@ bus = &"Music"
 [node name="kantor_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6d0mt")
 volume_db = -10.0
+max_distance = 4000.0
 bus = &"Music"
 
 [node name="button_hover_sfx" type="AudioStreamPlayer2D" parent="."]

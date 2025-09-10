@@ -75,7 +75,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_acc_button_pressed() -> void:
-	Dialogic.VAR.player_name = str((text_edit.text).to_upper())
+	Dialogic.VAR.player_name = str((text_edit.text))
+	Dialogic.VAR.player_name_caps = Dialogic.VAR.player_name.to_upper()
 	line.hide()
 	text_edit.hide()
 	if (mail_screen_2.visible == false):
@@ -91,3 +92,11 @@ func _on_acc_button_pressed() -> void:
 
 func _on_end_pressed() -> void:
 	SceneTransition.change_scene("res://story_scene/scene_1_1.tscn")
+
+
+func _on_text_edit_mouse_entered() -> void:
+	GlobalVar.interactable.append($mail/TextEdit)
+
+
+func _on_text_edit_mouse_exited() -> void:
+	GlobalVar.interactable.erase($mail/TextEdit)

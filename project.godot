@@ -83,6 +83,7 @@ variables={
 "can_promote": false,
 "jabatan": "",
 "player_name": "name",
+"player_name_caps": "NAME",
 "poin_inklusif": 0,
 "poin_inklusif_harian": 0,
 "title_next": "",

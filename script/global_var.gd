@@ -30,9 +30,7 @@ const DOCUMENT_MEDIUM_1 = preload("res://scene/documents/document_medium_1.tscn"
 const DOCUMENT_MEDIUM_2 = preload("res://scene/documents/document_medium_2.tscn")
 const DOCUMENT_MEDIUM_3 = preload("res://scene/documents/document_medium_3.tscn")
 var done_working_today := false
-var default_cursor = load("res://assets/cursors/cursor_default.png")
-var grab_cursor = load("res://assets/cursors/cursor_grab.png")
-var interactable_cursor = load("res://assets/cursors/cursor_point.png")
+
 var interactable := []
 var taman_first_time := true
 func next_day():
@@ -46,7 +44,6 @@ func next_day():
 		date_bulan_ini = 1
 	day = day_list[((date - 1) % 7)]
 	
-func _process(delta: float) -> void:
 	if Dialogic.VAR.can_promote:
 		Dialogic.VAR.title_next = title_list[idx_title + 1] # buat dialog aruna 
 	else:
@@ -58,18 +55,7 @@ func _process(delta: float) -> void:
 		else:
 			Dialogic.VAR.can_promote = false
 		
+
+func _ready() -> void:
 	player_name = str(Dialogic.VAR.player_name)
-	if is_dragging:
-		Input.set_custom_mouse_cursor(grab_cursor, Input.CURSOR_ARROW, Vector2(50, 50))
-	elif is_mouse_over_button() or interactable.size() > 0:
-		Input.set_custom_mouse_cursor(interactable_cursor, Input.CURSOR_ARROW, Vector2(10, 0))
-	else:
-		Input.set_custom_mouse_cursor(default_cursor)
-		
-func is_mouse_over_button() -> bool:
-	var hovered = get_viewport().gui_get_hovered_control()
-	if hovered != null and hovered is Button:
-		if not hovered.is_disabled() and hovered.visible:
-			return true
-		
-	return false
+	

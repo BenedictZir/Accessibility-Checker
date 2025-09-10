@@ -19,14 +19,14 @@ func is_mouse_over_button() -> void:
 			label.text = button.get_alt_text()
 			
 			var mouse_pos = get_global_mouse_position()
-			color_rect.global_position = mouse_pos + Vector2(-147,  -180)
+			color_rect.global_position = mouse_pos + Vector2(-140,  -150)
 			
 			color_rect.rotation = 0
 			label.rotation = 0
 			
 			if color_rect.get_global_position().y - color_rect.size.y < 0:
 				color_rect.rotation = PI
-				color_rect.global_position = (mouse_pos + Vector2(147,  160)) + Vector2(0, 100)
+				color_rect.global_position = (mouse_pos + Vector2(160,  80)) + Vector2(0, 100)
 				label.rotation = -color_rect.rotation
 			color_rect.show()
 		else:

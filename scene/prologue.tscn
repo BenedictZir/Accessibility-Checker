@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://byrbri3utieqw"]
+[gd_scene load_steps=24 format=3 uid="uid://byrbri3utieqw"]
 
 [ext_resource type="Script" uid="uid://b3sudv0emiiq1" path="res://script/prologue.gd" id="1_e7qxw"]
 [ext_resource type="Texture2D" uid="uid://dius85o5je6xd" path="res://assets/background/jakarta.png" id="2_3hlow"]
@@ -25,6 +25,8 @@ texture = ExtResource("9_wtakk")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nvcbn"]
 texture = ExtResource("9_wtakk")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtakk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3d53y"]
 
@@ -194,12 +196,13 @@ text = "Lanjut"
 
 [node name="TextEdit" type="LineEdit" parent="mail"]
 offset_left = -416.0
-offset_top = -93.0
+offset_top = -98.0
 offset_right = -79.0
-offset_bottom = -37.0
+offset_bottom = -38.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_s86ot")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wtakk")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3d53y")
 max_length = 12
 context_menu_enabled = false
@@ -248,5 +251,7 @@ libraries = {
 }
 
 [connection signal="pressed" from="mail/acc_button" to="." method="_on_acc_button_pressed"]
+[connection signal="mouse_entered" from="mail/TextEdit" to="." method="_on_text_edit_mouse_entered"]
+[connection signal="mouse_exited" from="mail/TextEdit" to="." method="_on_text_edit_mouse_exited"]
 [connection signal="text_changed" from="mail/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="mail/end" to="." method="_on_end_pressed"]
