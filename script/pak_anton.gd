@@ -1,18 +1,14 @@
 extends AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+const CHAR_NAME = "pak_anton"
 var is_mad := false
 var is_happy := false
-var other_people_talking = true
+var is_hiding := true
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _process(delta: float) -> void:
 	if !is_playing():
-		if other_people_talking:
-			animation_player.play("hide")
-		else:
-			animation_player.play("hide", -1, -1.0, true)	
 		if is_mad:
 			play("angry_blink")
 		elif is_happy:
@@ -22,36 +18,47 @@ func _process(delta: float) -> void:
 
 
 func _on_dialogic_signal(arg):
+	if "talk" in arg or "join" in arg:
+		if not CHAR_NAME in arg and not is_hiding:
+			is_hiding = true
+			animation_player.play("hide")
+		elif CHAR_NAME in arg and is_hiding:
+			is_hiding = false
+			animation_player.play("hide", -1, -1.0, true)
+			
+	if animation_player.is_playing():
+		await  animation_player.animation_finished
+		
 	match arg:
-		"pak_anton_smile":
+		CHAR_NAME+ "_smile":
 			play("smile")
-		"pak_anton_talk":
+		CHAR_NAME+ "_talk":
 			is_happy = false
 			is_mad = false
 			if animation == "talk":
 				stop()
 			play("talk")
-		"pak_anton_blink":
+		CHAR_NAME+ "_blink":
 			is_happy = false
 			is_mad = false
 			play("blink")
-		"pak_anton_angry_blink":
+		CHAR_NAME+ "_angry_blink":
 			is_mad = true
 			play("angry_blink")
-		"pak_anton_angry_talk":
+		CHAR_NAME+ "_angry_talk":
 			is_mad = true
 			if animation == "angry_talk":
 				stop()
 			play("angry_talk")
-		"pak_anton_happy_blink":
+		CHAR_NAME+ "_happy_blink":
 			is_happy = true
 			play("happy_blink")
-		"pak_anton_happy_talk":
+		CHAR_NAME+ "_happy_talk":
 			is_happy = true
 			if animation == "happy_talk":
 				stop()
 			play("happy_talk")
-		"pak_anton_join":
+		CHAR_NAME+ "_join":
 			animation_player.play("join")
-		"pak_anton_leave":
+		CHAR_NAME+ "_leave":
 			animation_player.play("leave")

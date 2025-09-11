@@ -24,6 +24,7 @@ mbak_intan: “Kamu yang bantu bikin ini bisa terjadi, lho. Terima kasih, Intern
 "pak bos": “Hati-hati, nanti kamu bikin standar kita naik terus. Harus saya kasih kopi sachet premiummu sekarang?”
 [signal arg="pak_anton_happy_talk"]
 "pak bos": "Kita kasih gelar aja ya. Intern yang Menaklukkan Standar Internasional."
+[signal arg="narrator_talk"]
 Kamu hanya tertawa... tapi di dalam hati, kamu merasa ada yang tumbuh.
 Hari keempat. Dan untuk pertama kalinya, kamu nggak cuma merasa kerja bagus—tapi juga merasa berguna.
 [signal arg="mbak_intan_leave"]

@@ -15,6 +15,7 @@ Kamu menutup laptop. Rasanya seperti menyelesaikan sesuatu yang benar-benar pent
 "pak bos": “Kerjaan yang bagus. Orang jarang notice warna. Tapi begitu mereka nggak bisa baca, dampaknya besar.”
 [signal arg="pak_anton_talk"]
 "pak bos": “Dan kamu baru aja mencegah itu terjadi.”
+[signal arg="narrator_talk"]
 Kamu tak menjawab langsung. Tapi di dalam hati, kamu tahu\: pekerjaan kecil hari ini bukan sekadar perbaikan tampilan. Itu soal memastikan semua orang bisa membaca cerita yang sama.
 Hari ketiga resmi selesai. Tapi efek dari warna teks yang kamu ubah… mungkin baru saja dimulai.
 [signal arg="aruna_happy"]

@@ -1,4 +1,4 @@
-[signal arg="mbak_intan_capek"]
+[signal arg="mbak_intan_capek_talk"]
 Kamu kembali ke kantor dengan rasa percaya diri yang sedikit lebih besar. Kali ini, lift tidak lagi membuatmu gugup. Kamu bahkan membawa tumbler sendiri. Semuanya mulai terasa lebih nyata.
 Pak Anton melambaikan tangan dari mejanya—masih dengan teh di tangan, dan tetap terlalu semangat untuk jam 9\:12 pagi. Ia memanggilmu untuk mendekat.
 [signal arg="pak_anton_join"]
@@ -11,11 +11,12 @@ Pak Anton melambaikan tangan dari mejanya—masih dengan teh di tangan, dan teta
 [signal arg="pak_anton_leave"]
 [signal arg="mbak_intan_join"]
 Kamu berjalan ke arah meja Mbak Intan. Ia sedang menatap layar sambil menyeruput kopi sachet, hoodie-nya setengah melorot, dan wajahnya… ya, wajah orang yang habis begadang semalaman.
-[signal arg="mbak_intan_capek"]
+[signal arg="mbak_intan_capek_talk"]
 mbak_intan: “Maaf… ya… kalau layout-nya masih agak berantakan….”
 (Woah… suaranya berat seperti habis karaoke semalam…)
-[signal arg="mbak_intan_capek"]
+[signal arg="mbak_intan_capek_talk"]
 mbak_intan: “Aku selesain… sampai jam tiga tadi…. Udah coba bikin lebih rapi… tapi teksnya butuh sentuhan manusia lain.”
+[signal arg="narrator_talk"]
 Kamu membuka dokumennya. Tampilan visualnya memang bersih—margin rapi, font konsisten, dan elemen-elemen visual sudah diatur. Tapi kontennya masih belum nyaman dibaca\: beberapa heading terasa lompat-lompat.
 Kamu menarik napas, menyeruput kopi susu, dan mulai bekerja.
 Hari kedua. Dan kamu tahu pasti, pekerjaan ini bukan soal membenahi file—tapi membantu orang lain menyampaikan idenya dengan lebih jernih.

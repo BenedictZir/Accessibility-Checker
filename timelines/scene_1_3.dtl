@@ -24,6 +24,7 @@ aruna: "Tingkat kepercayaan diri\: Meningkat."
 [signal arg="aruna_happy"]
 aruna: "Pengingat\: Tidur adalah bagian dari produktivitas. Menutup laptop sangat disarankan."
 [signal arg="aruna_happy"]
+[signal arg="narrator_talk"]
 Kamu mengemasi barang-barangmu. Hari pertamamu bekerja di pemerintahan pun berakhir.
 Tidak buruk untuk seseorang yang dua hari lalu mengira “alt text” adalah nama band indie.
 [signal arg="pak_anton_leave"]

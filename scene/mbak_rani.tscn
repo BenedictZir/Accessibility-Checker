@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxtncf3tm4oh1"]
+[gd_scene load_steps=17 format=3 uid="uid://dxtncf3tm4oh1"]
 
 [ext_resource type="Script" uid="uid://2fjbaom6xrc1" path="res://script/mbak_rani.gd" id="1_4yotn"]
 [ext_resource type="Texture2D" uid="uid://b5ph031elll1b" path="res://assets/Mbak Rani (Tongkat baru)-20250805T164142Z-1-001/Mbak Rani (Tongkat baru)/Marah/buka_mata_tutup_mulat.png" id="1_53tuh"]
@@ -210,6 +210,34 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 1440)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.4, 0.4, 0.4, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t7qxe"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.4, 0.4, 0.4, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_hmh34"]
 resource_name = "join"
@@ -246,11 +274,13 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1s7jr"]
 _data = {
 &"RESET": SubResource("Animation_rjdl2"),
+&"hide": SubResource("Animation_t7qxe"),
 &"join": SubResource("Animation_hmh34"),
 &"leave": SubResource("Animation_1s7jr")
 }
 
 [node name="mbak_rani" type="AnimatedSprite2D"]
+self_modulate = Color(0.4, 0.4, 0.4, 1)
 position = Vector2(0, 1440)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_4yotn")

@@ -1,8 +1,10 @@
 extends AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+const CHAR_NAME = "mbak_rani"
 var is_mad := false
 var is_happy := false
+var is_hiding := true
+
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
@@ -17,36 +19,47 @@ func _process(delta: float) -> void:
 
 
 func _on_dialogic_signal(arg):
+	if "talk" in arg or "join" in arg:
+		if not CHAR_NAME in arg and not is_hiding:
+			is_hiding = true
+			animation_player.play("hide")
+		elif CHAR_NAME in arg and is_hiding:
+			is_hiding = false
+			animation_player.play("hide", -1, -1.0, true)
+	
+	if animation_player.is_playing():
+		await animation_player.animation_finished
+	
 	match arg:
-		"mbak_rani_smile":
+		CHAR_NAME+ "_smile":
 			play("smile")
-		"mbak_rani_talk":
+		CHAR_NAME+ "_talk":
 			is_happy = false
 			is_mad = false
 			if animation == "talk":
 				stop()
 			play("talk")
-		"mbak_rani_blink":
+		CHAR_NAME+ "_blink":
 			is_happy = false
 			is_mad = false
 			play("blink")
-		"mbak_rani_angry_blink":
+		CHAR_NAME+ "_angry_blink":
 			is_mad = true
 			play("angry_blink")
-		"mbak_rani_angry_talk":
+		CHAR_NAME+ "_angry_talk":
 			is_mad = true
 			if animation == "angry_talk":
 				stop()
 			play("angry_talk")
-		"mbak_rani_happy_blink":
+		CHAR_NAME+ "_happy_blink":
 			is_happy = true
 			play("happy_blink")
-		"mbak_rani_happy_talk":
+		CHAR_NAME+ "_happy_talk":
 			is_happy = true
 			if animation == "happy_talk":
 				stop()
 			play("happy_talk")
-		"mbak_rani_join":
+		CHAR_NAME+ "_join":
 			animation_player.play("join")
-		"mbak_rani_leave":
+		CHAR_NAME+ "_leave":
 			animation_player.play("leave")

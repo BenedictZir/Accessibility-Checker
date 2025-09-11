@@ -4,7 +4,7 @@ Kamu mengirimkan file-nya ke Pak Anton dan menyandarkan badan ke kursi.
 [signal arg="mbak_intan_smile"]
 mbak_intan: “HUAAAA akhirnya selesaiiiiiii! Kamu nyelamatin hidup aku barusan!”
 Ia mengangkat kedua tangan ke udara seolah sedang diselamatkan dari laut dokumen yang penuh heading rusak.
-[signal arg="mbak_intan_capek"]
+[signal arg="mbak_intan_capek_talk"]
 mbak_intan: “Serius. Tadi aku udah mau tulis 'Maaf dokumennya tidak ditemukan karena ditelan kegelapan struktur'…”
 player: “Tenang Mbak, sekarang udah masuk zona terang. Bahkan screen reader aja bisa senyum.”
 [signal arg="mbak_intan_smile"]
@@ -17,6 +17,7 @@ Kalian tertawa.
 [signal arg="mbak_intan_happy_blink"]
 [signal arg="pak_anton_happy_talk"]
 "pak bos": “Tapi hasilnya oke. Rapi, konsisten, dan bisa diakses. Besok bantuin lagi ya, ada satu dokumen dari Mbak Rani juga.”
+[signal arg="narrator_talk"]
 Kamu mengangguk.
 [signal arg="aruna_join"]
 Hari kedua selesai. Tapi rasanya kamu justru baru mulai.

@@ -21,18 +21,17 @@ Pak Anton yang mendengar dari meja sebelah langsung ikut bergabung.
 Kamu merasa sedikit lebih hangat dari biasanya.
 Dan mungkin… sedikit lebih penting dari yang kamu pikirkan kemarin.
 Suasana hangat tadi perlahan mereda… hingga terdengar langkah cepat dan suara khas sepatu sneakers yang kamu kenal.
-[signal arg="mbak_intan_capek"]
 [signal arg="mbak_intan_join"]
-[signal arg="mbak_intan_capek"]
+[signal arg="mbak_intan_capek_talk"]
 [signal arg="mbak_rani_blink"]
 mbak_intan: “Guys—maaf banget ganggu momen wholesome-nya, tapi artikel web kita... mau naik hari ini... dan tampilannya masih kacau.”
 [signal arg="pak_anton_talk"]
 "pak bos": “Naik hari ini? Bukannya minggu depan?”
-[signal arg="mbak_intan_capek"]
+[signal arg="mbak_intan_capek_talk"]
 mbak_intan: “Apparently... nggak. Email dari pusat baru nyampe jam tiga pagi. Judul-judul nggak kebaca, terus warna background—kenapa kuning neon sih?”
 [signal arg="mbak_rani_talk"]
 mbak_rani: “Oke. Panik boleh, asal jangan sendiri. Mau kita bantu cek?”
-[signal arg="mbak_intan_capek"]
+[signal arg="mbak_intan_capek_talk"]
 mbak_intan: “Please... Siapa pun yang bisa bantu benerin kontras desainnya, I owe you teh kotak dua minggu.”
 - "Aku mau bantu cek kontras warnanya Mbak!”
 [signal arg="mbak_intan_talk"]
@@ -40,6 +39,7 @@ mbak_intan: “SIPP! Tenang aja, karena ini pertama kali kamu benerin kontras wa
 [signal arg="mbak_rani_happy_talk"]
 [signal arg="pak_anton_happy_blink"]
 mbak_rani: “Siap, Intern! Tenang saja kamu ngga sendiri!”
+[signal arg="narrator_talk"]
 Hari ketiga, aksesibilitas bukan cuma soal kata dan struktur—tapi juga tentang warna.
 Tentang siapa yang bisa melihat, membaca, dan merespons dengan nyaman.
 Karena kontras yang cukup bukan sekadar estetika, tapi pintu agar semua orang bisa masuk.
