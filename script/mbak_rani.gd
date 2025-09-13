@@ -4,7 +4,6 @@ const CHAR_NAME = "mbak_rani"
 var is_mad := false
 var is_happy := false
 var is_hiding := true
-
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 
@@ -19,6 +18,8 @@ func _process(delta: float) -> void:
 
 
 func _on_dialogic_signal(arg):
+	if animation_player.is_playing():
+		await animation_player.animation_finished
 	if "talk" in arg or "join" in arg:
 		if not CHAR_NAME in arg and not is_hiding:
 			is_hiding = true
@@ -26,7 +27,8 @@ func _on_dialogic_signal(arg):
 		elif CHAR_NAME in arg and is_hiding:
 			is_hiding = false
 			animation_player.play("hide", -1, -1.0, true)
-	
+			var parent = get_parent()
+			parent.get_parent().move_child(parent, parent.get_parent().get_child_count() - 1)
 	if animation_player.is_playing():
 		await animation_player.animation_finished
 	
