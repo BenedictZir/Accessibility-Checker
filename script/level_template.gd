@@ -487,7 +487,7 @@ func _on_structure_minigame_canceled() -> void:
 	animation_player.play("show_structure_minigame", -1, -1.0, true)
 	app.process_mode = Node.PROCESS_MODE_INHERIT
 
-func set_document(document_random, diff):
+func set_document(document_random, diff = "easy"):
 	if (diff == "easy"):
 		difficulty_mult = 1
 	elif (diff == "medium"):

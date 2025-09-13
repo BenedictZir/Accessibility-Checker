@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://te07i18mlnaw"]
+[gd_scene load_steps=5 format=3 uid="uid://te07i18mlnaw"]
 
 [ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_7rui3"]
+[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="3_6ntd6"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="3_ln74q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
 size = Vector2(905, 1092)
@@ -18,6 +20,58 @@ shape = SubResource("RectangleShape2D_wjaii")
 [node name="texts" type="Node2D" parent="."]
 
 [node name="images" type="Node2D" parent="."]
+
+[node name="DocumentObjects" type="Node2D" parent="."]
+
+[node name="LeftContainer" type="VBoxContainer" parent="DocumentObjects"]
+offset_left = -449.0
+offset_top = -219.0
+offset_right = -11.0
+offset_bottom = 851.0
+theme_override_constants/separation = 100
+
+[node name="doc_text2" parent="DocumentObjects/LeftContainer" instance=ExtResource("3_6ntd6")]
+custom_minimum_size = Vector2(438, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Oleh karena itu, hal hal asd maka gini gitu yang menjadikan"
+intended_structure = 0
+
+[node name="doc_text" parent="DocumentObjects/LeftContainer" instance=ExtResource("3_6ntd6")]
+custom_minimum_size = Vector2(438, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Ngetest hehehe awikwok yahahah hayuk"
+intended_structure = 2
+
+[node name="images" parent="DocumentObjects/LeftContainer" instance=ExtResource("3_ln74q")]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="CenterContainer" type="VBoxContainer" parent="DocumentObjects"]
+offset_left = -219.0
+offset_top = -219.0
+offset_right = 219.0
+offset_bottom = 851.0
+
+[node name="RightContainer" type="VBoxContainer" parent="DocumentObjects"]
+offset_left = 4.0
+offset_top = -219.0
+offset_right = 442.0
+offset_bottom = 851.0
+
+[node name="doc_text3" parent="DocumentObjects/RightContainer" instance=ExtResource("3_6ntd6")]
+custom_minimum_size = Vector2(438, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Ngetest hehehe awikwok yahahah hayuk"
+intended_structure = 0
+structure = "judul"
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="selected" from="." to="." method="_on_selected"]
 [connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

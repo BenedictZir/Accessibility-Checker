@@ -1132,6 +1132,7 @@ offset_left = -393.0
 offset_top = -31.0
 offset_right = 341.0
 offset_bottom = 26.0
+bus_name = "SFX"
 
 [connection signal="pressed" from="cafe_button" to="." method="_on_cafe_button_pressed"]
 [connection signal="pressed" from="kantor_button" to="." method="_on_kantor_button_pressed"]

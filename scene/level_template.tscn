@@ -2589,6 +2589,7 @@ offset_left = -393.0
 offset_top = -31.0
 offset_right = 341.0
 offset_bottom = 26.0
+bus_name = "SFX"
 
 [connection signal="pressed" from="app/pause_button" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="app/selesai" to="." method="_on_selesai_pressed"]

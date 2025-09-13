@@ -562,6 +562,7 @@ offset_left = -393.0
 offset_top = -68.0
 offset_right = 341.0
 offset_bottom = -11.0
+bus_name = "SFX"
 
 [node name="load_button" type="Button" parent="."]
 offset_left = 791.0

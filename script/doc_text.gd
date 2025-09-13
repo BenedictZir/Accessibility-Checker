@@ -32,7 +32,6 @@ signal deselect
 
 func _ready():
 	update_size()
-
 func _process(delta):
 	if structure == "teks":
 		add_theme_font_override("font", LATO_LIGHT)

@@ -32,22 +32,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			parent.select(self)
 
 func get_images():
-	var containers = $DocumentObjects.get_children()
-	var images = []
-	for container in containers:
-		for obj in container.get_children():
-			if obj.is_in_group("images"):
-				images.append(obj)
-	return images
+	return $images.get_children()
 
 func get_texts():
-	var containers = $DocumentObjects.get_children()
-	var texts = []
-	for container in containers:
-		for obj in container.get_children():
-			if obj.is_in_group("texts"):
-				texts.append(obj)
-	return texts
+	return $texts.get_children()
 	
 func _on_selected() -> void:
 	pass # Replace with function body.

@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2p2h8ktk4s1c"]
+
+[ext_resource type="Script" uid="uid://cm0edsgeeqyte" path="res://script/live_caption_minigame.gd" id="1_phmih"]
+[ext_resource type="Texture2D" uid="uid://dyos5d02n1ao7" path="res://icon.svg" id="2_fw3mq"]
+[ext_resource type="FontFile" uid="uid://bhp4j1qupnai0" path="res://assets/fonts/FiraCode-Regular.ttf" id="2_yq14n"]
+
+[sub_resource type="Animation" id="Animation_yq14n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Score:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fw3mq"]
+resource_name = "streak"
+length = 0.7
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Score:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 2, 2.26667, 2.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.349066, 0.349066, -0.349066, 0.349066, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4dkj"]
+_data = {
+&"RESET": SubResource("Animation_yq14n"),
+&"streak": SubResource("Animation_fw3mq")
+}
+
+[node name="LiveCaptionMinigame" type="Node2D"]
+script = ExtResource("1_phmih")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ShadowLabel" type="RichTextLabel" parent="."]
+offset_left = 135.0
+offset_top = 756.0
+offset_right = 1252.0
+offset_bottom = 1034.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_yq14n")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "Halo halo halo test test tes check check aaaaa hoho hihi a a a a a a a"
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(690, 436)
+scale = Vector2(8.65625, 4.03906)
+texture = ExtResource("2_fw3mq")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(1629, 522)
+scale = Vector2(3.92969, 6.22656)
+texture = ExtResource("2_fw3mq")
+
+[node name="Score" type="Label" parent="."]
+custom_minimum_size = Vector2(114, 0)
+offset_left = 1000.0
+offset_top = 34.0
+offset_right = 1114.0
+offset_bottom = 104.0
+pivot_offset = Vector2(57, 35)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StreakTimer" type="Timer" parent="."]
+wait_time = 8.0
+
+[node name="StreakProgress" type="ProgressBar" parent="."]
+visible = false
+offset_left = 856.0
+offset_top = 124.0
+offset_right = 1237.0
+offset_bottom = 137.0
+value = 95.0
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h4dkj")
+}
+
+[connection signal="timeout" from="StreakTimer" to="." method="_on_streak_timer_timeout"]
