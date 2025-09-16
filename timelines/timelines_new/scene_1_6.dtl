@@ -1,0 +1,11 @@
+aruna: “Karena, latihan pertama sudah kelar, yuk, kita siap-siap lanjut ke latihan berikutnya."
+"pak bos": “Hohoho… latihan ini agak beda, ya. Kalau tadi fokus ke alt text untuk gambar, sekarang kita belajar tentang struktur teks.”
+"pak bos": "Buat teman-teman tunanetra, struktur ini penting banget. Kalau asal tulis, screen reader bisa bikin bingung."
+Pak Anton menekan tombol, muncul teks di layar.
+"Mari kita lihat contoh tanpa struktur yang rapi."
+<Empty Text Event>
+"Hohoho, kedengerannya kayak paragraf panjang kan? Nggak jelas mana judul, mana daftar."
+"Betul, Pak Anton. Kalau dikasih struktur yang benar, screen reader bisa kasih tanda. Yuk, coba dengar ini."
+<Empty Text Event>
+aruna: "Nah, jadi jelas kan? Ada heading, ada list, semua terstruktur. Teman-teman tunanetra jadi bisa ‘navigasi’ lebih mudah."
+"pak bos": "Hohoho… gampang ya kalau udah tahu triknya. Oke deh, sekarang giliran kamu coba bikin struktur teks yang rapi."

@@ -1,0 +1,273 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxhfo336hc3f4"]
+
+[ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_72cfp"]
+[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="2_tubos"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="3_skmm7"]
+[ext_resource type="Texture2D" uid="uid://ca2w47ux2w6af" path="res://assets/document_images/routine_1/routine_1_1.jpg" id="4_c3n0p"]
+[ext_resource type="Texture2D" uid="uid://d0eiangx5lolq" path="res://assets/document_images/routine_1/routine_1_2.jpg" id="5_cyhyc"]
+[ext_resource type="Texture2D" uid="uid://2vl002vqclei" path="res://assets/document_images/routine_1/routine_1_3.jpg" id="6_vf4nt"]
+[ext_resource type="Texture2D" uid="uid://ctb2u2uelwg7s" path="res://assets/document_images/routine_1/routine_1_4.jpg" id="7_ylrt6"]
+[ext_resource type="Texture2D" uid="uid://dam15ixjcxkuy" path="res://assets/document_images/routine_1/routine_1_5.png" id="8_pyu1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
+size = Vector2(905, 2613)
+
+[node name="document_hard_1" type="Node2D" groups=["document"]]
+script = ExtResource("1_72cfp")
+paper_color = "hitam"
+judul = "Kontras Warna"
+
+[node name="paper_area" type="Area2D" parent="."]
+position = Vector2(0, -44)
+collision_priority = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paper_area"]
+position = Vector2(-6.5, 1120.5)
+shape = SubResource("RectangleShape2D_wjaii")
+
+[node name="texts" type="Node2D" parent="."]
+
+[node name="doc_text" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -423.0
+offset_top = -200.0
+offset_right = -1.0
+offset_bottom = -168.0
+theme_override_colors/font_color = Color(0.160784, 0.423529, 0.831373, 1)
+text = "Apa Itu Kontras Warna?"
+intended_structure = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text2" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -422.0
+offset_top = -142.0
+offset_right = -3.0
+offset_bottom = -5.0
+theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
+text = "Kontras warna adalah perbedaan terang-gelap antara teks dan latar belakang. Kontras yang cukup membuat teks mudah dibaca."
+intended_structure = 2
+structure = "subjudul"
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text3" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -422.0
+offset_top = 27.0
+offset_right = -1.0
+offset_bottom = 164.0
+theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
+text = "Penggunaan kontras warna yang baik membantu pengguna dengan gangguan penglihatan membedakan elemen visual secara jelas."
+intended_structure = 2
+structure = "subjudul"
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text4" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -427.0
+offset_top = 277.0
+offset_right = -5.0
+offset_bottom = 344.0
+theme_override_colors/font_color = Color(0.819608, 0.0588235, 0.0431373, 1)
+text = "Mengapa Kontras Penting untuk Aksesibilitas?"
+intended_structure = 0
+structure = "subjudul"
+part = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text5" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -426.0
+offset_top = 370.0
+offset_right = -7.0
+offset_bottom = 402.0
+theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
+text = "Aksesibilitas Digital"
+intended_structure = 1
+part = 2
+
+[node name="doc_text6" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -426.0
+offset_top = 420.0
+offset_right = -5.0
+offset_bottom = 557.0
+theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
+text = "Tanpa kontras warna yang memadai, pengguna dengan low vision atau buta warna kesulitan membaca informasi di layar."
+intended_structure = 2
+structure = "judul"
+part = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text7" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -426.0
+offset_top = 568.0
+offset_right = -5.0
+offset_bottom = 705.0
+theme_override_colors/font_color = Color(1, 0.921569, 0.231373, 1)
+text = "Kontras yang baik memastikan bahwa semua orang, termasuk penyandang disabilitas, dapat mengakses konten secara setara."
+intended_structure = 2
+part = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text8" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = 9.0
+offset_top = 862.0
+offset_right = 431.0
+offset_bottom = 929.0
+theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
+text = "Kontras Buruk Bisa Menyulitkan Akses"
+intended_structure = 0
+part = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text9" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = 10.0
+offset_top = 959.0
+offset_right = 429.0
+offset_bottom = 1096.0
+theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
+text = "Kontras yang buruk menyulitkan pengguna membaca konten, terutama dalam cahaya terang atau bagi pengguna dengan low vision."
+intended_structure = 2
+part = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text10" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = 10.0
+offset_top = 1133.0
+offset_right = 431.0
+offset_bottom = 1270.0
+theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
+text = "Desain dengan warna yang terlalu mirip atau redup dapat menghalangi pemahaman informasi dan pengalaman pengguna."
+intended_structure = 2
+structure = "judul"
+part = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text11" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = 7.0
+offset_top = 1425.0
+offset_right = 429.0
+offset_bottom = 1492.0
+theme_override_colors/font_color = Color(0.00392157, 0.690196, 0.27451, 1)
+text = "Rasio Kontras yang Direkomendasikan"
+intended_structure = 0
+structure = "subjudul"
+part = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text12" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = 8.0
+offset_top = 1522.0
+offset_right = 427.0
+offset_bottom = 1659.0
+theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
+text = "WCAG menetapkan standar rasio kontras untuk keterbacaan yang optimal."
+intended_structure = 2
+part = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text13" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = 8.0
+offset_top = 1665.0
+offset_right = 429.0
+offset_bottom = 1802.0
+theme_override_colors/font_color = Color(1, 0.921569, 0.231373, 1)
+text = "Teks biasa harus memiliki rasio kontras minimal 4.5:1, dan untuk teks besar minimal 3:1. Hal ini berlaku untuk teks dan elemen UI."
+intended_structure = 2
+part = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text14" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -422.0
+offset_top = 1966.0
+offset_right = 0.0
+offset_bottom = 2033.0
+theme_override_colors/font_color = Color(0.160784, 0.423529, 0.831373, 1)
+theme_override_font_sizes/font_size = 33
+text = "Kontras dalam Elemen Interaktif"
+intended_structure = 0
+part = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text15" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -421.0
+offset_top = 2071.0
+offset_right = -2.0
+offset_bottom = 2208.0
+theme_override_colors/font_color = Color(0.160784, 0.423529, 0.831373, 1)
+text = "Tombol, link, dan ikon"
+intended_structure = 1
+structure = "subjudul"
+part = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="doc_text16" parent="texts" instance=ExtResource("2_tubos")]
+offset_left = -421.0
+offset_top = 2130.0
+offset_right = 0.0
+offset_bottom = 2267.0
+theme_override_colors/font_color = Color(0.160784, 0.423529, 0.831373, 1)
+text = "Elemen interaktif seperti tombol harus memiliki kontras tinggi agar mudah ditemukan dan digunakan oleh semua pengguna."
+intended_structure = 2
+structure = "subjudul"
+part = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="images" type="Node2D" parent="."]
+
+[node name="images1" parent="images" instance=ExtResource("3_skmm7")]
+offset_left = 14.0
+offset_top = -132.0
+offset_right = 428.0
+offset_bottom = 142.0
+texture = ExtResource("4_c3n0p")
+correct_alt_text = "Sebuah jeruk yang dicat biru dipotong menjadi dua, memperlihatkan bagian dalam yang berwarna oranye cerah, diletakkan di atas latar belakang biru solid."
+wrong_alt_text = "Dua potong buah jeruk diletakkan di atas meja."
+wrong_alt_text_2 = "Gambar seni abstrak yang menggunakan warna biru dan oranye."
+wrong_alt_text_3 = "Potongan-potongan makanan yang disusun dengan rapi untuk difoto."
+metadata/_edit_use_anchors_ = true
+
+[node name="images2" parent="images" instance=ExtResource("3_skmm7")]
+offset_left = 83.0
+offset_top = 312.0
+offset_right = 348.0
+offset_bottom = 692.0
+texture = ExtResource("5_cyhyc")
+correct_alt_text = "Sebuah lorong sempit yang diterangi oleh lampu neon berwarna-warni, menciptakan efek gradasi dari merah muda, ungu, hingga hijau."
+wrong_alt_text = "Sebuah koridor di dalam gedung dengan pencahayaan yang terang."
+wrong_alt_text_2 = "Tembok-tembok sebuah ruangan yang dicat dengan warna-warni cerah."
+wrong_alt_text_3 = "Lampu-lampu modern yang dipasang di dalam sebuah bangunan."
+metadata/_edit_use_anchors_ = true
+
+[node name="images3" parent="images" instance=ExtResource("3_skmm7")]
+offset_left = -419.0
+offset_top = 906.0
+offset_right = -31.0
+offset_bottom = 1175.0
+texture = ExtResource("6_vf4nt")
+correct_alt_text = "Foto hitam putih seorang wanita lanjut usia yang duduk di bangku, menunduk dan fokus menggunakan ponsel pintarnya."
+wrong_alt_text = "Seorang nenek sedang duduk sendirian di taman."
+wrong_alt_text_2 = "Wanita paruh baya yang memakai kacamata dan baju bermotif bunga."
+wrong_alt_text_3 = "Seorang wanita yang sedang bermain game di ponsel."
+metadata/_edit_use_anchors_ = true
+
+[node name="images4" parent="images" instance=ExtResource("3_skmm7")]
+offset_left = -412.0
+offset_top = 1440.0
+offset_right = -67.0
+offset_bottom = 1877.0
+texture = ExtResource("7_ylrt6")
+correct_alt_text = "Seorang pria botak dengan janggut dan kacamata sedang melihat-lihat palet warna sambil memegang sketsa desain di atas meja."
+wrong_alt_text = "Seorang desainer sedang bekerja di kantornya."
+wrong_alt_text_2 = "Seorang pria yang memakai kacamata membaca buku."
+wrong_alt_text_3 = "Seorang seniman yang sedang memilih warna untuk lukisannya."
+metadata/_edit_use_anchors_ = true
+
+[node name="images5" parent="images" instance=ExtResource("3_skmm7")]
+offset_left = 29.0
+offset_top = 2025.0
+offset_right = 423.0
+offset_bottom = 2280.0
+texture = ExtResource("8_pyu1i")
+correct_alt_text = "Tombol berwarna biru dengan gradasi dan sudut membulat bertuliskan \"+ SUBSCRIBE\" dengan huruf kapital berwarna putih."
+wrong_alt_text = "Ikon untuk mendaftar ke sebuah layanan."
+wrong_alt_text_2 = "Teks \"SUBSCRIBE\" dengan latar belakang biru."
+wrong_alt_text_3 = "Tombol interaktif untuk berlangganan."
+
+[connection signal="selected" from="." to="." method="_on_selected"]
+[connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]

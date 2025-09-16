@@ -1,0 +1,13 @@
+"pak bos": "Di hari pertama ini, kita akan lebih mengenal mengenai teks alternatif, atau yang kita biasa sebut dengan alt text."
+"pak bos": "Fungsinya untuk menjelaskan isi gambar, terutama buat teman-teman tunanetra yang menggunakan screen reader"
+Pak Anton berdiri, menyalakan layar di depan ruangan. Sebuah gambar kucing ditampilkan.
+"pak bos": "Kalau kita lihat gambar kucing, langsung kelihatan, ‘oh ini kucing bawa tulang ikan di mulutnya.’"
+"Coba kita dengarkan pakai screen reader."
+"Buat mereka, tanpa alt text yang kebaca cuma ‘image.’ Nah, di situlah peran kita bikin deskripsi singkat, jelas, dan tepat"
+Suara komputer monoton terdengar, 'image'
+"Nah, ini kalau gambarnya tanpa alt text. Nggak ada informasi lain selain kata 'image.' Teman-teman tunanetra jadi nggak tahu ini gambar apa."
+Pak Anton klik tombol, menambahkan alt text 'Seekor kucing membawa tulang ikan di mulutnya.'
+Suara komputer kembali terdengar, 'Seekor kucing duduk di kursi.'
+"pak bos": "Hohoho... jadi beda kan?"
+"pak bos": "Begitu ada alt text, informasi jadi kebaca jelas. Mereka bisa 'melihat' lewat kata-kata yang kita tuliskan."
+"pak bos": "Gampang kedengarannya kan? Tapi bikin alt text itu ada seninya. Harus singkat, jelas, dan tepat sasaran."

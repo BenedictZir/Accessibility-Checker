@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://bakvrlyxasaj4"]
+
+[ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_qtxqg"]
+[ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="2_gec10"]
+[ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="3_3bxdm"]
+[ext_resource type="Texture2D" uid="uid://d1rk6dmifuilx" path="res://assets/image_scene_1_2/tutorial_1_1.jpg" id="4_s3e47"]
+[ext_resource type="Texture2D" uid="uid://y0l1ggxtqhhh" path="res://assets/image_scene_1_2/tutorial_1_2.jpg" id="5_q67ly"]
+[ext_resource type="Texture2D" uid="uid://ccce2ln5a074v" path="res://assets/image_scene_1_2/tutorial_1_3.jpg" id="6_8qojj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
+size = Vector2(905, 1525)
+
+[node name="document_template" type="Node2D" groups=["document"]]
+script = ExtResource("1_qtxqg")
+judul = "Jenis-jenis Assistive Technology"
+
+[node name="paper_area" type="Area2D" parent="."]
+position = Vector2(0, -44)
+collision_priority = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paper_area"]
+position = Vector2(-6.5, 576.5)
+shape = SubResource("RectangleShape2D_wjaii")
+
+[node name="texts" type="Node2D" parent="."]
+
+[node name="doc_text" parent="texts" instance=ExtResource("2_gec10")]
+offset_left = 4.0
+offset_top = -122.0
+offset_right = 374.0
+offset_bottom = -99.0
+text = "Jenis-jenis Assistive Technology"
+intended_structure = 0
+structure = "judul"
+
+[node name="doc_text2" parent="texts" instance=ExtResource("2_gec10")]
+offset_left = 4.0
+offset_top = -23.0
+offset_right = 407.0
+offset_bottom = 84.0
+text = "Assistive technology membantu semua orang mengakses teknologi secara setara. 
+Dengan alat bantu seperti pembaca layar, keyboard adaptif, dan pelacak mata, pengguna dengan disabilitas bisa menggunakan perangkat digital dengan lebih mudah."
+intended_structure = 2
+
+[node name="doc_text3" parent="texts" instance=ExtResource("2_gec10")]
+offset_left = -426.0
+offset_top = 456.0
+offset_right = -89.0
+offset_bottom = 523.0
+text = "Pembaca Layar (Screen Reader)"
+intended_structure = 0
+structure = "judul"
+part = 2
+
+[node name="doc_text4" parent="texts" instance=ExtResource("2_gec10")]
+offset_left = -426.0
+offset_top = 560.0
+offset_right = -14.0
+offset_bottom = 732.0
+text = "Teknologi ini membaca teks di layar dan mengubahnya menjadi suara. Umumnya digunakan oleh pengguna tunanetra atau dengan gangguan penglihatan."
+intended_structure = 2
+part = 2
+
+[node name="doc_text6" parent="texts" instance=ExtResource("2_gec10")]
+offset_left = 18.0
+offset_top = 870.0
+offset_right = 394.0
+offset_bottom = 945.0
+text = "Papan Ketik Adaptif (Adaptive Keyboard)"
+intended_structure = 0
+structure = "judul"
+part = 3
+
+[node name="doc_text5" parent="texts" instance=ExtResource("2_gec10")]
+offset_left = 17.0
+offset_top = 1033.0
+offset_right = 429.0
+offset_bottom = 1205.0
+text = "Keyboard ini dirancang khusus dengan ukuran tombol lebih besar atau tata letak yang disesuaikan untuk pengguna dengan keterbatasan motorik."
+intended_structure = 2
+part = 3
+
+[node name="images" type="Node2D" parent="."]
+
+[node name="images" parent="images" instance=ExtResource("3_3bxdm")]
+offset_left = -430.0
+offset_top = -121.0
+offset_right = -17.0
+offset_bottom = 155.0
+texture = ExtResource("4_s3e47")
+correct_alt_text = "Seorang wanita muda sedang mendengarkan musik menggunakan headphone saat duduk di kursi roda. Ia memegang ponsel dan tersenyum, dengan latar belakang putih."
+wrong_alt_text = "Seorang wanita difabel mendengarkan musik di dalam ruangan."
+wrong_alt_text_2 = "Seorang wanita dengan rambut hitam duduk di kursi roda."
+wrong_alt_text_3 = "Seorang wanita dengan headphone duduk di kursi roda, tersenyum sambil melihat ponselnya."
+
+[node name="images2" parent="images" instance=ExtResource("3_3bxdm")]
+offset_left = 13.0
+offset_top = 466.0
+offset_right = 426.0
+offset_bottom = 742.0
+texture = ExtResource("5_q67ly")
+correct_alt_text = "Seorang wanita berambut hitam dengan kaus oranye, memakai headphone biru, dan duduk di depan laptop."
+wrong_alt_text = "Seorang wanita berambut hitam dengan kaus biru, memakai headphone, dan duduk di depan laptop."
+wrong_alt_text_2 = "Seorang wanita dengan headphone biru tersenyum sambil melihat layar laptopnya."
+wrong_alt_text_3 = "Seorang wanita difabel mengikuti kelas online di rumahnya."
+
+[node name="images3" parent="images" instance=ExtResource("3_3bxdm")]
+offset_left = -436.0
+offset_top = 876.0
+offset_right = -23.0
+offset_bottom = 1152.0
+texture = ExtResource("6_8qojj")
+correct_alt_text = "Tangan sedang menyentuh papan ketik adaptif dengan baris-baris titik braille."
+wrong_alt_text = "Braille dan keyboard."
+wrong_alt_text_2 = "Seseorang menggunakan teknologi bantu untuk berinteraksi dengan komputer."
+wrong_alt_text_3 = "Tangan sedang membaca tulisan braille di samping keyboard komputer."
+
+[connection signal="selected" from="." to="." method="_on_selected"]
+[connection signal="input_event" from="paper_area" to="." method="_on_area_2d_input_event"]
