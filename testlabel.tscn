@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ckwlu1f4svvn3"]
+
+[node name="Node2D" type="Label"]
+text = "test\\n a"

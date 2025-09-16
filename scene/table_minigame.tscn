@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://rmva51mjsnov"]
+
+[ext_resource type="Script" uid="uid://brhfdrkbxirhp" path="res://script/table_minigame.gd" id="1_efaia"]
+[ext_resource type="PackedScene" uid="uid://cm7wrussp5as6" path="res://scene/cell.tscn" id="2_efaia"]
+[ext_resource type="Script" uid="uid://cyrs4qb3mwou2" path="res://script/cell_hammer.gd" id="3_by4yj"]
+[ext_resource type="Texture2D" uid="uid://bkmh5hxwy30ta" path="res://assets/table_minigame/—Pngtree—tool horn hammer hammer_4453462.png" id="4_sf278"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efaia"]
+size = Vector2(83, 90)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sf278"]
+radius = 349.285
+
+[node name="TableMinigame" type="Node2D"]
+script = ExtResource("1_efaia")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 4
+offset_left = -250.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = 250.0
+color = Color(1, 0, 0.0117647, 1)
+
+[node name="CellContainer" type="Node2D" parent="."]
+
+[node name="Cell" parent="CellContainer" instance=ExtResource("2_efaia")]
+position = Vector2(-127, -195)
+text = "abcd aiwello"
+size = Vector2(160, 60)
+
+[node name="Cell2" parent="CellContainer" instance=ExtResource("2_efaia")]
+position = Vector2(-175, -67)
+text = "a\\n\\n\\nb"
+size = Vector2(64, 150)
+
+[node name="Cell3" parent="CellContainer" instance=ExtResource("2_efaia")]
+position = Vector2(-79, -112)
+text = "2"
+size = Vector2(64, 60)
+
+[node name="Cell4" parent="CellContainer" instance=ExtResource("2_efaia")]
+position = Vector2(-79, -23)
+text = "2"
+size = Vector2(64, 60)
+
+[node name="ResetButton" type="Button" parent="."]
+offset_left = 731.0
+offset_top = 362.0
+offset_right = 785.0
+offset_bottom = 393.0
+text = "RESET"
+
+[node name="HorizontalHammer" type="Area2D" parent="."]
+position = Vector2(-454, -142)
+script = ExtResource("3_by4yj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HorizontalHammer"]
+position = Vector2(12.5, 14)
+shape = SubResource("RectangleShape2D_efaia")
+
+[node name="HitArea" type="Area2D" parent="HorizontalHammer"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HorizontalHammer/HitArea"]
+position = Vector2(-960, -540)
+shape = SubResource("CircleShape2D_sf278")
+
+[node name="Sprite2D" type="Sprite2D" parent="HorizontalHammer"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_sf278")
+
+[node name="VerticalHammer" type="Area2D" parent="."]
+position = Vector2(-454, -6)
+script = ExtResource("3_by4yj")
+hammer_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalHammer"]
+position = Vector2(12.5, 14)
+shape = SubResource("RectangleShape2D_efaia")
+
+[node name="HitArea" type="Area2D" parent="VerticalHammer"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalHammer/HitArea"]
+position = Vector2(-960, -540)
+shape = SubResource("CircleShape2D_sf278")
+
+[node name="Sprite2D" type="Sprite2D" parent="VerticalHammer"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_sf278")
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="area_entered" from="HorizontalHammer/HitArea" to="HorizontalHammer" method="_on_hit_area_area_entered"]
+[connection signal="area_entered" from="VerticalHammer/HitArea" to="VerticalHammer" method="_on_hit_area_area_entered"]
