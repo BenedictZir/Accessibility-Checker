@@ -145,49 +145,50 @@ func get_all_images():
 	var images = find_child("document").get_child(0).get_images()
 	for image in images:
 		all_images.append(image)
-	all_images.sort_custom(sort_by_pos)
 
 func get_all_text():
 	var texts = find_child("document").get_child(0).get_texts()
 	for text in texts:
 		all_texts.append(text)
-	all_texts.sort_custom(sort_by_pos)
+		
 func get_all_obj():
 	get_all_images()
 	get_all_text()
-	
 	all_object.clear()
 	for text in all_texts:
 		all_object.append(text)
 	for image in all_images:
 		all_object.append(image)
-	all_object.sort_custom(sort_by_pos)
-
+	sort_obj()
 	var subjudul_count = 0
 	var judul_count = 0
 	var text_count = 0
+	var daftar_count = 0
 	var image_count = 1
-	var unique_id = 1  # ID unik supaya nama tidak bentrok
+	var unique_id = 1  
 	
 	for obj in all_object:
 		if obj.is_in_group("texts"):
 			if obj.get_structure().contains("subjudul"):
 				subjudul_count += 1
 				text_count = 0
+				daftar_count = 0
 				obj.display_name = "subjudul " + str(subjudul_count)
 			
 			elif obj.get_structure().contains("judul"):
 				judul_count += 1
 				subjudul_count = 0
 				text_count = 0
+				daftar_count = 0
 				image_count = 1
 				obj.display_name = "judul " + str(judul_count)
-				
+			elif obj.get_structure().containsn("daftar"):
+				daftar_count += 1
+				obj.display_name = "daftar " + str(daftar_count)
 			else:
 				text_count += 1
 				obj.display_name = "teks " + str(text_count)
 
-			# name harus unik supaya Godot nggak rename otomatis
 			obj.name = obj.display_name + "#" + str(unique_id)
 			unique_id += 1
 
@@ -207,6 +208,7 @@ func create_outline(obj, display_name):
 	outline.set_display_name(display_name)
 	outline.bind_object(obj)
 	v_box_container.add_child(outline)
+	
 func select(obj):
 	if (selected_object):
 		selected_object.emit_signal("deselect")
@@ -259,10 +261,7 @@ func select_outline(outline):
 	if selected_object.is_in_group("texts"):
 		emit_signal("text_clicked")
 	selected_object.emit_signal("selected")
-func sort_by_pos(a, b):
-	if a.global_position.y < b.global_position.y:
-		return true
-	return false
+
 
 func show_features():
 	if selected_object == null:
@@ -446,11 +445,11 @@ func update_text_outline():
 		all_object.append(text)
 	for image in all_images:
 		all_object.append(image)
-	all_object.sort_custom(sort_by_pos)
 	
 	var subjudul_count = 0
 	var judul_count = 0
 	var text_count = 0
+	var daftar_count = 0
 	var image_count = 1
 	var unique_id = 1
 	
@@ -459,15 +458,19 @@ func update_text_outline():
 			if obj.get_structure().containsn("subjudul"):
 				subjudul_count += 1
 				text_count = 0
+				daftar_count = 0
 				obj.display_name = "subjudul " + str(subjudul_count)
 			
 			elif obj.get_structure().containsn("judul"):
 				judul_count += 1
 				subjudul_count = 0
 				text_count = 0
+				daftar_count = 0
 				image_count = 1
 				obj.display_name = "judul " + str(judul_count)
-				
+			elif obj.get_structure().containsn("daftar"):
+				daftar_count += 1
+				obj.display_name = "daftar " + str(daftar_count)
 			else:
 				text_count += 1
 				obj.display_name = "teks " + str(text_count)
@@ -501,7 +504,7 @@ func set_document(document_random, diff = "easy"):
 	$app/nama_dokumen.text = doc.judul
 	document.add_child(doc)
 	doc.global_position = document.global_position
-	get_all_obj()
+	call_deferred("get_all_obj")
 	timer.wait_time = time
 	examine()
 
@@ -861,3 +864,12 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 		GlobalAltText.alt_text_on = true
 	else:
 		GlobalAltText.alt_text_on = false
+
+func sort_obj():
+	all_object.sort_custom(sort_by_pos)
+	print(all_object)
+func sort_by_pos(a, b):
+	if a.global_position.y < b.global_position.y:
+		return true
+	return false
+	

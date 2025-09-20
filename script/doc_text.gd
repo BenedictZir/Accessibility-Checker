@@ -14,33 +14,55 @@ const COLORS = {
 	"putih" : Color("#fbfbfb")
 }
 
-@export_enum("judul", "subjudul", "teks") var intended_structure
+@export_enum("judul", "subjudul", "teks", "daftar") var intended_structure
 @export var structure := "teks"
 const LATO_LIGHT = preload("res://assets/fonts/Lato-Light.ttf")
 const LATO_REGULAR = preload("res://assets/fonts/Lato-Regular.ttf")
 const LATO_BOLD = preload("res://assets/fonts/Lato-Bold.ttf")
 const LATO_BLACK = preload("res://assets/fonts/Lato-Black.ttf")
+@export var part := 1
 var is_contrast := false
 const text_size = 26
 const subheading_size = 28
 const heading_size = 33
 var display_name = ""
 var is_selected := false
-@export var part := 1
+var normal_text = ""
+var list_text = ""
 signal selected
 signal deselect
 
 func _ready():
+	if text.contains(":"):
+		normal_text  = text
+		var semicolon_idx = text.find(":")
+		list_text += text.substr(0, semicolon_idx + 1) + "\n"
+		var points = text.substr(semicolon_idx + 1).split(", ")
+		for i in range(points.size()):
+			if i < points.size() - 1:
+				list_text += "•" + points[i] + "\n"
+			else:
+				list_text += "•" + points[i]
+	else:
+		normal_text = text
+		list_text  = "•" + normal_text
+
 	update_size()
 func _process(delta):
 	if structure == "teks":
+		text = normal_text
+		add_theme_font_override("font", LATO_LIGHT)
+		add_theme_font_size_override("font_size", text_size)
+	elif structure == "daftar":
+		text = list_text
 		add_theme_font_override("font", LATO_LIGHT)
 		add_theme_font_size_override("font_size", text_size)
 	elif structure == "subjudul":
+		text = normal_text
 		add_theme_font_override("font", LATO_REGULAR)
-		
 		add_theme_font_size_override("font_size", subheading_size)
-	else:
+	elif structure == "judul":
+		text = normal_text
 		add_theme_font_override("font", LATO_BOLD)
 		add_theme_font_size_override("font_size", heading_size)
 	update_size()
@@ -50,6 +72,7 @@ func _process(delta):
 func update_size():	
 	collision_shape_2d.position = size / 2
 	collision_shape_2d.shape.size = size
+	
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click"):
@@ -132,7 +155,11 @@ func examine_structure():
 			return 2
 		else:
 			return 0
-
+	elif structure.contains("daftar"):
+		if intended_structure == 3:
+			return 2
+		else:
+			return 0
 func get_part():
 	return part
 

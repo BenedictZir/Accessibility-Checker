@@ -5,9 +5,11 @@ extends Node2D
 @onready var streak_progress: ProgressBar = $StreakProgress
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var streak_time := 10.0
+var streak_time := 8.0
 var streak := 0
 var streak_mult = {0: 1, 1 : 1, 2: 1.25, 3: 1.5, 4: 2, 5: 2.5, 6: 3}
+var streak_requirements = {1:1, 2:1, 3:3, 4:4, 5:5, 6:6}
+var streak_counter = 0
 
 var score := 0
 var score_ori_pos
@@ -52,20 +54,21 @@ func _input(event):
 				on_word_done()
 
 func on_word_done():
-	if streak <= 5:
+	streak_counter += 1  # Hitung kata beruntun
+	if streak_counter >= streak_requirements.get(streak + 1, 1):
 		streak += 1
-	if streak > 3:
-		animation_player.play("streak", -1, float(streak ** 1.1) / 4.0)
-	streak_timer.wait_time = streak_time / streak
-	streak_timer.start()
-	
-	streak_progress.show()
-	streak_progress.max_value = streak_timer.wait_time
-	
+		streak_counter = 0  # Reset counter untuk streak selanjutnya
+		if streak > 3:
+			animation_player.play("streak", -1, float(streak ** 1.1) / 4.0)
+		streak_timer.wait_time = streak_time / streak
+		streak_timer.start()
+		streak_progress.show()
+		streak_progress.max_value = streak_timer.wait_time
+	else:
+		# Jika belum cukup kata, timer tetap berjalan
+		streak_timer.start()
 	update_score()
-	
 	reveal_next_word()
-
 func on_finish():
 	cur_key_idx += 1
 	if finished:
@@ -109,6 +112,7 @@ func update_bbcode():
 
 func _on_streak_timer_timeout() -> void:
 	streak = 0
+	streak_counter = 0
 	animation_player.play("RESET")
 	streak_progress.hide()
 

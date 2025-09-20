@@ -37,14 +37,16 @@ size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 33
 text = "Oleh karena itu, hal hal asd maka gini gitu yang menjadikan"
 intended_structure = 0
+structure = "teks"
 
 [node name="doc_text" parent="DocumentObjects/LeftContainer" instance=ExtResource("3_6ntd6")]
 custom_minimum_size = Vector2(438, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 33
-text = "Ngetest hehehe awikwok yahahah hayuk"
-intended_structure = 2
+text = "Ngetest: a, b, c"
+intended_structure = 3
+structure = "teks"
 
 [node name="images" parent="DocumentObjects/LeftContainer" instance=ExtResource("3_ln74q")]
 custom_minimum_size = Vector2(128, 128)
@@ -69,7 +71,7 @@ size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 33
 text = "Ngetest hehehe awikwok yahahah hayuk"
 intended_structure = 0
-structure = "judul"
+structure = "teks"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

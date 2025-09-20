@@ -51,7 +51,3 @@ func get_texts():
 	
 func _on_selected() -> void:
 	pass # Replace with function body.
-
-
-func _on_paper_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	pass # Replace with function body.
