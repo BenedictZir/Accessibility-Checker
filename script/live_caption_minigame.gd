@@ -6,6 +6,9 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var chat_timer: Timer = $ChatTimer
 @onready var live_chat_box: VBoxContainer = $LiveChatBox
+@onready var video_duration: Timer = $VideoDuration
+@onready var video_progress: TextureProgressBar = $VideoProgress
+@onready var path_follow_2d: PathFollow2D = $Path2D/PathFollow2D
 
 @export var live_chat_scene : PackedScene
 var streak_time := 8.0
@@ -34,6 +37,9 @@ func _ready():
 	score_ori_pos = score_label.global_position
 
 func _process(delta):
+	
+	video_progress.value = video_duration.wait_time - video_duration.time_left
+	path_follow_2d.progress_ratio = (video_duration.wait_time - video_duration.time_left) / video_duration.wait_time
 	if streak < 2 or streak >= 4:
 		chat_timer.wait_time = 2
 	else:

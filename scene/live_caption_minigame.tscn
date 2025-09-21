@@ -1,9 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2p2h8ktk4s1c"]
+[gd_scene load_steps=19 format=3 uid="uid://d2p2h8ktk4s1c"]
 
 [ext_resource type="Script" uid="uid://cm0edsgeeqyte" path="res://script/live_caption_minigame.gd" id="1_phmih"]
 [ext_resource type="Texture2D" uid="uid://dyos5d02n1ao7" path="res://icon.svg" id="2_fw3mq"]
 [ext_resource type="FontFile" uid="uid://bhp4j1qupnai0" path="res://assets/fonts/FiraCode-Regular.ttf" id="2_yq14n"]
+[ext_resource type="Texture2D" uid="uid://b20fxbac57028" path="res://assets/live_captioning_minigame/live_caption_background.png" id="3_5j0mc"]
+[ext_resource type="Texture2D" uid="uid://dvf7mrpu3jace" path="res://assets/live_captioning_minigame/live_caption_spotlight.png" id="4_gsi5p"]
 [ext_resource type="PackedScene" uid="uid://cg18efpdfvfia" path="res://scene/live_chat.tscn" id="4_yq14n"]
+[ext_resource type="Texture2D" uid="uid://cjwo6e3uoy0rf" path="res://assets/live_captioning_minigame/live_caption_box.png" id="5_54441"]
+[ext_resource type="Texture2D" uid="uid://bckxspnavsp46" path="res://assets/live_captioning_minigame/live_video_bar_background.png" id="6_0leo0"]
+[ext_resource type="Texture2D" uid="uid://dgtxkdja342mr" path="res://assets/live_captioning_minigame/live_video_border.png" id="8_p8x6j"]
+[ext_resource type="Texture2D" uid="uid://bhhvaqcfmfjeo" path="res://assets/live_captioning_minigame/live_video_progress_under.png" id="9_fbg0i"]
+[ext_resource type="Texture2D" uid="uid://do5b8wveeeuj4" path="res://assets/live_captioning_minigame/live_video_progress_over.png" id="10_jjkpu"]
+[ext_resource type="Texture2D" uid="uid://wrg0ccm0qwy3" path="res://assets/live_captioning_minigame/live_video_progress.png" id="11_bunt2"]
+[ext_resource type="Texture2D" uid="uid://jvu83rtkyqbc" path="res://assets/live_captioning_minigame/live_video_progress_pointer_bg.png" id="13_54441"]
+[ext_resource type="Texture2D" uid="uid://bsvifhga7onhu" path="res://assets/live_captioning_minigame/live_video_progress_pointer.png" id="14_0leo0"]
 
 [sub_resource type="Animation" id="Animation_yq14n"]
 length = 0.001
@@ -43,18 +53,56 @@ _data = {
 &"streak": SubResource("Animation_fw3mq")
 }
 
+[sub_resource type="Curve2D" id="Curve2D_p8x6j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 164, 695, 0, 0, 0, 0, 1052, 695)
+}
+point_count = 2
+
 [node name="LiveCaptionMinigame" type="Node2D"]
 script = ExtResource("1_phmih")
 live_chat_scene = ExtResource("4_yq14n")
 
-[node name="Background" type="ColorRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_5j0mc")
+
+[node name="SpotLight" type="Sprite2D" parent="Background"]
+position = Vector2(-276, -9)
+texture = ExtResource("4_gsi5p")
+
+[node name="LiveCaptionBox" type="Sprite2D" parent="Background"]
+position = Vector2(-367, 322)
+texture = ExtResource("5_54441")
+
+[node name="LiveVideoBarBackground" type="Sprite2D" parent="."]
+position = Vector2(616, 704)
+texture = ExtResource("6_0leo0")
+
+[node name="Video" type="Sprite2D" parent="."]
+position = Vector2(619, 410.5)
+scale = Vector2(6.98438, 4.27344)
+texture = ExtResource("2_fw3mq")
+
+[node name="VideoBorder" type="Sprite2D" parent="."]
+position = Vector2(619, 418)
+texture = ExtResource("8_p8x6j")
+
+[node name="VideoProgress" type="TextureProgressBar" parent="."]
+offset_left = 153.0
+offset_top = 658.0
+offset_right = 1086.0
+offset_bottom = 748.0
+max_value = 120.0
+step = 0.001
+texture_under = ExtResource("9_fbg0i")
+texture_over = ExtResource("10_jjkpu")
+texture_progress = ExtResource("11_bunt2")
 
 [node name="ShadowLabel" type="RichTextLabel" parent="."]
 offset_left = 135.0
 offset_top = 756.0
-offset_right = 1252.0
+offset_right = 1066.0
 offset_bottom = 1034.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_yq14n")
@@ -62,16 +110,11 @@ theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "Halo halo halo test test tes check check aaaaa hoho hihi a a a a a a a"
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(690, 436)
-scale = Vector2(8.65625, 4.03906)
-texture = ExtResource("2_fw3mq")
-
 [node name="LiveChatBox" type="VBoxContainer" parent="."]
-offset_left = 1287.0
-offset_top = -602.0
-offset_right = 1887.0
-offset_bottom = 1034.0
+offset_left = 1203.0
+offset_top = -591.0
+offset_right = 1803.0
+offset_bottom = 1045.0
 size_flags_horizontal = 0
 theme_override_constants/separation = -100
 alignment = 2
@@ -108,6 +151,23 @@ libraries = {
 
 [node name="ChatTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="VideoDuration" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_p8x6j")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(164, 695)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Path2D/PathFollow2D"]
+texture = ExtResource("13_54441")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+texture = ExtResource("14_0leo0")
 
 [connection signal="timeout" from="StreakTimer" to="." method="_on_streak_timer_timeout"]
 [connection signal="timeout" from="ChatTimer" to="." method="_on_chat_timer_timeout"]
