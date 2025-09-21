@@ -867,7 +867,6 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 
 func sort_obj():
 	all_object.sort_custom(sort_by_pos)
-	print(all_object)
 func sort_by_pos(a, b):
 	if a.global_position.y < b.global_position.y:
 		return true

@@ -4,7 +4,10 @@ extends Node2D
 @onready var streak_timer: Timer = $StreakTimer
 @onready var streak_progress: ProgressBar = $StreakProgress
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var chat_timer: Timer = $ChatTimer
+@onready var live_chat_box: VBoxContainer = $LiveChatBox
 
+@export var live_chat_scene : PackedScene
 var streak_time := 8.0
 var streak := 0
 var streak_mult = {0: 1, 1 : 1, 2: 1.25, 3: 1.5, 4: 2, 5: 2.5, 6: 3}
@@ -31,6 +34,11 @@ func _ready():
 	score_ori_pos = score_label.global_position
 
 func _process(delta):
+	if streak < 2 or streak >= 4:
+		chat_timer.wait_time = 2
+	else:
+		chat_timer.wait_time = 4
+		
 	
 	cur_word = words[cur_word_idx]
 	streak_progress.value = streak_timer.time_left
@@ -121,3 +129,16 @@ func update_score():
 	
 	score_label.pivot_offset.x = score_label.size.x / 2
 	score_label.text = str(score)
+
+
+func _on_chat_timer_timeout() -> void:
+	var live_chat = live_chat_scene.instantiate()
+	live_chat_box.add_child(live_chat)
+	if live_chat_box.get_child_count() > 5:
+		live_chat_box.get_child(0).queue_free()
+	if streak < 2:
+		live_chat.set_speed("slow")
+	elif streak < 5:
+		live_chat.set_speed("normal")
+	else:
+		live_chat.set_speed("fast")

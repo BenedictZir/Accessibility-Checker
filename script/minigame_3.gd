@@ -5,6 +5,7 @@ var structures = []
 var judul_count = 0
 var subjudul_count = 0
 var teks_count = 0
+var daftar_count = 0
 var text_and_struct : Dictionary = {}
 var all_connected := false
 var buttons
@@ -109,6 +110,9 @@ func convert_int_structure(index):
 	if index == 2:
 		teks_count += 1
 		return "teks"
+	if index == 3:
+		daftar_count += 1
+		return "daftar"
 		 
 
 
