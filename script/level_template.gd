@@ -866,6 +866,8 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 		GlobalAltText.alt_text_on = false
 
 func sort_obj():
+	all_texts.sort_custom(sort_by_pos)
+	all_images.sort_custom(sort_by_pos)
 	all_object.sort_custom(sort_by_pos)
 func sort_by_pos(a, b):
 	if a.global_position.y < b.global_position.y:

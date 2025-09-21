@@ -25,6 +25,7 @@ SceneTransition="*res://scene/scene_transition.tscn"
 SoundManager="*res://scene/sound_manager.tscn"
 GlobalAltText="*res://scene/global_alt_text.tscn"
 ParticleManager="*res://scene/particle_manager.tscn"
+CursorManager="*res://cursor_manager.gd"
 
 [dialogic]
 

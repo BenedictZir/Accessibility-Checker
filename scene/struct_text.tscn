@@ -1,50 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce053i0ellf0a"]
+[gd_scene load_steps=8 format=3 uid="uid://ce053i0ellf0a"]
 
-[ext_resource type="Texture2D" uid="uid://c8x3d584v6xji" path="res://assets/structure_label_background.png" id="1_fyswx"]
 [ext_resource type="Script" uid="uid://bjiaxur6auvml" path="res://script/struct_text.gd" id="1_g04xj"]
-[ext_resource type="Gradient" uid="uid://3k4yov8owu5h" path="res://gradient/green.tres" id="3_sld3g"]
+[ext_resource type="Texture2D" uid="uid://c11pkmpkaj38m" path="res://assets/structure_minigame/structure_box.png" id="1_xc8h1"]
+[ext_resource type="Texture2D" uid="uid://pxh28fsuay8v" path="res://assets/structure_minigame/structure_pin.png" id="4_7atnh"]
+[ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="5_nawkn"]
+[ext_resource type="Texture2D" uid="uid://be2kbp0w1oyig" path="res://assets/structure_minigame/red_circle.png" id="6_oibon"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyswx"]
-size = Vector2(60.4808, 30)
+size = Vector2(44, 48)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_myfk6"]
+radius = 24.0
+height = 60.0
 
 [node name="struct_text" type="TextureRect"]
-offset_right = 359.0
-offset_bottom = 71.0
-texture = ExtResource("1_fyswx")
+offset_right = 562.0
+offset_bottom = 335.0
+texture = ExtResource("1_xc8h1")
 script = ExtResource("1_g04xj")
 
 [node name="Line2D" type="Line2D" parent="."]
 show_behind_parent = true
 z_index = 1
-position = Vector2(358.761, 39)
-points = PackedVector2Array(0, 0, 29.239, 0, 36.239, 0)
-gradient = ExtResource("3_sld3g")
+position = Vector2(508, 189)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 12.0
+default_color = Color(1, 0.384314, 0.384314, 1)
 
 [node name="Area2D" type="Area2D" parent="Line2D"]
-position = Vector2(35.7885, 0)
+position = Vector2(-1.52588e-05, 0)
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/Area2D"]
-position = Vector2(-5.83655, 0)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_fyswx")
 
-[node name="background_line" type="Line2D" parent="Line2D"]
-show_behind_parent = true
-points = PackedVector2Array(0, 0, 29.239, 0, 36.239, 0)
-width = 18.0
-default_color = Color(0, 0, 0, 1)
+[node name="Pin" type="Sprite2D" parent="Line2D/Area2D"]
+position = Vector2(36, -45)
+texture = ExtResource("4_7atnh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Line2D/Area2D"]
+position = Vector2(30, -40)
+shape = SubResource("CapsuleShape2D_myfk6")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 11.0
-offset_right = 359.0
-offset_bottom = 70.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 50.0
+offset_top = 140.0
+offset_right = 465.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("5_nawkn")
+theme_override_font_sizes/font_size = 35
 text = "TESTESTTTSTSTSTSTTSS"
-horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 2
+
+[node name="RedCircle" type="Sprite2D" parent="."]
+position = Vector2(508, 189)
+texture = ExtResource("6_oibon")
 
 [connection signal="area_entered" from="Line2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Line2D/Area2D" to="." method="_on_area_2d_area_exited"]

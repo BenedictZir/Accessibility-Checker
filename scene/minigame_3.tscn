@@ -11,20 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="9_x4jmi"]
 [ext_resource type="Script" uid="uid://b206y87avo52b" path="res://script/general_button.gd" id="10_rjyxx"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klblt"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkeb3"]
-texture = ExtResource("7_x4jmi")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_061bg"]
-texture = ExtResource("7_x4jmi")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3tfbp"]
-texture = ExtResource("7_x4jmi")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r7rc"]
-texture = ExtResource("7_x4jmi")
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjyxx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klblt"]
@@ -39,6 +25,20 @@ texture = ExtResource("9_x4jmi")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2xryp"]
 texture = ExtResource("9_x4jmi")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klblt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tkeb3"]
+texture = ExtResource("7_x4jmi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_061bg"]
+texture = ExtResource("7_x4jmi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3tfbp"]
+texture = ExtResource("7_x4jmi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r7rc"]
+texture = ExtResource("7_x4jmi")
+
 [node name="minigame_3" type="Node2D"]
 script = ExtResource("1_0dvvu")
 struct_text_scene = ExtResource("2_q8eg3")
@@ -49,21 +49,42 @@ texture = ExtResource("4_1yfil")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="exit_button" type="Button" parent="."]
+offset_left = 488.0
+offset_top = -382.0
+offset_right = 635.0
+offset_bottom = -203.0
+pivot_offset = Vector2(73, 89)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rjyxx")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_klblt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wegjo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6ldyw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2xryp")
+script = ExtResource("10_rjyxx")
+alt_text = "Tombol untuk keluar dari fitur struktur"
+
+[node name="Polygon2D" type="Polygon2D" parent="exit_button"]
+position = Vector2(-487, 382)
+polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 490, -279, 490, -290)
+
 [node name="answer_container" type="VBoxContainer" parent="."]
-offset_left = 107.0
+offset_left = 46.0
 offset_top = -144.0
-offset_right = 107.0
+offset_right = 46.0
 offset_bottom = -144.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = -180
 
 [node name="text_container" type="VBoxContainer" parent="."]
-offset_left = -532.0
+offset_left = -704.0
 offset_top = -152.0
-offset_right = -532.0
+offset_right = -704.0
 offset_bottom = -152.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = -180
 
 [node name="Label" type="Label" parent="."]
 offset_left = 138.0
@@ -105,25 +126,6 @@ position = Vector2(518, -272)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-535, 411, -533, 448, -160, 442, -146, 395, -153, 393, -165, 430, -521, 437, -525, 410)
 
-[node name="exit_button" type="Button" parent="."]
-offset_left = 488.0
-offset_top = -382.0
-offset_right = 635.0
-offset_bottom = -203.0
-pivot_offset = Vector2(73, 89)
-focus_mode = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rjyxx")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_klblt")
-theme_override_styles/hover = SubResource("StyleBoxTexture_wegjo")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6ldyw")
-theme_override_styles/normal = SubResource("StyleBoxTexture_2xryp")
-script = ExtResource("10_rjyxx")
-alt_text = "Tombol untuk keluar dari fitur struktur"
-
-[node name="Polygon2D" type="Polygon2D" parent="exit_button"]
-position = Vector2(-487, 382)
-polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 490, -279, 490, -290)
-
 [connection signal="connecting" from="." to="." method="_on_connecting"]
-[connection signal="pressed" from="submit_button" to="." method="_on_submit_button_pressed"]
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="submit_button" to="." method="_on_submit_button_pressed"]

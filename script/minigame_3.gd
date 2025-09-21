@@ -62,7 +62,7 @@ func create_struct_texts():
 	for doc in randomized_texts:
 		var struct_text = struct_text_scene.instantiate()
 		text_container.add_child(struct_text)
-		struct_text.label.text = doc.text
+		struct_text.label.text = (doc.text.split("\n"))[0]
 	call_deferred("reset_pos")
 func create_answers():
 	var randomized_structures = structures.duplicate()
@@ -73,8 +73,8 @@ func create_answers():
 		struct_answer.label.text = structure
 	call_deferred("reset_pos")
 func _ready() -> void:
-	text_container.position.y = -(text_container.size.y / 2)
-	answer_container.position.y = -(answer_container.size.y / 2)
+	text_container.position.y = -(text_container.size.y / 2) - 50
+	answer_container.position.y = -(answer_container.size.y / 2) + 50
 	buttons = [$submit_button, $exit_button]
 func _process(delta: float) -> void:
 	for button in buttons:
@@ -95,8 +95,8 @@ func check_all_connected():
 	all_connected = true
 
 func reset_pos():
-	text_container.position.y = -text_container.size.y / 2 
-	answer_container.position.y = -answer_container.size.y / 2
+	text_container.position.y = -text_container.size.y / 2 - 50
+	answer_container.position.y = -answer_container.size.y / 2 + 50
 func _on_exit_button_pressed() -> void:
 	emit_signal("canceled")
 

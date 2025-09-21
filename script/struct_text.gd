@@ -4,15 +4,15 @@ extends TextureRect
 @onready var area_2d: Area2D = $Line2D/Area2D
 @onready var label: Label = $Label
 @onready var collision_shape_2d: CollisionShape2D = $Line2D/Area2D/CollisionShape2D
-const GREEN = preload("res://gradient/green.tres")
-const RED = preload("res://gradient/red.tres")
+#const GREEN = "#5db455"
+const RED = "#ff6262"
 var animating_back = false
 var selected = false
 var original_point_pos: Vector2
 var connected_to = null
 
 func _ready() -> void:
-	original_point_pos = line_2d.points[2]
+	original_point_pos = line_2d.points[1]
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	
@@ -33,20 +33,19 @@ func _process(delta: float) -> void:
 	if selected and GlobalVar.is_dragging:
 		var mouse_pos = line_2d.to_local(get_global_mouse_position())
 		_set_line_point(mouse_pos)
-	if connected_to:
-		line_2d.gradient = GREEN
-	else:
-		line_2d.gradient = RED
+	#if connected_to:
+		#line_2d.default_color = GREEN
+	#else:
+		#line_2d.default_color = RED
 		
 func _set_line_point(pos: Vector2):
-	line_2d.points[2] = pos
+	line_2d.points[1] = pos
 	area_2d.position = pos
-	$Line2D/background_line.points[2] = line_2d.points[2]
 	
 func back_ori_pos():
 	collision_shape_2d.call_deferred("set_disabled", true)
 	animating_back = true
-	var current_pos = line_2d.points[2]
+	var current_pos = line_2d.points[1]
 	var tween = create_tween()
 	tween.tween_method(_set_line_point, current_pos, original_point_pos, 0.3) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
