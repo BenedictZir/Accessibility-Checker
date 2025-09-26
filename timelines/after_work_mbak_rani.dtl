@@ -1,5 +1,5 @@
 [signal arg="mbak_rani_join"]
-if {poin_inklusif_harian} <= 1300.0:
+if {poin_inklusif_harian} <= 1500.0:
 	[signal arg="mbak_rani_angry_talk"]
 	mbak_rani: “Judulnya masih lompat-lompat, dan teks alternatifnya kurang deskriptif.”
 	[signal arg="mbak_rani_angry_talk"]

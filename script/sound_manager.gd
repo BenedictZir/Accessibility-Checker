@@ -25,6 +25,14 @@ func play_mult_sfx():
 	$mult_sfx.play()
 func play_score_sfx():
 	$score_sfx.play()
+func play_typing_sfx():
+	var typing_sfx = [$typing_sfx1, $typing_sfx2, $typing_sfx3, $typing_sfx4, $typing_sfx5, $typing_sfx6, $typing_sfx7, $typing_sfx8, $typing_sfx9, $typing_sfx10]
+	var picked = typing_sfx[randi() % 10]
+	while(picked.playing):
+		picked = typing_sfx[randi() % 10]
+	picked.pitch_scale = randf_range(0.95, 1.05)
+	picked.play()
+	
 	
 func play_prologue_music():
 	$prologue_music.play()
@@ -49,7 +57,7 @@ func play_taman_kuis_music():
 func play_taman_music():
 	$taman_music.play()
 	
-	
+
 	
 func _process(delta: float) -> void:
 	var hovered = get_viewport().gui_get_hovered_control()

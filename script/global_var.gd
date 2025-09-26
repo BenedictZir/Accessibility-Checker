@@ -10,9 +10,10 @@ var idx_title = 0
 var day_list = ["SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU"]
 var title_list = ["Pemula Aksesibilitas", "Penjelajah Inklusi", "Penggerak Akses Setara", "Pelopor Aksesibilitas", "Jagoan Inklusif"]
 var jabatan_list = ["Pegawai Magang", "Pegawai Koordinator", "Pegawai Tetap", "Pegawai Koordinator", "Pegawai Senior"]
-var skor_list = [0, 25000, 50000, 75000, 10000]
+var skor_list = [0, 25000, 50000, 75000, 100000]
 var musim = ["kemarau", "hujan"]
 var musim_idx = 0
+var performance_score := 10000.0
 var day := "SENIN"
 var easy_doc_used = []
 var medium_doc_used = []
@@ -34,7 +35,7 @@ var done_working_today := false
 var interactable := []
 var taman_first_time := true
 func next_day():
-
+	
 	Dialogic.VAR.poin_inklusif_harian = 0
 	done_working_today = false
 	date += 1

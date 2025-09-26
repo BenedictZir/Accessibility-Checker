@@ -1978,6 +1978,7 @@ position = Vector2(513.5, 133)
 texture = ExtResource("24_ca6jy")
 
 [node name="bg_line" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(-41.5, 173)
 texture = ExtResource("25_taf54")
 
@@ -1991,12 +1992,12 @@ texture = ExtResource("26_065fq")
 texture = ExtResource("24_p17l8")
 
 [node name="Line2" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(-4, 173)
 texture = ExtResource("29_7yd1f")
 
 [node name="plus" type="Sprite2D" parent="result_screen"]
 position = Vector2(511, 162)
-rotation = 6.28319
 texture = ExtResource("28_wu83x")
 
 [node name="lanjut" type="Button" parent="result_screen"]
@@ -2060,6 +2061,7 @@ text = "Aksesibilitas"
 
 [node name="SkorMisi" type="Sprite2D" parent="result_screen"]
 position = Vector2(-556, -85)
+scale = Vector2(0.154631, 1.68041)
 texture = ExtResource("35_rx2j5")
 offset = Vector2(311, 0)
 
@@ -2074,6 +2076,7 @@ theme_override_font_sizes/font_size = 65
 text = "Misi"
 
 [node name="Skortimer" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(-554, 60)
 texture = ExtResource("36_qpo2v")
 offset = Vector2(311, 0)
@@ -2089,6 +2092,7 @@ theme_override_font_sizes/font_size = 65
 text = "Sisa Waktu"
 
 [node name="Total" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(-553, 298)
 texture = ExtResource("39_nw5pu")
 offset = Vector2(311, 0)
@@ -2130,6 +2134,7 @@ text = "0000"
 metadata/_edit_use_anchors_ = true
 
 [node name="OrangeBox2" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(287.5, -84)
 texture = ExtResource("33_taf54")
 
@@ -2150,6 +2155,7 @@ text = "0000"
 metadata/_edit_use_anchors_ = true
 
 [node name="OrangeBox3" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(288, 60)
 texture = ExtResource("33_taf54")
 
@@ -2171,6 +2177,7 @@ text = "0000"
 metadata/_edit_use_anchors_ = true
 
 [node name="OrangeBox4" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(269.25, 291)
 texture = ExtResource("33_taf54")
 
@@ -2190,6 +2197,7 @@ theme_override_font_sizes/font_size = 65
 text = "0000"
 
 [node name="mult_box" type="Sprite2D" parent="result_screen"]
+visible = false
 position = Vector2(513.5, 133)
 texture = ExtResource("30_4gdte")
 

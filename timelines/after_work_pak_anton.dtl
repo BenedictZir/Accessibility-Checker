@@ -1,5 +1,5 @@
 [signal arg="pak_anton_join"]
-if {poin_inklusif_harian} <= 1300.0:
+if {poin_inklusif_harian} <= 1500.0:
 	[signal arg="pak_anton_angry_talk"]
 	"pak bos": “Hmm… ini hasilnya masih ngambang ya.”
 	[signal arg="pak_anton_angry_talk"]

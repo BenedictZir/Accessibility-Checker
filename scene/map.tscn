@@ -979,6 +979,7 @@ offset_top = 440.0
 offset_right = 2384.0
 offset_bottom = 718.0
 max_value = 25000.0
+value = 15000.0
 allow_greater = true
 texture_under = ExtResource("15_amuei")
 texture_over = ExtResource("16_yqoch")
@@ -1016,7 +1017,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 13
 theme_override_fonts/font = ExtResource("21_ewrs0")
 theme_override_font_sizes/font_size = 30
-text = "Poin Inklusif"
+text = "0/25000"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

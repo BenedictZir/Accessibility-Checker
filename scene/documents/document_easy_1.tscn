@@ -43,7 +43,6 @@ offset_right = -3.0
 offset_bottom = 14.0
 theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
 text = "Kontras warna adalah perbedaan terang-gelap antara teks dan latar belakang. Kontras yang cukup membuat teks mudah dibaca."
-intended_structure = 2
 structure = "subjudul"
 metadata/_edit_use_anchors_ = true
 
@@ -54,7 +53,6 @@ offset_right = -1.0
 offset_bottom = 183.0
 theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
 text = "Penggunaan kontras warna yang baik membantu pengguna dengan gangguan penglihatan membedakan elemen visual secara jelas."
-intended_structure = 2
 structure = "subjudul"
 metadata/_edit_use_anchors_ = true
 
@@ -88,7 +86,6 @@ offset_right = -5.0
 offset_bottom = 557.0
 theme_override_colors/font_color = Color(0.984314, 0.984314, 0.984314, 1)
 text = "Tanpa kontras warna yang memadai, pengguna dengan low vision atau buta warna kesulitan membaca informasi di layar."
-intended_structure = 2
 structure = "judul"
 part = 2
 metadata/_edit_use_anchors_ = true
@@ -100,7 +97,6 @@ offset_right = -5.0
 offset_bottom = 705.0
 theme_override_colors/font_color = Color(1, 0.921569, 0.231373, 1)
 text = "Kontras yang baik memastikan bahwa semua orang, termasuk penyandang disabilitas, dapat mengakses konten secara setara."
-intended_structure = 2
 part = 2
 metadata/_edit_use_anchors_ = true
 
@@ -122,7 +118,6 @@ offset_right = 429.0
 offset_bottom = 1096.0
 theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
 text = "Kontras yang buruk menyulitkan pengguna membaca konten, terutama dalam cahaya terang atau bagi pengguna dengan low vision."
-intended_structure = 2
 part = 3
 metadata/_edit_use_anchors_ = true
 
@@ -133,7 +128,6 @@ offset_right = 431.0
 offset_bottom = 1270.0
 theme_override_colors/font_color = Color(0.372549, 0, 0.435294, 1)
 text = "Desain dengan warna yang terlalu mirip atau redup dapat menghalangi pemahaman informasi dan pengalaman pengguna."
-intended_structure = 2
 structure = "judul"
 part = 3
 metadata/_edit_use_anchors_ = true

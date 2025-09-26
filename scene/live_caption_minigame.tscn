@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cm0edsgeeqyte" path="res://script/live_caption_minigame.gd" id="1_phmih"]
 [ext_resource type="Texture2D" uid="uid://dyos5d02n1ao7" path="res://icon.svg" id="2_fw3mq"]
-[ext_resource type="FontFile" uid="uid://bhp4j1qupnai0" path="res://assets/fonts/FiraCode-Regular.ttf" id="2_yq14n"]
 [ext_resource type="Texture2D" uid="uid://b20fxbac57028" path="res://assets/live_captioning_minigame/live_caption_background.png" id="3_5j0mc"]
 [ext_resource type="Texture2D" uid="uid://dvf7mrpu3jace" path="res://assets/live_captioning_minigame/live_caption_spotlight.png" id="4_gsi5p"]
 [ext_resource type="PackedScene" uid="uid://cg18efpdfvfia" path="res://scene/live_chat.tscn" id="4_yq14n"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bhhvaqcfmfjeo" path="res://assets/live_captioning_minigame/live_video_progress_under.png" id="9_fbg0i"]
 [ext_resource type="Texture2D" uid="uid://do5b8wveeeuj4" path="res://assets/live_captioning_minigame/live_video_progress_over.png" id="10_jjkpu"]
 [ext_resource type="Texture2D" uid="uid://wrg0ccm0qwy3" path="res://assets/live_captioning_minigame/live_video_progress.png" id="11_bunt2"]
+[ext_resource type="FontFile" uid="uid://6q6bgl8xy8st" path="res://assets/fonts/COMIC.TTF" id="12_54441"]
 [ext_resource type="Texture2D" uid="uid://jvu83rtkyqbc" path="res://assets/live_captioning_minigame/live_video_progress_pointer_bg.png" id="13_54441"]
 [ext_resource type="Texture2D" uid="uid://bsvifhga7onhu" path="res://assets/live_captioning_minigame/live_video_progress_pointer.png" id="14_0leo0"]
 
@@ -100,15 +100,15 @@ texture_over = ExtResource("10_jjkpu")
 texture_progress = ExtResource("11_bunt2")
 
 [node name="ShadowLabel" type="RichTextLabel" parent="."]
-offset_left = 135.0
+offset_left = 125.0
 offset_top = 756.0
-offset_right = 1066.0
+offset_right = 1086.0
 offset_bottom = 1034.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_yq14n")
-theme_override_font_sizes/normal_font_size = 50
+theme_override_fonts/normal_font = ExtResource("12_54441")
+theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
-text = "Halo halo halo test test tes check check aaaaa hoho hihi a a a a a a a"
+text = "\""
 
 [node name="LiveChatBox" type="VBoxContainer" parent="."]
 offset_left = 1203.0

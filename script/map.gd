@@ -17,6 +17,10 @@ extends Node2D
 @onready var desc_label: Label = $desc/desc_label
 @onready var title_progress: TextureProgressBar = $title_progress
 @onready var poin_inklusif: Label = $title_progress/Sprite2D/poin_inklusif
+
+var progress_blue = preload("res://assets/map/progress.png")
+var progress_red = preload("res://assets/map/progress_bar_red.png")
+
 var done_init = false
 const HOVER_SCALE := 1.2
 const NORMAL_SCALE := 1.0
@@ -47,6 +51,13 @@ func _ready() -> void:
 	else:
 		title_progress.max_value = GlobalVar.skor_list[GlobalVar.idx_title]
 		poin_inklusif_label.text = str(0) + " / " + str(GlobalVar.skor_list[GlobalVar.idx_title])
+	
+	#if Dialogic.VAR.poin_inklusif < GlobalVar.skor_list[GlobalVar.idx_title +1] / 2.0:
+		#title_progress.texture_progress = progress_red
+	#else:
+		#title_progress.texture_progress = progress_blue
+	#
+	
 	if GlobalVar.done_working_today:
 		desc_label.text = "Saatnya pulang dan beristirahat"
 	else:

@@ -7,3 +7,7 @@ func emit_50():
 func emit_1000():
 	$particle_1000.position = to_local(get_global_mouse_position())
 	$particle_1000.emitting = true
+
+func emit_typing_particle(pos):
+	$TypingParticle.global_position = pos
+	$TypingParticle.restart()

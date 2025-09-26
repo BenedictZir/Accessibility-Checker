@@ -110,6 +110,7 @@ func _on_level_template_done_working() -> void:
 	SceneTransition.transition()
 	await SceneTransition.animation_player.animation_finished
 	level_template.hide()
+	
 	if GlobalVar.day == "JUMAT":
 		$TextureRect2.show()
 		character_node.get_child(0).queue_free()

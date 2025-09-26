@@ -248,6 +248,7 @@ script = ExtResource("1_6c7bi")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 process_mode = 4
+visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
@@ -256,7 +257,6 @@ expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 process_mode = 4
-visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
@@ -425,7 +425,6 @@ theme_override_font_sizes/font_size = 70
 text = "100000"
 
 [node name="leaderboard_win" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(960, 540)
 texture = ExtResource("3_23e1i")
 
