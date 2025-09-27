@@ -9,6 +9,7 @@ extends Node2D
 @onready var video_duration: Timer = $VideoDuration
 @onready var video_progress: TextureProgressBar = $VideoProgress
 @onready var path_follow_2d: PathFollow2D = $Path2D/PathFollow2D
+@onready var error_timer: Timer = $ErrorTimer
 @export var live_chat_scene : PackedScene
 
 
@@ -30,6 +31,8 @@ var score_ori_pos
 var display_score := 0
 var time_passed := 0.0
 var float_amplitude = 5
+
+var is_error_active := false
 
 var words = []
 var cur_word_idx := 0
@@ -82,15 +85,20 @@ func _process(delta):
 	#score_label.global_position.y = score_ori_pos.y + sin(time_passed * 3.5) * float_amplitude
 	
 
+
+	
+
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.echo:
-		if finished:
+		if finished or cur_key_idx >= cur_word.length():
 			return
 		SoundManager.play_typing_sfx()
 		var key_text = String.chr(event.unicode).to_upper()
 		var target = cur_word[cur_key_idx].to_upper()
 
 		if key_text == target:
+			is_error_active = false
+			error_timer.stop()
 			cur_key_idx += 1
 			
 			var char_pos = get_char_position(cur_word, cur_key_idx - 1)
@@ -105,10 +113,15 @@ func _input(event):
 						reveal_next_word()
 					else:
 						on_finish()
+		else:
+			if not is_error_active:
+				is_error_active = true
+				error_timer.start()
+				update_bbcode()
 
 func on_word_done():
 	streak_counter += 1  
-	if streak_counter >= streak_requirements.get(streak + 1, 1):
+	if streak_counter >= streak_requirements.get(streak + 1, 1):	
 		streak += 1
 		streak_counter = 0  
 		if streak > 3:
@@ -157,12 +170,19 @@ func update_bbcode():
 		if i < cur_word_idx:
 			bbcode += "[color=#000000FF]" + word + "[/color]"
 		elif i == cur_word_idx:
-			for j in range(word.length()):
-				var character = word[j]
-				if j < cur_key_idx:
-					bbcode += "[color=#000000FF]" + character + "[/color]"
+			var typed_part = word.substr(0, cur_key_idx)
+			bbcode += "[color=#000000FF]" + typed_part + "[/color]"
+
+			if cur_key_idx < word.length():
+				var target_char = word[cur_key_idx]
+				var remaining_after_target = word.substr(cur_key_idx + 1)
+				
+				if is_error_active:
+					bbcode += "[color=red][shake rate=60 level=25]" + target_char + "[/shake][/color]"
 				else:
-					bbcode += "[color=#00000050]" + character + "[/color]"
+					bbcode += "[color=#00000050]" + target_char + "[/color]"
+				
+				bbcode += "[color=#00000050]" + remaining_after_target + "[/color]"
 		else:
 			bbcode += "[color=#00000000]" + word + "[/color]"
 
@@ -170,7 +190,6 @@ func update_bbcode():
 			bbcode += " "
 
 	shadow_label.bbcode_text = bbcode
-
 
 func _on_streak_timer_timeout() -> void:
 	streak = 0
@@ -199,50 +218,42 @@ func _on_chat_timer_timeout() -> void:
 	else:
 		live_chat.set_speed("fast")
 		
-# GANTI FUNGSI LAMA ANDA DENGAN YANG INI
 func get_char_position(word: String, idx: int) -> Vector2:
 	var font := shadow_label.get_theme_font("normal_font")
 	var font_size := shadow_label.get_theme_font_size("normal_font_size")
 	
-	# Dapatkan lebar maksimal dari RichTextLabel untuk tahu kapan harus pindah baris
 	var max_width = shadow_label.size.x
 	
-	# Vektor ini akan melacak posisi X dan Y relatif di dalam label
 	var current_pos := Vector2.ZERO
 	
-	# 1. Iterasi melalui semua kata SEBELUM kata yang sedang diketik
 	for i in range(cur_word_idx):
 		var current_word_text = words[i] + " "
 		var word_size = font.get_string_size(current_word_text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
 		
-		# Cek apakah kata berikutnya akan melebihi batas lebar
 		if current_pos.x + word_size.x > max_width:
-			# Jika ya, "pindah baris"
 			current_pos.x = 0
 			current_pos.y += font.get_height(font_size)
 		
-		# Tambahkan lebar kata ini ke posisi X saat ini
 		current_pos.x += word_size.x
 
-	# 2. Sekarang, hitung posisi untuk karakter di dalam kata yang sedang diketik
 	var text_in_current_word = word.substr(0, idx)
 	var size_in_current_word = font.get_string_size(text_in_current_word, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
 	
-	# Cek apakah kata saat ini sendiri menyebabkan pindah baris
 	var current_word_total_size = font.get_string_size(word, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
 	if current_pos.x + current_word_total_size.x > max_width:
-		# Jika ya, reset posisi x dan pindah ke baris baru
-		# Ini menangani kasus di mana kata pertama di baris baru sedang diketik
 		var remaining_x = current_pos.x
 		current_pos.x = 0
-		if remaining_x > 0: # Hanya pindah baris jika belum di awal
+		if remaining_x > 0: 
 			current_pos.y += font.get_height(font_size)
 	
-	# Dapatkan ukuran karakter target untuk centering
 	var char_size := font.get_char_size(word.unicode_at(idx), font_size)
 	
-	# Posisi akhir = Posisi global label + posisi relatif (setelah wrapping) + offset untuk centering
 	var final_pos_x = shadow_label.global_position.x + current_pos.x + size_in_current_word.x + (char_size.x / 2.0)
 	var final_pos_y = shadow_label.global_position.y + current_pos.y + (font.get_height(font_size) / 2.0)
 	
 	return Vector2(final_pos_x, final_pos_y)
+
+
+func _on_error_timer_timeout() -> void:
+	is_error_active = false
+	update_bbcode()

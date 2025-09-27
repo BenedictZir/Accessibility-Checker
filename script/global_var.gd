@@ -18,6 +18,7 @@ var day := "SENIN"
 var easy_doc_used = []
 var medium_doc_used = []
 var hard_doc_used = []
+var fired = false
 #var pak_anton_scene = preload("res://scene/pak_anton.tscn")
 #var mbak_rani_scene = preload("res://scene/mbak_rani.tscn")
 #var mbak_intan_scene = preload("res://scene/mbak_intan.tscn")
@@ -45,6 +46,9 @@ func next_day():
 		date_bulan_ini = 1
 	day = day_list[((date - 1) % 7)]
 	
+		
+		
+func _process(delta: float) -> void:
 	if Dialogic.VAR.can_promote:
 		Dialogic.VAR.title_next = title_list[idx_title + 1] # buat dialog aruna 
 	else:
@@ -55,8 +59,16 @@ func next_day():
 			Dialogic.VAR.can_promote = true
 		else:
 			Dialogic.VAR.can_promote = false
-		
-
+			
+		if Dialogic.VAR.poin_inklusif < skor_list[idx_title + 1] / 2.0:
+			Dialogic.VAR.demote = true
+			if (idx_title == 0):
+				fired = true
+		else:
+			Dialogic.VAR.demote = false
+	
+	
 func _ready() -> void:
 	player_name = str(Dialogic.VAR.player_name)
+
 	

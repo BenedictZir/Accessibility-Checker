@@ -169,5 +169,9 @@ texture = ExtResource("13_54441")
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
 texture = ExtResource("14_0leo0")
 
+[node name="ErrorTimer" type="Timer" parent="."]
+wait_time = 0.4
+
 [connection signal="timeout" from="StreakTimer" to="." method="_on_streak_timer_timeout"]
 [connection signal="timeout" from="ChatTimer" to="." method="_on_chat_timer_timeout"]
+[connection signal="timeout" from="ErrorTimer" to="." method="_on_error_timer_timeout"]

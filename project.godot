@@ -82,11 +82,14 @@ layout/style_list=["res://style/custom_style.tres", "res://style/custom_narrator
 layout/default_style="res://style/custom_style.tres"
 variables={
 "can_promote": false,
+"demote": false,
+"fired": false,
 "jabatan": "",
 "player_name": "name",
 "player_name_caps": "NAME",
 "poin_inklusif": 0,
 "poin_inklusif_harian": 0,
+"poin_inklusif_next": 0,
 "title_next": "",
 "title_now": ""
 }

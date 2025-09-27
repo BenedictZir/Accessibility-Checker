@@ -112,6 +112,10 @@ func _on_level_template_done_working() -> void:
 	level_template.hide()
 	
 	if GlobalVar.day == "JUMAT":
+		# TODO 
+		if GlobalVar.fired:
+			#change cutscene to game over scene
+			pass
 		$TextureRect2.show()
 		character_node.get_child(0).queue_free()
 		character_node.add_child(GlobalVar.pak_anton_scene.instantiate())

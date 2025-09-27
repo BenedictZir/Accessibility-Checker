@@ -1,6 +1,6 @@
 extends Node2D
 var last_hovered_button: Button = null
-@onready var kos_music: AudioStreamPlayer2D = $kos_music
+var typing_sfx_idx := 0
 
 func play_minigame_music():
 	$minigame_music.play()
@@ -27,12 +27,11 @@ func play_score_sfx():
 	$score_sfx.play()
 func play_typing_sfx():
 	var typing_sfx = [$typing_sfx1, $typing_sfx2, $typing_sfx3, $typing_sfx4, $typing_sfx5, $typing_sfx6, $typing_sfx7, $typing_sfx8, $typing_sfx9, $typing_sfx10]
-	var picked = typing_sfx[randi() % 10]
-	while(picked.playing):
-		picked = typing_sfx[randi() % 10]
+	var picked= typing_sfx[typing_sfx_idx]
+	typing_sfx_idx = (typing_sfx_idx + 1) % typing_sfx.size()
 	picked.pitch_scale = randf_range(0.95, 1.05)
 	picked.play()
-	
+		
 	
 func play_prologue_music():
 	$prologue_music.play()

@@ -23,6 +23,8 @@ if {can_promote} == true:
 	Kamu menahan senyum lebar, dada terasa sedikit hangat. Rasanya kayak... diakui.
 	aruna: Gelar\: {title_next}!
 	[signal arg="done_promoting"]
+elif {demote} == true:
+	"pak bos": "Maaf kamu harus diturunkan ke posisi yang lebih rendah"
 else:
 	mas_gilang: "Kak Lintang!”
 	mas_gilang: “Kak Lintang tetap mempertahankan gelar—dengan kontribusi besar di audit visual dan panduan akses untuk halaman onboarding.”
