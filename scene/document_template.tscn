@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://te07i18mlnaw"]
+[gd_scene load_steps=6 format=3 uid="uid://te07i18mlnaw"]
 
 [ext_resource type="Script" uid="uid://78idu8fas3n6" path="res://script/document.gd" id="1_7rui3"]
 [ext_resource type="PackedScene" uid="uid://mt0vlqo81wmg" path="res://scene/doc_text.tscn" id="3_6ntd6"]
 [ext_resource type="PackedScene" uid="uid://bg5bdytlpflfm" path="res://scene/images.tscn" id="3_ln74q"]
+[ext_resource type="PackedScene" uid="uid://d0mymv2ac3oxt" path="res://scene/table.tscn" id="4_6ntd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjaii"]
 size = Vector2(905, 1092)
@@ -50,6 +51,9 @@ structure = "teks"
 
 [node name="images" parent="DocumentObjects/LeftContainer" instance=ExtResource("3_ln74q")]
 custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Table" parent="DocumentObjects/LeftContainer" instance=ExtResource("4_6ntd6")]
 layout_mode = 2
 
 [node name="CenterContainer" type="VBoxContainer" parent="DocumentObjects"]

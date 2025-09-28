@@ -6,6 +6,7 @@ var document
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var level_template: Node2D = $level_template
+@onready var live_caption_minigame: Node2D = $LiveCaptionMinigame
 
 var CONSTRAINT_SET = [
 	["Selesaikan tugas tidak lebih dari 2 menit", "Gunakan hanya 1 warna untuk setiap jenis teks", "Gunakan minimal 3 warna", "Jangan gunakan warna merah", "Gunakan warna biru", "Gunakan warna hitam pada elemen teks", "Gunakan warna putih pada latar belakang"],
@@ -16,32 +17,32 @@ var CONSTRAINT_SET = [
 
 
 
-var easy_document_list = [
-	
-]
-
-var medium_document_list = [
-	
-]
-
-var hard_document_list = [
-	
-]
+#var easy_document_list = [
+	#
+#]
+#
+#var medium_document_list = [
+	#
+#]
+#
+#var hard_document_list = [
+	#
+#]
 @onready var character_node: Node2D = $character_node
 var character_name = ""
 var character_sprite: Node2D
 var constraint_list
 func _ready() -> void:
 	SoundManager.play_kantor_music()
-	easy_document_list = [GlobalVar.DOCUMENT_EASY_1, GlobalVar.DOCUMENT_EASY_2,GlobalVar.DOCUMENT_EASY_3]
-	medium_document_list = [GlobalVar.DOCUMENT_MEDIUM_1, GlobalVar.DOCUMENT_MEDIUM_2, GlobalVar.DOCUMENT_MEDIUM_3]
-	hard_document_list = [GlobalVar.DOCUMENT_HARD_1, GlobalVar.DOCUMENT_HARD_2, GlobalVar.DOCUMENT_HARD_3]
-	if GlobalVar.easy_doc_used.size() == easy_document_list.size():
-		GlobalVar.easy_doc_used.clear()
-	if GlobalVar.medium_doc_used.size() == medium_document_list.size():
-		GlobalVar.medium_doc_used.clear()
-	if GlobalVar.hard_doc_used.size() == hard_document_list.size():
-		GlobalVar.hard_doc_used.clear()
+	#easy_document_list = [GlobalVar.DOCUMENT_EASY_1, GlobalVar.DOCUMENT_EASY_2,GlobalVar.DOCUMENT_EASY_3]
+	#medium_document_list = [GlobalVar.DOCUMENT_MEDIUM_1, GlobalVar.DOCUMENT_MEDIUM_2, GlobalVar.DOCUMENT_MEDIUM_3]
+	#hard_document_list = [GlobalVar.DOCUMENT_HARD_1, GlobalVar.DOCUMENT_HARD_2, GlobalVar.DOCUMENT_HARD_3]
+	#if GlobalVar.easy_doc_used.size() == easy_document_list.size():
+		#GlobalVar.easy_doc_used.clear()
+	#if GlobalVar.medium_doc_used.size() == medium_document_list.size():
+		#GlobalVar.medium_doc_used.clear()
+	#if GlobalVar.hard_doc_used.size() == hard_document_list.size():
+		#GlobalVar.hard_doc_used.clear()
 	constraint_list = CONSTRAINT_SET.pick_random()
 	character_name = CHARACTER_LIST.pick_random()
 	match character_name:
@@ -52,41 +53,43 @@ func _ready() -> void:
 		"mbak_intan":
 			character_sprite = GlobalVar.mbak_intan_scene.instantiate()
 	character_node.add_child(character_sprite)
-	var timeline = character_name + "_random_" + str(randi_range(1, 3))
+	#var timeline = character_name + "_random_" + str(randi_range(1, 3))
 	if not Dialogic.signal_event.is_connected(_on_dialogic_signal):
 		Dialogic.signal_event.connect(_on_dialogic_signal)
-	Dialogic.start(timeline)
+	#Dialogic.start(timeline)
+	
+	set_tugas()
 	
 func _on_dialogic_signal(arg):
 	match arg:
-		"easy_diff":	
-			document = get_random_document("easy")
-			level_template.set_document(document, "easy")
-			var constraints = []
-			for i in range(3):
-				var constraint = constraint_list.pick_random()
-				constraint_list.erase(constraint)
-				constraints.append(constraint)
-			level_template.set_constraint(constraints)
-			
-		"medium_diff":
-			document = get_random_document("medium")
-			level_template.set_document(document, "medium")
-			var constraints = []
-			for i in range(4):
-				var constraint = constraint_list.pick_random()
-				constraint_list.erase(constraint)
-				constraints.append(constraint)
-			level_template.set_constraint(constraints)
-		"hard_diff":
-			document = get_random_document("hard")
-			level_template.set_document(document, "hard")
-			var constraints = []
-			for i in range(5):
-				var constraint = constraint_list.pick_random()
-				constraint_list.erase(constraint)
-				constraints.append(constraint)
-			level_template.set_constraint(constraints)
+		#"easy_diff":	
+			#document = get_random_document("easy")
+			#level_template.set_document(document, "easy")
+			#var constraints = []
+			#for i in range(3):
+				#var constraint = constraint_list.pick_random()
+				#constraint_list.erase(constraint)
+				#constraints.append(constraint)
+			#level_template.set_constraint(constraints)
+			#
+		#"medium_diff":
+			#document = get_random_document("medium")
+			#level_template.set_document(document, "medium")
+			#var constraints = []
+			#for i in range(4):
+				#var constraint = constraint_list.pick_random()
+				#constraint_list.erase(constraint)
+				#constraints.append(constraint)
+			#level_template.set_constraint(constraints)
+		#"hard_diff":
+			#document = get_random_document("hard")
+			#level_template.set_document(document, "hard")
+			#var constraints = []
+			#for i in range(5):
+				#var constraint = constraint_list.pick_random()
+				#constraint_list.erase(constraint)
+				#constraints.append(constraint)
+			#level_template.set_constraint(constraints)
 		"end":
 			SceneTransition.transition()
 			await SceneTransition.animation_player.animation_finished
@@ -116,7 +119,7 @@ func _on_level_template_done_working() -> void:
 		if GlobalVar.fired:
 			#change cutscene to game over scene
 			pass
-		$TextureRect2.show()
+		$background_audit.show()
 		character_node.get_child(0).queue_free()
 		character_node.add_child(GlobalVar.pak_anton_scene.instantiate())
 		$character_node_left.add_child(GlobalVar.mbak_rani_scene.instantiate())
@@ -134,25 +137,25 @@ func _on_level_template_done_working() -> void:
 
 
 	
-func get_random_document(difficulty: String):
-	var doc
-	for easy in GlobalVar.easy_doc_used:
-		easy_document_list.erase(easy)
-	for medium in GlobalVar.medium_doc_used:
-		medium_document_list.erase(medium)
-	for hard in GlobalVar.hard_doc_used:
-		hard_document_list.erase(hard)
-	match difficulty:
-		"easy":
-			doc = easy_document_list.pick_random()
-			GlobalVar.easy_doc_used.append(doc)
-		"medium":
-			doc = medium_document_list.pick_random()
-			GlobalVar.medium_doc_used.append(doc)
-		"hard":
-			doc = hard_document_list.pick_random()
-			GlobalVar.hard_doc_used.append(doc)
-	return doc
+#func get_random_document(difficulty: String):
+	#var doc
+	#for easy in GlobalVar.easy_doc_used:
+		#easy_document_list.erase(easy)
+	#for medium in GlobalVar.medium_doc_used:
+		#medium_document_list.erase(medium)
+	#for hard in GlobalVar.hard_doc_used:
+		#hard_document_list.erase(hard)
+	#match difficulty:
+		#"easy":
+			#doc = easy_document_list.pick_random()
+			#GlobalVar.easy_doc_used.append(doc)
+		#"medium":
+			#doc = medium_document_list.pick_random()
+			#GlobalVar.medium_doc_used.append(doc)
+		#"hard":
+			#doc = hard_document_list.pick_random()
+			#GlobalVar.hard_doc_used.append(doc)
+	#return doc
 
 func show_lose_leaderboard():
 	$leaderboard_lose.show()
@@ -181,6 +184,29 @@ func show_win_leaderboard():
 	await animation_player.animation_finished
 	Dialogic.start("naik_pangkat", "after_leaderboard")
 
+func set_tugas():
+	var list_tugas = [$LaptopScreen/VBoxContainer/Tugas, $LaptopScreen/VBoxContainer/Tugas2, $LaptopScreen/VBoxContainer/Tugas3, $LaptopScreen/VBoxContainer/Tugas4, $LaptopScreen/VBoxContainer/Tugas5]
+	var idx = 0
+	for tugas in GlobalVar.tugas_minggu_ini.keys():
+		list_tugas[idx].set_tugas(tugas, GlobalVar.tugas_minggu_ini.get(tugas).get("description"), GlobalVar.tugas_minggu_ini.get(tugas).get("status"))
+		idx += 1
 	
 	
 	
+
+
+func _on_tugas_tugas_live_picked(judul: Variant) -> void:
+	live_caption_minigame.set_text(judul, GlobalVar.VIDEO_SCRIPT[judul])
+	live_caption_minigame.show()
+func _on_tugas_tugas_dokumen_picked(judul: Variant) -> void:
+	pass # Replace with function body.
+
+
+func _on_live_caption_minigame_done_working() -> void:
+	SceneTransition.transition()
+	await SceneTransition.animation_player.animation_finished
+	live_caption_minigame.hide()
+	if Dialogic.signal_event.is_connected(_on_dialogic_signal):
+		Dialogic.signal_event.disconnect(_on_dialogic_signal)
+	Dialogic.signal_event.connect(_on_dialogic_signal)
+	Dialogic.start("after_work_" + character_name)

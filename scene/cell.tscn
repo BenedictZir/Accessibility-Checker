@@ -4,36 +4,66 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ruvbw"]
 resource_local_to_scene = true
-size = Vector2(80, 60)
+size = Vector2(100, 100)
 
-[node name="Cell" type="Node2D" groups=["cells"]]
+[node name="Cell" type="Control" groups=["cells"]]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
+pivot_offset = Vector2(50, 50)
 script = ExtResource("1_oou56")
-text = "abcd"
+text = "Sample Text"
 
-[node name="Background" type="ColorRect" parent="."]
-process_mode = 4
-offset_left = -40.0
-offset_top = -30.0
-offset_right = 40.0
-offset_bottom = 30.0
+[node name="Background1" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
-process_mode = 4
-offset_left = -40.0
-offset_top = -30.0
-offset_right = 40.0
-offset_bottom = 30.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Background2" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.870588, 0.345098, 0.345098, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="Background3" type="ColorRect" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+color = Color(1, 0.482353, 0.482353, 1)
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "abcd"
+theme_override_font_sizes/font_size = 15
+text = "Sample Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 1
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
+[node name="CollisionShape" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_ruvbw")
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="resized" from="." to="." method="update_visuals"]

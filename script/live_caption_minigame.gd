@@ -13,10 +13,8 @@ extends Node2D
 @export var live_chat_scene : PackedScene
 
 
-const VIDEO_SCRIPT = {
-	0: "Warga sebuah desa di Jawa Tengah dibuat heboh oleh seekor kambing yang kabur dari kandangnya dan berjalan-jalan di pasar. Kambing itu masuk ke warung sayur dan menjatuhkan beberapa ikat kangkung. Untungnya, warga segera membantu menangkapnya. Pemilik mengatakan kambing itu memang sering iseng dan pandai membuka pintu sendiri. Peristiwa ini jadi hiburan gratis bagi pengunjung pasar. Beberapa orang merekamnya dan videonya tersebar di media sosial. Judul video yang populer adalah kambing belanja sayur sendiri.",
-	1: "Kejadian unik terjadi di kota kecil di Sumatera, saat seekor ayam masuk ke kantor kelurahan. Ayam itu naik ke meja pelayanan dan berkokok keras. Pegawai yang sedang mengurus berkas terkejut, tapi kemudian tertawa bersama warga. Menurut cerita, ayam itu sering ikut pemiliknya ke pasar dekat kantor. Momen lucu ini viral karena warga mengunggah video dengan caption ayam ikut daftar KTP. Banyak orang menonton dan membagikannya, membuat hari itu jadi penuh tawa di kantor kelurahan."
-}
+signal done_working
+
 const MAX_CHAR = 115
 var sections = []
 var cur_section := 0
@@ -39,12 +37,15 @@ var cur_word_idx := 0
 var cur_key_idx := 0
 var cur_word := ""
 
+var started := false
 var finished := false
 func _ready():
+	
+	
 	shadow_label.bbcode_enabled = true
 	
-	var text = VIDEO_SCRIPT[randi() % VIDEO_SCRIPT.size()]
 	var start = 0
+	var text = shadow_label.text
 	while start < text.length():
 		var end = min(start + MAX_CHAR, text.length())
 		var part = text.substr(start, end - start)
@@ -66,7 +67,8 @@ func _ready():
 
 
 func _process(delta):
-	
+	if not started:
+		return
 	video_progress.value = video_duration.wait_time - video_duration.time_left
 	path_follow_2d.progress_ratio = (video_duration.wait_time - video_duration.time_left) / video_duration.wait_time
 	if streak < 2 or streak >= 4:
@@ -141,9 +143,11 @@ func on_finish():
 	finished = true
 	
 	update_score()
-	
-	
 	update_bbcode()
+	Dialogic.VAR.poin_inklusif_harian = score
+	Dialogic.VAR.poin_inklusif += score
+	done_working.emit()
+	
 
 func reveal_next_word():
 	cur_word_idx += 1
@@ -199,11 +203,19 @@ func _on_streak_timer_timeout() -> void:
 
 func update_score():
 	var cur_score = score + cur_word.length() * 5 * streak_mult[streak]
-	var tween = create_tween()
-	score_label.pivot_offset.x = score_label.size.x / 2
-	tween.tween_property(self, "display_score", cur_score, 0.5).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	
+	score_label.pivot_offset = score_label.size / 2.0
+
+	var value_tween = create_tween()
+	value_tween.tween_property(self, "display_score", cur_score, 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+
+	await value_tween.finished
+	var pop_tween = create_tween()
+	pop_tween.tween_property(score_label, "scale", Vector2(1.5, 1.5), 0.1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	pop_tween.tween_property(score_label, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	
+	
 	score = cur_score
-	#score_label.text = str(score)
 
 
 func _on_chat_timer_timeout() -> void:
@@ -257,3 +269,31 @@ func get_char_position(word: String, idx: int) -> Vector2:
 func _on_error_timer_timeout() -> void:
 	is_error_active = false
 	update_bbcode()
+
+func set_text(judul, script):
+	shadow_label.text = script
+	shadow_label.bbcode_enabled = true
+	
+	var start = 0
+	var text = shadow_label.text
+	while start < text.length():
+		var end = min(start + MAX_CHAR, text.length())
+		var part = text.substr(start, end - start)
+
+		if end < text.length() and text[end] != " ":
+			var last_space = part.rfind(" ")
+			if last_space != -1:
+				end = start + last_space
+				part = text.substr(start, last_space)
+
+		sections.append(part.strip_edges())  
+		start = end
+
+	if sections.size() > 0:
+		words = sections[cur_section].split(" ")
+		cur_word = words[0]
+		update_bbcode()
+	score_ori_pos = score_label.global_position
+	chat_timer.start()
+	video_duration.start()
+	started = true

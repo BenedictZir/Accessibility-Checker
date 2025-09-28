@@ -1,97 +1,271 @@
-[gd_scene load_steps=7 format=3 uid="uid://rmva51mjsnov"]
+[gd_scene load_steps=34 format=3 uid="uid://rmva51mjsnov"]
 
 [ext_resource type="Script" uid="uid://brhfdrkbxirhp" path="res://script/table_minigame.gd" id="1_efaia"]
-[ext_resource type="PackedScene" uid="uid://cm7wrussp5as6" path="res://scene/cell.tscn" id="2_efaia"]
+[ext_resource type="Texture2D" uid="uid://byb47dw0rmxjf" path="res://assets/minigame_1/background.png" id="2_d8827"]
 [ext_resource type="Script" uid="uid://cyrs4qb3mwou2" path="res://script/cell_hammer.gd" id="3_by4yj"]
-[ext_resource type="Texture2D" uid="uid://bkmh5hxwy30ta" path="res://assets/table_minigame/—Pngtree—tool horn hammer hammer_4453462.png" id="4_sf278"]
+[ext_resource type="Texture2D" uid="uid://cccxq78mvqv6p" path="res://assets/minigame_2/Group 49520.png" id="3_qij8c"]
+[ext_resource type="Script" uid="uid://b206y87avo52b" path="res://script/general_button.gd" id="4_etbs6"]
+[ext_resource type="PackedScene" uid="uid://d0mymv2ac3oxt" path="res://scene/table.tscn" id="4_gwmlt"]
+[ext_resource type="FontFile" uid="uid://canqi47ujuyl7" path="res://assets/fonts/Dosis-Medium.ttf" id="5_4lf1w"]
+[ext_resource type="Texture2D" uid="uid://dpeynsfm0vb1k" path="res://assets/minigame_2/simpan_pilihan_orange.png" id="6_lj2e6"]
+[ext_resource type="Texture2D" uid="uid://b5i7q3vvymfxq" path="res://assets/minigame_2/simpan_pilihan_putih.png" id="7_pcyhf"]
+[ext_resource type="Texture2D" uid="uid://b1xbffmdfpt4i" path="res://assets/minigame_2/retry.png" id="8_r2n32"]
+[ext_resource type="Texture2D" uid="uid://dvtf0uwpgue4" path="res://assets/table_minigame/hammer.png" id="11_d8827"]
+[ext_resource type="FontFile" uid="uid://bj61u4be2ke5u" path="res://assets/fonts/Dosis-Bold.ttf" id="12_ec6l0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_efaia"]
-size = Vector2(83, 90)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wpxaa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7dl3"]
+texture = ExtResource("3_qij8c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxsil"]
+texture = ExtResource("3_qij8c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gnuy0"]
+texture = ExtResource("3_qij8c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0e38"]
+texture = ExtResource("3_qij8c")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6na23"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4b0yy"]
+texture = ExtResource("6_lj2e6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukrui"]
+texture = ExtResource("6_lj2e6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kk8cu"]
+texture = ExtResource("6_lj2e6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_waenu"]
+texture = ExtResource("6_lj2e6")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqgsg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2iafy"]
+texture = ExtResource("8_r2n32")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qy14w"]
+texture = ExtResource("8_r2n32")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vo6ln"]
+texture = ExtResource("8_r2n32")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kh7fa"]
+texture = ExtResource("8_r2n32")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jleam"]
+texture = ExtResource("8_r2n32")
+
+[sub_resource type="Animation" id="Animation_qij8c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../VerticalHammer/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d8827"]
+resource_name = "horizontal_hammer_swing"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.2),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [0.0, 0.785398, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_etbs6"]
+resource_name = "vertical_hammer_swing"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../VerticalHammer/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.2),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [0.0, 0.785398, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_etbs6"]
+_data = {
+&"RESET": SubResource("Animation_qij8c"),
+&"horizontal_hammer_swing": SubResource("Animation_d8827"),
+&"vertical_hammer_swing": SubResource("Animation_etbs6")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sf278"]
-radius = 349.285
+radius = 483.735
 
 [node name="TableMinigame" type="Node2D"]
 script = ExtResource("1_efaia")
 
+[node name="Frame53" type="Sprite2D" parent="."]
+texture = ExtResource("2_d8827")
+
+[node name="Table" parent="." instance=ExtResource("4_gwmlt")]
+
+[node name="exit_button" type="Button" parent="."]
+offset_left = 488.0
+offset_top = -382.0
+offset_right = 635.0
+offset_bottom = -203.0
+pivot_offset = Vector2(73, 89)
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wpxaa")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_n7dl3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qxsil")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gnuy0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t0e38")
+script = ExtResource("4_etbs6")
+alt_text = "Tombol untuk keluar dari fitur struktur"
+
+[node name="Polygon2D" type="Polygon2D" parent="exit_button"]
+position = Vector2(-487, 382)
+polygon = PackedVector2Array(470, -290, 466, -235, 527, -214, 527, -214, 529, -214, 529, -228, 490, -244, 490, -279, 490, -290)
+
+[node name="submit_button" type="Button" parent="."]
+offset_left = -502.0
+offset_top = 272.0
+offset_right = -121.0
+offset_bottom = 424.0
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_4lf1w")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6na23")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_4b0yy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ukrui")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kk8cu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_waenu")
+text = "Simpan Pilihan"
+
+[node name="SimpanPilihanPutih" type="Sprite2D" parent="submit_button"]
+show_behind_parent = true
+position = Vector2(193, 76)
+texture = ExtResource("7_pcyhf")
+
+[node name="Polygon2D2" type="Polygon2D" parent="submit_button"]
+position = Vector2(518, -272)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-535, 411, -533, 448, -160, 442, -146, 395, -153, 393, -165, 430, -521, 437, -525, 410)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-process_mode = 4
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
-offset_bottom = 250.0
-color = Color(1, 0, 0.0117647, 1)
-
-[node name="CellContainer" type="Node2D" parent="."]
-
-[node name="Cell" parent="CellContainer" instance=ExtResource("2_efaia")]
-position = Vector2(-127, -195)
-text = "abcd aiwello"
-size = Vector2(160, 60)
-
-[node name="Cell2" parent="CellContainer" instance=ExtResource("2_efaia")]
-position = Vector2(-175, -67)
-text = "a\\n\\n\\nb"
-size = Vector2(64, 150)
-
-[node name="Cell3" parent="CellContainer" instance=ExtResource("2_efaia")]
-position = Vector2(-79, -112)
-text = "2"
-size = Vector2(64, 60)
-
-[node name="Cell4" parent="CellContainer" instance=ExtResource("2_efaia")]
-position = Vector2(-79, -23)
-text = "2"
-size = Vector2(64, 60)
-
 [node name="ResetButton" type="Button" parent="."]
-offset_left = 731.0
-offset_top = 362.0
-offset_right = 785.0
-offset_bottom = 393.0
-text = "RESET"
+modulate = Color(1, 0, 0, 1)
+offset_left = 316.0
+offset_top = 263.0
+offset_right = 370.0
+offset_bottom = 294.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vqgsg")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_2iafy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_qy14w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vo6ln")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kh7fa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jleam")
+
+[node name="HammerAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../HorizontalHammer")
+libraries = {
+&"": SubResource("AnimationLibrary_etbs6")
+}
 
 [node name="HorizontalHammer" type="Area2D" parent="."]
 position = Vector2(-454, -142)
 script = ExtResource("3_by4yj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HorizontalHammer"]
-position = Vector2(12.5, 14)
-shape = SubResource("RectangleShape2D_efaia")
-
 [node name="HitArea" type="Area2D" parent="HorizontalHammer"]
 scale = Vector2(0.05, 0.05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HorizontalHammer/HitArea"]
-position = Vector2(-960, -540)
+position = Vector2(-760, -100)
 shape = SubResource("CircleShape2D_sf278")
 
 [node name="Sprite2D" type="Sprite2D" parent="HorizontalHammer"]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_sf278")
+position = Vector2(66, 68)
+texture = ExtResource("11_d8827")
+offset = Vector2(-66, -69)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HorizontalHammer"]
+polygon = PackedVector2Array(-18, -4, 48, 71, 70, 55, -3, -17)
 
 [node name="VerticalHammer" type="Area2D" parent="."]
-position = Vector2(-454, -6)
+position = Vector2(-454, 133)
 script = ExtResource("3_by4yj")
 hammer_type = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalHammer"]
-position = Vector2(12.5, 14)
-shape = SubResource("RectangleShape2D_efaia")
 
 [node name="HitArea" type="Area2D" parent="VerticalHammer"]
 scale = Vector2(0.05, 0.05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalHammer/HitArea"]
-position = Vector2(-960, -540)
+position = Vector2(-760, -100)
 shape = SubResource("CircleShape2D_sf278")
 
 [node name="Sprite2D" type="Sprite2D" parent="VerticalHammer"]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_sf278")
+position = Vector2(66, 68)
+texture = ExtResource("11_d8827")
+offset = Vector2(-66, -69)
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="VerticalHammer"]
+polygon = PackedVector2Array(-18, -4, 48, 71, 70, 55, -3, -17)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 138.0
+offset_top = -368.0
+offset_right = 266.0
+offset_bottom = -316.0
+theme_override_colors/font_color = Color(0.145098, 0.196078, 0.219608, 1)
+theme_override_fonts/font = ExtResource("12_ec6l0")
+theme_override_font_sizes/font_size = 40
+text = "Perbaiki Tabel"
+
+[connection signal="mouse_entered" from="exit_button" to="." method="deactivate_hammer"]
+[connection signal="mouse_entered" from="submit_button" to="." method="deactivate_hammer"]
+[connection signal="mouse_entered" from="ResetButton" to="." method="deactivate_hammer"]
 [connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="animation_finished" from="HammerAnimation" to="HorizontalHammer" method="_on_swing_finished"]
+[connection signal="animation_finished" from="HammerAnimation" to="VerticalHammer" method="_on_swing_finished"]
+[connection signal="mouse_entered" from="HorizontalHammer" to="HorizontalHammer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HorizontalHammer" to="HorizontalHammer" method="_on_mouse_exited"]
 [connection signal="area_entered" from="HorizontalHammer/HitArea" to="HorizontalHammer" method="_on_hit_area_area_entered"]
+[connection signal="area_exited" from="HorizontalHammer/HitArea" to="HorizontalHammer" method="_on_hit_area_area_exited"]
+[connection signal="mouse_entered" from="VerticalHammer" to="VerticalHammer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VerticalHammer" to="VerticalHammer" method="_on_mouse_exited"]
 [connection signal="area_entered" from="VerticalHammer/HitArea" to="VerticalHammer" method="_on_hit_area_area_entered"]
+[connection signal="area_exited" from="VerticalHammer/HitArea" to="VerticalHammer" method="_on_hit_area_area_exited"]

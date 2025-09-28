@@ -30,8 +30,6 @@ closed = true
 width = 2.0
 default_color = Color(1, 0.611765, 0, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [connection signal="deselect" from="." to="." method="_on_deselect"]
 [connection signal="selected" from="." to="." method="_on_selected"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

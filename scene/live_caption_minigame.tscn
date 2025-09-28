@@ -108,7 +108,6 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("12_54441")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
-text = "\""
 
 [node name="LiveChatBox" type="VBoxContainer" parent="."]
 offset_left = 1203.0
@@ -150,12 +149,10 @@ libraries = {
 }
 
 [node name="ChatTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="VideoDuration" type="Timer" parent="."]
 wait_time = 120.0
 one_shot = true
-autostart = true
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_p8x6j")

@@ -11,3 +11,7 @@ func emit_1000():
 func emit_typing_particle(pos):
 	$TypingParticle.global_position = pos
 	$TypingParticle.restart()
+
+func emit_break_particle(pos):
+	$BreakParticle.global_position = pos
+	$BreakParticle.restart()

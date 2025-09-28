@@ -47,8 +47,6 @@ struct_answer_scene = ExtResource("4_88gds")
 [node name="Frame53" type="Sprite2D" parent="."]
 texture = ExtResource("4_1yfil")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="exit_button" type="Button" parent="."]
 offset_left = 488.0
 offset_top = -382.0

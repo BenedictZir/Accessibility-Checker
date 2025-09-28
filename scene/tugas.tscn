@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://cx7qje70hlngn"]
+
+[ext_resource type="Script" uid="uid://cii0cwqyvbgu7" path="res://script/tugas.gd" id="1_g8mo0"]
+[ext_resource type="Texture2D" uid="uid://dyos5d02n1ao7" path="res://icon.svg" id="2_et0gd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g8mo0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_et0gd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrujs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lacgo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n6ys6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flphd"]
+
+[node name="Tugas" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_g8mo0")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 990.0
+offset_bottom = 126.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 988.0
+offset_bottom = 125.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g8mo0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_et0gd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_lrujs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lacgo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n6ys6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_flphd")
+
+[node name="Icon" type="Node2D" parent="."]
+position = Vector2(933, 65)
+
+[node name="Done" type="Sprite2D" parent="Icon"]
+self_modulate = Color(0, 1, 0, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_et0gd")
+
+[node name="NotDone" type="Sprite2D" parent="Icon"]
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_et0gd")
+
+[node name="JudulTugas" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 904.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 40
+text = "JUDUL"
+horizontal_alignment = 1
+
+[node name="DeskripsiTugas" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 65.0
+offset_right = 296.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 25
+text = "Deksripsi tugas"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
